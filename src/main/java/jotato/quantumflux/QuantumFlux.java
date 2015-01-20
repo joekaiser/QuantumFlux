@@ -36,6 +36,7 @@ public class QuantumFlux {
 		proxy.initCommon();
 		proxy.initServer();
 		proxy.initClient();
+		new Recipes().init();
 	}
 
 	@EventHandler
