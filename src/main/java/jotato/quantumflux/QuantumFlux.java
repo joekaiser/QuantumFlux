@@ -1,6 +1,7 @@
 package jotato.quantumflux;
 
 import jotato.quantumflux.blocks.QFBlocks;
+import jotato.quantumflux.items.QFItems;
 import jotato.quantumflux.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
@@ -27,6 +28,7 @@ public class QuantumFlux {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		QFBlocks.init();
+		QFItems.init();
 	}
 
 	@EventHandler
@@ -44,7 +46,7 @@ public class QuantumFlux {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem() {
-			return Items.redstone;
+			return QFItems.amplificationCrystal;
 		}
 	};
 }
