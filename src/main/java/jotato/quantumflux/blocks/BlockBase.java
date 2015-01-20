@@ -7,14 +7,16 @@ import net.minecraft.block.material.Material;
 
 public class BlockBase extends Block {
 
-	protected BlockBase(Material material, String name, float hardness) {
+	protected BlockBase(Material material, String name, float hardness, String harvestTool, int harvestLevel) {
 		super(material);
 
 		setBlockName(name);
 		setCreativeTab(QuantumFlux.tab);
 		setBlockTextureName("quantumflux:" + name);
 		setHardness(hardness);
+		setHarvestLevel(harvestTool, harvestLevel);
 		GameRegistry.registerBlock(this, name);
+		
 
 	}
 
