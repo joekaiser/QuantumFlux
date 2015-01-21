@@ -2,16 +2,17 @@ package jotato.quantumflux.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import jotato.quantumflux.QuantumFlux;
-import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockBase extends Block
+public class BlockContainerBase extends BlockContainer
 {
 
-    protected BlockBase(Material material, String name, float hardness, String harvestTool, int harvestLevel)
+    protected BlockContainerBase(Material material, String name, float hardness, String harvestTool, int harvestLevel)
     {
         super(material);
 
@@ -59,5 +60,11 @@ public class BlockBase extends Block
             }
         }
         return value;
+    }
+
+    @Override
+    public TileEntity createNewTileEntity(World world, int p1)
+    {
+        return null;
     }
 }

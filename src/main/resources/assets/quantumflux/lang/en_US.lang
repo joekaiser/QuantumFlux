@@ -1,5 +1,6 @@
 item.amplificationCrystal.name=Amplification Crystal
-
+item.ironCasing.name=Iron Casing
+item.goldCasing.name=Gold Casing
 
 tile.incinerator.name=Incinerator
 tile.molecularInfuser.name=Molecular Infuser
