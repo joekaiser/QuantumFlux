@@ -1,6 +1,5 @@
 package jotato.quantumflux;
 
-import jotato.quantumflux.blocks.QFBlocks;
 import jotato.quantumflux.items.QFItems;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
@@ -27,6 +26,5 @@ public class Recipes
         GameRegistry.addShapedRecipe(new ItemStack(QFItems.ironCasing, 2), " l ", "iii", 'l', lapis, 'i', ironIngot);
         GameRegistry.addShapedRecipe(new ItemStack(QFItems.goldCasing, 2), " r ", "ggg", 'r', redstone, 'g', goldIngot);
         GameRegistry.addShapedRecipe(new ItemStack(QFItems.amplificationCrystal), "q q", " d ", "sss", 'q', quartz, 'd', diamond, 's', stone);
-        GameRegistry.addShapedRecipe(new ItemStack(QFBlocks.molecularInfuser), "ici", "i i", "ici", 'c', amplificationCrystal, 'i', ironCasing);
     }
 }
