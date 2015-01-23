@@ -5,6 +5,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class Recipes
 {
@@ -20,11 +21,32 @@ public class Recipes
     ItemStack amplificationCrystal = new ItemStack(QFItems.amplificationCrystal);
     ItemStack ironCasing = new ItemStack(QFItems.ironCasing);
     ItemStack goldCasing = new ItemStack(QFItems.goldCasing);
+    ItemStack coal = new ItemStack(Items.coal);
+    String steelIngot = "steelIngot";
+    
+    
 
     public void init()
     {
+       shapedRecipes();
+       shapelessRecipes();
+       furnaceRecipes();
+    }
+    
+    
+    private void shapedRecipes(){
         GameRegistry.addShapedRecipe(new ItemStack(QFItems.ironCasing, 2), " l ", "iii", 'l', lapis, 'i', ironIngot);
         GameRegistry.addShapedRecipe(new ItemStack(QFItems.goldCasing, 2), " r ", "ggg", 'r', redstone, 'g', goldIngot);
         GameRegistry.addShapedRecipe(new ItemStack(QFItems.amplificationCrystal), "q q", " d ", "sss", 'q', quartz, 'd', diamond, 's', stone);
+        GameRegistry.addShapedRecipe(new ItemStack(QFItems.steelIngot,1), "c c"," i ", "c c", 'c', coal, 'i', ironIngot);
     }
+    
+    private void furnaceRecipes(){
+     
+    }
+    
+    private void shapelessRecipes(){
+        
+    }
+
 }

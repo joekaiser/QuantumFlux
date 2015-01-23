@@ -5,6 +5,7 @@ import jotato.quantumflux.QuantumFlux;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -18,11 +19,20 @@ public class BlockContainerBase extends BlockContainer
 
         setBlockName(name);
         setCreativeTab(QuantumFlux.tab);
-        setBlockTextureName("quantumflux:" + name);
+        setBlockTextureName(getTexture(name));
         setHardness(hardness);
         setHarvestLevel(harvestTool, harvestLevel);
         GameRegistry.registerBlock(this, name);
 
+    }
+    
+    protected String getTexture(String name){
+        return "quantumflux:"+name;
+    }
+    
+    @Override
+    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack)
+    {
     }
 
     protected int determineOrientation(World world, int x, int y, int z, EntityLivingBase entity)
