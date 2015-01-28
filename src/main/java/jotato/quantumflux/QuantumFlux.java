@@ -4,7 +4,6 @@ import jotato.quantumflux.blocks.QFBlocks;
 import jotato.quantumflux.items.QFItems;
 import jotato.quantumflux.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;

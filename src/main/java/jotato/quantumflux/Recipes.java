@@ -1,11 +1,12 @@
 package jotato.quantumflux;
 
+import jotato.quantumflux.blocks.QFBlocks;
 import jotato.quantumflux.items.QFItems;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class Recipes
 {
@@ -22,31 +23,34 @@ public class Recipes
     ItemStack ironCasing = new ItemStack(QFItems.ironCasing);
     ItemStack goldCasing = new ItemStack(QFItems.goldCasing);
     ItemStack coal = new ItemStack(Items.coal);
-    String steelIngot = "steelIngot";
-    
-    
+    ItemStack furnace = new ItemStack(Blocks.furnace);
+    ItemStack lavaBucket = new ItemStack(Items.lava_bucket);
+    String steelIngot = "ingotSteel";
 
     public void init()
     {
-       shapedRecipes();
-       shapelessRecipes();
-       furnaceRecipes();
+        shapedRecipes();
+        shapelessRecipes();
+        furnaceRecipes();
     }
-    
-    
-    private void shapedRecipes(){
+
+    private void shapedRecipes()
+    {
         GameRegistry.addShapedRecipe(new ItemStack(QFItems.ironCasing, 2), " l ", "iii", 'l', lapis, 'i', ironIngot);
         GameRegistry.addShapedRecipe(new ItemStack(QFItems.goldCasing, 2), " r ", "ggg", 'r', redstone, 'g', goldIngot);
         GameRegistry.addShapedRecipe(new ItemStack(QFItems.amplificationCrystal), "q q", " d ", "sss", 'q', quartz, 'd', diamond, 's', stone);
-        GameRegistry.addShapedRecipe(new ItemStack(QFItems.steelIngot,1), "c c"," i ", "c c", 'c', coal, 'i', ironIngot);
+        GameRegistry.addShapedRecipe(new ItemStack(QFItems.steelIngot), "c c", " i ", "c c", 'c', coal, 'i', ironIngot);
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.incinerator), "ccc", "sfs", "sls", 'c', ironCasing, 'f', furnace, 'l', lavaBucket, 's', steelIngot));
     }
-    
-    private void furnaceRecipes(){
-     
+
+    private void furnaceRecipes()
+    {
+
     }
-    
-    private void shapelessRecipes(){
-        
+
+    private void shapelessRecipes()
+    {
+
     }
 
 }
