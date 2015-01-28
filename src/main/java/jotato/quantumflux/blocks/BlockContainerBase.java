@@ -5,6 +5,7 @@ import jotato.quantumflux.QuantumFlux;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
@@ -25,11 +26,12 @@ public class BlockContainerBase extends BlockContainer
         GameRegistry.registerBlock(this, name);
 
     }
-    
-    protected String getTexture(String name){
-        return "quantumflux:"+name;
+
+    protected String getTexture(String name)
+    {
+        return "quantumflux:" + name;
     }
-    
+
     @Override
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack)
     {
@@ -65,8 +67,8 @@ public class BlockContainerBase extends BlockContainer
         {
             if (value == 0 || value == 1)
             {
-                //todo:determine which direction the player was facing
-                value = 3; 
+                // todo:determine which direction the player was facing
+                value = 3;
             }
         }
         return value;
@@ -76,5 +78,11 @@ public class BlockContainerBase extends BlockContainer
     public TileEntity createNewTileEntity(World world, int p1)
     {
         return null;
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p6, float p7, float p8, float p9)
+    {
+        return super.onBlockActivated(world, x, y, z, player, p6, p7, p8, p9);
     }
 }

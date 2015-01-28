@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "quantumflux",
+  "name": "QuantumFlux",
+  "description": "Wireless Redstone Flux",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Jotato"],
+  "credits": "The Forge and FML guys, Team CoFH, SciguyRyan, KingDaddyDMAC and all the other awesome peeps out there. That mean YOU",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
