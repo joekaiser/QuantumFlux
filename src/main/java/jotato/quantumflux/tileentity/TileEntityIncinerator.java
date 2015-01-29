@@ -155,32 +155,38 @@ public class TileEntityIncinerator extends TileEntity implements IInventory, IAc
     public void updateEntity()
     {
         super.updateEntity();
-
-        if (isActive())
+        if (!worldObj.isRemote)
         {
-            if (this.currentBurnTime == 0)
+            if (isActive())
             {
-                this.fuelStack.stackSize--;
-                if (this.fuelStack.stackSize == 0)
-                    this.fuelStack = null;
-            }
+                if (this.currentBurnTime == 0)
+                {
+                    this.fuelStack.stackSize--;
+                    if (this.fuelStack.stackSize == 0)
+                        this.fuelStack = null;
+                }
 
-            this.currentStorage = Math.min(this.currentStorage + this.outputRate, this.maxStorage);
+                this.currentStorage = Math.min(this.currentStorage + this.outputRate, this.maxStorage);
 
-            this.currentBurnTime++;
-            if (this.currentBurnTime >= this.maxBurnTime)
-            {
-                Logger.info("" + this.currentStorage);
-                this.currentBurnTime = 0;
+                this.currentBurnTime++;
+                if (this.currentBurnTime >= this.maxBurnTime)
+                {
+                    Logger.info("" + this.currentStorage);
+                    this.currentBurnTime = 0;
+                }
+                this.markDirty();
             }
-            this.markDirty();
         }
-
     }
 
     public int getCurrentStorage()
     {
         return this.currentStorage;
+    }
+
+    public void setCurrentStorage(int value)
+    {
+        this.currentStorage = value;
     }
 
     public int getMaxStorage()
