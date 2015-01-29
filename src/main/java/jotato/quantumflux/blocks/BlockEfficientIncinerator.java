@@ -1,6 +1,5 @@
 package jotato.quantumflux.blocks;
 
-import jotato.quantumflux.ConfigurationManager;
 import jotato.quantumflux.QuantumFlux;
 import jotato.quantumflux.gui.QFGuiHandler.GUI;
 import jotato.quantumflux.tileentity.TileEntityIncinerator;
@@ -18,21 +17,21 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class BlockIncinerator extends BlockContainerBase
+public class BlockEfficientIncinerator extends BlockContainerBase
 {
 
     @SideOnly(Side.CLIENT)
-    protected IIcon icon_top;
+    private IIcon icon_top;
     @SideOnly(Side.CLIENT)
-    protected IIcon icon_front;
+    private IIcon icon_front;
     @SideOnly(Side.CLIENT)
-    protected IIcon icon_front_active;
+    private IIcon icon_front_active;
     @SideOnly(Side.CLIENT)
-    protected IIcon icon_side;
+    private IIcon icon_side;
 
-    protected BlockIncinerator()
+    protected BlockEfficientIncinerator()
     {
-        super(Material.iron, "incinerator", 1, "pickaxe", 1);
+        super(Material.iron, "efficientIncinerator", 1, "pickaxe", 1);
         setStepSound(soundTypeMetal);
     }
 
