@@ -3,10 +3,18 @@ package jotato.quantumflux.inventory;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 
 public class ContainerBase extends Container
 {
+    protected IInventory inventory;
+    public ContainerBase(IInventory blockInventory){
+        this.inventory = blockInventory;
+    }
+    
     protected void addPlayerInventorySlots(InventoryPlayer player)
     {
         for (int i = 0; i < 3; ++i)
@@ -29,4 +37,33 @@ public class ContainerBase extends Container
 
         return true;
     }
+
+    @Override
+    public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int i) {
+        ItemStack itemstack = null;
+        Slot slot = (Slot) this.inventorySlots.get(i);
+        int invSize = this.inventory.getSizeInventory();
+
+        if (slot != null && slot.getHasStack()) {
+            ItemStack itemstack1 = slot.getStack();
+            itemstack = itemstack1.copy();
+
+            if (i < invSize) {
+                if (!this.mergeItemStack(itemstack1, invSize, this.inventorySlots.size(), true)) {
+                    return null;
+                }
+            } else if (!this.mergeItemStack(itemstack1, 0, invSize, false)) {
+                return null;
+            }
+
+            if (itemstack1.stackSize == 0) {
+                slot.putStack((ItemStack) null);
+            } else {
+                slot.onSlotChanged();
+            }
+        }
+
+        return itemstack;
+    }
+   
 }

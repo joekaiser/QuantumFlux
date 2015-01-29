@@ -6,6 +6,7 @@ import jotato.quantumflux.proxy.CommonProxy;
 import jotato.quantumflux.tileentity.TileEntityIncinerator;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.config.Configuration;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -30,6 +31,7 @@ public class QuantumFlux
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        ConfigurationManager.init(new Configuration(event.getSuggestedConfigurationFile()));
         QFBlocks.init();
         QFItems.init();
         regiterTileEntities();
