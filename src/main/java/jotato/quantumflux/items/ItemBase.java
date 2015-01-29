@@ -29,14 +29,16 @@ public class ItemBase extends Item {
 		return super.onItemUse(itemStack, player, world, x, y, z, side, p8,p9,p10);
 	}
 	
-	@Override
+	@SuppressWarnings("rawtypes")
+    @Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack itemStack, EntityPlayer player, List info, boolean isExtended)
 	{
 		super.addInformation(itemStack, player, info, isExtended);
 	}
 
-	@Override
+	@SuppressWarnings("rawtypes")
+    @Override
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs creativeTab, List itemList)
 	{

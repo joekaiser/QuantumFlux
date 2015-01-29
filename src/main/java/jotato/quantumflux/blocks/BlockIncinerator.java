@@ -1,5 +1,6 @@
 package jotato.quantumflux.blocks;
 
+import jotato.quantumflux.ConfigurationManager;
 import jotato.quantumflux.QuantumFlux;
 import jotato.quantumflux.gui.QFGuiHandler.GUI;
 import jotato.quantumflux.tileentity.TileEntityIncinerator;

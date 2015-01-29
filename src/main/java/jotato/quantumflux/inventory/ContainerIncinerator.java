@@ -25,7 +25,7 @@ public class ContainerIncinerator extends ContainerBase
     public void addCraftingToCrafters(ICrafting craft)
     {
         super.addCraftingToCrafters(craft);
-        craft.sendProgressBarUpdate(this, 0, this.incinerator.getCurrentStorage());
+        craft.sendProgressBarUpdate(this, 0, this.incinerator.getEnergyStored(null));
     }
 
     @Override
@@ -36,13 +36,13 @@ public class ContainerIncinerator extends ContainerBase
         for (int i = 0; i < this.crafters.size(); ++i)
         {
             ICrafting craft = (ICrafting) this.crafters.get(i);
-            if (this.lastInternalStorage != this.incinerator.getCurrentStorage())
+            if (this.lastInternalStorage != this.incinerator.getEnergyStored(null))
             {
-                craft.sendProgressBarUpdate(this, 0, this.incinerator.getCurrentStorage());
+                craft.sendProgressBarUpdate(this, 0, this.incinerator.getEnergyStored(null));
             }
         }
 
-        this.lastInternalStorage = this.incinerator.getCurrentStorage();
+        this.lastInternalStorage = this.incinerator.getEnergyStored(null);
     }
 
     @SideOnly(Side.CLIENT)
@@ -51,7 +51,7 @@ public class ContainerIncinerator extends ContainerBase
     {
         if (id == 0)
         {
-            this.incinerator.setCurrentStorage(value);
+            this.incinerator.setEnergyStored(value);
         }
     }
 }

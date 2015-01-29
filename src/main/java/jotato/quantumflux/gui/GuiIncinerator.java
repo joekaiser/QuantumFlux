@@ -29,7 +29,7 @@ public class GuiIncinerator extends GuiContainer
     {
         String name = "Incinerator";
         this.fontRendererObj.drawString(name, 6, 5, 4210752);
-        String energy = NumberFormat.getIntegerInstance().format(incinerator.getCurrentStorage());
+        String energy = NumberFormat.getIntegerInstance().format(incinerator.getEnergyStored(null));
         this.fontRendererObj.drawString(energy, 6, 15, 4210752);
     }
 

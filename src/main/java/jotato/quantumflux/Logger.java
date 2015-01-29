@@ -7,7 +7,6 @@ import cpw.mods.fml.common.FMLLog;
 
 public class Logger {
 	
-	private static final String CHANNEL = "QuantumFlux";
 
     public static void log(Level level, String format, Object... data)
     {

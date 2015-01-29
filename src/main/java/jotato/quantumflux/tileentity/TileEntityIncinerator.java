@@ -1,29 +1,30 @@
 package jotato.quantumflux.tileentity;
 
+import cofh.api.energy.EnergyStorage;
+import cofh.api.energy.IEnergyProvider;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jotato.quantumflux.ConfigurationManager;
-import jotato.quantumflux.Logger;
 import jotato.quantumflux.core.IActive;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityIncinerator extends TileEntity implements IInventory, IActive
+public class TileEntityIncinerator extends TileEntity implements IInventory, IActive, IEnergyProvider
 {
     private ItemStack fuelStack;;
     private int currentBurnTime = 0;
-    private int currentStorage = 0;
+    private EnergyStorage energy;
 
-    public final int outputRate = ConfigurationManager.incinerator_output;
-    public final int maxStorage = ConfigurationManager.incinerator_buffer;
-    public final int maxBurnTime = ConfigurationManager.incinerator_burnTime;
+    public int maxBurnTime;
 
     public TileEntityIncinerator()
     {
-
+        this.maxBurnTime = ConfigurationManager.incinerator_burnTime;
+        energy = new EnergyStorage(ConfigurationManager.incinerator_buffer, Integer.MAX_VALUE, ConfigurationManager.incinerator_output);
     }
 
     @Override
@@ -121,7 +122,7 @@ public class TileEntityIncinerator extends TileEntity implements IInventory, IAc
     @Override
     public boolean isActive()
     {
-        return hasFuel() && this.currentStorage < this.maxStorage;
+        return hasFuel() && this.energy.getEnergyStored() <= this.energy.getMaxEnergyStored();
     }
 
     @Override
@@ -129,26 +130,30 @@ public class TileEntityIncinerator extends TileEntity implements IInventory, IAc
     {
         super.writeToNBT(tag);
         tag.setShort("currentBurnTime", (short) this.currentBurnTime);
-        tag.setShort("currentStorage", (short) this.currentStorage);
 
-        NBTTagCompound tagCompound1 = new NBTTagCompound();
+        NBTTagCompound fuelTag = new NBTTagCompound();
         if (this.fuelStack != null)
         {
-            this.fuelStack.writeToNBT(tagCompound1);
+            this.fuelStack.writeToNBT(fuelTag);
         }
+        tag.setTag("Items", fuelTag);
 
-        tag.setTag("Items", tagCompound1);
+        NBTTagCompound energyTag = new NBTTagCompound();
+        this.energy.writeToNBT(energyTag);
+        tag.setTag("Energy", energyTag);
+
     }
 
     @Override
     public void readFromNBT(NBTTagCompound tag)
     {
         super.readFromNBT(tag);
-        NBTTagCompound tagCompound1 = tag.getCompoundTag("Items");
+        NBTTagCompound fuelTag = tag.getCompoundTag("Items");
+        NBTTagCompound energyTag = tag.getCompoundTag("Energy");
 
-        this.fuelStack = ItemStack.loadItemStackFromNBT(tagCompound1);
+        this.fuelStack = ItemStack.loadItemStackFromNBT(fuelTag);
         this.currentBurnTime = tag.getShort("currentBurnTime");
-        this.currentStorage = tag.getShort("currentStorage");
+        this.energy.readFromNBT(energyTag);
     }
 
     @Override
@@ -166,12 +171,11 @@ public class TileEntityIncinerator extends TileEntity implements IInventory, IAc
                         this.fuelStack = null;
                 }
 
-                this.currentStorage = Math.min(this.currentStorage + this.outputRate, this.maxStorage);
+                this.energy.receiveEnergy(this.energy.getMaxExtract(), false);
 
                 this.currentBurnTime++;
                 if (this.currentBurnTime >= this.maxBurnTime)
                 {
-                    Logger.info("" + this.currentStorage);
                     this.currentBurnTime = 0;
                 }
                 this.markDirty();
@@ -179,19 +183,10 @@ public class TileEntityIncinerator extends TileEntity implements IInventory, IAc
         }
     }
 
-    public int getCurrentStorage()
-    {
-        return this.currentStorage;
-    }
 
-    public void setCurrentStorage(int value)
+    public void setEnergyStored(int value)
     {
-        this.currentStorage = value;
-    }
-
-    public int getMaxStorage()
-    {
-        return this.maxStorage;
+        this.energy.setEnergyStored(value);
     }
 
     private boolean hasFuel()
@@ -202,6 +197,30 @@ public class TileEntityIncinerator extends TileEntity implements IInventory, IAc
     @SideOnly(Side.CLIENT)
     public int getBufferScaled(int scale)
     {
-        return this.currentStorage * scale / this.maxStorage;
+        return getEnergyStored(null) * scale / getMaxEnergyStored(null);
+    }
+
+    @Override
+    public boolean canConnectEnergy(ForgeDirection from)
+    {
+        return true;
+    }
+
+    @Override
+    public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate)
+    {
+        return energy.extractEnergy(maxExtract, simulate);
+    }
+
+    @Override
+    public int getEnergyStored(ForgeDirection from)
+    {
+        return energy.getEnergyStored();
+    }
+
+    @Override
+    public int getMaxEnergyStored(ForgeDirection from)
+    {
+        return energy.getMaxEnergyStored();
     }
 }
