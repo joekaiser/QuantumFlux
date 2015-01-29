@@ -9,7 +9,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityIncinerator extends TileEntity implements IInventory, IActive
@@ -157,41 +156,46 @@ public class TileEntityIncinerator extends TileEntity implements IInventory, IAc
     {
         super.updateEntity();
 
-        if (!worldObj.isRemote)
+        if (isActive())
         {
-            if (isActive())
+            if (this.currentBurnTime == 0)
             {
-                if (this.currentBurnTime == 0)
-                {
-                    this.fuelStack.stackSize--;
-                    if (this.fuelStack.stackSize == 0)
-                        this.fuelStack = null;
-                }
-
-                this.currentStorage = Math.min(this.currentStorage + this.outputRate, this.maxStorage);
-
-                this.currentBurnTime++;
-                if (this.currentBurnTime >= this.maxBurnTime)
-                {
-                    Logger.info(""+this.currentStorage);
-                    this.currentBurnTime = 0;
-                }
-                this.markDirty();
+                this.fuelStack.stackSize--;
+                if (this.fuelStack.stackSize == 0)
+                    this.fuelStack = null;
             }
+
+            this.currentStorage = Math.min(this.currentStorage + this.outputRate, this.maxStorage);
+
+            this.currentBurnTime++;
+            if (this.currentBurnTime >= this.maxBurnTime)
+            {
+                Logger.info("" + this.currentStorage);
+                this.currentBurnTime = 0;
+            }
+            this.markDirty();
         }
+
+    }
+
+    public int getCurrentStorage()
+    {
+        return this.currentStorage;
+    }
+
+    public int getMaxStorage()
+    {
+        return this.maxStorage;
     }
 
     private boolean hasFuel()
     {
         return this.fuelStack != null && this.fuelStack.stackSize > 0;
     }
-    
-    @SideOnly(Side.CLIENT)
-    public int getBurnTimeRemainingScaled(int scale) {
-        if (this.currentBurnTime == 0) {
-            this.currentBurnTime = maxBurnTime;
-        }
 
-        return this.maxBurnTime * scale / this.currentBurnTime;
+    @SideOnly(Side.CLIENT)
+    public int getBufferScaled(int scale)
+    {
+        return this.currentStorage * scale / this.maxStorage;
     }
 }

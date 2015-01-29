@@ -1,8 +1,6 @@
 package jotato.quantumflux.blocks;
 
-import jotato.quantumflux.ConfigurationManager;
 import jotato.quantumflux.QuantumFlux;
-import jotato.quantumflux.core.IActive;
 import jotato.quantumflux.gui.QFGuiHandler.GUI;
 import jotato.quantumflux.tileentity.TileEntityIncinerator;
 import cpw.mods.fml.relauncher.Side;
@@ -17,7 +15,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockIncinerator extends BlockContainerBase
@@ -54,7 +51,8 @@ public class BlockIncinerator extends BlockContainerBase
         int frontSide = getOrientation(meta, false);
         if (side == frontSide)
         {
-           return icon_front;
+            // todo: update icon based on active state
+            return icon_front;
         }
 
         if (side == 1 || side == 0)
@@ -64,31 +62,31 @@ public class BlockIncinerator extends BlockContainerBase
 
         return this.icon_side;
     }
-    
-//    @Override
-//    public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side)
-//    {
-//        int meta = world.getBlockMetadata(x, y, z);
-//        int frontSide = getOrientation(meta, false);
-//        if (side == frontSide)
-//        {
-//            TileEntity e = world.getTileEntity(x, y, z);
-//            if (e != null && e instanceof IActive)
-//            {
-//                IActive state = (IActive) e;
-//                if (state.isActive())
-//                    return icon_front_active;
-//            }
-//            return icon_front;
-//        }
-//
-//        if (side == 1 || side == 0)
-//        {
-//            return this.icon_top;
-//        }
-//
-//        return this.icon_side;
-//    }
+
+    // @Override
+    // public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side)
+    // {
+    // int meta = world.getBlockMetadata(x, y, z);
+    // int frontSide = getOrientation(meta, false);
+    // if (side == frontSide)
+    // {
+    // TileEntity e = world.getTileEntity(x, y, z);
+    // if (e != null && e instanceof IActive)
+    // {
+    // IActive state = (IActive) e;
+    // if (state.isActive())
+    // return icon_front_active;
+    // }
+    // return icon_front;
+    // }
+    //
+    // if (side == 1 || side == 0)
+    // {
+    // return this.icon_top;
+    // }
+    //
+    // return this.icon_side;
+    // }
 
     @Override
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack)
