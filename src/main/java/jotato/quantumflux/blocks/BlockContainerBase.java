@@ -1,7 +1,9 @@
 package jotato.quantumflux.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import jotato.quantumflux.ConfigurationManager;
 import jotato.quantumflux.QuantumFlux;
+import jotato.quantumflux.core.IActive;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -9,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockContainerBase extends BlockContainer
@@ -85,4 +88,6 @@ public class BlockContainerBase extends BlockContainer
     {
         return super.onBlockActivated(world, x, y, z, player, p6, p7, p8, p9);
     }
+
+   
 }

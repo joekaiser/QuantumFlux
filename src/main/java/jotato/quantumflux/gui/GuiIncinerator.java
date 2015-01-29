@@ -37,6 +37,10 @@ public class GuiIncinerator extends GuiContainer
             int k = (this.width - this.xSize) / 2;
             int l = (this.height - this.ySize) / 2;
             this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
+            
+            if(this.incinerator.isActive()){
+                this.drawTexturedModalRect(k+56, l+11, 0, 166, 64,64);
+            }
 
     }
 }
