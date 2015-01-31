@@ -2,18 +2,18 @@ package jotato.quantumflux.inventory;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import jotato.quantumflux.tileentity.TileEntityIncinerator;
+import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 
-public class ContainerIncinerator extends ContainerBase
+public class ContainerEntropyAccelerator extends ContainerBase
 {
     int lastInternalStorage;
 
-    private TileEntityIncinerator incinerator;
+    private TileEntityEntropyAccelerator incinerator;
 
-    public ContainerIncinerator(InventoryPlayer playerInventory, TileEntityIncinerator incinerator)
+    public ContainerEntropyAccelerator(InventoryPlayer playerInventory, TileEntityEntropyAccelerator incinerator)
     {
         super(incinerator);
         this.incinerator = incinerator;

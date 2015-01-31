@@ -3,7 +3,7 @@ package jotato.quantumflux;
 import jotato.quantumflux.blocks.QFBlocks;
 import jotato.quantumflux.items.QFItems;
 import jotato.quantumflux.proxy.CommonProxy;
-import jotato.quantumflux.tileentity.TileEntityIncinerator;
+import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
@@ -39,7 +39,7 @@ public class QuantumFlux
 
     private void regiterTileEntities()
     {
-        GameRegistry.registerTileEntity(TileEntityIncinerator.class, "teIncinerator");
+        GameRegistry.registerTileEntity(TileEntityEntropyAccelerator.class, "teIncinerator");
     }
 
     @EventHandler

@@ -1,7 +1,7 @@
 package jotato.quantumflux.gui;
 
-import jotato.quantumflux.inventory.ContainerIncinerator;
-import jotato.quantumflux.tileentity.TileEntityIncinerator;
+import jotato.quantumflux.inventory.ContainerEntropyAccelerator;
+import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -35,8 +35,8 @@ public class QFGuiHandler implements IGuiHandler
 
         if (gui == GUI.INCINERATOR)
         {
-            TileEntityIncinerator incinerator = (TileEntityIncinerator) world.getTileEntity(x, y, z);
-            return new ContainerIncinerator(player.inventory, incinerator);
+            TileEntityEntropyAccelerator incinerator = (TileEntityEntropyAccelerator) world.getTileEntity(x, y, z);
+            return new ContainerEntropyAccelerator(player.inventory, incinerator);
         }
         return null;
 
@@ -49,8 +49,8 @@ public class QFGuiHandler implements IGuiHandler
 
         if (gui == GUI.INCINERATOR)
         {
-            TileEntityIncinerator incinerator = (TileEntityIncinerator) world.getTileEntity(x, y, z);
-            return new GuiIncinerator(player.inventory,incinerator);
+            TileEntityEntropyAccelerator incinerator = (TileEntityEntropyAccelerator) world.getTileEntity(x, y, z);
+            return new GuiEntropyAccelerator(player.inventory,incinerator);
         }
 
         return null;

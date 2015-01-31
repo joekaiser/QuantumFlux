@@ -4,8 +4,8 @@ import java.text.NumberFormat;
 
 import org.lwjgl.opengl.GL11;
 
-import jotato.quantumflux.inventory.ContainerIncinerator;
-import jotato.quantumflux.tileentity.TileEntityIncinerator;
+import jotato.quantumflux.inventory.ContainerEntropyAccelerator;
+import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -13,21 +13,21 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
-public class GuiIncinerator extends GuiContainer
+public class GuiEntropyAccelerator extends GuiContainer
 {
     private static final ResourceLocation guiScreen = new ResourceLocation("quantumflux:textures/gui/incinerator.png");
-    private TileEntityIncinerator incinerator;
+    private TileEntityEntropyAccelerator incinerator;
 
-    public GuiIncinerator(InventoryPlayer playerInventory, TileEntityIncinerator incinerator)
+    public GuiEntropyAccelerator(InventoryPlayer playerInventory, TileEntityEntropyAccelerator incinerator)
     {
-        super(new ContainerIncinerator(playerInventory, incinerator));
+        super(new ContainerEntropyAccelerator(playerInventory, incinerator));
         this.incinerator = incinerator;
     }
 
     @Override
     protected void drawGuiContainerForegroundLayer(int p1, int p2)
     {
-        String name = "Incinerator";
+        String name = "Quantum Entropy Accelerator";
         this.fontRendererObj.drawString(name, 6, 5, 4210752);
         String energy = NumberFormat.getIntegerInstance().format(incinerator.getEnergyStored(null));
         this.fontRendererObj.drawString(energy, 6, 15, 4210752);

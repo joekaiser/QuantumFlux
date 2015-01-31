@@ -5,7 +5,7 @@ import cofh.api.energy.IEnergyProvider;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jotato.quantumflux.ConfigurationManager;
-import jotato.quantumflux.core.IActive;
+import jotato.quantumflux.core.IWirelessCapable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -13,7 +13,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityIncinerator extends TileEntity implements IInventory, IActive, IEnergyProvider
+public class TileEntityEntropyAccelerator extends TileEntity implements IInventory, IEnergyProvider, IWirelessCapable
 {
     private ItemStack fuelStack;;
     private int currentBurnTime = 0;
@@ -21,7 +21,7 @@ public class TileEntityIncinerator extends TileEntity implements IInventory, IAc
 
     public int maxBurnTime;
 
-    public TileEntityIncinerator()
+    public TileEntityEntropyAccelerator()
     {
         this.maxBurnTime = ConfigurationManager.incinerator_burnTime;
         energy = new EnergyStorage(ConfigurationManager.incinerator_buffer, Integer.MAX_VALUE, ConfigurationManager.incinerator_output);
@@ -119,7 +119,6 @@ public class TileEntityIncinerator extends TileEntity implements IInventory, IAc
         return true;
     }
 
-    @Override
     public boolean isActive()
     {
         return hasFuel() && this.energy.getEnergyStored() <= this.energy.getMaxEnergyStored();

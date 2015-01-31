@@ -26,7 +26,6 @@ public class Recipes
     ItemStack furnace = new ItemStack(Blocks.furnace);
     ItemStack lavaBucket = new ItemStack(Items.lava_bucket);
     String steelIngot = "ingotSteel";
-    ItemStack incinerator = new ItemStack(QFBlocks.incinerator);
 
     public void init()
     {
@@ -41,8 +40,7 @@ public class Recipes
         GameRegistry.addShapedRecipe(new ItemStack(QFItems.goldCasing, 2), " r ", "ggg", 'r', redstone, 'g', goldIngot);
         GameRegistry.addShapedRecipe(new ItemStack(QFItems.amplificationCrystal), "q q", " d ", "sss", 'q', quartz, 'd', diamond, 's', stone);
         GameRegistry.addShapedRecipe(new ItemStack(QFItems.steelIngot), "c c", " i ", "c c", 'c', coal, 'i', ironIngot);
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.incinerator), "ccc", "sfs", "sls", 'c', ironCasing, 'f', furnace, 'l', lavaBucket, 's', steelIngot));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.efficientIncinerator), "cac", "afa", "cac", 'c', goldCasing, 'f', incinerator, 'a', amplificationCrystal));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.entropyAccelerator), "ccc", "sfs", "sls", 'c', ironCasing, 'f', furnace, 'l', lavaBucket, 's', steelIngot));
     }
 
     private void furnaceRecipes()

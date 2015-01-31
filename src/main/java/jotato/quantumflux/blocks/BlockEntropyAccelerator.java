@@ -1,8 +1,9 @@
 package jotato.quantumflux.blocks;
 
 import jotato.quantumflux.QuantumFlux;
+import jotato.quantumflux.core.IWirelessCapable;
 import jotato.quantumflux.gui.QFGuiHandler.GUI;
-import jotato.quantumflux.tileentity.TileEntityIncinerator;
+import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -17,21 +18,21 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class BlockEfficientIncinerator extends BlockContainerBase
+public class BlockEntropyAccelerator extends BlockContainerBase
 {
 
     @SideOnly(Side.CLIENT)
-    private IIcon icon_top;
+    protected IIcon icon_top;
     @SideOnly(Side.CLIENT)
-    private IIcon icon_front;
+    protected IIcon icon_front;
     @SideOnly(Side.CLIENT)
-    private IIcon icon_front_active;
+    protected IIcon icon_front_active;
     @SideOnly(Side.CLIENT)
-    private IIcon icon_side;
+    protected IIcon icon_side;
 
-    protected BlockEfficientIncinerator()
+    protected BlockEntropyAccelerator()
     {
-        super(Material.iron, "efficientIncinerator", 1, "pickaxe", 1);
+        super(Material.iron, "entropyAccelerator", 1, "pickaxe", 1);
         setStepSound(soundTypeMetal);
     }
 
@@ -39,10 +40,10 @@ public class BlockEfficientIncinerator extends BlockContainerBase
     @Override
     public void registerBlockIcons(IIconRegister ir)
     {
-        this.icon_top = ir.registerIcon(getTexture("incinerator_top"));
-        this.icon_front = ir.registerIcon(getTexture("incinerator_front"));
-        this.icon_front_active = ir.registerIcon(getTexture("incinerator_front_active"));
-        this.icon_side = ir.registerIcon(getTexture("incinerator_side"));
+        this.icon_top = ir.registerIcon(getTexture("entropyAccelerator_top"));
+        this.icon_front = ir.registerIcon(getTexture("entropyAccelerator_front"));
+        this.icon_front_active = ir.registerIcon(getTexture("entropyAccelerator_front_active"));
+        this.icon_side = ir.registerIcon(getTexture("entropyAccelerator_side"));
     }
 
     @Override
@@ -80,13 +81,13 @@ public class BlockEfficientIncinerator extends BlockContainerBase
     @Override
     public TileEntity createNewTileEntity(World world, int p1)
     {
-        return new TileEntityIncinerator();
+        return new TileEntityEntropyAccelerator();
     }
 
     @Override
     public void breakBlock(World world, int x, int y, int z, Block block, int meta)
     {
-        TileEntityIncinerator incinerator = (TileEntityIncinerator) world.getTileEntity(x, y, z);
+        TileEntityEntropyAccelerator incinerator = (TileEntityEntropyAccelerator) world.getTileEntity(x, y, z);
         if (incinerator != null)
         {
             for (int i = 0; i < incinerator.getSizeInventory(); ++i)
