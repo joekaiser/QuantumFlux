@@ -1,7 +1,6 @@
 package jotato.quantumflux.blocks;
 
 import jotato.quantumflux.QuantumFlux;
-import jotato.quantumflux.core.IWirelessCapable;
 import jotato.quantumflux.gui.QFGuiHandler.GUI;
 import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
 import cpw.mods.fml.relauncher.Side;

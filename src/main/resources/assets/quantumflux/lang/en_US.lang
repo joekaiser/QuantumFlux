@@ -2,6 +2,9 @@ item.amplificationCrystal.name=Amplification Crystal
 item.ironCasing.name=Iron Casing
 item.steelIngot.name=Steel Ingot
 item.goldCasing.name=Gold Casing
+item.quibitCrystal.name=Quibit Crystal
+
 
 tile.entropyAccelerator.name=Quantum Entropy Accelerator
+tile.quibitCluster.name=Quibit Cluster
 

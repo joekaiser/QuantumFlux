@@ -1,5 +1,7 @@
 package jotato.quantumflux;
 
+import com.sun.org.apache.xpath.internal.patterns.StepPattern;
+
 import jotato.quantumflux.blocks.QFBlocks;
 import jotato.quantumflux.items.QFItems;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -25,6 +27,7 @@ public class Recipes
     ItemStack coal = new ItemStack(Items.coal);
     ItemStack furnace = new ItemStack(Blocks.furnace);
     ItemStack lavaBucket = new ItemStack(Items.lava_bucket);
+    ItemStack quibitCrystal = new ItemStack(QFItems.quibitCrystal);
     String steelIngot = "ingotSteel";
 
     public void init()
@@ -41,6 +44,9 @@ public class Recipes
         GameRegistry.addShapedRecipe(new ItemStack(QFItems.amplificationCrystal), "q q", " d ", "sss", 'q', quartz, 'd', diamond, 's', stone);
         GameRegistry.addShapedRecipe(new ItemStack(QFItems.steelIngot), "c c", " i ", "c c", 'c', coal, 'i', ironIngot);
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.entropyAccelerator), "ccc", "sfs", "sls", 'c', ironCasing, 'f', furnace, 'l', lavaBucket, 's', steelIngot));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.quibitCrystal,3), " r ", "qdq", " r ", 'r', redstone, 'q',quartz,'d',diamond));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.quibitCluster), "qcq", "cqc", "sss", 'q', quibitCrystal, 'c',goldCasing,'s',steelIngot));
+        
     }
 
     private void furnaceRecipes()

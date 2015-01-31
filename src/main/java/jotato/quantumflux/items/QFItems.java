@@ -9,6 +9,7 @@ public class QFItems
     public static ItemBase goldCasing;
     public static ItemBase steelIngot;
     public static ItemBase steelDust;
+    public static ItemBase quibitCrystal;
 
     public static void init()
     {
@@ -16,6 +17,7 @@ public class QFItems
         ironCasing = new ItemBase("ironCasing");
         goldCasing = new ItemBase("goldCasing");
         steelIngot = new ItemBase("steelIngot");
+        quibitCrystal = new ItemBase("quibitCrystal");
         
         registerOreDictionary();
     }
