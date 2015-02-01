@@ -4,7 +4,7 @@ import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyProvider;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import jotato.quantumflux.ConfigurationManager;
+import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.core.IWirelessCapable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -23,8 +23,8 @@ public class TileEntityEntropyAccelerator extends TileEntity implements IInvento
 
     public TileEntityEntropyAccelerator()
     {
-        this.maxBurnTime = ConfigurationManager.incinerator_burnTime;
-        energy = new EnergyStorage(ConfigurationManager.incinerator_buffer, Integer.MAX_VALUE, ConfigurationManager.incinerator_output);
+        this.maxBurnTime = ConfigMan.incinerator_burnTime;
+        energy = new EnergyStorage(ConfigMan.incinerator_buffer, Integer.MAX_VALUE, ConfigMan.incinerator_output);
     }
 
     @Override

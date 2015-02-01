@@ -31,7 +31,7 @@ public class QuantumFlux
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        ConfigurationManager.init(new Configuration(event.getSuggestedConfigurationFile()));
+        ConfigMan.init(new Configuration(event.getSuggestedConfigurationFile()));
         QFBlocks.init();
         QFItems.init();
         regiterTileEntities();

@@ -1,14 +1,16 @@
 package jotato.quantumflux.blocks;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 public class BlockQuibitCluster extends BlockBase
 {
-
-    protected BlockQuibitCluster()
+    public BlockQuibitCluster(int level)
     {
-        super(Material.iron, "quibitCluster", 1, "pickaxe", 0);
+        super(Material.iron, "quibitCluster_" + level, 1, "pickaxe", 0);
         setStepSound(soundTypeMetal);
     }
+    
 
 }
