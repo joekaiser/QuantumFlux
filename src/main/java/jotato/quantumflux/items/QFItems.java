@@ -8,8 +8,10 @@ public class QFItems
     public static ItemBase ironCasing;
     public static ItemBase goldCasing;
     public static ItemBase steelIngot;
-    public static ItemBase steelDust;
+    public static ItemBase manganese;
     public static ItemBase quibitCrystal;
+    public static ItemBase mangalloy;
+    
 
     public static void init()
     {
@@ -18,6 +20,8 @@ public class QFItems
         goldCasing = new ItemBase("goldCasing");
         steelIngot = new ItemBase("steelIngot");
         quibitCrystal = new ItemBase("quibitCrystal");
+        manganese = new ItemBase("manganese");
+        mangalloy = new ItemBase("mangalloyIngot");
         
         registerOreDictionary();
     }
@@ -25,5 +29,8 @@ public class QFItems
     private static void registerOreDictionary()
     {
         OreDictionary.registerOre("ingotSteel", steelIngot);
+        OreDictionary.registerOre("dustManganese",manganese);
+        OreDictionary.registerOre("ingotMangalloy",mangalloy);
+        
     }
 }

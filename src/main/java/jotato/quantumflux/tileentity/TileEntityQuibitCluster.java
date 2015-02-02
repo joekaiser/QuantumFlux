@@ -5,6 +5,7 @@ import cofh.api.energy.IEnergyHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jotato.quantumflux.ConfigMan;
+import jotato.quantumflux.Logger;
 import jotato.quantumflux.core.IWirelessCapable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -59,6 +60,7 @@ public abstract class TileEntityQuibitCluster extends TileEntity implements IWir
     @Override
     public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate)
     {
+        Logger.info("hit");
         return getEnergyDevice().extractEnergy(maxExtract, simulate);
     }
 

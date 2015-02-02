@@ -3,7 +3,8 @@ item.ironCasing.name=Iron Casing
 item.steelIngot.name=Steel Ingot
 item.goldCasing.name=Gold Casing
 item.quibitCrystal.name=Quibit Crystal
-
+item.manganese.name=Manganese
+item.mangalloyIngot.name=Mangalloy
 
 tile.entropyAccelerator.name=Quantum Entropy Accelerator
 tile.quibitCluster_1.name=Quibit Cluster Level 1
