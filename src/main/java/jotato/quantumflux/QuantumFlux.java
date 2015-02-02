@@ -4,6 +4,11 @@ import jotato.quantumflux.blocks.QFBlocks;
 import jotato.quantumflux.items.QFItems;
 import jotato.quantumflux.proxy.CommonProxy;
 import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
+import jotato.quantumflux.tileentity.TileEntityQuibitCluster_1;
+import jotato.quantumflux.tileentity.TileEntityQuibitCluster_2;
+import jotato.quantumflux.tileentity.TileEntityQuibitCluster_3;
+import jotato.quantumflux.tileentity.TileEntityQuibitCluster_4;
+import jotato.quantumflux.tileentity.TileEntityQuibitCluster_5;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
@@ -37,9 +42,15 @@ public class QuantumFlux
         regiterTileEntities();
     }
 
+    //todo: maybe this should be moved into its own thing
     private void regiterTileEntities()
     {
         GameRegistry.registerTileEntity(TileEntityEntropyAccelerator.class, "teIncinerator");
+        GameRegistry.registerTileEntity(TileEntityQuibitCluster_1.class, "teQuibitCluster1");
+        GameRegistry.registerTileEntity(TileEntityQuibitCluster_2.class, "teQuibitCluster2");
+        GameRegistry.registerTileEntity(TileEntityQuibitCluster_3.class, "teQuibitCluster3");
+        GameRegistry.registerTileEntity(TileEntityQuibitCluster_4.class, "teQuibitCluster4");
+        GameRegistry.registerTileEntity(TileEntityQuibitCluster_5.class, "teQuibitCluster5");
     }
 
     @EventHandler

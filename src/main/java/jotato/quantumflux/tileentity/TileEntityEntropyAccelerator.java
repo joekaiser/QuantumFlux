@@ -15,7 +15,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class TileEntityEntropyAccelerator extends TileEntity implements IInventory, IEnergyProvider, IWirelessCapable
 {
-    private ItemStack fuelStack;;
+    private ItemStack fuelStack;
     private int currentBurnTime = 0;
     private EnergyStorage energy;
 

@@ -1,7 +1,11 @@
 package jotato.quantumflux.gui;
 
 import jotato.quantumflux.inventory.ContainerEntropyAccelerator;
+import jotato.quantumflux.inventory.ContainerQuibitCluster;
 import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
+import jotato.quantumflux.tileentity.TileEntityQuibitCluster;
+import jotato.quantumflux.tileentity.TileEntityQuibitCluster_1;
+import jotato.quantumflux.tileentity.TileEntityQuibitCluster_2;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -11,7 +15,7 @@ public class QFGuiHandler implements IGuiHandler
 
     public enum GUI
     {
-        INCINERATOR(0);
+        INCINERATOR(0), QUIBIT_CLUSTER_1(1), QUIBIT_CLUSTER_2(2), QUIBIT_CLUSTER_3(3), QUIBIT_CLUSTER_4(4), QUIBIT_CLUSTER_5(5), ;
 
         public int ordinal;
 
@@ -38,6 +42,31 @@ public class QFGuiHandler implements IGuiHandler
             TileEntityEntropyAccelerator incinerator = (TileEntityEntropyAccelerator) world.getTileEntity(x, y, z);
             return new ContainerEntropyAccelerator(player.inventory, incinerator);
         }
+        if (gui == GUI.QUIBIT_CLUSTER_1)
+        {
+            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            return new ContainerQuibitCluster(player.inventory, cluster);
+        }
+        if (gui == GUI.QUIBIT_CLUSTER_2)
+        {
+            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            return new ContainerQuibitCluster(player.inventory, cluster);
+        }
+        if (gui == GUI.QUIBIT_CLUSTER_3)
+        {
+            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            return new ContainerQuibitCluster(player.inventory, cluster);
+        }
+        if (gui == GUI.QUIBIT_CLUSTER_4)
+        {
+            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            return new ContainerQuibitCluster(player.inventory, cluster);
+        }
+        if (gui == GUI.QUIBIT_CLUSTER_5)
+        {
+            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            return new ContainerQuibitCluster(player.inventory, cluster);
+        }
         return null;
 
     }
@@ -50,7 +79,33 @@ public class QFGuiHandler implements IGuiHandler
         if (gui == GUI.INCINERATOR)
         {
             TileEntityEntropyAccelerator incinerator = (TileEntityEntropyAccelerator) world.getTileEntity(x, y, z);
-            return new GuiEntropyAccelerator(player.inventory,incinerator);
+            return new GuiEntropyAccelerator(player.inventory, incinerator);
+        }
+        
+        if (gui == GUI.QUIBIT_CLUSTER_1)
+        {
+            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            return new GuiQuibitCluster(player.inventory, cluster);
+        }
+        if (gui == GUI.QUIBIT_CLUSTER_2)
+        {
+            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            return new GuiQuibitCluster(player.inventory, cluster);
+        }
+        if (gui == GUI.QUIBIT_CLUSTER_3)
+        {
+            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            return new GuiQuibitCluster(player.inventory, cluster);
+        }
+        if (gui == GUI.QUIBIT_CLUSTER_4)
+        {
+            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            return new GuiQuibitCluster(player.inventory, cluster);
+        }
+        if (gui == GUI.QUIBIT_CLUSTER_5)
+        {
+            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            return new GuiQuibitCluster(player.inventory, cluster);
         }
 
         return null;
