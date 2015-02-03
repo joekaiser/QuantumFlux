@@ -60,7 +60,6 @@ public abstract class TileEntityQuibitCluster extends TileEntity implements IWir
     @Override
     public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate)
     {
-        Logger.info("hit");
         return getEnergyDevice().extractEnergy(maxExtract, simulate);
     }
 
