@@ -31,7 +31,11 @@ public class GuiQuibitCluster extends GuiContainer
     private void setupDisplay()
     {
         this.displayName = "Quibit Cluster (Level " + cluster.level + ")";
-        this.maxTransfer = NumberFormat.getIntegerInstance().format(cluster.getEnergyTransferRate()) + " RF/Tick";
+        int transferRate=cluster.getEnergyTransferRate();
+        if(transferRate == Integer.MAX_VALUE)
+            this.maxTransfer = "Infinite RF/Tick";
+        else
+            this.maxTransfer = NumberFormat.getIntegerInstance().format(cluster.getEnergyTransferRate()) + " RF/Tick";
         this.maxStorage = NumberFormat.getIntegerInstance().format(cluster.getMaxEnergyStored(null)) + " MAX";
     }
 

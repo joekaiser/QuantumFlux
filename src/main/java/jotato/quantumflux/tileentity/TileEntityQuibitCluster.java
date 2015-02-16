@@ -33,6 +33,10 @@ public abstract class TileEntityQuibitCluster extends TileEntity implements IWir
             this.transferRate *= ConfigMan.quibitCluster_multiplier;
             this.capacity *= ConfigMan.quibitCluster_multiplier;
         }
+        //todo: anything other than this ugly hack!
+        
+        if(level==5)
+            this.transferRate = Integer.MAX_VALUE;
         localEnergyStorage = new EnergyStorage(this.capacity, this.transferRate);
     }
 
