@@ -121,7 +121,8 @@ public class TileEntityEntropyAccelerator extends TileEntity implements IInvento
 
     public boolean isActive()
     {
-        return hasFuel() && this.energy.getEnergyStored() <= this.energy.getMaxEnergyStored();
+       return hasFuel() && this.energy.getEnergyStored() < this.energy.getMaxEnergyStored();
+    
     }
 
     @Override
