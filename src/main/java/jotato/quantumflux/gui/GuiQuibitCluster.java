@@ -45,9 +45,9 @@ public class GuiQuibitCluster extends GuiContainer
 
         this.fontRendererObj.drawString(displayName, 6, 5, 4210752);
         String energy = NumberFormat.getIntegerInstance().format(cluster.getEnergyStored(null));
-        this.fontRendererObj.drawString(energy, 6, 15, 4210752);
-        this.fontRendererObj.drawString(maxStorage, 6, 25, 4210752);
-        this.fontRendererObj.drawString(maxTransfer, 6, 35, 4210752);
+        this.fontRendererObj.drawString(energy, 6, 18, 4210752);
+        this.fontRendererObj.drawString(maxStorage, 6, 31, 4210752);
+        this.fontRendererObj.drawString(maxTransfer, 6, 44, 4210752);
     }
 
     @Override

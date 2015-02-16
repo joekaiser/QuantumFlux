@@ -17,7 +17,6 @@ public class ContainerQuibitCluster extends ContainerBase
     {
         super(cluster);
         this.cluster = cluster;
-        addSlotToContainer(new Slot(cluster, 0, 80, 52));
         addPlayerInventorySlots(playerInventory);
     }
 
