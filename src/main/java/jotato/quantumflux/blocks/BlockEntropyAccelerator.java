@@ -39,10 +39,9 @@ public class BlockEntropyAccelerator extends BlockContainerBase
     @Override
     public void registerBlockIcons(IIconRegister ir)
     {
-        this.icon_top = ir.registerIcon(getTexture("entropyAccelerator_top"));
-        this.icon_front = ir.registerIcon(getTexture("entropyAccelerator_front"));
-        this.icon_front_active = ir.registerIcon(getTexture("entropyAccelerator_front_active"));
-        this.icon_side = ir.registerIcon(getTexture("entropyAccelerator_side"));
+        this.icon_top = ir.registerIcon(getTexture("machineTop"));
+        this.icon_front = ir.registerIcon(getTexture("entropyAccelerator"));
+        this.icon_side = ir.registerIcon(getTexture("entropyAccelerator"));
     }
 
     @Override
