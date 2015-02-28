@@ -5,11 +5,11 @@ item.goldCasing.name=Gold Casing
 item.quibitCrystal.name=Quibit Crystal
 item.manganese.name=Manganese
 item.mangalloyIngot.name=Mangalloy
-
+item.zbq7.name=ZBQ-7
 tile.entropyAccelerator.name=Quantum Entropy Accelerator
 tile.quibitCluster_1.name=Quibit Cluster Level 1
 tile.quibitCluster_2.name=Quibit Cluster Level 2
 tile.quibitCluster_3.name=Quibit Cluster Level 3
 tile.quibitCluster_4.name=Quibit Cluster Level 4
 tile.quibitCluster_5.name=Quibit Cluster Level 5
-
+tile.zeroPointExtractor.name=Zero Point Extractor (ZPE)

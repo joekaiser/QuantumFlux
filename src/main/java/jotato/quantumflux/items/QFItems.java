@@ -11,7 +11,7 @@ public class QFItems
     public static ItemBase manganese;
     public static ItemBase quibitCrystal;
     public static ItemBase mangalloy;
-    
+    public static ItemBase zbq7;
 
     public static void init()
     {
@@ -22,7 +22,7 @@ public class QFItems
         quibitCrystal = new ItemBase("quibitCrystal");
         manganese = new ItemBase("manganese");
         mangalloy = new ItemBase("mangalloyIngot");
-        
+        zbq7 = new ItemBase("zbq7");
         registerOreDictionary();
     }
 
