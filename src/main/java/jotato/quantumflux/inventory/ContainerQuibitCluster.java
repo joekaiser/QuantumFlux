@@ -5,7 +5,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
-import net.minecraft.inventory.Slot;
 
 public class ContainerQuibitCluster extends ContainerBase
 {

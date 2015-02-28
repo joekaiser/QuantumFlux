@@ -2,7 +2,6 @@ package jotato.quantumflux.blocks;
 
 import jotato.quantumflux.QuantumFlux;
 import jotato.quantumflux.gui.QFGuiHandler.GUI;
-import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_1;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_2;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_3;

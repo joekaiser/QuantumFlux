@@ -3,17 +3,20 @@ package jotato.quantumflux.blocks;
 import java.util.Random;
 
 import jotato.quantumflux.ConfigMan;
+import jotato.quantumflux.tileentity.TileEntityZeroPointExtractor;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockZPE extends BlockBase
+public class BlockZPE extends BlockBase implements ITileEntityProvider
 {
     @SideOnly(Side.CLIENT)
     protected IIcon icon_front;
@@ -61,7 +64,12 @@ public class BlockZPE extends BlockBase
         if(!ConfigMan.zpe_particles) return;
         double mod = MathHelper.clamp_double(world.rand.nextDouble(), .24, .76);
         world.spawnParticle("portal", x + mod, y + mod, z + mod, 0.1F, 0.1F, 0.1F);
-
+    }
+    
+    @Override
+    public TileEntity createNewTileEntity(World world, int p1)
+    {
+        return new TileEntityZeroPointExtractor();
     }
 
 }

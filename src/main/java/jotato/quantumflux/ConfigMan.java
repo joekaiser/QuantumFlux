@@ -15,7 +15,7 @@ public class ConfigMan
     public static int quibitCluster_multiplier;
     
     public static boolean zpe_particles;
-    public static int zpe_maxOutput;
+    public static int zpe_maxPowerGen;
 
     public static void init(Configuration configuration)
     {
@@ -35,7 +35,7 @@ public class ConfigMan
         quibitCluster_baseTransferRate = config.getInt("baseTransferRate", "quibitCluster", 100, 50, 1000, "The base RF/tick the Quibit Clusters can do");
         quibitCluster_multiplier = config.getInt("multiplier", "quibitCluster", 5, 4, 6, "The base RF/tick the Quibit Clusters can do");
         
-        zpe_maxOutput = config.getInt("maxOutput", "zeroPointExtractor", 256, 256, 2048, "The maximum amount of rf/t it can generate");
+        zpe_maxPowerGen = config.getInt("powerGen", "zeroPointExtractor", 256, 256, 2048, "The maximum amount of rf/t it can generate");
         zpe_particles = config.getBoolean("particles", "zeroPointExtractor", true, "Enable particle effect");
     }
 }
