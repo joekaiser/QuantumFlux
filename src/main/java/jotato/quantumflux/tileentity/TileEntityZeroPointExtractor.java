@@ -43,7 +43,6 @@ public class TileEntityZeroPointExtractor extends TileEntity implements IEnergyP
         super.updateEntity();
         if (!worldObj.isRemote)
         {
-            Logger.info(""+(ConfigMan.zpe_maxPowerGen - this.yCoord));
             this.energy.receiveEnergy(ConfigMan.zpe_maxPowerGen - this.yCoord, false);
         }
     }

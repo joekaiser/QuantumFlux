@@ -19,7 +19,7 @@ public class BlockQuibitCluster extends BlockContainerBase
 
     public BlockQuibitCluster(int level)
     {
-        super(Material.iron, "quibitCluster_" + level, 1, "pickaxe", 0);
+        super(Material.iron, "quibitCluster_" + level, 3, "pickaxe", 0);
         setStepSound(soundTypeMetal);
         this.level = level;
     }

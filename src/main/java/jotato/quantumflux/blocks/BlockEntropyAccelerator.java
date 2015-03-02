@@ -67,6 +67,7 @@ public class BlockEntropyAccelerator extends BlockContainerBase
     {
         int frontSide = determineOrientation(world, x, y, z, entity);
         world.setBlockMetadataWithNotify(x, y, z, frontSide, 2);
+        
     }
 
     @Override
@@ -74,6 +75,7 @@ public class BlockEntropyAccelerator extends BlockContainerBase
     {
         player.openGui(QuantumFlux.instance, GUI.INCINERATOR.ordinal, world, x, y, z);
         return true;
+    
     }
 
     @Override
