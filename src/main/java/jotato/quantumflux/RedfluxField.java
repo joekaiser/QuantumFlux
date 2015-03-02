@@ -15,10 +15,12 @@ public class RedfluxField
             return playerFields.get(playerId);
         }else
         {
-            EnergyStorage storage = new EnergyStorage(ConfigMan.redfluxField_buffer,Integer.MAX_VALUE);
-            playerFields.put(playerId, storage);
-            return storage;
+        	return null;
         }
+    }
+    
+    public static void setField(UUID playerId, EnergyStorage storage){
+    	 playerFields.put(playerId, storage);
     }
 
 }

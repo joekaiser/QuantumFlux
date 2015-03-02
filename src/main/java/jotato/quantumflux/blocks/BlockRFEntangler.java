@@ -1,15 +1,21 @@
 package jotato.quantumflux.blocks;
 
+import jotato.quantumflux.tileentity.TileEntityRFEntangler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.management.ServerConfigurationManager;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class BlockRFEntangler extends BlockBase
+public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
 {
     
     @SideOnly(Side.CLIENT)
@@ -59,7 +65,30 @@ public class BlockRFEntangler extends BlockBase
         
     }
     
-    //when the block is placed save the player in the nbt and read that out later
+
+    @Override
+    public boolean onBlockActivated(World world, int x,int y, int z, EntityPlayer player,int meta, float p7, float p8,float p9) {
+    	if(world.isRemote) return false;
+    	
+    	if(player.isSneaking()){
+    		
+    		if(world.getTileEntity(x, y, z) instanceof TileEntityRFEntangler){
+    			TileEntityRFEntangler te = (TileEntityRFEntangler) world.getTileEntity(x, y, z);
+    			
+    			//todo: allow the owner to unlock and prevent other from stealing the lock
+    			
+    			if(te.owner==null){
+    				te.owner = player.getGameProfile().getId();
+    			}
+    		}
+    	}
+    	
+    	return false;
+    }
     
+    @Override
+    public TileEntity createNewTileEntity(World world, int p1) {
+    	return new TileEntityRFEntangler();
+    }
 
 }
