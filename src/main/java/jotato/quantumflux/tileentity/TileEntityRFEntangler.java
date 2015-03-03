@@ -59,6 +59,8 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
         
         RedfluxField.setField(owner, storage);
     }
+    
+    
 	
 
 }

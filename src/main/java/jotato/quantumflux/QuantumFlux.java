@@ -2,6 +2,7 @@ package jotato.quantumflux;
 
 import jotato.quantumflux.blocks.QFBlocks;
 import jotato.quantumflux.items.QFItems;
+import jotato.quantumflux.packets.PacketHandler;
 import jotato.quantumflux.proxy.CommonProxy;
 import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_1;
@@ -9,6 +10,7 @@ import jotato.quantumflux.tileentity.TileEntityQuibitCluster_2;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_3;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_4;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_5;
+import jotato.quantumflux.tileentity.TileEntityRFEntangler;
 import jotato.quantumflux.tileentity.TileEntityZeroPointExtractor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -48,6 +50,7 @@ public class QuantumFlux
     {
         GameRegistry.registerTileEntity(TileEntityEntropyAccelerator.class, "teIncinerator");
         GameRegistry.registerTileEntity(TileEntityZeroPointExtractor.class, "teZeroPointExtractor");
+        GameRegistry.registerTileEntity(TileEntityRFEntangler.class, "teRFEntangler");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_1.class, "teQuibitCluster1");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_2.class, "teQuibitCluster2");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_3.class, "teQuibitCluster3");
@@ -62,6 +65,7 @@ public class QuantumFlux
         proxy.initServer();
         proxy.initClient();
         new Recipes().init();
+        PacketHandler.initPackets();
     }
 
     @EventHandler
