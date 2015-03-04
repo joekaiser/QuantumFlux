@@ -11,6 +11,7 @@ import jotato.quantumflux.tileentity.TileEntityQuibitCluster_3;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_4;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_5;
 import jotato.quantumflux.tileentity.TileEntityRFEntangler;
+import jotato.quantumflux.tileentity.TileEntityRFExciter;
 import jotato.quantumflux.tileentity.TileEntityZeroPointExtractor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -51,6 +52,7 @@ public class QuantumFlux
         GameRegistry.registerTileEntity(TileEntityEntropyAccelerator.class, "teIncinerator");
         GameRegistry.registerTileEntity(TileEntityZeroPointExtractor.class, "teZeroPointExtractor");
         GameRegistry.registerTileEntity(TileEntityRFEntangler.class, "teRFEntangler");
+        GameRegistry.registerTileEntity(TileEntityRFExciter.class, "teRFExciter");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_1.class, "teQuibitCluster1");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_2.class, "teQuibitCluster2");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_3.class, "teQuibitCluster3");

@@ -10,6 +10,7 @@ public class QFBlocks
     public static BlockQuibitCluster quibitCluster_5;
     public static BlockZPE zpe;
     public static BlockRFEntangler rfEntangler;
+    public static BlockRFExciter rfExciter;
 
     public static void init()
     {
@@ -21,5 +22,6 @@ public class QFBlocks
         quibitCluster_5 = new BlockQuibitCluster(5);
         zpe = new BlockZPE();
         rfEntangler = new BlockRFEntangler();
+        rfExciter = new BlockRFExciter();
     }
 }

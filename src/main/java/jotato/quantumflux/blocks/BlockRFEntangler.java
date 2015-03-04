@@ -77,6 +77,7 @@ public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
     			
     			if(te.owner==null){
     				te.owner = player.getGameProfile().getId();
+    				te.registerWithField();
     			}
     		}
     	}

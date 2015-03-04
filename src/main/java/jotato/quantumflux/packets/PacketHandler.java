@@ -13,7 +13,7 @@ public class PacketHandler
     public static SimpleNetworkWrapper net;
     
     public static void initPackets(){
-        net= NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MODID));
+        net= NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MODID);
         registerMessage(Handler.class, RFMessage.class);
     }
     
@@ -21,7 +21,6 @@ public class PacketHandler
     
     @SuppressWarnings({ "unchecked", "rawtypes" })
     private static void registerMessage(Class packet, Class message){
-        net.registerMessage(packet,message,nextPacketId,Side.CLIENT);
         net.registerMessage(packet,message,nextPacketId,Side.SERVER);
         nextPacketId++;
     }
