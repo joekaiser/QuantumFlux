@@ -15,3 +15,4 @@ tile.quibitCluster_4.name=Quibit Cluster Level 4
 tile.quibitCluster_5.name=Quibit Cluster Level 5
 tile.zeroPointExtractor.name=Zero Point Extractor (ZPE)
 tile.rfEntangler.name=Quantum RF Entangler
+tile.rfExciter.name=Quantum RF Exciter

@@ -66,7 +66,7 @@ public class Recipes
                 'e', enderPearl));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.zbq7, 1), "rlr", "gdg", "rlr", 'r', redstoneBlock, 'l', lapisBlock, 'g', goldBlock, 'd', diamondBlock));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.rfEntangler), "gzg", "aqa", "mmm", 'm', mangalloy, 'a', amplificationCrystal, 'q', quibitCluster_3, 'g', goldCasing, 'z',zbq7));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.rfExciter,2), "rer","sss",'r',redstone,'e',enderPearl,'s',steelIngot));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.rfExciter,2), "qeq","sss",'q',quibitCrystal,'e',enderPearl,'s',steelIngot));
     }
 
     private void furnaceRecipes()
