@@ -1,4 +1,7 @@
 package jotato.quantumflux.tileentity;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import jotato.quantumflux.ConfigMan;
@@ -6,22 +9,25 @@ import jotato.quantumflux.redflux.IRedfluxExciter;
 import jotato.quantumflux.redflux.RedfluxField;
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyProvider;
+import cofh.api.energy.IEnergyReceiver;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityRFExciter extends TileEntity implements IEnergyProvider, IRedfluxExciter {
+public class TileEntityRFExciter extends TileEntity implements IEnergyProvider,
+		IRedfluxExciter {
 
 	public UUID owner;
 	private EnergyStorage energy;
-	
-	public  TileEntityRFExciter() {
-		energy = new EnergyStorage(ConfigMan.rfExciter_buffer,ConfigMan.rfExciter_output);
+
+	public TileEntityRFExciter() {
+		energy = new EnergyStorage(ConfigMan.rfExciter_buffer,
+				ConfigMan.rfExciter_output);
 	}
-	
+
 	@Override
 	public String getOwner() {
-		return owner==null?null:owner.toString();
+		return owner == null ? null : owner.toString();
 	}
 
 	@Override
@@ -48,7 +54,7 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider, 
 	@Override
 	public int extractEnergy(ForgeDirection from, int maxExtract,
 			boolean simulate) {
-		
+
 		return this.energy.extractEnergy(maxExtract, simulate);
 	}
 
@@ -79,20 +85,21 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider, 
 		super.validate();
 		registerWithField();
 	}
-	
+
 	public void deregisterWithField() {
-		if(worldObj.isRemote){
+		if (worldObj.isRemote) {
 			return;
 		}
 		RedfluxField.removeLink(this);
 	}
 
 	public void registerWithField() {
-		if(worldObj.isRemote){
+		if (worldObj.isRemote) {
 			return;
 		}
 		RedfluxField.registerLink(this);
 	}
+
 	@Override
 	public void writeToNBT(NBTTagCompound tag) {
 		super.writeToNBT(tag);
@@ -101,7 +108,6 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider, 
 		this.energy.writeToNBT(energyTag);
 		tag.setTag("Energy", energyTag);
 		tag.setString("owner", owner.toString());
-
 	}
 
 	@Override
@@ -114,4 +120,26 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider, 
 		registerWithField();
 
 	}
+
+	@Override
+	public void updateEntity() {
+		super.updateEntity();
+
+		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
+			int targetX = xCoord + dir.offsetX;
+			int targetY = yCoord + dir.offsetY;
+			int targetZ = zCoord + dir.offsetZ;
+
+			TileEntity tile = worldObj.getTileEntity(targetX, targetY, targetZ);
+			if (tile instanceof IEnergyReceiver) {
+				int tosend = energy.extractEnergy(ConfigMan.rfExciter_output,
+						true);
+				int used = ((IEnergyReceiver) tile).receiveEnergy(
+						dir.getOpposite(), tosend, false);
+				energy.extractEnergy(used, false);
+			}
+
+		}
+	}
+
 }

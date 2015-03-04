@@ -1,6 +1,7 @@
 package jotato.quantumflux.blocks;
 
 import jotato.quantumflux.tileentity.TileEntityRFEntangler;
+import jotato.quantumflux.tileentity.TileEntityRFExciter;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.ITileEntityProvider;
@@ -61,29 +62,21 @@ public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
         int frontSide = determineOrientation(world, x, y, z, entity);
         world.setBlockMetadataWithNotify(x, y, z, frontSide, 2);
         
-    }
-    
-
-    @Override
-    public boolean onBlockActivated(World world, int x,int y, int z, EntityPlayer player,int meta, float p7, float p8,float p9) {
-    	if(world.isRemote) return false;
-    	
-    	if(player.isSneaking()){
-    		
-    		if(world.getTileEntity(x, y, z) instanceof TileEntityRFEntangler){
-    			TileEntityRFEntangler te = (TileEntityRFEntangler) world.getTileEntity(x, y, z);
+        if(entity instanceof EntityPlayer){
+			EntityPlayer player = (EntityPlayer)entity;
+			if(world.getTileEntity(x, y, z) instanceof TileEntityRFEntangler){
+				TileEntityRFEntangler te = (TileEntityRFEntangler) world.getTileEntity(x, y, z);
     			
     			//todo: allow the owner to unlock and prevent other from stealing the lock
-    			
     			if(te.owner==null){
     				te.owner = player.getGameProfile().getId();
     				te.registerWithField();
     			}
     		}
-    	}
-    	
-    	return false;
+		}
+        
     }
+    
     
     @Override
     public TileEntity createNewTileEntity(World world, int p1) {
