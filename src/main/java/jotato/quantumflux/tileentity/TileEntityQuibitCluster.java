@@ -6,9 +6,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.core.IWirelessCapable;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -40,7 +37,7 @@ public abstract class TileEntityQuibitCluster extends TileEntity implements IWir
 
     protected EnergyStorage getEnergyDevice()
     {
-        return localEnergyStorage; // todo: update to use the redstoneflux field
+        return localEnergyStorage; 
     }
 
     @Override
