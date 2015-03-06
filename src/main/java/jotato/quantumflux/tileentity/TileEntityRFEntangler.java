@@ -27,6 +27,9 @@ public class TileEntityRFEntangler extends TileEntity implements
 	@Override
 	public int receiveEnergy(ForgeDirection from, int maxReceive,
 			boolean simulate) {
+		if(!simulate){
+			this.markDirty();
+		}
 		return storage.receiveEnergy(maxReceive, simulate);
 
 	}
@@ -116,11 +119,16 @@ public class TileEntityRFEntangler extends TileEntity implements
 	@Override
 	public void updateEntity() {
 	
-		
+		if(worldObj.isRemote){
+			return;
+		}
 		for (IRedfluxExciter exciter : RedfluxField.getLinks(this.getOwner())) {
 			if (exciter.canReceive()) {
 				int tosend = storage.getEnergyStored();
-				int used = exciter.receiveEnergy(tosend, false) - tosend;
+				int used =(tosend- exciter.receiveEnergy(tosend, false));
+				if(used >0){
+					this.markDirty();
+				}
 				storage.extractEnergy(used, false);
 			}
 		}

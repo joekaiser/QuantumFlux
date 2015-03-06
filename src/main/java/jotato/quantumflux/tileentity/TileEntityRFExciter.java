@@ -45,14 +45,18 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider,
 
 	@Override
 	public int receiveEnergy(int energy, boolean simulate) {
-		energy -= this.energy.receiveEnergy(energy, simulate);
-		return energy;
+		int taken = this.energy.receiveEnergy(energy, simulate);
+		return energy - taken;
+		
 	}
 
 	@Override
 	public int extractEnergy(ForgeDirection from, int maxExtract,
 			boolean simulate) {
 
+		if(!simulate){
+			this.markDirty();
+		}
 		return this.energy.extractEnergy(maxExtract, simulate);
 	}
 
@@ -118,6 +122,10 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider,
 	@Override
 	public void updateEntity() {
 		super.updateEntity();
+		
+		if(worldObj.isRemote){
+			return;
+		}
 
 		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 			int targetX = xCoord + dir.offsetX;
@@ -130,6 +138,9 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider,
 						true);
 				int used = ((IEnergyReceiver) tile).receiveEnergy(
 						dir.getOpposite(), tosend, false);
+				if(used>0){
+					this.markDirty();
+				}
 				energy.extractEnergy(used, false);
 			}
 
