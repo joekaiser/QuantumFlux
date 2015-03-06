@@ -3,8 +3,10 @@ package jotato.quantumflux.inventory;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
+import net.minecraft.item.ItemStack;
 
 public class ContainerQuibitCluster extends ContainerBase
 {
@@ -14,7 +16,7 @@ public class ContainerQuibitCluster extends ContainerBase
 
     public ContainerQuibitCluster(InventoryPlayer playerInventory, TileEntityQuibitCluster cluster)
     {
-        super(cluster);
+        super(null);
         this.cluster = cluster;
         addPlayerInventorySlots(playerInventory);
     }
@@ -51,5 +53,17 @@ public class ContainerQuibitCluster extends ContainerBase
         {
             this.cluster.setEnergyStored(value);
         }
+    }
+    
+    @Override
+    public boolean canInteractWith(EntityPlayer p_75145_1_)
+    {
+     return true;
+    }
+    
+    @Override
+    public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int i)
+    {
+        return null;
     }
 }
