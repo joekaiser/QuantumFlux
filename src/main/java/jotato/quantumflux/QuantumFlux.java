@@ -49,15 +49,15 @@ public class QuantumFlux
     //todo: maybe this should be moved into its own thing
     private void regiterTileEntities()
     {
-        GameRegistry.registerTileEntity(TileEntityEntropyAccelerator.class, "teIncinerator");
-        GameRegistry.registerTileEntity(TileEntityZeroPointExtractor.class, "teZeroPointExtractor");
-        GameRegistry.registerTileEntity(TileEntityRFEntangler.class, "teRFEntangler");
-        GameRegistry.registerTileEntity(TileEntityRFExciter.class, "teRFExciter");
-        GameRegistry.registerTileEntity(TileEntityQuibitCluster_1.class, "teQuibitCluster1");
-        GameRegistry.registerTileEntity(TileEntityQuibitCluster_2.class, "teQuibitCluster2");
-        GameRegistry.registerTileEntity(TileEntityQuibitCluster_3.class, "teQuibitCluster3");
-        GameRegistry.registerTileEntity(TileEntityQuibitCluster_4.class, "teQuibitCluster4");
-        GameRegistry.registerTileEntity(TileEntityQuibitCluster_5.class, "teQuibitCluster5");
+        GameRegistry.registerTileEntity(TileEntityEntropyAccelerator.class, "tileIncinerator");
+        GameRegistry.registerTileEntity(TileEntityZeroPointExtractor.class, "tileZeroPointExtractor");
+        GameRegistry.registerTileEntity(TileEntityRFEntangler.class, "tileRFEntangler");
+        GameRegistry.registerTileEntity(TileEntityRFExciter.class, "tileRFExciter");
+        GameRegistry.registerTileEntity(TileEntityQuibitCluster_1.class, "tileQuibitCluster1");
+        GameRegistry.registerTileEntity(TileEntityQuibitCluster_2.class, "tileQuibitCluster2");
+        GameRegistry.registerTileEntity(TileEntityQuibitCluster_3.class, "tileQuibitCluster3");
+        GameRegistry.registerTileEntity(TileEntityQuibitCluster_4.class, "tileQuibitCluster4");
+        GameRegistry.registerTileEntity(TileEntityQuibitCluster_5.class, "tileQuibitCluster5");
     }
 
     @EventHandler

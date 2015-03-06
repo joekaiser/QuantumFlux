@@ -81,16 +81,10 @@ public class TileEntityRFEntangler extends TileEntity implements
 	}
 
 	public void deregisterWithField() {
-		if(worldObj.isRemote){
-			return;
-		}
 		RedfluxField.removeLink(this);
 	}
 
 	public void registerWithField() {
-		if(worldObj.isRemote){
-			return;
-		}
 		RedfluxField.registerLink(this);
 	}
 
@@ -121,9 +115,7 @@ public class TileEntityRFEntangler extends TileEntity implements
 
 	@Override
 	public void updateEntity() {
-		if(worldObj.isRemote){
-			return;
-		}
+	
 		
 		for (IRedfluxExciter exciter : RedfluxField.getLinks(this.getOwner())) {
 			if (exciter.canReceive()) {

@@ -85,16 +85,12 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider,
 	}
 
 	public void deregisterWithField() {
-		if (worldObj.isRemote) {
-			return;
-		}
+
 		RedfluxField.removeLink(this);
 	}
 
 	public void registerWithField() {
-		if (worldObj.isRemote) {
-			return;
-		}
+
 		RedfluxField.registerLink(this);
 	}
 
