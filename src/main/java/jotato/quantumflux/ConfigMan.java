@@ -31,9 +31,9 @@ public class ConfigMan
 
     public static void hydrateConifg()
     {
-        incinerator_output = config.getInt("output", "entropyAccelerator", 10, 1, 100, "The RF generated per tick");
-        incinerator_buffer = config.getInt("buffer", "entropyAccelerator", 100000, 10000, 1000000, "The amount of energy that can be stored in the block");
-        incinerator_burnTime = config.getInt("burnTime", "entropyAccelerator", 350, 20, 8000, "How many ticks an item will burn");
+        incinerator_output = config.getInt("output", "entropyAccelerator", 8, 1, 32, "The RF generated per tick");
+        incinerator_buffer = config.getInt("buffer", "entropyAccelerator", 1000, 100, 10000, "The amount of energy that can be stored in the block");
+        incinerator_burnTime = config.getInt("burnTime", "entropyAccelerator", 200, 20, 1000, "How many ticks an item will burn");
 
         quibitCluster_baseStorage = config.getInt("baseStorage", "quibitCluster", 500000, 100000, 1000000, "The base amount of RF the Quibit Clusters can hold");
         quibitCluster_baseTransferRate = config.getInt("baseTransferRate", "quibitCluster", 100, 50, 1000, "The base RF/tick the Quibit Clusters can do");
