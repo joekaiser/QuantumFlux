@@ -12,97 +12,110 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public abstract class TileEntityQuibitCluster extends TileEntity implements IWirelessCapable, IEnergyHandler
 {
-    protected EnergyStorage localEnergyStorage;
-    private int transferRate;
-    private int capacity;
-    public int level;
+	protected EnergyStorage localEnergyStorage;
+	private int transferRate;
+	private int capacity;
+	public int level;
 
-    public TileEntityQuibitCluster(int transferRate, int capacity, int level)
-    {
+	public TileEntityQuibitCluster(int transferRate, int capacity, int level)
+	{
 
-        this.transferRate = transferRate;
-        this.capacity = capacity;
-        this.level = level;
-        for (int i = 1; i < level; i++)
-        {
-            this.transferRate *= ConfigMan.quibitCluster_multiplier;
-            this.capacity *= ConfigMan.quibitCluster_multiplier;
-        }
-        // todo: anything other than this ugly hack!
+		this.transferRate = transferRate;
+		this.capacity = capacity;
+		this.level = level;
+		for (int i = 1; i < level; i++)
+		{
+			this.transferRate *= ConfigMan.quibitCluster_multiplier;
+			this.capacity *= ConfigMan.quibitCluster_multiplier;
+		}
+		// todo: anything other than this ugly hack!
 
-        if (level == 5)
-            this.transferRate = Integer.MAX_VALUE;
-        localEnergyStorage = new EnergyStorage(this.capacity, this.transferRate);
-    }
+		if (level == 5)
+			this.transferRate = Integer.MAX_VALUE;
+		localEnergyStorage = new EnergyStorage(this.capacity, this.transferRate);
+	}
 
-    protected EnergyStorage getEnergyDevice()
-    {
-        return localEnergyStorage; 
-    }
+	protected EnergyStorage getEnergyDevice()
+	{
+		return localEnergyStorage;
+	}
 
-    @Override
-    public boolean canConnectEnergy(ForgeDirection from)
-    {
-        return true;
-    }
+	@Override
+	public boolean canConnectEnergy(ForgeDirection from)
+	{
+		return true;
+	}
 
-    public int getEnergyTransferRate()
-    {
-        return this.transferRate;
-    }
+	public int getEnergyTransferRate()
+	{
+		return this.transferRate;
+	}
 
-    @Override
-    public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate)
-    {
-        return getEnergyDevice().receiveEnergy(maxReceive, simulate);
-    }
+	@Override
+	public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate)
+	{
 
-    @Override
-    public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate)
-    {
-        return getEnergyDevice().extractEnergy(maxExtract, simulate);
-    }
+		int used = getEnergyDevice().receiveEnergy(maxReceive, simulate);
+		if (used > 0 && !simulate)
+		{
+			this.markDirty();
+		}
+		return used;
+	}
 
-    @Override
-    public int getEnergyStored(ForgeDirection from)
-    {
-        return getEnergyDevice().getEnergyStored();
-    }
+	@Override
+	public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate)
+	{
+		int given = getEnergyDevice().extractEnergy(maxExtract, simulate);
 
-    public void setEnergyStored(int energy)
-    {
-        this.getEnergyDevice().setEnergyStored(energy);
-    }
+		if (given > 0 && !simulate)
+		{
+			this.markDirty();
+		}
+		return given;
+	}
 
-    @Override
-    public int getMaxEnergyStored(ForgeDirection from)
-    {
-        return getEnergyDevice().getMaxEnergyStored();
-    }
+	@Override
+	public int getEnergyStored(ForgeDirection from)
+	{
+		return getEnergyDevice().getEnergyStored();
+	}
 
-    @Override
-    public void writeToNBT(NBTTagCompound tag)
-    {
-        super.writeToNBT(tag);
+	public void setEnergyStored(int energy)
+	{
+		this.markDirty();
+		this.getEnergyDevice().setEnergyStored(energy);
+	}
 
-        NBTTagCompound energyTag = new NBTTagCompound();
-        this.getEnergyDevice().writeToNBT(energyTag);
-        tag.setTag("Energy", energyTag);
+	@Override
+	public int getMaxEnergyStored(ForgeDirection from)
+	{
+		return getEnergyDevice().getMaxEnergyStored();
+	}
 
-    }
+	@Override
+	public void writeToNBT(NBTTagCompound tag)
+	{
+		super.writeToNBT(tag);
 
-    @Override
-    public void readFromNBT(NBTTagCompound tag)
-    {
-        super.readFromNBT(tag);
-        NBTTagCompound energyTag = tag.getCompoundTag("Energy");
-        this.getEnergyDevice().readFromNBT(energyTag);
-    }
+		NBTTagCompound energyTag = new NBTTagCompound();
+		this.getEnergyDevice().writeToNBT(energyTag);
+		tag.setTag("Energy", energyTag);
 
-    @SideOnly(Side.CLIENT)
-    public int getBufferScaled(int scale)
-    {
-        return getEnergyStored(null) * scale / getMaxEnergyStored(null);
-    }
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound tag)
+	{
+		super.readFromNBT(tag);
+		NBTTagCompound energyTag = tag.getCompoundTag("Energy");
+		this.getEnergyDevice().readFromNBT(energyTag);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public int getBufferScaled(int scale)
+	{
+		return getEnergyStored(null) * scale / getMaxEnergyStored(null);
+	}
 
 }

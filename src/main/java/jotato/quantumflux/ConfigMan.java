@@ -31,7 +31,7 @@ public class ConfigMan
 
     public static void hydrateConifg()
     {
-        incinerator_output = config.getInt("output", "entropyAccelerator", 8, 1, 32, "The RF generated per tick");
+        incinerator_output = config.getInt("output", "entropyAccelerator", 10, 1, 32, "The RF generated per tick");
         incinerator_buffer = config.getInt("buffer", "entropyAccelerator", 1000, 100, 10000, "The amount of energy that can be stored in the block");
         incinerator_burnTime = config.getInt("burnTime", "entropyAccelerator", 200, 20, 1000, "How many ticks an item will burn");
 

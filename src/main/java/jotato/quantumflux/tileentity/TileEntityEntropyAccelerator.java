@@ -18,6 +18,7 @@ public class TileEntityEntropyAccelerator extends TileEntity implements IInvento
     private ItemStack fuelStack;
     private int currentBurnTime = 0;
     private EnergyStorage energy;
+    private boolean isBurning = false;
 
     public int maxBurnTime;
 
@@ -121,7 +122,7 @@ public class TileEntityEntropyAccelerator extends TileEntity implements IInvento
 
     public boolean isActive()
     {
-       return hasFuel() && this.energy.getEnergyStored() < this.energy.getMaxEnergyStored();
+       return (hasFuel() || isBurning) && this.energy.getEnergyStored() < this.energy.getMaxEnergyStored();
     
     }
 
@@ -141,6 +142,7 @@ public class TileEntityEntropyAccelerator extends TileEntity implements IInvento
         NBTTagCompound energyTag = new NBTTagCompound();
         this.energy.writeToNBT(energyTag);
         tag.setTag("Energy", energyTag);
+        tag.setBoolean("Burning", isBurning);
 
     }
 
@@ -154,6 +156,7 @@ public class TileEntityEntropyAccelerator extends TileEntity implements IInvento
         this.fuelStack = ItemStack.loadItemStackFromNBT(fuelTag);
         this.currentBurnTime = tag.getShort("currentBurnTime");
         this.energy.readFromNBT(energyTag);
+        this.isBurning = tag.getBoolean("Burning");
     }
 
     @Override
@@ -166,6 +169,7 @@ public class TileEntityEntropyAccelerator extends TileEntity implements IInvento
             {
                 if (this.currentBurnTime == 0)
                 {
+                	isBurning=true;
                     this.fuelStack.stackSize--;
                     if (this.fuelStack.stackSize == 0)
                         this.fuelStack = null;
@@ -177,6 +181,7 @@ public class TileEntityEntropyAccelerator extends TileEntity implements IInvento
                 if (this.currentBurnTime >= this.maxBurnTime)
                 {
                     this.currentBurnTime = 0;
+                    isBurning = false;
                 }
                 this.markDirty();
             }
@@ -186,6 +191,7 @@ public class TileEntityEntropyAccelerator extends TileEntity implements IInvento
 
     public void setEnergyStored(int value)
     {
+    	this.markDirty();
         this.energy.setEnergyStored(value);
     }
 
@@ -209,7 +215,12 @@ public class TileEntityEntropyAccelerator extends TileEntity implements IInvento
     @Override
     public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate)
     {
-        return energy.extractEnergy(maxExtract, simulate);
+    	
+        int toget= energy.extractEnergy(maxExtract, simulate);
+        if(toget>0 && !simulate){
+        	this.markDirty();
+        }
+        return toget;
     }
 
     @Override
