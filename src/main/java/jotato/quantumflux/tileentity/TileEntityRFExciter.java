@@ -1,7 +1,5 @@
 package jotato.quantumflux.tileentity;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import jotato.quantumflux.ConfigMan;

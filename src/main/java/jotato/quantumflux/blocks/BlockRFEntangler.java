@@ -1,7 +1,6 @@
 package jotato.quantumflux.blocks;
 
 import jotato.quantumflux.tileentity.TileEntityRFEntangler;
-import jotato.quantumflux.tileentity.TileEntityRFExciter;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.ITileEntityProvider;

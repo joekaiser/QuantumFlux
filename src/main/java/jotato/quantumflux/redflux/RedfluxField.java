@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import jotato.quantumflux.Logger;
 
 /**
  * Base on King Lemming's CoFHLib/RegistryEnderAttuned. All Kudos to him

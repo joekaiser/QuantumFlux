@@ -3,7 +3,6 @@ package jotato.quantumflux.tileentity;
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyProvider;
 import jotato.quantumflux.ConfigMan;
-import jotato.quantumflux.Logger;
 import jotato.quantumflux.core.IWirelessCapable;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;

@@ -23,7 +23,6 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider {
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z,
 			EntityLivingBase entity, ItemStack itemStack) {
-		// TODO Auto-generated method stub
 		super.onBlockPlacedBy(world, x, y, z, entity, itemStack);
 		
 		if(entity instanceof EntityPlayer){
