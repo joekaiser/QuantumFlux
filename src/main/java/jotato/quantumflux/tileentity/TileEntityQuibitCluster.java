@@ -121,7 +121,10 @@ public abstract class TileEntityQuibitCluster extends TileEntity implements IWir
 	@SideOnly(Side.CLIENT)
 	public int getBufferScaled(int scale)
 	{
-		return getEnergyStored(null) * scale / getMaxEnergyStored(null);
+		double stored = getEnergyStored(null);
+		double max = getMaxEnergyStored(null);
+		double v= ((stored /max) *scale);
+		return (int)v;
 	}
 
 	
