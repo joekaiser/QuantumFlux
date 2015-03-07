@@ -101,6 +101,9 @@ public abstract class TileEntityQuibitCluster extends TileEntity implements IWir
 		NBTTagCompound energyTag = new NBTTagCompound();
 		this.getEnergyDevice().writeToNBT(energyTag);
 		tag.setTag("Energy", energyTag);
+		tag.setInteger("XferRate", this.transferRate);
+		tag.setInteger("Capacity", this.capacity);
+		tag.setInteger("Level",this.level);
 
 	}
 
@@ -110,6 +113,9 @@ public abstract class TileEntityQuibitCluster extends TileEntity implements IWir
 		super.readFromNBT(tag);
 		NBTTagCompound energyTag = tag.getCompoundTag("Energy");
 		this.getEnergyDevice().readFromNBT(energyTag);
+		this.level = tag.getInteger("Level");
+		this.capacity = tag.getInteger("Capacity");
+		this.transferRate = tag.getInteger("XferRate");
 	}
 
 	@SideOnly(Side.CLIENT)
