@@ -124,4 +124,11 @@ public abstract class TileEntityQuibitCluster extends TileEntity implements IWir
 		return getEnergyStored(null) * scale / getMaxEnergyStored(null);
 	}
 
+	
+	@Override
+	public void markDirty()
+	{
+		super.markDirty();
+		worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
+	}
 }

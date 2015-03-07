@@ -43,27 +43,27 @@ public class QFGuiHandler implements IGuiHandler
         if (gui == GUI.QUIBIT_CLUSTER_1)
         {
             TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
-            return new ContainerQuibitCluster(player.inventory, cluster);
+            return new ContainerQuibitCluster(player, cluster);
         }
         if (gui == GUI.QUIBIT_CLUSTER_2)
         {
             TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
-            return new ContainerQuibitCluster(player.inventory, cluster);
+            return new ContainerQuibitCluster(player, cluster);
         }
         if (gui == GUI.QUIBIT_CLUSTER_3)
         {
             TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
-            return new ContainerQuibitCluster(player.inventory, cluster);
+            return new ContainerQuibitCluster(player, cluster);
         }
         if (gui == GUI.QUIBIT_CLUSTER_4)
         {
             TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
-            return new ContainerQuibitCluster(player.inventory, cluster);
+            return new ContainerQuibitCluster(player, cluster);
         }
         if (gui == GUI.QUIBIT_CLUSTER_5)
         {
             TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
-            return new ContainerQuibitCluster(player.inventory, cluster);
+            return new ContainerQuibitCluster(player, cluster);
         }
         return null;
 
@@ -83,27 +83,27 @@ public class QFGuiHandler implements IGuiHandler
         if (gui == GUI.QUIBIT_CLUSTER_1)
         {
             TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
-            return new GuiQuibitCluster(player.inventory, cluster);
+            return new GuiQuibitCluster(player, cluster);
         }
         if (gui == GUI.QUIBIT_CLUSTER_2)
         {
             TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
-            return new GuiQuibitCluster(player.inventory, cluster);
+            return new GuiQuibitCluster(player, cluster);
         }
         if (gui == GUI.QUIBIT_CLUSTER_3)
         {
             TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
-            return new GuiQuibitCluster(player.inventory, cluster);
+            return new GuiQuibitCluster(player, cluster);
         }
         if (gui == GUI.QUIBIT_CLUSTER_4)
         {
             TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
-            return new GuiQuibitCluster(player.inventory, cluster);
+            return new GuiQuibitCluster(player, cluster);
         }
         if (gui == GUI.QUIBIT_CLUSTER_5)
         {
             TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
-            return new GuiQuibitCluster(player.inventory, cluster);
+            return new GuiQuibitCluster(player, cluster);
         }
 
         return null;

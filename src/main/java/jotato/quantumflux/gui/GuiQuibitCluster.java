@@ -9,7 +9,7 @@ import jotato.quantumflux.tileentity.TileEntityQuibitCluster;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
@@ -21,9 +21,9 @@ public class GuiQuibitCluster extends GuiContainer
     private String maxStorage;
     private String maxTransfer;
 
-    public GuiQuibitCluster(InventoryPlayer playerInventory, TileEntityQuibitCluster cluster)
+    public GuiQuibitCluster(EntityPlayer player, TileEntityQuibitCluster cluster)
     {
-        super(new ContainerQuibitCluster(playerInventory, cluster));
+        super(new ContainerQuibitCluster(player, cluster));
         this.cluster = cluster;
         setupDisplay();
     }
