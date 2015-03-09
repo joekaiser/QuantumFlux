@@ -2,13 +2,13 @@ package jotato.quantumflux.tileentity;
 
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyProvider;
+import cofh.api.energy.IEnergyReceiver;
 import jotato.quantumflux.ConfigMan;
-import jotato.quantumflux.core.IWirelessCapable;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityZeroPointExtractor extends TileEntity implements IEnergyProvider, IWirelessCapable
+public class TileEntityZeroPointExtractor extends TileEntity implements IEnergyProvider
 {
     private EnergyStorage energy;
 
@@ -36,15 +36,42 @@ public class TileEntityZeroPointExtractor extends TileEntity implements IEnergyP
         this.energy.readFromNBT(energyTag);
     }
 
-    @Override
-    public void updateEntity()
-    {
-        super.updateEntity();
-        if (!worldObj.isRemote)
-        {
-            this.energy.receiveEnergy(ConfigMan.zpe_maxPowerGen - this.yCoord, false);
-        }
-    }
+    
+	@Override
+	public void updateEntity() {
+		super.updateEntity();
+		
+		if(worldObj.isRemote){
+			return;
+		}
+
+		this.energy.receiveEnergy(ConfigMan.zpe_maxPowerGen - this.yCoord, false);
+		
+		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
+			int targetX = xCoord + dir.offsetX;
+			int targetY = yCoord + dir.offsetY;
+			int targetZ = zCoord + dir.offsetZ;
+
+			TileEntity tile = worldObj.getTileEntity(targetX, targetY, targetZ);
+			if (tile instanceof IEnergyReceiver) {
+				IEnergyReceiver receiver = (IEnergyReceiver)tile;
+				
+				if(receiver.canConnectEnergy(dir.getOpposite()))
+				{
+					int tosend = energy.extractEnergy(ConfigMan.zpe_maxPowerGen,
+							true);
+					int used = ((IEnergyReceiver) tile).receiveEnergy(
+							dir.getOpposite(), tosend, false);
+					if(used>0){
+						this.markDirty();
+					}
+					energy.extractEnergy(used, false);
+				}
+				
+			}
+
+		}
+	}
 
     @Override
     public boolean canConnectEnergy(ForgeDirection from)

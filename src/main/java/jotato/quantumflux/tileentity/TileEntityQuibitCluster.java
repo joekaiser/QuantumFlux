@@ -5,12 +5,11 @@ import cofh.api.energy.IEnergyHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jotato.quantumflux.ConfigMan;
-import jotato.quantumflux.core.IWirelessCapable;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public abstract class TileEntityQuibitCluster extends TileEntity implements IWirelessCapable, IEnergyHandler
+public abstract class TileEntityQuibitCluster extends TileEntity implements  IEnergyHandler
 {
 	protected EnergyStorage localEnergyStorage;
 	private int transferRate;
