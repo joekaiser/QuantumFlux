@@ -34,5 +34,14 @@ public interface IRedfluxExciter {
 	 * @return amount of given energy that wasn't consumed; (0 if all was used)
 	 */
 	public int receiveEnergy(int energy, boolean simulate);
+	
+	
+	/**
+	 * This endpoint is really just a hack since ItemStacks are not supported yet.
+	 * @param energy
+	 * @param simulate
+	 * @return amount of energy that was available to give
+	 */
+	public int requestEnergy(int energy, boolean simulate);
 
 }

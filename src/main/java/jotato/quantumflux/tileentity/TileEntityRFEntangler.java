@@ -11,23 +11,24 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityRFEntangler extends TileEntity implements
-		IEnergyReceiver, IRedfluxExciter {
+public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver, IRedfluxExciter
+{
 
 	public UUID owner;
 
-	private EnergyStorage storage = new EnergyStorage(
-			ConfigMan.redfluxField_buffer, Integer.MAX_VALUE);
+	private EnergyStorage storage = new EnergyStorage(ConfigMan.redfluxField_buffer, Integer.MAX_VALUE);
 
 	@Override
-	public boolean canConnectEnergy(ForgeDirection from) {
+	public boolean canConnectEnergy(ForgeDirection from)
+	{
 		return true;
 	}
 
 	@Override
-	public int receiveEnergy(ForgeDirection from, int maxReceive,
-			boolean simulate) {
-		if(!simulate){
+	public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate)
+	{
+		if (!simulate)
+		{
 			this.markDirty();
 		}
 		return storage.receiveEnergy(maxReceive, simulate);
@@ -35,17 +36,20 @@ public class TileEntityRFEntangler extends TileEntity implements
 	}
 
 	@Override
-	public int getEnergyStored(ForgeDirection from) {
+	public int getEnergyStored(ForgeDirection from)
+	{
 		return storage.getEnergyStored();
 	}
 
 	@Override
-	public int getMaxEnergyStored(ForgeDirection from) {
+	public int getMaxEnergyStored(ForgeDirection from)
+	{
 		return storage.getMaxEnergyStored();
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound tag) {
+	public void writeToNBT(NBTTagCompound tag)
+	{
 		super.writeToNBT(tag);
 
 		NBTTagCompound energyTag = new NBTTagCompound();
@@ -56,7 +60,8 @@ public class TileEntityRFEntangler extends TileEntity implements
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound tag) {
+	public void readFromNBT(NBTTagCompound tag)
+	{
 		super.readFromNBT(tag);
 		NBTTagCompound energyTag = tag.getCompoundTag("Energy");
 		this.storage.readFromNBT(energyTag);
@@ -67,72 +72,97 @@ public class TileEntityRFEntangler extends TileEntity implements
 	}
 
 	@Override
-	public boolean canSend() {
+	public boolean canSend()
+	{
 		return true;
 	}
 
 	@Override
-	public boolean canReceive() {
+	public boolean canReceive()
+	{
 		// #3 no support for wireless receiving of energy. only sending
 		return false;
 	}
 
 	@Override
-	public int receiveEnergy(int energy, boolean simulate) {
+	public int requestEnergy(int energy, boolean simulate)
+	{
+		return this.storage.extractEnergy(energy, simulate);
+	}
+
+	@Override
+	public int receiveEnergy(int energy, boolean simulate)
+	{
 		// #3 no support for wireless receiving of energy. only sending
 		return energy;
 	}
 
-	public void deregisterWithField() {
-		RedfluxField.removeLink(this);
+	public void deregisterWithField()
+	{
+		if (!worldObj.isRemote)
+		{
+			RedfluxField.removeLink(this);
+		}
 	}
 
-	public void registerWithField() {
-		RedfluxField.registerLink(this);
+	public void registerWithField()
+	{
+		if (!worldObj.isRemote)
+		{
+			RedfluxField.registerLink(this);
+		}
 	}
 
 	@Override
-	public String getOwner() {
+	public String getOwner()
+	{
 		if (this.owner == null)
 			return null;
 		return this.owner.toString();
 	}
 
 	@Override
-	public void onChunkUnload() {
+	public void onChunkUnload()
+	{
 		super.onChunkUnload();
 		deregisterWithField();
 	}
 
 	@Override
-	public void invalidate() {
+	public void invalidate()
+	{
 		super.invalidate();
 		deregisterWithField();
 	}
 
 	@Override
-	public void validate() {
+	public void validate()
+	{
 		super.validate();
 		registerWithField();
 	}
 
 	@Override
-	public void updateEntity() {
-	
-		if(worldObj.isRemote){
+	public void updateEntity()
+	{
+
+		if (worldObj.isRemote)
+		{
 			return;
 		}
-		for (IRedfluxExciter exciter : RedfluxField.getLinks(this.getOwner())) {
-			if (exciter.canReceive()) {
+		for (IRedfluxExciter exciter : RedfluxField.getLinks(this.getOwner()))
+		{
+			if (exciter.canReceive())
+			{
 				int tosend = storage.getEnergyStored();
-				int used =(tosend- exciter.receiveEnergy(tosend, false));
-				if(used >0){
+				int used = (tosend - exciter.receiveEnergy(tosend, false));
+				if (used > 0)
+				{
 					this.markDirty();
 				}
 				storage.extractEnergy(used, false);
 			}
 		}
 	}
-	
 
 }

@@ -12,94 +12,119 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityRFExciter extends TileEntity implements IEnergyProvider,
-		IRedfluxExciter {
+public class TileEntityRFExciter extends TileEntity implements IEnergyProvider, IRedfluxExciter
+{
 
 	public UUID owner;
 	private EnergyStorage energy;
 
-	public TileEntityRFExciter() {
-		energy = new EnergyStorage(ConfigMan.rfExciter_buffer,
-				ConfigMan.rfExciter_output);
+	public TileEntityRFExciter()
+	{
+		energy = new EnergyStorage(ConfigMan.rfExciter_buffer, ConfigMan.rfExciter_output);
 	}
 
 	@Override
-	public String getOwner() {
+	public String getOwner()
+	{
 		return owner == null ? null : owner.toString();
 	}
 
 	@Override
-	public boolean canReceive() {
+	public boolean canReceive()
+	{
 		return true;
 	}
 
 	@Override
-	public boolean canSend() {
+	public boolean canSend()
+	{
 		return false;
 	}
 
 	@Override
-	public boolean canConnectEnergy(ForgeDirection from) {
+	public int requestEnergy(int energy, boolean simulate)
+	{
+		return 0;
+	}
+
+	@Override
+	public boolean canConnectEnergy(ForgeDirection from)
+	{
 		return true;
 	}
 
 	@Override
-	public int receiveEnergy(int energy, boolean simulate) {
+	public int receiveEnergy(int energy, boolean simulate)
+	{
 		int taken = this.energy.receiveEnergy(energy, simulate);
 		return energy - taken;
-		
+
 	}
 
 	@Override
-	public int extractEnergy(ForgeDirection from, int maxExtract,
-			boolean simulate) {
+	public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate)
+	{
 
-		if(!simulate){
+		if (!simulate)
+		{
 			this.markDirty();
 		}
 		return this.energy.extractEnergy(maxExtract, simulate);
 	}
 
 	@Override
-	public int getEnergyStored(ForgeDirection from) {
+	public int getEnergyStored(ForgeDirection from)
+	{
 		return this.energy.getEnergyStored();
 	}
 
 	@Override
-	public int getMaxEnergyStored(ForgeDirection from) {
+	public int getMaxEnergyStored(ForgeDirection from)
+	{
 		return this.energy.getMaxEnergyStored();
 	}
 
 	@Override
-	public void onChunkUnload() {
+	public void onChunkUnload()
+	{
 		super.onChunkUnload();
 		deregisterWithField();
 	}
 
 	@Override
-	public void invalidate() {
+	public void invalidate()
+	{
 		super.invalidate();
 		deregisterWithField();
 	}
 
 	@Override
-	public void validate() {
+	public void validate()
+	{
 		super.validate();
 		registerWithField();
 	}
 
-	public void deregisterWithField() {
+	public void deregisterWithField()
+	{
+		if (!worldObj.isRemote)
+		{
 
-		RedfluxField.removeLink(this);
+			RedfluxField.removeLink(this);
+		}
 	}
 
-	public void registerWithField() {
-
-		RedfluxField.registerLink(this);
+	public void registerWithField()
+	{
+		if (!worldObj.isRemote)
+		{
+			RedfluxField.registerLink(this);
+		}
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound tag) {
+	public void writeToNBT(NBTTagCompound tag)
+	{
 		super.writeToNBT(tag);
 
 		NBTTagCompound energyTag = new NBTTagCompound();
@@ -109,7 +134,8 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider,
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound tag) {
+	public void readFromNBT(NBTTagCompound tag)
+	{
 		super.readFromNBT(tag);
 		NBTTagCompound energyTag = tag.getCompoundTag("Energy");
 		this.energy.readFromNBT(energyTag);
@@ -120,25 +146,28 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider,
 	}
 
 	@Override
-	public void updateEntity() {
+	public void updateEntity()
+	{
 		super.updateEntity();
-		
-		if(worldObj.isRemote){
+
+		if (worldObj.isRemote)
+		{
 			return;
 		}
 
-		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
+		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
+		{
 			int targetX = xCoord + dir.offsetX;
 			int targetY = yCoord + dir.offsetY;
 			int targetZ = zCoord + dir.offsetZ;
 
 			TileEntity tile = worldObj.getTileEntity(targetX, targetY, targetZ);
-			if (tile instanceof IEnergyReceiver) {
-				int tosend = energy.extractEnergy(ConfigMan.rfExciter_output,
-						true);
-				int used = ((IEnergyReceiver) tile).receiveEnergy(
-						dir.getOpposite(), tosend, false);
-				if(used>0){
+			if (tile instanceof IEnergyReceiver)
+			{
+				int tosend = energy.extractEnergy(ConfigMan.rfExciter_output, true);
+				int used = ((IEnergyReceiver) tile).receiveEnergy(dir.getOpposite(), tosend, false);
+				if (used > 0)
+				{
 					this.markDirty();
 				}
 				energy.extractEnergy(used, false);

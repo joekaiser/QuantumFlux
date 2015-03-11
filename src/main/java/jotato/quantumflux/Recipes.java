@@ -35,6 +35,7 @@ public class Recipes
 	ItemStack diamondBlock = new ItemStack(Blocks.diamond_block);
 	ItemStack goldBlock = new ItemStack(Blocks.gold_block);
 	ItemStack zbq7 = new ItemStack(QFItems.zbq7);
+	ItemStack rfExciter = new ItemStack(QFBlocks.rfExciter);
 
 	String manganese = "dustManganese";
 	String mangalloy = "ingotMangalloy";
@@ -78,6 +79,8 @@ public class Recipes
 				amplificationCrystal, 'q', quibitCluster_3, 'g', goldCasing, 'z', zbq7));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.rfExciter, 2), "qeq", "sss", 'q', quibitCrystal, 'e', enderPearl,
 				's', steelIngot));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.quibitCell), "eae", "aqa", "eae", 'q', quibitCluster_1, 'e',
+				rfExciter, 'a', amplificationCrystal));
 	}
 
 	private void furnaceRecipes()

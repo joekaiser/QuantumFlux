@@ -1,36 +1,39 @@
 package jotato.quantumflux.items;
 
+import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class QFItems
 {
-    public static ItemBase amplificationCrystal;
-    public static ItemBase ironCasing;
-    public static ItemBase goldCasing;
-    public static ItemBase steelIngot;
-    public static ItemBase manganese;
-    public static ItemBase quibitCrystal;
-    public static ItemBase mangalloy;
-    public static ItemBase zbq7;
+	public static Item amplificationCrystal;
+	public static Item ironCasing;
+	public static Item goldCasing;
+	public static Item steelIngot;
+	public static Item manganese;
+	public static Item quibitCrystal;
+	public static Item mangalloy;
+	public static Item zbq7;
+	public static Item quibitCell;
 
-    public static void init()
-    {
-        amplificationCrystal = new ItemBase("amplificationCrystal");
-        ironCasing = new ItemBase("ironCasing");
-        goldCasing = new ItemBase("goldCasing");
-        steelIngot = new ItemBase("steelIngot");
-        quibitCrystal = new ItemBase("quibitCrystal");
-        manganese = new ItemBase("manganese");
-        mangalloy = new ItemBase("mangalloyIngot");
-        zbq7 = new ItemBase("zbq7");
-        registerOreDictionary();
-    }
+	public static void init()
+	{
+		amplificationCrystal = new ItemBase("amplificationCrystal");
+		ironCasing = new ItemBase("ironCasing");
+		goldCasing = new ItemBase("goldCasing");
+		steelIngot = new ItemBase("steelIngot");
+		quibitCrystal = new ItemBase("quibitCrystal");
+		manganese = new ItemBase("manganese");
+		mangalloy = new ItemBase("mangalloyIngot");
+		zbq7 = new ItemBase("zbq7").setMaxStackSize(1);
+		quibitCell = new ItemQuibitCell();
+		registerOreDictionary();
+	}
 
-    private static void registerOreDictionary()
-    {
-        OreDictionary.registerOre("ingotSteel", steelIngot);
-        OreDictionary.registerOre("dustManganese",manganese);
-        OreDictionary.registerOre("ingotMangalloy",mangalloy);
-        
-    }
+	private static void registerOreDictionary()
+	{
+		OreDictionary.registerOre("ingotSteel", steelIngot);
+		OreDictionary.registerOre("dustManganese", manganese);
+		OreDictionary.registerOre("ingotMangalloy", mangalloy);
+
+	}
 }
