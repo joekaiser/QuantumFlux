@@ -44,8 +44,8 @@ public class ConfigMan
         zpe_particles = config.getBoolean("particles", "zeroPointExtractor", true, "Enable particle effect");
         
         redfluxField_buffer = config.getInt("buffer", "redfluxField", 100000000, 100000, Integer.MAX_VALUE, "The internal storage of each player's field");
-        rfExciter_buffer = config.getInt("rfExciter_buffer", "redfluxField", 100000, 10000, 100000000, "The internal storage of each RF Exciter");
+        rfExciter_buffer = config.getInt("rfExciter_buffer", "redfluxField", 50000, 10000, 100000000, "The internal storage of each RF Exciter");
         rfExciter_output = config.getInt("rfExciter_output", "redfluxField", 50000, 100, 500000, "The max output an RF Exciter can do");
-        quibitcell_output = config.getInt("quibitCell_output", "redfluxField", 1000, 500, 5000, "How much rf/tick the quibit cell can do per item");
+        quibitcell_output = config.getInt("quibitCell_output", "redfluxField", 1000, 500, 5000, "How much rf/tick the quibit cell can charge per item");
     }
 }
