@@ -3,11 +3,11 @@
 
 ## QuantumFlux for Minecraft 1.7.10
 
-Source code and bug tacker.  More information can be found on the official forum topic
+Source code and bug tacker.  More information can be found on the official forum topic or the [website](http://joekaiser.github.io/QuantumFlux/)
 
 ### About
 
-QuantumFlux is a Forge mod for Minecraft that focuses on adding ways to generate, store, and transport RF power without adding anything to the world generation.
+QuantumFlux is a Forge mod for Minecraft that focuses on adding ways to generate, store, and transport RF power.
 
 ### Modpack Distribution
 Sure, please link back to here though. A link to [my patreon](http://www.patreon.com/jotato) would be appriciated. Just don't be a jerk, make claims you can't back, or sell mod items on your server.
