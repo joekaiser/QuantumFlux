@@ -4,6 +4,7 @@ import jotato.quantumflux.blocks.QFBlocks;
 import jotato.quantumflux.items.QFItems;
 import jotato.quantumflux.packets.PacketHandler;
 import jotato.quantumflux.proxy.CommonProxy;
+import jotato.quantumflux.redflux.RedfluxField;
 import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_1;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_2;
@@ -21,6 +22,7 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -36,10 +38,12 @@ public class QuantumFlux
 
     @SidedProxy(clientSide = "jotato.quantumflux.proxy.ClientProxy", serverSide = "jotato.quantumflux.proxy.CommonProxy")
     public static CommonProxy proxy;
+  
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+    	
         ConfigMan.init(new Configuration(event.getSuggestedConfigurationFile()));
         QFBlocks.init();
         QFItems.init();
@@ -73,6 +77,11 @@ public class QuantumFlux
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+    }
+    
+    @EventHandler
+    public void serverStopping(FMLServerStoppingEvent event){
+    	RedfluxField.purge();
     }
 
     public static CreativeTabs tab = new CreativeTabs("tabQuantumFlux") {

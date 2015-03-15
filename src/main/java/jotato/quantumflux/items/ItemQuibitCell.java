@@ -60,7 +60,7 @@ public class ItemQuibitCell extends ItemBase
 		// you have to pull power from the field manually. This needs to be
 		// changed.
 		EntityPlayer player = (EntityPlayer) entity;
-		List<IRedfluxExciter> network = RedfluxField.getLinks(player.getGameProfile().getId().toString());
+		List<IRedfluxExciter> network =RedfluxField.getLinks(player.getGameProfile().getId().toString());
 		
 		if (network == null)
 			return;

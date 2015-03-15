@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import jotato.quantumflux.Logger;
+
 
 /**
  * Base on King Lemming's CoFHLib/RegistryEnderAttuned. All Kudos to him
@@ -22,6 +24,7 @@ public final class RedfluxField {
 	}
 
 	public static void registerLink(IRedfluxExciter item) {
+		Logger.debug("link " + item.toString() + " to " + item.getOwner());
 		if (item.getOwner() != null) {
 			if (!quantumLinks.containsKey(item.getOwner())) {
 				quantumLinks.put(item.getOwner(),
@@ -34,10 +37,15 @@ public final class RedfluxField {
 		}
 	}
 
-	public static void removeLink(IRedfluxExciter item) {
+	public static  void removeLink(IRedfluxExciter item) {
+		Logger.debug("remove link " + item.toString() + " to " + item.getOwner());
 		if (item.getOwner() != null) {
 			quantumLinks.get(item.getOwner()).remove(item);
 		}
+	}
+	
+	public static void purge(){
+		quantumLinks.clear();
 	}
 
 }

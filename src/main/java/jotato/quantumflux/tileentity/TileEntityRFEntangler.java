@@ -99,7 +99,7 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 
 	public void deregisterWithField()
 	{
-		if (!worldObj.isRemote)
+		if (worldObj != null && !worldObj.isRemote)
 		{
 			RedfluxField.removeLink(this);
 		}
@@ -107,7 +107,7 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 
 	public void registerWithField()
 	{
-		if (!worldObj.isRemote)
+		if (worldObj != null && !worldObj.isRemote)
 		{
 			RedfluxField.registerLink(this);
 		}
