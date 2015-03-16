@@ -9,6 +9,9 @@ Source code and bug tacker.  More information can be found on the official forum
 
 QuantumFlux is a Forge mod for Minecraft that focuses on adding ways to generate, store, and transport RF power.
 
+### Dependencies
+[CoFH Lib](http://www.curse.com/mc-mods/minecraft/220333-cofhlib)
+
 ### Modpack Distribution
 Sure, please link back to here though. A link to [my patreon](http://www.patreon.com/jotato) would be appriciated. Just don't be a jerk, make claims you can't back, or sell mod items on your server.
 
