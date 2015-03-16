@@ -3,7 +3,7 @@
 
 ## QuantumFlux for Minecraft 1.7.10
 
-Source code and bug tacker.  More information can be found on the official forum topic or the [website](http://joekaiser.github.io/QuantumFlux/)
+Source code and bug tacker.  More information can be found on the official [forum topic](bitly.com/19gUP8j) or the wiki
 
 ### About
 
