@@ -3,7 +3,8 @@
 
 ## QuantumFlux for Minecraft 1.7.10
 
-Source code and bug tacker.  More information can be found on the official [forum topic](bitly.com/19gUP8j) or the wiki
+Source code and bug tacker.  More information can be found on the official [forum topic](bitly.com/19gUP8j) or the wiki.  
+Download from [CurseForge](http://www.curse.com/mc-mods/minecraft/228609-quantumflux)
 
 ### About
 
