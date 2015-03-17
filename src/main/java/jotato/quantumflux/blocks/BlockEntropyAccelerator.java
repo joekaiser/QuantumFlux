@@ -33,6 +33,7 @@ public class BlockEntropyAccelerator extends BlockContainerBase
     {
         super(Material.iron, "entropyAccelerator", 1, "pickaxe", 1);
         setStepSound(soundTypeMetal);
+        setLightLevel(5);
     }
 
     @SideOnly(Side.CLIENT)
