@@ -5,7 +5,7 @@ package jotato.quantumflux.redflux;
  * Based on King Lemming's CoFH/IEnderEndergyHandler. All Kudos to him
  *
  */
-public interface IRedfluxExciter {
+public interface IRedfluxProvider {
 	
 	/**
 	 * 

@@ -4,7 +4,7 @@ import java.util.List;
 
 import cofh.api.energy.IEnergyContainerItem;
 import jotato.quantumflux.ConfigMan;
-import jotato.quantumflux.redflux.IRedfluxExciter;
+import jotato.quantumflux.redflux.IRedfluxProvider;
 import jotato.quantumflux.redflux.RedfluxField;
 import jotato.quantumflux.tileentity.TileEntityRFEntangler;
 import net.minecraft.entity.Entity;
@@ -60,14 +60,14 @@ public class ItemQuibitCell extends ItemBase
 		// you have to pull power from the field manually. This needs to be
 		// changed.
 		EntityPlayer player = (EntityPlayer) entity;
-		List<IRedfluxExciter> network =RedfluxField.getLinks(player.getGameProfile().getId().toString());
+		List<IRedfluxProvider> network =RedfluxField.getLinks(player.getGameProfile().getId().toString());
 		
 		if (network == null)
 			return;
 		
-		IRedfluxExciter provider = null;
+		IRedfluxProvider provider = null;
 
-		for (IRedfluxExciter exciter : network)
+		for (IRedfluxProvider exciter : network)
 		{
 			// I want to rely on the canSend check, but just in case there are
 			// more than 1 "providers" on the network

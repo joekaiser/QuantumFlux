@@ -14,30 +14,30 @@ import jotato.quantumflux.Logger;
 public final class RedfluxField
 {
 
-	private static Map<String, List<IRedfluxExciter>> quantumLinks = new HashMap<String, List<IRedfluxExciter>>();
+	private static Map<String, List<IRedfluxProvider>> quantumLinks = new HashMap<String, List<IRedfluxProvider>>();
 
-	public static List<IRedfluxExciter> getLinks(String owner)
+	public static List<IRedfluxProvider> getLinks(String owner)
 	{
 		if (owner == null)
 		{
-			return new ArrayList<IRedfluxExciter>();
+			return new ArrayList<IRedfluxProvider>();
 		}
-		List<IRedfluxExciter> exciters = quantumLinks.get(owner);
-		if (exciters == null)
+		List<IRedfluxProvider> providers = quantumLinks.get(owner);
+		if (providers == null)
 		{
-			exciters = new ArrayList<IRedfluxExciter>();
+			providers = new ArrayList<IRedfluxProvider>();
 		}
-		return exciters;
+		return providers;
 	}
 
-	public static void registerLink(IRedfluxExciter item)
+	public static void registerLink(IRedfluxProvider item)
 	{
 		Logger.debug("link " + item.toString() + " to " + item.getOwner());
 		if (item.getOwner() != null)
 		{
 			if (!quantumLinks.containsKey(item.getOwner()))
 			{
-				quantumLinks.put(item.getOwner(), new ArrayList<IRedfluxExciter>());
+				quantumLinks.put(item.getOwner(), new ArrayList<IRedfluxProvider>());
 			}
 
 			if (!quantumLinks.get(item.getOwner()).contains(item))
@@ -47,7 +47,7 @@ public final class RedfluxField
 		}
 	}
 
-	public static void removeLink(IRedfluxExciter item)
+	public static void removeLink(IRedfluxProvider item)
 	{
 		Logger.debug("remove link " + item.toString() + " to " + item.getOwner());
 		if (item.getOwner() != null)
@@ -69,11 +69,11 @@ public final class RedfluxField
 		// Since there are multiple items on the network that can send energy
 		// we will loop over all of them until we have the amount requested
 		// or there is no more left
-		for (IRedfluxExciter exciter : getLinks(owner))
+		for (IRedfluxProvider link : getLinks(owner))
 		{
-			if (exciter.canSend())
+			if (link.canSend())
 			{
-				tosend += exciter.requestEnergy(value - tosend, simulate);
+				tosend += link.requestEnergy(value - tosend, simulate);
 
 				if (tosend == value)
 				{

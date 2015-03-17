@@ -3,7 +3,7 @@ package jotato.quantumflux.tileentity;
 import java.util.UUID;
 
 import jotato.quantumflux.ConfigMan;
-import jotato.quantumflux.redflux.IRedfluxExciter;
+import jotato.quantumflux.redflux.IRedfluxProvider;
 import jotato.quantumflux.redflux.RedfluxField;
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyReceiver;
@@ -11,7 +11,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver, IRedfluxExciter
+public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver, IRedfluxProvider
 {
 
 	public UUID owner;
