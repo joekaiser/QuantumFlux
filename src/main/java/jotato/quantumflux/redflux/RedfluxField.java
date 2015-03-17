@@ -22,7 +22,12 @@ public final class RedfluxField
 		{
 			return new ArrayList<IRedfluxExciter>();
 		}
-		return quantumLinks.get(owner);
+		List<IRedfluxExciter> exciters = quantumLinks.get(owner);
+		if (exciters == null)
+		{
+			exciters = new ArrayList<IRedfluxExciter>();
+		}
+		return exciters;
 	}
 
 	public static void registerLink(IRedfluxExciter item)
@@ -64,24 +69,19 @@ public final class RedfluxField
 		// Since there are multiple items on the network that can send energy
 		// we will loop over all of them until we have the amount requested
 		// or there is no more left
-		List<IRedfluxExciter> exciters = getLinks(owner);
-		if (exciters != null)
+		for (IRedfluxExciter exciter : getLinks(owner))
 		{
-			for (IRedfluxExciter exciter : getLinks(owner))
+			if (exciter.canSend())
 			{
-				if (exciter.canSend())
-				{
-					tosend += exciter.requestEnergy(value - tosend, simulate);
+				tosend += exciter.requestEnergy(value - tosend, simulate);
 
-					if (tosend == value)
-					{
-						break;
-					}
+				if (tosend == value)
+				{
+					break;
 				}
 			}
 		}
 
 		return tosend;
-
 	}
 }
