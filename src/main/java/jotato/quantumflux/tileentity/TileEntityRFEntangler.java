@@ -32,7 +32,6 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 			this.markDirty();
 		}
 		return storage.receiveEnergy(maxReceive, simulate);
-
 	}
 
 	@Override
@@ -56,7 +55,6 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 		this.storage.writeToNBT(energyTag);
 		tag.setTag("Energy", energyTag);
 		tag.setString("owner", owner.toString());
-
 	}
 
 	@Override
@@ -68,7 +66,6 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 		this.owner = UUID.fromString(tag.getString("owner"));
 
 		registerWithField();
-
 	}
 
 	@Override
@@ -141,28 +138,4 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 		super.validate();
 		registerWithField();
 	}
-
-	@Override
-	public void updateEntity()
-	{
-
-		if (worldObj.isRemote)
-		{
-			return;
-		}
-		for (IRedfluxExciter exciter : RedfluxField.getLinks(this.getOwner()))
-		{
-			if (exciter.canReceive())
-			{
-				int tosend = storage.getEnergyStored();
-				int used = (tosend - exciter.receiveEnergy(tosend, false));
-				if (used > 0)
-				{
-					this.markDirty();
-				}
-				storage.extractEnergy(used, false);
-			}
-		}
-	}
-
 }

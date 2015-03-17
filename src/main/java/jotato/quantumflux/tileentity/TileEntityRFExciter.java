@@ -3,48 +3,29 @@ package jotato.quantumflux.tileentity;
 import java.util.UUID;
 
 import jotato.quantumflux.ConfigMan;
-import jotato.quantumflux.redflux.IRedfluxExciter;
 import jotato.quantumflux.redflux.RedfluxField;
-import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityRFExciter extends TileEntity implements IEnergyProvider, IRedfluxExciter
+public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 {
-
 	public UUID owner;
-	private EnergyStorage energy;
 
 	public TileEntityRFExciter()
 	{
-		energy = new EnergyStorage(ConfigMan.rfExciter_buffer, ConfigMan.rfExciter_output);
 	}
 
-	@Override
 	public String getOwner()
 	{
 		return owner == null ? null : owner.toString();
 	}
 
-	@Override
 	public boolean canReceive()
 	{
 		return true;
-	}
-
-	@Override
-	public boolean canSend()
-	{
-		return false;
-	}
-
-	@Override
-	public int requestEnergy(int energy, boolean simulate)
-	{
-		return 0;
 	}
 
 	@Override
@@ -54,82 +35,45 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider, 
 	}
 
 	@Override
-	public int receiveEnergy(int energy, boolean simulate)
-	{
-		int taken = this.energy.receiveEnergy(energy, simulate);
-		return energy - taken;
-
-	}
-
-	@Override
 	public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate)
 	{
-
-		if (!simulate)
-		{
-			this.markDirty();
-		}
-		return this.energy.extractEnergy(maxExtract, simulate);
+		return RedfluxField.requestEnergy(maxExtract, simulate, this.getOwner());
 	}
 
 	@Override
 	public int getEnergyStored(ForgeDirection from)
 	{
-		return this.energy.getEnergyStored();
+		return 0; // todo: should this pull from the network?
 	}
 
 	@Override
 	public int getMaxEnergyStored(ForgeDirection from)
 	{
-		return this.energy.getMaxEnergyStored();
+		return 0; // todo: should this pull from the network?
 	}
 
 	@Override
 	public void onChunkUnload()
 	{
 		super.onChunkUnload();
-		deregisterWithField();
 	}
 
 	@Override
 	public void invalidate()
 	{
 		super.invalidate();
-		deregisterWithField();
 	}
 
 	@Override
 	public void validate()
 	{
 		super.validate();
-		registerWithField();
-	}
-
-	public void deregisterWithField()
-	{
-		if (worldObj != null && !worldObj.isRemote)
-		{
-
-			RedfluxField.removeLink(this);
-		}
-	}
-
-	public void registerWithField()
-	{
-		if (worldObj != null && !worldObj.isRemote)
-		{
-			RedfluxField.registerLink(this);
-		}
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound tag)
 	{
 		super.writeToNBT(tag);
-
-		NBTTagCompound energyTag = new NBTTagCompound();
-		this.energy.writeToNBT(energyTag);
-		tag.setTag("Energy", energyTag);
 		tag.setString("owner", owner.toString());
 	}
 
@@ -137,11 +81,7 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider, 
 	public void readFromNBT(NBTTagCompound tag)
 	{
 		super.readFromNBT(tag);
-		NBTTagCompound energyTag = tag.getCompoundTag("Energy");
-		this.energy.readFromNBT(energyTag);
 		this.owner = UUID.fromString(tag.getString("owner"));
-
-		registerWithField();
 
 	}
 
@@ -164,13 +104,13 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider, 
 			TileEntity tile = worldObj.getTileEntity(targetX, targetY, targetZ);
 			if (tile instanceof IEnergyReceiver)
 			{
-				int tosend = energy.extractEnergy(ConfigMan.rfExciter_output, true);
+				int tosend = extractEnergy(null, ConfigMan.rfExciter_output, true);
 				int used = ((IEnergyReceiver) tile).receiveEnergy(dir.getOpposite(), tosend, false);
 				if (used > 0)
 				{
 					this.markDirty();
 				}
-				energy.extractEnergy(used, false);
+				extractEnergy(null, used, false);
 			}
 
 		}
