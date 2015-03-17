@@ -37,7 +37,7 @@ public interface IRedfluxExciter {
 	
 	
 	/**
-	 * This endpoint is really just a hack since ItemStacks are not supported yet.
+	 * 
 	 * @param energy
 	 * @param simulate
 	 * @return amount of energy that was available to give

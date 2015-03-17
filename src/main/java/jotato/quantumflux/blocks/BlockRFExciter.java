@@ -31,10 +31,8 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider {
     			TileEntityRFExciter te = (TileEntityRFExciter) world.getTileEntity(x, y, z);
     			
     			//todo: allow the owner to unlock and prevent other from stealing the lock
-    			
     			if(te.owner==null){
     				te.owner = player.getGameProfile().getId();
-    				te.registerWithField();
     			}
     		}
 		}
