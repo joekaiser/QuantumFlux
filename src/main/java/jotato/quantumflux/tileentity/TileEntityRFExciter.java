@@ -13,6 +13,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 {
 	public UUID owner;
+	public int lastEnergyUsed;
 
 	public TileEntityRFExciter()
 	{
@@ -110,10 +111,10 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 				{
 					this.markDirty();
 				}
+				lastEnergyUsed = used;
 				extractEnergy(null, used, false);
 			}
 
 		}
 	}
-
 }
