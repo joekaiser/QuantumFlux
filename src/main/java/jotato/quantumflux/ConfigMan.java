@@ -39,7 +39,7 @@ public class ConfigMan
         quibitCluster_baseTransferRate = config.getInt("baseTransferRate", "quibitCluster", 100, 50, 1000, "The base RF/tick the Quibit Clusters can do");
         quibitCluster_multiplier = config.getInt("multiplier", "quibitCluster", 5, 4, 6, "The base RF/tick the Quibit Clusters can do");
         
-        zpe_maxPowerGen = config.getInt("powerGen", "zeroPointExtractor", 256, 256, 2048, "The maximum amount of rf/t it can generate");
+        zpe_maxPowerGen = config.getInt("powerGen", "zeroPointExtractor", 128, 64, 256, "The maximum amount of rf/t it can generate");
         zpe_particles = config.getBoolean("particles", "zeroPointExtractor", true, "Enable particle effect");
         
         redfluxField_buffer = config.getInt("buffer", "redfluxField", 1000000, 100000, Integer.MAX_VALUE, "The internal storage of each player's field");
