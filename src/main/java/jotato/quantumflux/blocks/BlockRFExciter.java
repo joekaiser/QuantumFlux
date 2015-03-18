@@ -1,5 +1,7 @@
 package jotato.quantumflux.blocks;
 
+import java.text.NumberFormat;
+
 import com.mojang.realmsclient.gui.ChatFormatting;
 
 import jotato.quantumflux.proxy.ClientProxy;
@@ -77,7 +79,6 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider
 			miny = .15f;
 			minz = .15f;
 			break;
-		
 
 		default: // bottom (yneg)
 			maxx = .85f;
@@ -139,7 +140,8 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider
 			TileEntity entity = world.getTileEntity(x, y, z);
 			if (entity instanceof TileEntityRFExciter)
 			{
-				String used = String.valueOf(((TileEntityRFExciter) entity).lastEnergyUsed);
+				String used = NumberFormat.getIntegerInstance().format(((TileEntityRFExciter) entity).lastEnergyUsed);
+
 				player.addChatMessage(new ChatComponentText(ChatFormatting.LIGHT_PURPLE + used + " RF used last tick"));
 			}
 		}

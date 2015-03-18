@@ -77,6 +77,7 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 	{
 		super.writeToNBT(tag);
 		tag.setString("owner", owner.toString());
+		tag.setInteger("direction",targetDirection.ordinal());
 	}
 
 	@Override
@@ -84,7 +85,7 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 	{
 		super.readFromNBT(tag);
 		this.owner = UUID.fromString(tag.getString("owner"));
-
+		this.targetDirection = ForgeDirection.getOrientation(tag.getInteger("direction"));
 	}
 
 	@Override

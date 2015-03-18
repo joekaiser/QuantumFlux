@@ -1,5 +1,7 @@
 package jotato.quantumflux.blocks;
 
+import java.text.NumberFormat;
+
 import cofh.api.energy.IEnergyReceiver;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
@@ -105,7 +107,7 @@ public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
 			TileEntity entity = world.getTileEntity(x, y, z);
 			if (entity instanceof IEnergyReceiver)
 			{
-				String stored = String.valueOf(((IEnergyReceiver) entity).getEnergyStored(null));
+				String stored = NumberFormat.getIntegerInstance().format(((IEnergyReceiver) entity).getEnergyStored(null));
 				player.addChatMessage(new ChatComponentText(ChatFormatting.LIGHT_PURPLE + stored + " RF availble to the RedfluxField"));
 			}
 		}
