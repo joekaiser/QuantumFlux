@@ -2,8 +2,10 @@ package jotato.quantumflux.proxy;
 
 import jotato.quantumflux.blocks.BlockEntropyAccelerator;
 import jotato.quantumflux.blocks.BlockRFEntangler;
+import jotato.quantumflux.blocks.BlockRFExciter;
 import jotato.quantumflux.render.RenderEntangler;
 import jotato.quantumflux.render.RenderEntropyAccelerator;
+import jotato.quantumflux.render.RenderExciter;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy
@@ -18,6 +20,9 @@ public class ClientProxy extends CommonProxy
 		
 		BlockRFEntangler.renderType = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(new RenderEntangler());
+		
+		BlockRFExciter.renderType = RenderingRegistry.getNextAvailableRenderId();
+		RenderingRegistry.registerBlockHandler(new RenderExciter());
 		
 	}
 

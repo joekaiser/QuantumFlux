@@ -14,6 +14,7 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 {
 	public UUID owner;
 	public int lastEnergyUsed;
+	public ForgeDirection targetDirection;
 
 	public TileEntityRFExciter()
 	{

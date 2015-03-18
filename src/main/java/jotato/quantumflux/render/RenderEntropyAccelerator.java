@@ -53,7 +53,6 @@ public class RenderEntropyAccelerator extends RenderBlockBase
 			// adding this second pass renders the inside faces as well
 			renderer.renderFromInside = true;
 			renderer.renderStandardBlock(QFBlocks.entropyAccelerator, x, y, z);
-
 		}
 		return true;
 	}
