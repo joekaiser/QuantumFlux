@@ -31,7 +31,7 @@ public class ConfigMan
 
     public static void hydrateConifg()
     {
-        incinerator_output = config.getInt("output", "entropyAccelerator", 2, 1, 10, "The RF generated per tick");
+        incinerator_output = config.getInt("output", "entropyAccelerator", 4, 1, 10, "The RF generated per tick");
         incinerator_buffer = config.getInt("buffer", "entropyAccelerator", 1000, 100, 10000, "The amount of energy that can be stored in the block");
         incinerator_burnTime = config.getInt("burnTime", "entropyAccelerator", 100, 20, 1000, "How many ticks an item will burn");
 
@@ -39,7 +39,7 @@ public class ConfigMan
         quibitCluster_baseTransferRate = config.getInt("baseTransferRate", "quibitCluster", 100, 50, 1000, "The base RF/tick the Quibit Clusters can do");
         quibitCluster_multiplier = config.getInt("multiplier", "quibitCluster", 5, 4, 6, "The base RF/tick the Quibit Clusters can do");
         
-        zpe_maxPowerGen = config.getInt("powerGen", "zeroPointExtractor", 128, 64, 256, "The maximum amount of rf/t it can generate");
+        zpe_maxPowerGen = config.getInt("powerGen", "zeroPointExtractor", 150, 64, 256, "The maximum amount of rf/t it can generate");
         zpe_particles = config.getBoolean("particles", "zeroPointExtractor", true, "Enable particle effect");
         
         redfluxField_buffer = config.getInt("buffer", "redfluxField", 1000000, 100000, Integer.MAX_VALUE, "The internal storage of each player's field");

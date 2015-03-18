@@ -37,6 +37,7 @@ public class Recipes
 	ItemStack goldBlock = new ItemStack(Blocks.gold_block);
 	ItemStack zbq7 = new ItemStack(QFItems.zbq7);
 	ItemStack rfExciter = new ItemStack(QFBlocks.rfExciter);
+	ItemStack goldNugget = new ItemStack(Items.gold_nugget);
 
 	String manganese = "dustManganese";
 	String mangalloy = "ingotMangalloy";
@@ -70,9 +71,9 @@ public class Recipes
 				amplificationCrystal));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.quibitCluster_5), "qqa", "qqa", 'q', quibitCluster_4, 'a',
 				amplificationCrystal));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.manganese), " r ", "rir", " r ", 'r', redstone, 'i', ironIngot));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.manganese), "grg", "rir", "grg", 'r', redstone, 'i', ironIngot, 'g', goldNugget));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.mangalloy), "sss", "sms", "sss", 's', steelIngot, 'm', manganese));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.zpe), "zaz", "zqz", "mmm", 'm', mangalloy, 'z', zbq7, 'a',
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.zpe), "zaz", "aqa", "mmm", 'm', mangalloy, 'z', zbq7, 'a',
 				amplificationCrystal, 'q', quibitCluster_3));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.zbq7, 1), "rlr", "gdg", "rlr", 'r', redstoneBlock, 'l',
 				lapisBlock, 'g', goldBlock, 'd', diamondBlock));
