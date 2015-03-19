@@ -29,7 +29,7 @@ public class BlockZPE extends BlockBase implements ITileEntityProvider
     {
         super(Material.iron, "zeroPointExtractor", 1, "pickaxe", 1);
         setStepSound(soundTypeMetal);
-        setLightLevel(5);
+        setLightLevel(.3f);
     }
 
     @SideOnly(Side.CLIENT)

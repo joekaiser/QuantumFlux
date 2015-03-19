@@ -16,6 +16,7 @@ public class ConfigMan
     
     public static boolean zpe_particles;
     public static int zpe_maxPowerGen;
+    public static boolean zpe_enabled;
     
     public static int redfluxField_buffer;
     public static int rfExciter_output;
@@ -41,6 +42,7 @@ public class ConfigMan
         
         zpe_maxPowerGen = config.getInt("powerGen", "zeroPointExtractor", 150, 64, 256, "The maximum amount of rf/t it can generate");
         zpe_particles = config.getBoolean("particles", "zeroPointExtractor", true, "Enable particle effect");
+        zpe_enabled= config.getBoolean("enabled", "zeroPointExtractor", true, "Enable the Zero Point Extractor");
         
         redfluxField_buffer = config.getInt("buffer", "redfluxField", 1000000, 100000, Integer.MAX_VALUE, "The internal storage of each player's field");
         rfExciter_output = config.getInt("rfExciter_output", "redfluxField", 10000, 100, 100000, "The max output an RF Exciter can do");
