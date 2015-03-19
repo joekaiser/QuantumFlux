@@ -1,9 +1,12 @@
 package jotato.quantumflux.blocks;
 
+import java.text.NumberFormat;
+
 import cofh.api.energy.IEnergyReceiver;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 
+import jotato.quantumflux.proxy.ClientProxy;
 import jotato.quantumflux.tileentity.TileEntityRFEntangler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -16,10 +19,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
 {
+	public static int renderType;
 
 	@SideOnly(Side.CLIENT)
 	protected IIcon icon_front;
@@ -102,11 +107,53 @@ public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
 			TileEntity entity = world.getTileEntity(x, y, z);
 			if (entity instanceof IEnergyReceiver)
 			{
-				String stored = String.valueOf(((IEnergyReceiver) entity).getEnergyStored(null));
+				String stored = NumberFormat.getIntegerInstance().format(((IEnergyReceiver) entity).getEnergyStored(null));
 				player.addChatMessage(new ChatComponentText(ChatFormatting.LIGHT_PURPLE + stored + " RF availble to the RedfluxField"));
 			}
 		}
 		return super.onBlockActivated(world, x, y, z, player, p_149727_6_, p_149727_7_, p_149727_8_, p_149727_9_);
+	}
+	
+	@Override
+	public boolean renderAsNormalBlock()
+	{
+		return false;
+	}
+
+	@Override
+	public boolean isOpaqueCube()
+	{
+		return false;
+	}
+
+	@Override
+	public int getRenderType()
+	{
+		return renderType;
+	}
+
+	@Override
+	public boolean canRenderInPass(int pass)
+	{
+		ClientProxy.renderPass = pass;
+		return true;
+	}
+
+	@Override
+	public int getRenderBlockPass()
+	{
+		return 1;
+	}
+	
+	@Override
+	public boolean isNormalCube()
+	{
+		return false;
+	}
+	@Override
+	public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_, int p_149646_5_)
+	{
+		return true;
 	}
 
 }

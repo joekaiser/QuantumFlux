@@ -14,6 +14,7 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 {
 	public UUID owner;
 	public int lastEnergyUsed;
+	public ForgeDirection targetDirection;
 
 	public TileEntityRFExciter()
 	{
@@ -76,6 +77,7 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 	{
 		super.writeToNBT(tag);
 		tag.setString("owner", owner.toString());
+		tag.setInteger("direction",targetDirection.ordinal());
 	}
 
 	@Override
@@ -83,7 +85,7 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 	{
 		super.readFromNBT(tag);
 		this.owner = UUID.fromString(tag.getString("owner"));
-
+		this.targetDirection = ForgeDirection.getOrientation(tag.getInteger("direction"));
 	}
 
 	@Override
@@ -96,25 +98,21 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 			return;
 		}
 
-		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
+		int targetX = xCoord + targetDirection.offsetX;
+		int targetY = yCoord + targetDirection.offsetY;
+		int targetZ = zCoord + targetDirection.offsetZ;
+
+		TileEntity tile = worldObj.getTileEntity(targetX, targetY, targetZ);
+		if (tile instanceof IEnergyReceiver)
 		{
-			int targetX = xCoord + dir.offsetX;
-			int targetY = yCoord + dir.offsetY;
-			int targetZ = zCoord + dir.offsetZ;
-
-			TileEntity tile = worldObj.getTileEntity(targetX, targetY, targetZ);
-			if (tile instanceof IEnergyReceiver)
+			int tosend = extractEnergy(null, ConfigMan.rfExciter_output, true);
+			int used = ((IEnergyReceiver) tile).receiveEnergy(targetDirection.getOpposite(), tosend, false);
+			if (used > 0)
 			{
-				int tosend = extractEnergy(null, ConfigMan.rfExciter_output, true);
-				int used = ((IEnergyReceiver) tile).receiveEnergy(dir.getOpposite(), tosend, false);
-				if (used > 0)
-				{
-					this.markDirty();
-				}
-				lastEnergyUsed = used;
-				extractEnergy(null, used, false);
+				this.markDirty();
 			}
-
+			lastEnergyUsed = used;
+			extractEnergy(null, used, false);
 		}
 	}
 }

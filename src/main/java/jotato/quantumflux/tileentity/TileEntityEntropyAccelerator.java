@@ -3,9 +3,13 @@ package jotato.quantumflux.tileentity;
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
+import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jotato.quantumflux.ConfigMan;
+import jotato.quantumflux.packets.PacketHandler;
+import jotato.quantumflux.packets.RenderBlockMessage;
+import jotato.quantumflux.render.IRenderState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -13,14 +17,16 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityEntropyAccelerator extends TileEntity implements IInventory, IEnergyProvider
+public class TileEntityEntropyAccelerator extends TileEntity implements IInventory, IEnergyProvider, IRenderState
 {
 	private ItemStack fuelStack;
 	private int currentBurnTime = 0;
 	private EnergyStorage energy;
-	private boolean isBurning = false;
+	private boolean wasBurning;
 
 	public int maxBurnTime;
+
+	public boolean isBurning = false;
 
 	public TileEntityEntropyAccelerator()
 	{
@@ -163,10 +169,12 @@ public class TileEntityEntropyAccelerator extends TileEntity implements IInvento
 	public void updateEntity()
 	{
 		super.updateEntity();
+
 		if (!worldObj.isRemote)
 		{
 			if (isActive())
 			{
+
 				if (this.currentBurnTime == 0)
 				{
 					isBurning = true;
@@ -185,6 +193,15 @@ public class TileEntityEntropyAccelerator extends TileEntity implements IInvento
 				}
 				this.markDirty();
 			}
+
+			if (wasBurning != isBurning)
+			{
+				RenderBlockMessage message = new RenderBlockMessage(xCoord, yCoord, zCoord, isBurning ? 1 : 0);
+				PacketHandler.net.sendToAllAround(message, new TargetPoint(worldObj.provider.dimensionId,xCoord,yCoord,zCoord,32));
+			
+			}
+
+			wasBurning = isBurning;
 
 			for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
 			{
@@ -259,5 +276,12 @@ public class TileEntityEntropyAccelerator extends TileEntity implements IInvento
 	public int getMaxEnergyStored(ForgeDirection from)
 	{
 		return energy.getMaxEnergyStored();
+	}
+
+	@Override
+	public void setState(int state)
+	{
+		isBurning = state == 0 ? false : true;
+
 	}
 }

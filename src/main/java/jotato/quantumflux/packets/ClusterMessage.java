@@ -16,8 +16,6 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 	  private int z;
 	  private int energryStored;
 
-    
-    // this constructor is required otherwise you'll get errors (used somewhere in fml through reflection)
     public ClusterMessage() {}
     
     public ClusterMessage(int x, int y, int z, int energyStored)
@@ -31,7 +29,6 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
     @Override
     public void fromBytes(ByteBuf buf)
     {
-      // the order is important
       this.x=buf.readInt();
       this.y=buf.readInt();
       this.z=buf.readInt();
@@ -48,14 +45,14 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
     	 buf.writeInt(this.energryStored);
     }
     
-    public static class Handler implements IMessageHandler<ClusterMessage, IMessage>{
+    public static class ClusterMessageHandler implements IMessageHandler<ClusterMessage, IMessage>{
         @Override
         public IMessage onMessage(ClusterMessage message, MessageContext ctx) {
         	TileEntity tile = FMLClientHandler.instance().getWorldClient().getTileEntity(message.x, message.y,message.z);
         	if(tile instanceof TileEntityQuibitCluster){
         		((TileEntityQuibitCluster)tile).setEnergyStored(message.energryStored);
         	}
-            return null; // no response in this case
+            return null; 
         }
     }
   }
