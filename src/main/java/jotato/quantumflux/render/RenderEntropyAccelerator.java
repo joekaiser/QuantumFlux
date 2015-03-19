@@ -41,12 +41,12 @@ public class RenderEntropyAccelerator extends RenderBlockBase
 		} else
 		{
 			//render it slightly smaller to stop z-fighting
-			renderer.renderMaxX = .999975;
-			renderer.renderMaxY = .999975;
-			renderer.renderMaxZ = .999975;
-			renderer.renderMinX = .000025;
-			renderer.renderMinY = .000025;
-			renderer.renderMinZ = .000025;
+			renderer.renderMaxX = .99996;
+			renderer.renderMaxY = .99996;
+			renderer.renderMaxZ = .99996;
+			renderer.renderMinX = .00003;
+			renderer.renderMinY = .00003;
+			renderer.renderMinZ = .00003;
 			renderer.renderFromInside = false;
 			renderer.renderStandardBlock(QFBlocks.entropyAccelerator, x, y, z);
 
