@@ -1,11 +1,18 @@
 package jotato.quantumflux.tileentity;
 
+import java.util.List;
+
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
 import jotato.quantumflux.ConfigMan;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class TileEntityZeroPointExtractor extends TileEntity implements IEnergyProvider
@@ -36,6 +43,16 @@ public class TileEntityZeroPointExtractor extends TileEntity implements IEnergyP
 		this.energy.readFromNBT(energyTag);
 	}
 
+	// todo: I can see this being useful if extract out to a "helper" class of
+	// some sort
+	@SuppressWarnings("rawtypes")
+	private List getEntitiesInRange(Class entityType, World world, int x, int y, int z, int distance)
+	{
+		return world.getEntitiesWithinAABB(entityType,
+				AxisAlignedBB.getBoundingBox(x - distance, y - distance, z - distance, x + distance, y + distance, z + distance));
+	}
+
+	@SuppressWarnings("unchecked")
 	@Override
 	public void updateEntity()
 	{
@@ -45,12 +62,22 @@ public class TileEntityZeroPointExtractor extends TileEntity implements IEnergyP
 		{
 			return;
 		}
-		
+
 		if (worldObj.getBlockPowerInput(xCoord, yCoord, zCoord) > 0)
 			return;
 
 		this.energy.receiveEnergy(Math.max(ConfigMan.zpe_maxPowerGen - this.yCoord, 1), false);
-
+		if(ConfigMan.zpe_doesDamage)
+		{
+			List<EntityLivingBase> theLiving = getEntitiesInRange(EntityLivingBase.class, worldObj, xCoord,yCoord,zCoord, ConfigMan.zpe_damageRange);
+			if(theLiving != null){
+				for(EntityLivingBase life:theLiving){
+					life.addPotionEffect(new PotionEffect(Potion.hunger.id,120,0));
+					life.addPotionEffect(new PotionEffect(Potion.weakness.id,120,0));
+					life.addPotionEffect(new PotionEffect(Potion.wither.id,80,0));
+				}
+			}
+		}
 		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
 		{
 			int targetX = xCoord + dir.offsetX;
