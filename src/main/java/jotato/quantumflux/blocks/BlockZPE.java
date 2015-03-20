@@ -62,7 +62,10 @@ public class BlockZPE extends BlockBase implements ITileEntityProvider
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World world, int x, int y, int z, Random random)
     {
+    	if (world.getBlockPowerInput(x, y, z) > 0) return;
+
         if(!ConfigMan.zpe_particles) return;
+        
         double mod = MathHelper.clamp_double(world.rand.nextDouble(), .24, .76);
         world.spawnParticle("portal", x + mod, y + mod, z + mod, 0.1F, 0.1F, 0.1F);
     }
