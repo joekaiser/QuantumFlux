@@ -45,6 +45,9 @@ public class TileEntityZeroPointExtractor extends TileEntity implements IEnergyP
 		{
 			return;
 		}
+		
+		if (worldObj.getBlockPowerInput(xCoord, yCoord, zCoord) > 0)
+			return;
 
 		this.energy.receiveEnergy(Math.max(ConfigMan.zpe_maxPowerGen - this.yCoord, 1), false);
 
