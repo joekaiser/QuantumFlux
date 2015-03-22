@@ -16,7 +16,9 @@ import jotato.quantumflux.tileentity.TileEntityRFExciter;
 import jotato.quantumflux.tileentity.TileEntityZeroPointExtractor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.util.EnumHelper;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -39,7 +41,6 @@ public class QuantumFlux
     @SidedProxy(clientSide = "jotato.quantumflux.proxy.ClientProxy", serverSide = "jotato.quantumflux.proxy.CommonProxy")
     public static CommonProxy proxy;
   
-
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
@@ -72,6 +73,7 @@ public class QuantumFlux
         proxy.initClient();
         new Recipes().init();
         PacketHandler.initPackets();
+        
     }
 
     @EventHandler
