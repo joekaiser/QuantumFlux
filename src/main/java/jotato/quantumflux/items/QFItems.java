@@ -14,6 +14,8 @@ public class QFItems
 	public static Item mangalloy;
 	public static Item zbq7;
 	public static Item quibitCell;
+	public static Item energizedCrystal;
+	public static Item magnet;
 
 	public static void init()
 	{
@@ -26,6 +28,8 @@ public class QFItems
 		mangalloy = new ItemBase("mangalloyIngot");
 		zbq7 = new ItemBase("zbq7").setMaxStackSize(1);
 		quibitCell = new ItemQuibitCell();
+		energizedCrystal = new ItemBase("energizedCrystal");
+		magnet = new ItemMagnet();
 		registerOreDictionary();
 	}
 

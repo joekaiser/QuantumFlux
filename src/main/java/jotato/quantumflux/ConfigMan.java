@@ -23,6 +23,8 @@ public class ConfigMan
     public static int redfluxField_buffer;
     public static int rfExciter_output;
     public static int quibitcell_output;
+    
+    public static int magnet_strength;
 
     public static void init(Configuration configuration)
     {
@@ -51,5 +53,7 @@ public class ConfigMan
         redfluxField_buffer = config.getInt("buffer", "redfluxField", 1000000, 100000, Integer.MAX_VALUE, "The internal storage of each player's field");
         rfExciter_output = config.getInt("rfExciter_output", "redfluxField", 10000, 100, 100000, "The max output an RF Exciter can do");
         quibitcell_output = config.getInt("quibitCell_output", "redfluxField", 500, 100, 5000, "How much rf/tick the quibit cell can charge per item");
+        
+        magnet_strength = config.getInt("magnetStrength", "misc",7, 4, 14, "How far the magnet can reach");
     }
 }

@@ -7,6 +7,8 @@ item.manganese.name=Manganese
 item.mangalloyIngot.name=Mangalloy
 item.zbq7.name=ZBQ-7
 item.quibitCell.name=Quibit Cell
+item.energizedCrystal.name=EnergizedCrystal
+item.magnet.name=Magnet of Squirt
 
 tile.entropyAccelerator.name=Quantum Entropy Accelerator
 tile.quibitCluster_1.name=Quibit Cluster Level 1

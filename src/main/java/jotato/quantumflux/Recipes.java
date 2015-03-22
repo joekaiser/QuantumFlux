@@ -38,6 +38,7 @@ public class Recipes
 	ItemStack zbq7 = new ItemStack(QFItems.zbq7);
 	ItemStack rfExciter = new ItemStack(QFBlocks.rfExciter);
 	ItemStack goldNugget = new ItemStack(Items.gold_nugget);
+	ItemStack energizedCrystal = new ItemStack(QFItems.energizedCrystal);
 
 	String manganese = "dustManganese";
 	String mangalloy = "ingotMangalloy";
@@ -83,17 +84,19 @@ public class Recipes
 				quibitCluster_1, 'm', mangalloy, 'g', goldCasing));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.quibitCell), "eae", "aqa", "eae", 'q', quibitCluster_2, 'e',
 				rfExciter, 'a', amplificationCrystal));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.magnet), "r l", "e e", " m ", 'l', lapis, 'r', redstone, 'e',
+				energizedCrystal, 'm', mangalloy));
 
 		if (ConfigMan.zpe_enabled)
 		{
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.zpe), "aza", "cqc", "mmm", 'm', mangalloy, 'z', zbq7, 'a',
-					amplificationCrystal, 'q', quibitCluster_2, 'c',quibitCrystal));
+					amplificationCrystal, 'q', quibitCluster_2, 'c', quibitCrystal));
 		}
 	}
 
 	private void furnaceRecipes()
 	{
-
+		GameRegistry.addSmelting(quibitCrystal, new ItemStack(QFItems.energizedCrystal), 10);
 	}
 
 	private void shapelessRecipes()
