@@ -54,42 +54,25 @@ public class ItemQuibitCell extends ItemBase
 		if (!isActivated(item))
 			return;
 
-		// todo: the redFlux field API does not allow for ItemStack at this
-		// point
-		// so instead of having power pushed to the quibitCell and using that
-		// you have to pull power from the field manually. This needs to be
-		// changed.
 		EntityPlayer player = (EntityPlayer) entity;
-		List<IRedfluxProvider> network =RedfluxField.getLinks(player.getGameProfile().getId().toString());
-		
-		if (network == null)
-			return;
-		
-		IRedfluxProvider provider = null;
-
-		for (IRedfluxProvider exciter : network)
+		String owner = player.getGameProfile().getId().toString();
+		for (ItemStack target : player.inventory.mainInventory)
 		{
-			// I want to rely on the canSend check, but just in case there are
-			// more than 1 "providers" on the network
-			// I only want to pull from the entangler. This should be changed
-			// when items can be part of the network
-			if (exciter.canSend() && exciter instanceof TileEntityRFEntangler)
+			if (target != null && target.getItem() instanceof IEnergyContainerItem)
 			{
-				provider = exciter;
-				break;
+				int tosend = RedfluxField.requestEnergy(ConfigMan.quibitcell_output, true, owner);
+				int used = ((IEnergyContainerItem) target.getItem()).receiveEnergy(target, tosend, false);
+				RedfluxField.requestEnergy(used, false, owner);
 			}
 		}
-
-		if (provider != null)
+		
+		for (ItemStack target : player.inventory.armorInventory)
 		{
-			for (ItemStack target : player.inventory.mainInventory)
+			if (target != null && target.getItem() instanceof IEnergyContainerItem)
 			{
-				if (target != null && target.getItem() instanceof IEnergyContainerItem)
-				{
-					int tosend = provider.requestEnergy(ConfigMan.quibitcell_output, true);
-					int used = ((IEnergyContainerItem) target.getItem()).receiveEnergy(target, tosend, false);
-					provider.requestEnergy(used, false);
-				}
+				int tosend = RedfluxField.requestEnergy(ConfigMan.quibitcell_output, true, owner);
+				int used = ((IEnergyContainerItem) target.getItem()).receiveEnergy(target, tosend, false);
+				RedfluxField.requestEnergy(used, false, owner);
 			}
 		}
 
