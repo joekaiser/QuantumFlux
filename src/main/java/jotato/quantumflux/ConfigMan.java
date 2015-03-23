@@ -26,8 +26,8 @@ public class ConfigMan
     
     public static int magnet_strength;
     
-    public static int battlesuit_energy;
-    public static int battlesuit_charge;
+    public static int battlesuit_maxEnergy;
+    public static int battlesuit_chargeRate;
     
 
     public static void init(Configuration configuration)
@@ -59,5 +59,8 @@ public class ConfigMan
         quibitcell_output = config.getInt("quibitCell_output", "redfluxField", 500, 100, 5000, "How much rf/tick the quibit cell can charge per item");
         
         magnet_strength = config.getInt("magnetStrength", "misc",7, 4, 14, "How far the magnet can reach");
+        
+        battlesuit_chargeRate = config.getInt("chargeRate","battlesuit",300,100,1000,"How fast the Battlesuit can charge");
+        battlesuit_maxEnergy = config.getInt("maxEnergy", "battlesuit", 100000, 50000, 1000000, "The maximum amount of energy that the battlesuit can hold");
     }
 }
