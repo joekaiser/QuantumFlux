@@ -16,6 +16,10 @@ public class QFItems
 	public static Item quibitCell;
 	public static Item energizedCrystal;
 	public static Item magnet;
+	public static Item battlesuit_helm;
+	public static Item battlesuit_chest;
+	public static Item battlesuit_legs;
+	public static Item battlesuit_boots;
 
 	public static void init()
 	{
@@ -30,7 +34,14 @@ public class QFItems
 		quibitCell = new ItemQuibitCell();
 		energizedCrystal = new ItemBase("energizedCrystal");
 		magnet = new ItemMagnet();
+		
+		battlesuit_helm = new ItemBattleSuit("battlesuit_helmet", 0);
+		battlesuit_chest = new ItemBattleSuit("battlesuit_chestplate", 1);
+		battlesuit_legs = new ItemBattleSuit("battlesuit_leggings", 2);
+		battlesuit_boots = new ItemBattleSuit("battlesuit_boots", 3);
+		
 		registerOreDictionary();
+	
 	}
 
 	private static void registerOreDictionary()
@@ -40,4 +51,6 @@ public class QFItems
 		OreDictionary.registerOre("ingotMangalloy", mangalloy);
 
 	}
+	
+	
 }

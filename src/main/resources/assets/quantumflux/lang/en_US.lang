@@ -9,6 +9,10 @@ item.zbq7.name=ZBQ-7
 item.quibitCell.name=Quibit Cell
 item.energizedCrystal.name=EnergizedCrystal
 item.magnet.name=Magnet of Squirt
+item.battlesuit_helmet.name=Battlesuit Helmet
+item.battlesuit_chestplate.name=Battlesuit Chestplate
+item.battlesuit_leggings.name=Battlesuit Leggings
+item.battlesuit_boots.name=Battlesuit Boots
 
 tile.entropyAccelerator.name=Quantum Entropy Accelerator
 tile.quibitCluster_1.name=Quibit Cluster Level 1
