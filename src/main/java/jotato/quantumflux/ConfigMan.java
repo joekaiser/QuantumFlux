@@ -25,6 +25,10 @@ public class ConfigMan
     public static int quibitcell_output;
     
     public static int magnet_strength;
+    
+    public static int battlesuit_energy;
+    public static int battlesuit_charge;
+    
 
     public static void init(Configuration configuration)
     {
