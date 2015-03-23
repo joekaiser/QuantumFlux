@@ -1,6 +1,7 @@
 package jotato.quantumflux;
 
 import jotato.quantumflux.blocks.QFBlocks;
+import jotato.quantumflux.items.ItemBattleSuit;
 import jotato.quantumflux.items.QFItems;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
@@ -39,7 +40,13 @@ public class Recipes
 	ItemStack rfExciter = new ItemStack(QFBlocks.rfExciter);
 	ItemStack goldNugget = new ItemStack(Items.gold_nugget);
 	ItemStack energizedCrystal = new ItemStack(QFItems.energizedCrystal);
-
+	ItemStack netherStar = new ItemStack(Items.nether_star);
+	ItemStack glowingMangalloy = new ItemStack(QFItems.glowingMangalloy);
+	ItemStack diamondHelmet = new ItemStack(Items.diamond_helmet);
+	ItemStack diamondChestplate = new ItemStack(Items.diamond_chestplate);
+	ItemStack diamondLeggings = new ItemStack(Items.diamond_leggings);
+	ItemStack diamondBoots = new ItemStack(Items.diamond_boots);
+	
 	String manganese = "dustManganese";
 	String mangalloy = "ingotMangalloy";
 	String steelIngot = "ingotSteel";
@@ -85,7 +92,17 @@ public class Recipes
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.quibitCell), "eae", "aqa", "eae", 'q', quibitCluster_2, 'e',
 				rfExciter, 'a', amplificationCrystal));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.magnet), "r l", "e e", " m ", 'l', lapis, 'r', redstone, 'e',
-				energizedCrystal, 'm', mangalloy));
+                energizedCrystal, 'm', mangalloy));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.energizedCrystal,4), "zcz", "csc", "zcz", 'c', quibitCrystal, 'z', zbq7, 's',
+                netherStar));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.glowingMangalloy,8), "mmm", "mem", "mmm", 'm', mangalloy, 'e', energizedCrystal));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_helm, false),"mmm", "mhm","mmm",'m', glowingMangalloy, 'h',diamondHelmet));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_chest, false),"mmm", "mhm","mmm",'m', glowingMangalloy, 'h',diamondChestplate));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_legs, false),"mmm", "mhm","mmm",'m', glowingMangalloy, 'h',diamondLeggings));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_boots, false),"mmm", "mhm","mmm",'m', glowingMangalloy, 'h',diamondBoots));
+
+		
+
 
 		if (ConfigMan.zpe_enabled)
 		{
@@ -96,7 +113,6 @@ public class Recipes
 
 	private void furnaceRecipes()
 	{
-		GameRegistry.addSmelting(quibitCrystal, new ItemStack(QFItems.energizedCrystal), 10);
 	}
 
 	private void shapelessRecipes()

@@ -26,7 +26,7 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 {
 
 	public static ArmorMaterial material = EnumHelper.addArmorMaterial("battleSuitMatieral", 33, new int[] { 4, 9, 7, 4 }, 50);
-	private final String energy_tag = "Energy";
+	private static final String energy_tag = "Energy";
 	private int energyUsedPerDamageTaken = 100;
 
 	public ItemBattleSuit(String name, int type)
@@ -44,14 +44,8 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list)
 	{
-		ItemStack emptyItem = new ItemStack(item);
-		emptyItem = NbtUtils.setInt(emptyItem, energy_tag, 0);
-
-		ItemStack chargedItem = new ItemStack(item);
-		chargedItem = NbtUtils.setInt(chargedItem, energy_tag, ConfigMan.battlesuit_maxEnergy);
-
-		list.add(emptyItem);
-		list.add(chargedItem);
+	    list.add(ItemBattleSuit.newArmorPiece(item,false));
+	    list.add(ItemBattleSuit.newArmorPiece(item,true));
 	}
 
 	@Override
@@ -162,6 +156,14 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 		int totalEnergyCost = damage * energyUsedPerDamageTaken;
 		extractEnergy(stack, totalEnergyCost, false);
 
+	}
+
+	
+	public static ItemStack newArmorPiece(Item item, boolean charged){
+	    if(charged)
+	        return NbtUtils.setInt(new ItemStack(item), energy_tag, ConfigMan.battlesuit_maxEnergy);
+	    else
+	        return NbtUtils.setInt(new ItemStack(item), energy_tag, 0);
 	}
 
 }

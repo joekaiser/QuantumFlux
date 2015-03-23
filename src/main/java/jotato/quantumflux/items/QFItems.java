@@ -15,6 +15,7 @@ public class QFItems
 	public static Item zbq7;
 	public static Item quibitCell;
 	public static Item energizedCrystal;
+	public static Item glowingMangalloy;
 	public static Item magnet;
 	public static Item battlesuit_helm;
 	public static Item battlesuit_chest;
@@ -34,6 +35,7 @@ public class QFItems
 		quibitCell = new ItemQuibitCell();
 		energizedCrystal = new ItemBase("energizedCrystal");
 		magnet = new ItemMagnet();
+		glowingMangalloy = new ItemBase("glowingMangalloy");
 		
 		battlesuit_helm = new ItemBattleSuit("battlesuit_helmet", 0);
 		battlesuit_chest = new ItemBattleSuit("battlesuit_chestplate", 1);
