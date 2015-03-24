@@ -8,6 +8,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class Recipes
 {
@@ -43,6 +44,8 @@ public class Recipes
 	ItemStack netherStar = new ItemStack(Items.nether_star);
 	ItemStack glowingMangalloy = new ItemStack(QFItems.glowingMangalloy);
 	ItemStack battlesuite_plate = new ItemStack(QFItems.battlesuit_plate);
+	ItemStack hammer = new ItemStack(QFItems.hammer);
+	ItemStack mangDiamond_Blend = new ItemStack(QFItems.mangDiamond_blend);
 	
 	String manganese = "dustManganese";
 	String mangalloy = "ingotMangalloy";
@@ -113,7 +116,7 @@ public class Recipes
 
 	private void shapelessRecipes()
 	{
-
+GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(QFItems.mangDiamond_blend),hammer, mangalloy, diamond));
 	}
 
 }
