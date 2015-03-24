@@ -16,6 +16,7 @@ public class QFBlocks
     public static Block rfExciter;
     public static Block energyCore_off;
     public static Block energyCore_on;
+    public static Block molecularInfuser;
 
     public static void init()
     {
@@ -30,5 +31,6 @@ public class QFBlocks
         rfExciter = new BlockRFExciter();
         energyCore_off = new BlockBase(Material.portal,"energyCore_off",1,"pickaxe",0).setCreativeTab(null);
         energyCore_on = new BlockBase(Material.portal,"energyCore_on",1,"pickaxe",0).setCreativeTab(null);
+        molecularInfuser = new BlockMolecularInfuser();
     }
 }
