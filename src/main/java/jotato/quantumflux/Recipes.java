@@ -42,10 +42,7 @@ public class Recipes
 	ItemStack energizedCrystal = new ItemStack(QFItems.energizedCrystal);
 	ItemStack netherStar = new ItemStack(Items.nether_star);
 	ItemStack glowingMangalloy = new ItemStack(QFItems.glowingMangalloy);
-	ItemStack diamondHelmet = new ItemStack(Items.diamond_helmet);
-	ItemStack diamondChestplate = new ItemStack(Items.diamond_chestplate);
-	ItemStack diamondLeggings = new ItemStack(Items.diamond_leggings);
-	ItemStack diamondBoots = new ItemStack(Items.diamond_boots);
+	ItemStack battlesuite_plate = new ItemStack(QFItems.battlesuit_plate);
 	
 	String manganese = "dustManganese";
 	String mangalloy = "ingotMangalloy";
@@ -96,12 +93,11 @@ public class Recipes
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.energizedCrystal,4), "zcz", "csc", "zcz", 'c', quibitCrystal, 'z', zbq7, 's',
                 netherStar));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.glowingMangalloy,8), "mmm", "mem", "mmm", 'm', mangalloy, 'e', energizedCrystal));
-        GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_helm, false),"mmm", "mhm","mmm",'m', glowingMangalloy, 'h',diamondHelmet));
-        GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_chest, false),"mmm", "mhm","mmm",'m', glowingMangalloy, 'h',diamondChestplate));
-        GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_legs, false),"mmm", "mhm","mmm",'m', glowingMangalloy, 'h',diamondLeggings));
-        GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_boots, false),"mmm", "mhm","mmm",'m', glowingMangalloy, 'h',diamondBoots));
-
-		
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.battlesuit_plate), "gg","gg",'g',glowingMangalloy));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_helm, false),"mmm", "m m",'m', battlesuite_plate));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_chest, false),"m m", "mmm","mmm",'m', battlesuite_plate));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_legs, false),"mmm", "m m","m m",'m', battlesuite_plate));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_boots, false),"m m", "m m",'m', battlesuite_plate));
 
 
 		if (ConfigMan.zpe_enabled)

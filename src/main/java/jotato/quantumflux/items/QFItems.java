@@ -21,6 +21,7 @@ public class QFItems
 	public static Item battlesuit_chest;
 	public static Item battlesuit_legs;
 	public static Item battlesuit_boots;
+	public static Item battlesuit_plate;
 
 	public static void init()
 	{
@@ -37,6 +38,7 @@ public class QFItems
 		magnet = new ItemMagnet();
 		glowingMangalloy = new ItemBase("glowingMangalloy");
 		
+		battlesuit_plate = new ItemBase("battlesuit_plate");
 		battlesuit_helm = new ItemBattleSuit("battlesuit_helmet", 0);
 		battlesuit_chest = new ItemBattleSuit("battlesuit_chestplate", 1);
 		battlesuit_legs = new ItemBattleSuit("battlesuit_leggings", 2);

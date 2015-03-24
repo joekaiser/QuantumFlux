@@ -14,6 +14,7 @@ item.battlesuit_helmet.name=Battlesuit Helmet
 item.battlesuit_chestplate.name=Battlesuit Chestplate
 item.battlesuit_leggings.name=Battlesuit Leggings
 item.battlesuit_boots.name=Battlesuit Boots
+item.battlesuit_plate.name=Battlesuit Plate
 
 tile.entropyAccelerator.name=Quantum Entropy Accelerator
 tile.quibitCluster_1.name=Quibit Cluster Level 1

@@ -2,7 +2,6 @@ package jotato.quantumflux;
 
 import java.util.List;
 
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 

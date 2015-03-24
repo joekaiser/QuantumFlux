@@ -1,12 +1,9 @@
 package jotato.quantumflux.items;
 
-import java.util.List;
 
 import cofh.api.energy.IEnergyContainerItem;
 import jotato.quantumflux.ConfigMan;
-import jotato.quantumflux.redflux.IRedfluxProvider;
 import jotato.quantumflux.redflux.RedfluxField;
-import jotato.quantumflux.tileentity.TileEntityRFEntangler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
