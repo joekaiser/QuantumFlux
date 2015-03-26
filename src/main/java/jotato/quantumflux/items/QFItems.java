@@ -23,8 +23,6 @@ public class QFItems
 	public static Item battlesuit_boots;
 	public static Item battlesuit_plate;
 	public static Item eviscerator;
-	public static Item hammer;
-	public static Item mangDiamond_blend;
 
 	public static void init()
 	{
@@ -41,9 +39,6 @@ public class QFItems
 		magnet = new ItemMagnet();
 		glowingMangalloy = new ItemBase("glowingMangalloy");
 		eviscerator = new ItemBase("eviscerator");
-		hammer=new ItemBase("hammer").setMaxStackSize(1);
-		hammer.setContainerItem(hammer);
-		mangDiamond_blend = new ItemBase("mang-diamond_blend");
 		
 		battlesuit_plate = new ItemBase("battlesuit_plate");
 		battlesuit_helm = new ItemBattleSuit("battlesuit_helmet", 0);

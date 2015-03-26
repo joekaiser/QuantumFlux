@@ -44,8 +44,6 @@ public class Recipes
 	ItemStack netherStar = new ItemStack(Items.nether_star);
 	ItemStack glowingMangalloy = new ItemStack(QFItems.glowingMangalloy);
 	ItemStack battlesuite_plate = new ItemStack(QFItems.battlesuit_plate);
-	ItemStack hammer = new ItemStack(QFItems.hammer);
-	ItemStack mangDiamond_Blend = new ItemStack(QFItems.mangDiamond_blend);
 	
 	String manganese = "dustManganese";
 	String mangalloy = "ingotMangalloy";
@@ -112,11 +110,11 @@ public class Recipes
 
 	private void furnaceRecipes()
 	{
+	
 	}
 
 	private void shapelessRecipes()
 	{
-GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(QFItems.mangDiamond_blend),hammer, mangalloy, diamond));
 	}
 
 }
