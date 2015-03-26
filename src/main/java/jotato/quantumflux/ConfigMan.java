@@ -29,6 +29,9 @@ public class ConfigMan
     public static int battlesuit_maxEnergy;
     public static int battlesuit_chargeRate;
     
+    public static int eviscerator_maxEnergy;
+    public static int eviscerator_chargeRate;
+    
 
     public static void init(Configuration configuration)
     {
@@ -58,9 +61,12 @@ public class ConfigMan
         rfExciter_output = config.getInt("rfExciter_output", "redfluxField", 10000, 100, 100000, "The max output an RF Exciter can do");
         quibitcell_output = config.getInt("quibitCell_output", "redfluxField", 500, 100, 5000, "How much rf/tick the quibit cell can charge per item");
         
-        magnet_strength = config.getInt("magnetStrength", "misc",7, 4, 14, "How far the magnet can reach");
+        magnet_strength = config.getInt("magnetStrength", "misc",6, 4, 14, "How far the magnet can reach");
         
-        battlesuit_chargeRate = config.getInt("chargeRate","battlesuit",300,100,1000,"How fast the Battlesuit can charge");
-        battlesuit_maxEnergy = config.getInt("maxEnergy", "battlesuit", 100000, 50000, 1000000, "The maximum amount of energy that the battlesuit can hold");
+        battlesuit_chargeRate = config.getInt("chargeRate","battlesuit",100,50,500,"How fast the Battlesuit can charge");
+        battlesuit_maxEnergy = config.getInt("maxEnergy", "battlesuit", 50000, 10000, 100000, "The maximum amount of energy that the battlesuit can hold");
+        
+        eviscerator_chargeRate = config.getInt("chargeRate","eviscerator",80,20,500,"How fast the Eviscerator can charge");
+        eviscerator_maxEnergy = config.getInt("maxEnergy", "eviscerator", 10000, 10000, 100000, "The maximum amount of energy that the Eviscerator can hold");
     }
 }

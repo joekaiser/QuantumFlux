@@ -212,8 +212,8 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 	{
 		switch(slot){
 		case 0:
-			player.capabilities.setFlySpeed(.185f);
-			player.capabilities.setPlayerWalkSpeed(.3f);
+			player.capabilities.setFlySpeed(.15f);
+			player.capabilities.setPlayerWalkSpeed(.25f);
 			break;
 		case 1:
 			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id,40,2));			
@@ -223,7 +223,7 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 			player.capabilities.allowFlying = true;
 			break;
 		case 3:
-			player.addPotionEffect(new PotionEffect(Potion.nightVision.id,40));
+			player.addPotionEffect(new PotionEffect(Potion.nightVision.id,40,2));
 			player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id,40));
 			break;
 		}
