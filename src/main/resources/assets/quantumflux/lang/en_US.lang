@@ -8,15 +8,16 @@ item.mangalloyIngot.name=Mangalloy
 item.zbq7.name=ZBQ-7
 item.quibitCell.name=Quibit Cell
 item.energizedCrystal.name=EnergizedCrystal
-item.magnet.name=Magnet of Squirt
+item.magnet.name=
 item.glowingMangalloy.name=Glowing Mangalloy
 item.battlesuit_helmet.name=Battlesuit Helmet
 item.battlesuit_chestplate.name=Battlesuit Chestplate
 item.battlesuit_leggings.name=Battlesuit Leggings
 item.battlesuit_boots.name=Battlesuit Boots
 item.battlesuit_plate.name=Battlesuit Plate
-item.hammer.name=Hammer
-item.mang-diamond_blend=Mangalloy/Diamond Blend
+item.upgradeToken.name=Upgrade Token
+item.eviscerator.name=Eviscerator
+
 
 tile.entropyAccelerator.name=Quantum Entropy Accelerator
 tile.quibitCluster_1.name=Quibit Cluster Level 1

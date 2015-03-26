@@ -17,6 +17,7 @@ import jotato.quantumflux.tileentity.TileEntityZeroPointExtractor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -47,6 +48,7 @@ public class QuantumFlux
         QFBlocks.init();
         QFItems.init();
         regiterTileEntities();
+        FMLCommonHandler.instance().bus().register(new EventHooks());
     }
 
     //todo: maybe this should be moved into its own thing
@@ -71,6 +73,8 @@ public class QuantumFlux
         proxy.initClient();
         new Recipes().init();
         PacketHandler.initPackets();
+
+    
         
     }
 
