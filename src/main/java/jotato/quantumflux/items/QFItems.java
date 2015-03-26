@@ -22,7 +22,9 @@ public class QFItems
 	public static Item battlesuit_legs;
 	public static Item battlesuit_boots;
 	public static Item battlesuit_plate;
-	public static Item eviscerator;
+    public static Item eviscerator;
+    public static Item eviscerator_rod;
+    public static Item eviscerator_head;
 	public static Item upgradeToken;
 
 	public static void init()
@@ -39,7 +41,9 @@ public class QFItems
 		energizedCrystal = new ItemBase("energizedCrystal");
 		magnet = new ItemMagnet();
 		glowingMangalloy = new ItemBase("glowingMangalloy");
-		eviscerator = new ItemEviscerator("eviscerator");
+        eviscerator = new ItemEviscerator("eviscerator");
+        eviscerator_head = new ItemBase("eviscerator_head");
+        eviscerator_rod = new ItemBase("eviscerator_rod");
 		upgradeToken = new ItemBase("upgradeToken").setMaxStackSize(1);
 		
 		battlesuit_plate = new ItemBase("battlesuit_plate");

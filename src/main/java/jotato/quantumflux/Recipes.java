@@ -47,6 +47,8 @@ public class Recipes
 	ItemStack feather = new ItemStack(Items.feather);
 	ItemStack upgradeToken = new ItemStack(QFItems.upgradeToken);
 	ItemStack spiderEye = new ItemStack(Items.spider_eye);
+	ItemStack eviscerator_rod = new ItemStack(QFItems.eviscerator_rod);
+	ItemStack eviscerator_head = new ItemStack(QFItems.eviscerator_head);
 	
 	String manganese = "dustManganese";
 	String mangalloy = "ingotMangalloy";
@@ -97,6 +99,9 @@ public class Recipes
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.energizedCrystal,4), "zcz", "csc", "zcz", 'c', quibitCrystal, 'z', zbq7, 's',
                 netherStar));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.glowingMangalloy,8), "mmm", "mem", "mmm", 'm', mangalloy, 'e', energizedCrystal));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.eviscerator_rod), "pgp", "pdp", "pdp", 'g', goldNugget, 'p', battlesuite_plate,'d',diamond));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.eviscerator_head), "dp ", "p n", 'd', diamond, 'p', battlesuite_plate, 'n', netherStar));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.eviscerator), "h", "r","r", 'r', eviscerator_rod, 'h',eviscerator_head));
         
         //battlesuit
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.battlesuit_plate), "gg","gg",'g',glowingMangalloy));

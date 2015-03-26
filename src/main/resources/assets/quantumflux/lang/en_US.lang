@@ -17,6 +17,8 @@ item.battlesuit_boots.name=Battlesuit Boots
 item.battlesuit_plate.name=Battlesuit Plate
 item.upgradeToken.name=Upgrade Token
 item.eviscerator.name=Eviscerator
+item.eviscerator_head.name=Eviscerator Head
+item.eviscerator_rod.name=Eviscerator Rod
 
 
 tile.entropyAccelerator.name=Quantum Entropy Accelerator
