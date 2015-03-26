@@ -216,7 +216,6 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 			player.capabilities.setPlayerWalkSpeed(.3f);
 			break;
 		case 1:
-			player.addPotionEffect(new PotionEffect(Potion.digSpeed.id,40,2));
 			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id,40,2));			
 			break;
 			
