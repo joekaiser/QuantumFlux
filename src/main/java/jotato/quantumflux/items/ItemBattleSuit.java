@@ -40,6 +40,8 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 		setCreativeTab(QuantumFlux.tab);
 		GameRegistry.registerItem(this, name);
 		setMaxStackSize(1);
+		setMaxDamage(0);
+		canRepair=false;
 
 	}
 

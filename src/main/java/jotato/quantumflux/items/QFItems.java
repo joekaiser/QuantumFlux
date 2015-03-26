@@ -40,7 +40,7 @@ public class QFItems
 		magnet = new ItemMagnet();
 		glowingMangalloy = new ItemBase("glowingMangalloy");
 		eviscerator = new ItemBase("eviscerator");
-		upgradeToken = new ItemBase("upgradeToken");
+		upgradeToken = new ItemBase("upgradeToken").setMaxStackSize(1);
 		
 		battlesuit_plate = new ItemBase("battlesuit_plate");
 		battlesuit_helm = new ItemBattleSuit("battlesuit_helmet", 0);
