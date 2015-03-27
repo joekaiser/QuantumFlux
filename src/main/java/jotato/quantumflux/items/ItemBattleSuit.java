@@ -122,7 +122,7 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 	{
 		if (!world.isRemote)
 		{
-			if (world.getTotalWorldTime() % 20 == 0)
+			if (world.getTotalWorldTime() % 112 == 0)
 			{
 				drainArmor(itemStack, player);
 			}
