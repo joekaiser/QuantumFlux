@@ -28,6 +28,7 @@ public class ConfigMan
     
     public static int battlesuit_maxEnergy;
     public static int battlesuit_chargeRate;
+    public static int battlesuit_drain;
     
     public static int eviscerator_maxEnergy;
     public static int eviscerator_chargeRate;
@@ -65,6 +66,7 @@ public class ConfigMan
         
         battlesuit_chargeRate = config.getInt("chargeRate","battlesuit",100,50,500,"How fast the Battlesuit can charge");
         battlesuit_maxEnergy = config.getInt("maxEnergy", "battlesuit", 50000, 10000, 100000, "The maximum amount of energy that the battlesuit can hold");
+        battlesuit_drain = config.getInt("drain", "battlesuit", 1, 0, 5, "The amount of energy drained every 20 ticks from battlesuits that have special abilities");
         
         eviscerator_chargeRate = config.getInt("chargeRate","eviscerator",80,20,500,"How fast the Eviscerator can charge");
         eviscerator_maxEnergy = config.getInt("maxEnergy", "eviscerator", 10000, 10000, 100000, "The maximum amount of energy that the Eviscerator can hold");

@@ -120,8 +120,14 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
 	{
+		if (!world.isRemote)
+		{
+			if (world.getTotalWorldTime() % 20 == 0)
+			{
+				drainArmor(itemStack, player);
+			}
+		}
 		super.onArmorTick(world, player, itemStack);
-
 	}
 
 	@Override
@@ -276,6 +282,27 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 	public static boolean isArmorSpecialCapable(ItemStack armor)
 	{
 		return armor.getItemDamage() == 1;
+	}
+
+	/**
+	 * drains energy from armor. Called by the PlayerTickEvent in EventHooks.
+	 * 
+	 * @param slot
+	 * @param player
+	 */
+	public void drainArmor(ItemStack item, EntityPlayer player)
+	{
+		if (ConfigMan.battlesuit_drain > 0)
+		{
+			if (isArmorSpecialCapable(item))
+			{
+				int used = extractEnergy(item, ConfigMan.battlesuit_drain, false);
+				if (used == 0)
+				{
+					player.attackEntityFrom(DamageSource.generic, .07f);
+				}
+			}
+		}
 	}
 
 }
