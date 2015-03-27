@@ -1,5 +1,8 @@
 package jotato.quantumflux;
 
+import java.util.Map;
+import java.util.WeakHashMap;
+
 import jotato.quantumflux.items.ItemBattleSuit;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
@@ -8,7 +11,8 @@ import net.minecraft.item.ItemStack;
 
 public class EventHooks
 {
-
+	
+	
 	@SubscribeEvent
 	public void playerTick(PlayerTickEvent event)
 	{

@@ -1,6 +1,8 @@
 package jotato.quantumflux.items;
 
 import java.util.List;
+import java.util.Map;
+import java.util.WeakHashMap;
 
 import cofh.api.energy.IEnergyContainerItem;
 import jotato.quantumflux.ConfigMan;
@@ -27,6 +29,8 @@ import net.minecraftforge.common.util.EnumHelper;
 
 public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, ISpecialArmor
 {
+	public static Map<EntityPlayer, Boolean> entitiesFlying = new WeakHashMap<EntityPlayer, Boolean>();
+	public static Map<EntityPlayer, Boolean> entitiesRunning = new WeakHashMap<EntityPlayer, Boolean>();
 
 	public static ArmorMaterial material = EnumHelper.addArmorMaterial("battleSuitMatieral", 33, new int[] { 4, 9, 7, 4 }, 50);
 	private static final String energy_tag = "Energy";
@@ -41,7 +45,7 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 		GameRegistry.registerItem(this, name);
 		setMaxStackSize(1);
 		setMaxDamage(0);
-		canRepair=false;
+		canRepair = false;
 
 	}
 
@@ -80,12 +84,12 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 		{
 			info.add("Capability: Speed boost");
 		}
-		
+
 		if (stack.getItem() == QFItems.battlesuit_legs && isArmorSpecialCapable(stack))
 		{
 			info.add("Capability: Strength");
 		}
-		
+
 		if (stack.getItem() == QFItems.battlesuit_helm && isArmorSpecialCapable(stack))
 		{
 			info.add("Capability: Visibility");
@@ -204,49 +208,65 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 
 	/**
 	 * Applies special effect from armor
+	 * 
 	 * @param slot
-	 *      armor slot. 0:boots; 3: helm
+	 *            armor slot. 0:boots; 3: helm
 	 * @param player
 	 */
 	public static void doSpecial(int slot, EntityPlayer player)
 	{
-		switch(slot){
+		switch (slot)
+		{
 		case 0:
 			player.capabilities.setFlySpeed(.15f);
 			player.capabilities.setPlayerWalkSpeed(.25f);
+			entitiesRunning.put(player, true);
 			break;
 		case 1:
-			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id,40,2));			
+			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 40, 2));
 			break;
-			
+
 		case 2:
 			player.capabilities.allowFlying = true;
+			entitiesFlying.put(player, true);
 			break;
 		case 3:
-			player.addPotionEffect(new PotionEffect(Potion.nightVision.id,40,2));
-			player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id,40));
+			player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 40, 2));
+			player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id, 40));
 			break;
 		}
-		
+
 	}
-	
+
 	/**
 	 * removes special effect from armor
+	 * 
 	 * @param slot
-	 * 		armor slot. 0:boots; 3: helm
+	 *            armor slot. 0:boots; 3: helm
 	 * @param player
 	 */
-	public static void removeSpecial(int slot, EntityPlayer player){
-		switch(slot){
+	public static void removeSpecial(int slot, EntityPlayer player)
+	{
+		switch (slot)
+		{
 		case 0:
-			player.capabilities.setFlySpeed(.05f);
-			player.capabilities.setPlayerWalkSpeed(.1f);
+			if (entitiesRunning.containsKey(player))
+			{
+				player.capabilities.setFlySpeed(.05f);
+				player.capabilities.setPlayerWalkSpeed(.1f);
+				entitiesRunning.remove(player);
+			}
 			break;
+
 		case 1:
 			break;
 		case 2:
-			player.capabilities.allowFlying = false;
-			player.capabilities.isFlying = false;
+			if (entitiesFlying.containsKey(player))
+			{
+				player.capabilities.allowFlying = false;
+				player.capabilities.isFlying = false;
+				entitiesFlying.remove(player);
+			}
 			break;
 		case 3:
 			break;
