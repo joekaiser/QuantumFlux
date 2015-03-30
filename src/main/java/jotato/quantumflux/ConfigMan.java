@@ -44,13 +44,13 @@ public class ConfigMan
 
     public static void hydrateConifg()
     {
-        incinerator_output = config.getInt("output", "entropyAccelerator", 4, 1, 10, "The RF generated per tick");
+        incinerator_output = config.getInt("output", "entropyAccelerator", 8, 4, 16, "The RF generated per tick");
         incinerator_buffer = config.getInt("buffer", "entropyAccelerator", 2000, 100, 10000, "The amount of energy that can be stored in the block");
-        incinerator_burnTime = config.getInt("burnTime", "entropyAccelerator", 100, 20, 1000, "How many ticks an item will burn");
+        incinerator_burnTime = config.getInt("burnTime", "entropyAccelerator", 70, 20, 1000, "How many ticks an item will burn");
 
         quibitCluster_baseStorage = config.getInt("baseStorage", "quibitCluster", 500000, 100000, 1000000, "The base amount of RF the Quibit Clusters can hold");
         quibitCluster_baseTransferRate = config.getInt("baseTransferRate", "quibitCluster", 100, 50, 1000, "The base RF/tick the Quibit Clusters can do");
-        quibitCluster_multiplier = config.getInt("multiplier", "quibitCluster", 5, 4, 6, "The base RF/tick the Quibit Clusters can do");
+        quibitCluster_multiplier = config.getInt("multiplier", "quibitCluster", 5, 4, 6, "The multiplyer between each level of the clusters");
         
         zpe_maxPowerGen = config.getInt("powerGen", "zeroPointExtractor", 150, 32, 256, "The maximum amount of rf/t it can generate");
         zpe_particles = config.getBoolean("particles", "zeroPointExtractor", true, "Enable particle effect");
