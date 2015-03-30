@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
-public class 
+public class Recipes
 
 {
 	ItemStack lapis = new ItemStack(Items.dye, 1, 4);
