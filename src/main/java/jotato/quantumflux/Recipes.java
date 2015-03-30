@@ -10,7 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
-public class Recipes
+public class 
+
 {
 	ItemStack lapis = new ItemStack(Items.dye, 1, 4);
 	ItemStack redstone = new ItemStack(Items.redstone);
@@ -63,14 +64,14 @@ public class Recipes
 
 	private void shapedRecipes()
 	{
-		GameRegistry.addShapedRecipe(new ItemStack(QFItems.ironCasing, 2), " l ", "iii", 'l', lapis, 'i', ironIngot);
-		GameRegistry.addShapedRecipe(new ItemStack(QFItems.goldCasing, 2), " r ", "ggg", 'r', redstone, 'g', goldIngot);
+		GameRegistry.addShapedRecipe(new ItemStack(QFItems.ironCasing, 3), " l ", "iii", 'l', lapis, 'i', ironIngot);
+		GameRegistry.addShapedRecipe(new ItemStack(QFItems.goldCasing, 3), " r ", "ggg", 'r', redstone, 'g', goldIngot);
 		GameRegistry.addShapedRecipe(new ItemStack(QFItems.amplificationCrystal), "q q", " d ", "sss", 'q', quartz, 'd', diamond, 's',
 				stone);
 		GameRegistry.addShapedRecipe(new ItemStack(QFItems.steelIngot), "c c", " i ", "c c", 'c', coal, 'i', ironIngot);
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.entropyAccelerator), "ccc", "sfs", "sls", 'c', ironCasing, 'f',
 				furnace, 'l', lavaBucket, 's', steelIngot));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.quibitCrystal, 3), " r ", "qdq", " r ", 'r', redstone, 'q',
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.quibitCrystal, 4), " r ", "qdq", " r ", 'r', redstone, 'q',
 				quartz, 'd', diamond));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.quibitCluster_1), "qcq", "cqc", "sss", 'q', quibitCrystal, 'c',
 				goldCasing, 's', steelIngot));
@@ -86,10 +87,10 @@ public class Recipes
 				'g', goldNugget));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.mangalloy), "sss", "sms", "sss", 's', steelIngot, 'm', manganese));
 
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.zbq7, 1), "rlr", "gdg", "rlr", 'r', redstoneBlock, 'l',
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.zbq7), "rlr", "gdg", "rlr", 'r', redstoneBlock, 'l',
 				lapisBlock, 'g', goldBlock, 'd', diamondBlock));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.rfEntangler), "zaz", "zqz", "mmm", 'm', mangalloy, 'a',
-				amplificationCrystal, 'q', quibitCluster_5, 'z', zbq7));
+				amplificationCrystal, 'q', quibitCluster_4, 'z', zbq7));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.rfExciter, 2), "qcq", "mgm", 'q', quibitCrystal, 'c',
 				quibitCluster_1, 'm', mangalloy, 'g', goldCasing));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.quibitCell), "eae", "aqa", "eae", 'q', quibitCluster_2, 'e',
