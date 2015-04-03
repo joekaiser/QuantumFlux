@@ -50,7 +50,7 @@ public class Recipes
 	ItemStack spiderEye = new ItemStack(Items.spider_eye);
 	ItemStack eviscerator_rod = new ItemStack(QFItems.eviscerator_rod);
 	ItemStack eviscerator_head = new ItemStack(QFItems.eviscerator_head);
-	
+
 	String manganese = "dustManganese";
 	String mangalloy = "ingotMangalloy";
 	String steelIngot = "ingotSteel";
@@ -64,8 +64,8 @@ public class Recipes
 
 	private void shapedRecipes()
 	{
-		GameRegistry.addShapedRecipe(new ItemStack(QFItems.ironCasing, 3), " l ", "iii", 'l', lapis, 'i', ironIngot);
-		GameRegistry.addShapedRecipe(new ItemStack(QFItems.goldCasing, 3), " r ", "ggg", 'r', redstone, 'g', goldIngot);
+		GameRegistry.addShapedRecipe(new ItemStack(QFItems.ironCasing, 4), " l ", "iii", 'l', lapis, 'i', ironIngot);
+		GameRegistry.addShapedRecipe(new ItemStack(QFItems.goldCasing, 4), " r ", "ggg", 'r', redstone, 'g', goldIngot);
 		GameRegistry.addShapedRecipe(new ItemStack(QFItems.amplificationCrystal), "q q", " d ", "sss", 'q', quartz, 'd', diamond, 's',
 				stone);
 		GameRegistry.addShapedRecipe(new ItemStack(QFItems.steelIngot), "c c", " i ", "c c", 'c', coal, 'i', ironIngot);
@@ -87,31 +87,40 @@ public class Recipes
 				'g', goldNugget));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.mangalloy), "sss", "sms", "sss", 's', steelIngot, 'm', manganese));
 
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.zbq7), "rlr", "gdg", "rlr", 'r', redstoneBlock, 'l',
-				lapisBlock, 'g', goldBlock, 'd', diamondBlock));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.zbq7), "rlr", "gdg", "rlr", 'r', redstoneBlock, 'l', lapisBlock,
+				'g', goldBlock, 'd', diamondBlock));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.rfEntangler), "zaz", "zqz", "mmm", 'm', mangalloy, 'a',
 				amplificationCrystal, 'q', quibitCluster_4, 'z', zbq7));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.rfExciter, 2), "qcq", "mgm", 'q', quibitCrystal, 'c',
-				quibitCluster_1, 'm', mangalloy, 'g', goldCasing));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.rfExciter, 2), "qeq", "mgm", 'q', quibitCrystal, 'e', enderPearl,
+				'm', steelIngot, 'g', goldCasing));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.rfExciterL2), "qeq", " a ", "qeq", 'q', quibitCrystal, 'e',
+				rfExciter, 'a', amplificationCrystal));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.quibitCell), "eae", "aqa", "eae", 'q', quibitCluster_2, 'e',
 				rfExciter, 'a', amplificationCrystal));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.magnet), "r l", "a a", " m ", 'l', lapis, 'r', redstone, 'a',
-                amplificationCrystal, 'm', mangalloy));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.energizedCrystal,4), "zcz", "csc", "zcz", 'c', quibitCrystal, 'z', zbq7, 's',
-                netherStar));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.glowingMangalloy,8), "mmm", "mem", "mmm", 'm', mangalloy, 'e', energizedCrystal));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.eviscerator_rod), "pgp", "pdp", "pdp", 'g', goldNugget, 'p', battlesuite_plate,'d',diamond));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.eviscerator_head), "dp ", "p n", 'd', diamond, 'p', battlesuite_plate, 'n', netherStar));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.eviscerator), "h", "r","r", 'r', eviscerator_rod, 'h',eviscerator_head));
-        
-        //battlesuit
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.battlesuit_plate), "gg","gg",'g',glowingMangalloy));
-        GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_helm,0, false),"mmm", "m m",'m', battlesuite_plate));
-        GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_chest,0, false),"m m", "mmm","mmm",'m', battlesuite_plate));
-        GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_legs,0, false),"mmm", "m m","m m",'m', battlesuite_plate));
-        GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_boots,0, false),"m m", "m m",'m', battlesuite_plate));
+				amplificationCrystal, 'm', mangalloy));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.energizedCrystal, 4), "zcz", "csc", "zcz", 'c', quibitCrystal,
+				'z', zbq7, 's', netherStar));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.glowingMangalloy, 8), "mmm", "mem", "mmm", 'm', mangalloy, 'e',
+				energizedCrystal));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.eviscerator_rod), "pgp", "pdp", "pdp", 'g', goldNugget, 'p',
+				battlesuite_plate, 'd', diamond));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.eviscerator_head), "dp ", "p n", 'd', diamond, 'p',
+				battlesuite_plate, 'n', netherStar));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.eviscerator), "h", "r", "r", 'r', eviscerator_rod, 'h',
+				eviscerator_head));
 
-  
+		// battlesuit
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.battlesuit_plate), "gg", "gg", 'g', glowingMangalloy));
+		GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_helm, 0, false), "mmm", "m m", 'm',
+				battlesuite_plate));
+		GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_chest, 0, false), "m m", "mmm", "mmm",
+				'm', battlesuite_plate));
+		GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_legs, 0, false), "mmm", "m m", "m m",
+				'm', battlesuite_plate));
+		GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_boots, 0, false), "m m", "m m", 'm',
+				battlesuite_plate));
+
 		if (ConfigMan.zpe_enabled)
 		{
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.zpe), "aza", "cqc", "mmm", 'm', mangalloy, 'z', zbq7, 'a',
@@ -121,16 +130,20 @@ public class Recipes
 
 	private void furnaceRecipes()
 	{
-	
+
 	}
 
 	private void shapelessRecipes()
 	{
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(QFItems.upgradeToken), netherStar,zbq7));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_chest, 1, true),upgradeToken, feather,ItemBattleSuit.newArmorPiece(QFItems.battlesuit_chest, 0, true) ));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_boots, 1, true),upgradeToken, redstone,ItemBattleSuit.newArmorPiece(QFItems.battlesuit_boots, 0, true) ));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_legs, 1, true),upgradeToken, lapis,ItemBattleSuit.newArmorPiece(QFItems.battlesuit_legs, 0, true) ));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_helm, 1, true),upgradeToken, spiderEye,ItemBattleSuit.newArmorPiece(QFItems.battlesuit_helm, 0, true) ));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(QFItems.upgradeToken), netherStar, zbq7));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_chest, 1, true), upgradeToken,
+				feather, ItemBattleSuit.newArmorPiece(QFItems.battlesuit_chest, 0, true)));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_boots, 1, true), upgradeToken,
+				redstone, ItemBattleSuit.newArmorPiece(QFItems.battlesuit_boots, 0, true)));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_legs, 1, true), upgradeToken, lapis,
+				ItemBattleSuit.newArmorPiece(QFItems.battlesuit_legs, 0, true)));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemBattleSuit.newArmorPiece(QFItems.battlesuit_helm, 1, true), upgradeToken,
+				spiderEye, ItemBattleSuit.newArmorPiece(QFItems.battlesuit_helm, 0, true)));
 	}
 
 }

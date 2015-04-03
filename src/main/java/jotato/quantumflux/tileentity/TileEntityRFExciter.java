@@ -15,9 +15,11 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 	public UUID owner;
 	public int lastEnergyUsed;
 	public ForgeDirection targetDirection;
+	public int maxOut;
 
 	public TileEntityRFExciter()
 	{
+		maxOut=ConfigMan.rfExciter1_output;
 	}
 
 	public String getOwner()
@@ -105,7 +107,7 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 		TileEntity tile = worldObj.getTileEntity(targetX, targetY, targetZ);
 		if (tile instanceof IEnergyReceiver)
 		{
-			int tosend = extractEnergy(null, ConfigMan.rfExciter_output, true);
+			int tosend = extractEnergy(null, maxOut, true);
 			int used = ((IEnergyReceiver) tile).receiveEnergy(targetDirection.getOpposite(), tosend, false);
 			if (used > 0)
 			{

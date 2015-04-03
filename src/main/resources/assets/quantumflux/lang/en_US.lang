@@ -8,7 +8,7 @@ item.mangalloyIngot.name=Mangalloy
 item.zbq7.name=ZBQ-7
 item.quibitCell.name=Quibit Cell
 item.energizedCrystal.name=EnergizedCrystal
-item.magnet.name=
+item.magnet.name= Item Magnet
 item.glowingMangalloy.name=Glowing Mangalloy
 item.battlesuit_helmet.name=Battlesuit Helmet
 item.battlesuit_chestplate.name=Battlesuit Chestplate
@@ -29,6 +29,7 @@ tile.quibitCluster_4.name=Quibit Cluster Level 4
 tile.quibitCluster_5.name=Quibit Cluster Level 5
 tile.zeroPointExtractor.name=Zero Point Extractor (ZPE)
 tile.rfEntangler.name=Quantum RF Entangler
-tile.rfExciter.name=Quantum RF Exciter
+tile.rfExciter.name=Low RF Exciter
+tile.rfExciter_2.name=High RF Exciter
 
 itemGroup.tabQuantumFlux=QuantumFlux

@@ -6,6 +6,7 @@ import com.mojang.realmsclient.gui.ChatFormatting;
 
 import jotato.quantumflux.proxy.ClientProxy;
 import jotato.quantumflux.tileentity.TileEntityRFExciter;
+import jotato.quantumflux.tileentity.TileEntityRFExciterL2;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -17,13 +18,13 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class BlockRFExciter extends BlockBase implements ITileEntityProvider
+public class BlockRFExciterL2 extends BlockBase implements ITileEntityProvider
 {
 	public static int renderType;
 
-	protected BlockRFExciter()
+	protected BlockRFExciterL2()
 	{
-		super(Material.rock, "rfExciter", 1, "pickaxe", 0);
+		super(Material.rock, "rfExciter_2", 1, "pickaxe", 0);
 		this.setBlockBounds(.15f, 0f, .15f, .85f, .12f, .85f);
 	}
 
@@ -96,7 +97,7 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta)
 	{
-		return new TileEntityRFExciter();
+		return new TileEntityRFExciterL2();
 	}
 
 	@Override
