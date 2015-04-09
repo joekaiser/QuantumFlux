@@ -18,12 +18,12 @@ public class RenderEntropyAccelerator extends RenderBlockBase
 
 		if (ClientProxy.renderPass == 0)
 		{
-			renderer.renderMaxX = .85;
-			renderer.renderMaxY = .85;
-			renderer.renderMaxZ = .85;
-			renderer.renderMinX = .15;
-			renderer.renderMinY = .15;
-			renderer.renderMinZ = .15;
+			renderer.renderMaxX = .83;
+			renderer.renderMaxY = .83;
+			renderer.renderMaxZ = .83;
+			renderer.renderMinX = .18;
+			renderer.renderMinY = .18;
+			renderer.renderMinZ = .18;
 			TileEntity entity = world.getTileEntity(x, y, z);
 			if (entity instanceof TileEntityEntropyAccelerator)
 			{
@@ -41,12 +41,12 @@ public class RenderEntropyAccelerator extends RenderBlockBase
 		} else
 		{
 			//render it slightly smaller to stop z-fighting
-			renderer.renderMaxX = .99996;
-			renderer.renderMaxY = .99996;
-			renderer.renderMaxZ = .99996;
-			renderer.renderMinX = .00003;
-			renderer.renderMinY = .00003;
-			renderer.renderMinZ = .00003;
+			renderer.renderMaxX = .99993;
+			renderer.renderMaxY = .99993;
+			renderer.renderMaxZ = .99993;
+			renderer.renderMinX = .00006;
+			renderer.renderMinY = .00006;
+			renderer.renderMinZ = .00006;
 			renderer.renderFromInside = false;
 			renderer.renderStandardBlock(QFBlocks.entropyAccelerator, x, y, z);
 

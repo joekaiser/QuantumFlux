@@ -24,31 +24,31 @@ import net.minecraftforge.common.util.EnumHelper;
 public class ItemEviscerator extends ItemPickaxe implements IEnergyContainerItem
 {
 
-	public static ToolMaterial material = EnumHelper.addToolMaterial("eviscerator", 10000, 1000, 50, 30, 1000);
-	private static final String energy_tag = "Energy";
-	private int energyUsedPerHit = 200;
-	    
-	protected ItemEviscerator(String name)
-	{
-		super(material);
-		setUnlocalizedName(name);
-		setTextureName("quantumflux:" + name);
-		setCreativeTab(QuantumFlux.tab);
-		GameRegistry.registerItem(this, name);
-		setMaxStackSize(1);
-		setMaxDamage(0);
-		canRepair=false;
-		
-	}
-	
-	   @SuppressWarnings({ "rawtypes", "unchecked" })
-	    @Override
-	    public void getSubItems(Item item, CreativeTabs tab, List list)
-	    {
-	        list.add( NbtUtils.setInt(new ItemStack(item), energy_tag, ConfigMan.eviscerator_maxEnergy));
-            list.add( NbtUtils.setInt(new ItemStack(item), energy_tag, 0));
-	    }
-	
+    public static ToolMaterial material = EnumHelper.addToolMaterial("eviscerator", 10000, 1000, 50, 30, 1000);
+    private static final String energy_tag = "Energy";
+    private int energyUsedPerHit = 200;
+
+    protected ItemEviscerator(String name)
+    {
+        super(material);
+        setUnlocalizedName(name);
+        setTextureName("quantumflux:" + name);
+        setCreativeTab(QuantumFlux.tab);
+        GameRegistry.registerItem(this, name);
+        setMaxStackSize(1);
+        setMaxDamage(0);
+        canRepair = false;
+
+    }
+
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @Override
+    public void getSubItems(Item item, CreativeTabs tab, List list)
+    {
+        list.add(NbtUtils.setInt(new ItemStack(item), energy_tag, ConfigMan.eviscerator_maxEnergy));
+        list.add(NbtUtils.setInt(new ItemStack(item), energy_tag, 0));
+    }
+
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     @SideOnly(Side.CLIENT)
@@ -57,62 +57,57 @@ public class ItemEviscerator extends ItemPickaxe implements IEnergyContainerItem
         info.add(EnumChatFormatting.RED + "Charge: " + getEnergyStored(stack));
     }
 
-
     @Override
     public double getDurabilityForDisplay(ItemStack stack)
     {
         return 1D - (double) NbtUtils.getInt(stack, energy_tag) / (double) getMaxEnergyStored(stack);
     }
-    
+
     @Override
     public boolean showDurabilityBar(ItemStack stack)
     {
         return getEnergyStored(stack) < getMaxEnergyStored(stack);
     }
 
-	
-	@Override
-	public boolean hitEntity(ItemStack stack, EntityLivingBase p_77644_2_, EntityLivingBase entity)
-	{
-	    damageTool(stack, entity);
-		return true;
-	}
-	
-	@Override
-	public boolean onBlockDestroyed(ItemStack stack, World p_150894_2_, Block p_150894_3_, int p_150894_4_, int p_150894_5_,
-			int p_150894_6_, EntityLivingBase entity)
-	{
-		
-		damageTool(stack, entity);
-		return true;
-	}
-	
-	public void damageTool(ItemStack item, EntityLivingBase entity)
-	{
-	    setDamage(item, 0);
-	    if(getEnergyStored(item) >= energyUsedPerHit){
-	        extractEnergy(item, energyUsedPerHit,false);
-	    }
-	    else{
-	        entity.attackEntityFrom(DamageSource.generic, 2);
-	    }
-	}
-	
-	
-	
+    @Override
+    public boolean hitEntity(ItemStack stack, EntityLivingBase p_77644_2_, EntityLivingBase entity)
+    {
+        damageTool(stack, entity);
+        return true;
+    }
 
-	@Override
-	public void setDamage(ItemStack stack, int damage)
-	{
-		
-		super.setDamage(stack, 0);
-	}
-	
-	@Override
-	public float getDigSpeed(ItemStack stack, Block block, int meta)
-	{
-		return efficiencyOnProperMaterial;
-	}
+    @Override
+    public boolean onBlockDestroyed(ItemStack stack, World p_150894_2_, Block p_150894_3_, int p_150894_4_, int p_150894_5_, int p_150894_6_, EntityLivingBase entity)
+    {
+
+        damageTool(stack, entity);
+        return true;
+    }
+
+    public void damageTool(ItemStack item, EntityLivingBase entity)
+    {
+        setDamage(item, 0);
+        if (getEnergyStored(item) >= energyUsedPerHit)
+        {
+            extractEnergy(item, energyUsedPerHit, false);
+        } else
+        {
+            entity.attackEntityFrom(DamageSource.generic, 2);
+        }
+    }
+
+    @Override
+    public void setDamage(ItemStack stack, int damage)
+    {
+
+        super.setDamage(stack, 0);
+    }
+
+    @Override
+    public float getDigSpeed(ItemStack stack, Block block, int meta)
+    {
+        return efficiencyOnProperMaterial;
+    }
 
     @Override
     public int receiveEnergy(ItemStack container, int maxReceive, boolean simulate)

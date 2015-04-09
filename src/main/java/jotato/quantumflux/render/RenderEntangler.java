@@ -27,12 +27,12 @@ public class RenderEntangler extends RenderBlockBase
 		} else
 		{
 			// render it slightly smaller to stop z-fighting
-			renderer.renderMaxX = .999975;
-			renderer.renderMaxY = .999975;
-			renderer.renderMaxZ = .999975;
-			renderer.renderMinX = .000025;
-			renderer.renderMinY = .000025;
-			renderer.renderMinZ = .000025;
+            renderer.renderMaxX = .99993;
+            renderer.renderMaxY = .99993;
+            renderer.renderMaxZ = .99993;
+            renderer.renderMinX = .00006;
+            renderer.renderMinY = .00006;
+            renderer.renderMinZ = .00006;
 			renderer.renderFromInside = false;
 			renderer.renderStandardBlock(QFBlocks.rfEntangler, x, y, z);
 
