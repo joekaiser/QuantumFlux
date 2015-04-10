@@ -29,7 +29,7 @@ public class QFBlocks
         zpe = new BlockZPE();
         rfEntangler = new BlockRFEntangler();
         rfExciter = new BlockRFExciter();
-        rfExciterL2 = new BlockRFExciterL2();
+        //rfExciterL2 = new BlockRFExciterL2();
         energyCore_off = new BlockBase(Material.portal,"energyCore_off",1,"pickaxe",0).setCreativeTab(null);
         energyCore_on = new BlockBase(Material.portal,"energyCore_on",1,"pickaxe",0).setCreativeTab(null);
     }
