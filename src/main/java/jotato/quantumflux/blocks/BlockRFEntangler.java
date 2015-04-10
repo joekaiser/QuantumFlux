@@ -105,10 +105,18 @@ public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
 		{
 
 			TileEntity entity = world.getTileEntity(x, y, z);
-			if (entity instanceof IEnergyReceiver)
+			if (entity instanceof TileEntityRFEntangler)
 			{
-				String stored = NumberFormat.getIntegerInstance().format(((IEnergyReceiver) entity).getEnergyStored(null));
+				player.addChatMessage(new ChatComponentText("----------"));
+				TileEntityRFEntangler entangler = (TileEntityRFEntangler)entity;
+				String stored = NumberFormat.getIntegerInstance().format(entangler.getEnergyStored(null));
 				player.addChatMessage(new ChatComponentText(ChatFormatting.LIGHT_PURPLE + stored + " RF availble to the RedfluxField"));
+				
+				String in = NumberFormat.getIntegerInstance().format(entangler.lastIn);
+				player.addChatMessage(new ChatComponentText(ChatFormatting.RED + in + " RF added"));
+				
+				String out = NumberFormat.getIntegerInstance().format(entangler.lastOut);
+				player.addChatMessage(new ChatComponentText(ChatFormatting.GREEN + out + " RF used"));
 			}
 		}
 		return super.onBlockActivated(world, x, y, z, player, p_149727_6_, p_149727_7_, p_149727_8_, p_149727_9_);

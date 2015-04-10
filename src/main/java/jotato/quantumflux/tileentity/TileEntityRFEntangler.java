@@ -15,6 +15,8 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 {
 
 	public UUID owner;
+	public long lastIn;
+	public long lastOut;
 
 	private EnergyStorage storage = new EnergyStorage(ConfigMan.redfluxField_buffer, Integer.MAX_VALUE);
 
@@ -27,11 +29,16 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 	@Override
 	public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate)
 	{
+
+		int taken = storage.receiveEnergy(maxReceive, simulate);
+
 		if (!simulate)
 		{
+			lastIn += taken;
 			this.markDirty();
 		}
-		return storage.receiveEnergy(maxReceive, simulate);
+
+		return taken;
 	}
 
 	@Override
@@ -84,7 +91,15 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 	@Override
 	public int requestEnergy(int energy, boolean simulate)
 	{
-		return this.storage.extractEnergy(energy, simulate);
+		int given = this.storage.extractEnergy(energy, simulate);
+
+		if (!simulate)
+		{
+			this.markDirty();
+			lastOut += given;
+		}
+
+		return given;
 	}
 
 	@Override
@@ -137,5 +152,12 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 	{
 		super.validate();
 		registerWithField();
+	}
+	
+	@Override
+	public void updateEntity()
+	{
+		lastIn=0;
+		lastOut=0;
 	}
 }
