@@ -132,7 +132,7 @@ public class Recipes
 
 	private void furnaceRecipes()
 	{
-
+		GameRegistry.addSmelting(redstone, new ItemStack(QFItems.crystalizedRedstone), 5);
 	}
 
 	private void shapelessRecipes()

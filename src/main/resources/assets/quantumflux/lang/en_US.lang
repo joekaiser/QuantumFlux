@@ -19,6 +19,7 @@ item.upgradeToken.name=Upgrade Token
 item.eviscerator.name=Eviscerator
 item.eviscerator_head.name=Eviscerator Head
 item.eviscerator_rod.name=Eviscerator Rod
+item.redstoneCrystal.name=Crystalized Redstone
 
 
 tile.entropyAccelerator.name=Quantum Entropy Accelerator
