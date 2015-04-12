@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class BlockBase extends Block
 {
 
-    protected BlockBase(Material material, String name, float hardness, String harvestTool, int harvestLevel)
+    protected BlockBase(Material material, String name, float hardness)
     {
         super(material);
 
@@ -20,10 +20,18 @@ public class BlockBase extends Block
         setCreativeTab(QuantumFlux.tab);
         setBlockTextureName(getTexture(name));
         setHardness(hardness);
-        setHarvestLevel(harvestTool, harvestLevel);
         GameRegistry.registerBlock(this, name);
 
     }
+    
+    protected BlockBase(Material material, String name, float hardness, String harvestTool, int harvestLevel)
+    {
+        this(material,name,hardness);
+        setHarvestLevel(harvestTool, harvestLevel);
+      
+
+    }
+    
     protected String getTexture(String name){
         return "quantumflux:"+name;
     }

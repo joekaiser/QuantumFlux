@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class BlockContainerBase extends BlockContainer
 {
 
-    protected BlockContainerBase(Material material, String name, float hardness, String harvestTool, int harvestLevel)
+	protected BlockContainerBase(Material material, String name, float hardness)
     {
         super(material);
 
@@ -22,8 +22,14 @@ public class BlockContainerBase extends BlockContainer
         setCreativeTab(QuantumFlux.tab);
         setBlockTextureName(getTexture(name));
         setHardness(hardness);
-        setHarvestLevel(harvestTool, harvestLevel);
         GameRegistry.registerBlock(this, name);
+
+    }
+	
+	protected BlockContainerBase(Material material, String name, float hardness, String harvestTool, int harvestLevel)
+    {
+		this(material,name, hardness);
+        setHarvestLevel(harvestTool, harvestLevel);
 
     }
 

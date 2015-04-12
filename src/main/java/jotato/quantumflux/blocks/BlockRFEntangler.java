@@ -2,8 +2,6 @@ package jotato.quantumflux.blocks;
 
 import java.text.NumberFormat;
 
-import cofh.api.energy.IEnergyReceiver;
-
 import com.mojang.realmsclient.gui.ChatFormatting;
 
 import jotato.quantumflux.proxy.ClientProxy;
