@@ -31,5 +31,6 @@ tile.zeroPointExtractor.name=Zero Point Extractor (ZPE)
 tile.rfEntangler.name=Quantum RF Entangler
 tile.rfExciter.name=Low RF Exciter
 tile.rfExciter_2.name=High RF Exciter
+tile.molecularInfuser.name=RF Infuser
 
 itemGroup.tabQuantumFlux=QuantumFlux

@@ -111,8 +111,6 @@ public class Recipes
 				battlesuite_plate, 'n', netherStar));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.eviscerator), "h", "r", "r", 'r', eviscerator_rod, 'h',
 				eviscerator_head));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.molecularInfuser), "rrr", "q q", "igi", 'r', redstone, 'q',
-				quibitCrystal, 'i', ironCasing, 'g', goldCasing));
 
 		// battlesuit
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.battlesuit_plate), "gg", "gg", 'g', glowingMangalloy));
