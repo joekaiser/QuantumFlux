@@ -91,8 +91,10 @@ public class Recipes
 				'g', goldBlock, 'd', diamondBlock));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.rfEntangler), "zaz", "zqz", "mmm", 'm', mangalloy, 'a',
 				amplificationCrystal, 'q', quibitCluster_4, 'z', zbq7));
-//		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.rfExciter, 2), "qeq", "mgm", 'q', quibitCrystal, 'e', enderPearl,
-//				'm', steelIngot, 'g', goldCasing));
+		// GameRegistry.addRecipe(new ShapedOreRecipe(new
+		// ItemStack(QFBlocks.rfExciter, 2), "qeq", "mgm", 'q', quibitCrystal,
+		// 'e', enderPearl,
+		// 'm', steelIngot, 'g', goldCasing));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.rfExciterL2), "qeq", " a ", "qeq", 'q', quibitCrystal, 'e',
 				rfExciter, 'a', amplificationCrystal));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.quibitCell), "eae", "aqa", "eae", 'q', quibitCluster_2, 'e',
@@ -109,6 +111,8 @@ public class Recipes
 				battlesuite_plate, 'n', netherStar));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.eviscerator), "h", "r", "r", 'r', eviscerator_rod, 'h',
 				eviscerator_head));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFBlocks.molecularInfuser), "rrr", "q q", "igi", 'r', redstone, 'q',
+				quibitCrystal, 'i', ironCasing, 'g', goldCasing));
 
 		// battlesuit
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(QFItems.battlesuit_plate), "gg", "gg", 'g', glowingMangalloy));
