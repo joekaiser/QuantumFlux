@@ -13,7 +13,6 @@ import jotato.quantumflux.tileentity.TileEntityQuibitCluster_4;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_5;
 import jotato.quantumflux.tileentity.TileEntityRFEntangler;
 import jotato.quantumflux.tileentity.TileEntityRFExciter;
-import jotato.quantumflux.tileentity.TileEntityRFExciterL2;
 import jotato.quantumflux.tileentity.TileEntityZeroPointExtractor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -59,7 +58,6 @@ public class QuantumFlux
         GameRegistry.registerTileEntity(TileEntityZeroPointExtractor.class, "tileZeroPointExtractor");
         GameRegistry.registerTileEntity(TileEntityRFEntangler.class, "tileRFEntangler");
         GameRegistry.registerTileEntity(TileEntityRFExciter.class, "tileRFExciter");
-        GameRegistry.registerTileEntity(TileEntityRFExciterL2.class, "tileRFExciterL2");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_1.class, "tileQuibitCluster1");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_2.class, "tileQuibitCluster2");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_3.class, "tileQuibitCluster3");

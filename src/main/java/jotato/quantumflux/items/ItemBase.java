@@ -15,30 +15,47 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class ItemBase extends Item {
-	public ItemBase(String name) {
+public class ItemBase extends Item
+{
+
+	protected String helpText;
+
+	public ItemBase(String name)
+	{
 		setUnlocalizedName(name);
 		setTextureName("quantumflux:" + name);
 		setCreativeTab(QuantumFlux.tab);
 		GameRegistry.registerItem(this, name);
 	}
-	
-	@Override
-	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float p8, float p9, float p10)
+
+	public ItemBase(String name, String helpText)
 	{
-		return super.onItemUse(itemStack, player, world, x, y, z, side, p8,p9,p10);
+		this(name);
+		this.helpText = helpText;
 	}
-	
-	@SuppressWarnings("rawtypes")
-    @Override
+
+	@Override
+	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float p8, float p9,
+			float p10)
+	{
+		return super.onItemUse(itemStack, player, world, x, y, z, side, p8, p9, p10);
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack itemStack, EntityPlayer player, List info, boolean isExtended)
 	{
 		super.addInformation(itemStack, player, info, isExtended);
+
+		if (helpText != null)
+		{
+			info.add(helpText);
+		}
 	}
 
 	@SuppressWarnings("rawtypes")
-    @Override
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs creativeTab, List itemList)
 	{
@@ -58,7 +75,7 @@ public class ItemBase extends Item {
 	{
 		return super.getIconFromDamage(damage);
 	}
-	
+
 	@Override
 	public void onUpdate(ItemStack itemStack, World world, Entity entity, int p4, boolean p5)
 	{
