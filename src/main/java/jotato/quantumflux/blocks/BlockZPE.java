@@ -19,11 +19,11 @@ import net.minecraft.world.World;
 public class BlockZPE extends BlockBase implements ITileEntityProvider
 {
     @SideOnly(Side.CLIENT)
-    protected IIcon icon_front;
+    protected IIcon icon_top;
     @SideOnly(Side.CLIENT)
     protected IIcon icon_side;
     @SideOnly(Side.CLIENT)
-    protected IIcon icon_top;
+    protected IIcon icon_bottom;
 
     protected BlockZPE()
     {
@@ -36,18 +36,18 @@ public class BlockZPE extends BlockBase implements ITileEntityProvider
     @Override
     public void registerBlockIcons(IIconRegister ir)
     {
-        this.icon_front = ir.registerIcon(getTexture("zpe_front"));
-        this.icon_side = ir.registerIcon(getTexture("zpe_side"));
         this.icon_top = ir.registerIcon(getTexture("zpe_top"));
+        this.icon_side = ir.registerIcon(getTexture("zpe_side"));
+        this.icon_bottom = ir.registerIcon(getTexture("zpe_bottom"));
     }
 
     @Override
     public IIcon getIcon(int side, int meta)
     {
         if (side == 1)
-            return icon_front;
-        if (side == 0)
             return icon_top;
+        if (side == 0)
+            return icon_bottom;
 
         return this.icon_side;
     }
