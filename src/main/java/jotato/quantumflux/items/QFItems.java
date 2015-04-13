@@ -27,6 +27,7 @@ public class QFItems
     public static Item eviscerator_head;
 	public static Item upgradeToken;
 	public static Item crystalizedRedstone;
+	public static Item exciterUpgrade;
 
 	public static void init()
 	{
@@ -46,7 +47,8 @@ public class QFItems
         eviscerator_head = new ItemBase("eviscerator_head");
         eviscerator_rod = new ItemBase("eviscerator_rod");
 		upgradeToken = new ItemBase("upgradeToken").setMaxStackSize(1);
-		crystalizedRedstone = new ItemBase("redstoneCrystal", "Increases output on RF Exciters");
+		crystalizedRedstone = new ItemBase("redstoneCrystal");
+		exciterUpgrade =new ItemBase("exciterUpgrade");
 		
 		battlesuit_plate = new ItemBase("battlesuit_plate");
 		battlesuit_helm = new ItemBattleSuit("battlesuit_helmet", 0);

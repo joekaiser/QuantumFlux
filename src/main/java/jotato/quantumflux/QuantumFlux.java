@@ -30,7 +30,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Mod(modid = Reference.MODID, version = Reference.VERSION, name = Reference.MODNAME)
+@Mod(modid = Reference.MODID, version = Reference.VERSION, name = Reference.MODNAME, dependencies="required-after:CoFHAPI")
 public class QuantumFlux
 {
 
