@@ -48,7 +48,7 @@ public class QFItems
         eviscerator_rod = new ItemBase("eviscerator_rod");
 		upgradeToken = new ItemBase("upgradeToken").setMaxStackSize(1);
 		crystalizedRedstone = new ItemBase("redstoneCrystal");
-		exciterUpgrade =new ItemBase("exciterUpgrade");
+		exciterUpgrade =new ItemExciterUpgrade();
 		
 		battlesuit_plate = new ItemBase("battlesuit_plate");
 		battlesuit_helm = new ItemBattleSuit("battlesuit_helmet", 0);

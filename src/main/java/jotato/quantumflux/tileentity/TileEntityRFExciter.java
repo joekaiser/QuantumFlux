@@ -16,6 +16,7 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 	public int lastEnergyUsed;
 	public ForgeDirection targetDirection;
 	public int maxOut;
+	public int upgradeCount;
 
 	public TileEntityRFExciter()
 	{
@@ -80,6 +81,7 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 		super.writeToNBT(tag);
 		tag.setString("owner", owner.toString());
 		tag.setInteger("direction",targetDirection.ordinal());
+		tag.setInteger("upgradeCount", upgradeCount);
 	}
 
 	@Override
@@ -88,6 +90,7 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 		super.readFromNBT(tag);
 		this.owner = UUID.fromString(tag.getString("owner"));
 		this.targetDirection = ForgeDirection.getOrientation(tag.getInteger("direction"));
+		this.upgradeCount = tag.getInteger("upgradeCount");
 	}
 
 	@Override
@@ -107,7 +110,8 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 		TileEntity tile = worldObj.getTileEntity(targetX, targetY, targetZ);
 		if (tile instanceof IEnergyReceiver)
 		{
-			int tosend = extractEnergy(null, maxOut, true);
+		    int netPower = getNetPower();
+			int tosend = extractEnergy(null, netPower, true);
 			int used = ((IEnergyReceiver) tile).receiveEnergy(targetDirection.getOpposite(), tosend, false);
 			if (used > 0)
 			{
@@ -116,5 +120,10 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 			lastEnergyUsed = used;
 			extractEnergy(null, used, false);
 		}
+	}
+	
+	public int getNetPower(){
+	    int power = maxOut + upgradeCount * 100;
+	    return power;
 	}
 }

@@ -13,7 +13,7 @@ public class QFBlocks
     public static Block quibitCluster_5;
     public static Block zpe;
     public static Block rfEntangler;
-    public static Block rfExciter;
+    public static BlockRFExciter rfExciter;
     public static Block energyCore_off;
     public static Block energyCore_on;
 

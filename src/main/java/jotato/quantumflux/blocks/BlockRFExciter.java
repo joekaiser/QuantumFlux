@@ -4,6 +4,7 @@ import java.text.NumberFormat;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 
+import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.proxy.ClientProxy;
 import jotato.quantumflux.tileentity.TileEntityRFExciter;
 import net.minecraft.block.ITileEntityProvider;
@@ -141,12 +142,31 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider
 			if (entity instanceof TileEntityRFExciter)
 			{
 				String used = NumberFormat.getIntegerInstance().format(((TileEntityRFExciter) entity).lastEnergyUsed);
-
-				player.addChatMessage(new ChatComponentText(ChatFormatting.LIGHT_PURPLE + used + " RF used last tick"));
+				String max = NumberFormat.getIntegerInstance().format(((TileEntityRFExciter) entity).getNetPower());
+				player.addChatMessage(new ChatComponentText(ChatFormatting.LIGHT_PURPLE + used + " RF used last tick (max: " + max +")"));
 			}
 		}
 
 		return super.onBlockActivated(world, x, y, z, player, p_149727_6_, p_149727_7_, p_149727_8_, p_149727_9_);
+	}
+	
+	/**
+	 * called when an exciterUpgrade is r-clicked on the block
+	 *
+	 * @return true if successful 
+	 */
+	public boolean addUpgrade(World world, int x, int y, int z, int count){
+	    TileEntity entity = world.getTileEntity(x, y, z);
+        if (entity instanceof TileEntityRFExciter)
+        {
+            TileEntityRFExciter exciter =  (TileEntityRFExciter)entity;
+            if(exciter.upgradeCount+count <= ConfigMan.rfExciter_maxUpgrades){
+                exciter.upgradeCount+=count;
+                exciter.markDirty();
+                return true;
+            }
+        }
+	    return false;
 	}
 
 	@Override

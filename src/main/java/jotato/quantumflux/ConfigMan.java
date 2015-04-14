@@ -22,6 +22,7 @@ public class ConfigMan
     
     public static int redfluxField_buffer;
     public static int rfExciter1_output;
+    public static int rfExciter_maxUpgrades;
     public static int quibitcell_output;
     
     public static int magnet_strength;
@@ -59,9 +60,9 @@ public class ConfigMan
         zpe_damageRange = config.getInt("damageRange", "zeroPointExtractor", 2, 2, 4, "Entities within N blocks will receive damage");
         
         redfluxField_buffer = config.getInt("buffer", "redfluxField", 2500000, 100000, Integer.MAX_VALUE, "The internal storage of each player's field");
-        rfExciter1_output = config.getInt("rfExciter_baseOutput", "redfluxField", 100, 100, 1000, "The output withotu any upgrades");
+        rfExciter1_output = config.getInt("rfExciter_baseOutput", "redfluxField", 100, 100, 1000, "The output without any upgrades");
         quibitcell_output = config.getInt("quibitCell_output", "redfluxField", 800, 500, 5000, "How much rf/tick the quibit cell can charge per item");
-        
+        rfExciter_maxUpgrades = config.getInt("rfExciter_maxUpgrades", "redfluxField", 640, 100, 1000, "How many upgrades can be applied to an Exciter");
         magnet_strength = config.getInt("magnetStrength", "misc",6, 4, 14, "How far the magnet can reach");
         
         battlesuit_chargeRate = config.getInt("chargeRate","battlesuit",200,50,500,"How fast the Battlesuit can charge");
