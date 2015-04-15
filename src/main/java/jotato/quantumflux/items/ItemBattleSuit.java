@@ -82,7 +82,7 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 
 		if (stack.getItem() == QFItems.battlesuit_boots && isArmorSpecialCapable(stack))
 		{
-			info.add("Capability: Speed boost");
+			info.add("Capability: Momentum");
 		}
 
 		if (stack.getItem() == QFItems.battlesuit_legs && isArmorSpecialCapable(stack))
