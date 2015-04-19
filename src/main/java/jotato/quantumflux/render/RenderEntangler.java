@@ -1,7 +1,7 @@
 package jotato.quantumflux.render;
 
 import jotato.quantumflux.blocks.BlockRFEntangler;
-import jotato.quantumflux.blocks.QFBlocks;
+import jotato.quantumflux.blocks.ModBlocks;
 import jotato.quantumflux.proxy.ClientProxy;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -22,7 +22,7 @@ public class RenderEntangler extends RenderBlockBase
 			renderer.renderMinY = .1;
 			renderer.renderMinZ = .1;
 
-			renderer.renderStandardBlock(QFBlocks.energyCore_on, x, y, z);
+			renderer.renderStandardBlock(ModBlocks.energyCore_on, x, y, z);
 
 		} else
 		{
@@ -34,11 +34,11 @@ public class RenderEntangler extends RenderBlockBase
             renderer.renderMinY = .00006;
             renderer.renderMinZ = .00006;
 			renderer.renderFromInside = false;
-			renderer.renderStandardBlock(QFBlocks.rfEntangler, x, y, z);
+			renderer.renderStandardBlock(ModBlocks.rfEntangler, x, y, z);
 
 			// adding this second pass renders the inside faces as well
 			renderer.renderFromInside = true;
-			renderer.renderStandardBlock(QFBlocks.rfEntangler, x, y, z);
+			renderer.renderStandardBlock(ModBlocks.rfEntangler, x, y, z);
 
 		}
 		return true;

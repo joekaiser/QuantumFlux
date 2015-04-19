@@ -2,7 +2,7 @@ package jotato.quantumflux.render;
 
 
 import jotato.quantumflux.blocks.BlockEntropyAccelerator;
-import jotato.quantumflux.blocks.QFBlocks;
+import jotato.quantumflux.blocks.ModBlocks;
 import jotato.quantumflux.proxy.ClientProxy;
 import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
 import net.minecraft.block.Block;
@@ -29,14 +29,14 @@ public class RenderEntropyAccelerator extends RenderBlockBase
 			{
 				if (((TileEntityEntropyAccelerator) entity).isBurning)
 				{
-					renderer.renderStandardBlock(QFBlocks.energyCore_on, x, y, z);
+					renderer.renderStandardBlock(ModBlocks.energyCore_on, x, y, z);
 				} else
 				{
-					renderer.renderStandardBlock(QFBlocks.energyCore_off, x, y, z);
+					renderer.renderStandardBlock(ModBlocks.energyCore_off, x, y, z);
 				}
 			} else
 			{
-				renderer.renderStandardBlock(QFBlocks.energyCore_on, x, y, z);
+				renderer.renderStandardBlock(ModBlocks.energyCore_on, x, y, z);
 			}
 		} else
 		{
@@ -48,11 +48,11 @@ public class RenderEntropyAccelerator extends RenderBlockBase
 			renderer.renderMinY = .00006;
 			renderer.renderMinZ = .00006;
 			renderer.renderFromInside = false;
-			renderer.renderStandardBlock(QFBlocks.entropyAccelerator, x, y, z);
+			renderer.renderStandardBlock(ModBlocks.entropyAccelerator, x, y, z);
 
 			// adding this second pass renders the inside faces as well
 			renderer.renderFromInside = true;
-			renderer.renderStandardBlock(QFBlocks.entropyAccelerator, x, y, z);
+			renderer.renderStandardBlock(ModBlocks.entropyAccelerator, x, y, z);
 		}
 		return true;
 	}

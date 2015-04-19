@@ -1,7 +1,7 @@
 package jotato.quantumflux.items;
 
 
-import jotato.quantumflux.blocks.QFBlocks;
+import jotato.quantumflux.blocks.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -30,9 +30,9 @@ public class ItemExciterUpgrade extends ItemBase
                 
                 Block target = world.getBlock(x, y, z);
                 
-                if (target == QFBlocks.rfExciter) {
+                if (target == ModBlocks.rfExciter) {
                     
-                    if(QFBlocks.rfExciter.addUpgrade(world, x, y, z, 1)){
+                    if(ModBlocks.rfExciter.addUpgrade(world, x, y, z, 1)){
                         itemStack.stackSize--;
                     }
                 }

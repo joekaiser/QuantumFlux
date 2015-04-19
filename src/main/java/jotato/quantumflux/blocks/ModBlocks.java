@@ -3,7 +3,7 @@ package jotato.quantumflux.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
-public class QFBlocks
+public class ModBlocks
 {
     public static Block entropyAccelerator;
     public static Block quibitCluster_1;

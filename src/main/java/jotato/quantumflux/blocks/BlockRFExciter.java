@@ -5,7 +5,7 @@ import java.text.NumberFormat;
 import com.mojang.realmsclient.gui.ChatFormatting;
 
 import jotato.quantumflux.ConfigMan;
-import jotato.quantumflux.items.QFItems;
+import jotato.quantumflux.items.ModItems;
 import jotato.quantumflux.proxy.ClientProxy;
 import jotato.quantumflux.tileentity.TileEntityRFExciter;
 import net.minecraft.block.Block;
@@ -15,7 +15,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.IBlockAccess;
@@ -194,7 +193,7 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider
 				float f3 = 0.025F;
 
 				EntityItem entityitem = new EntityItem(world, (double) ((float) x + f), (double) ((float) y + f1),
-						(double) ((float) z + f2), new ItemStack(QFItems.exciterUpgrade, 1));
+						(double) ((float) z + f2), new ItemStack(ModItems.exciterUpgrade, 1));
 
 				entityitem.motionX = (double) ((float) world.rand.nextGaussian() * f3);
 				entityitem.motionY = (double) ((float) world.rand.nextGaussian() * f3 + 0.1F);

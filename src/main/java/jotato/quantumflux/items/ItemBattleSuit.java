@@ -75,22 +75,22 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List info, boolean p_77624_4_)
 	{
-		if (stack.getItem() == QFItems.battlesuit_chest && isArmorSpecialCapable(stack))
+		if (stack.getItem() == ModItems.battlesuit_chest && isArmorSpecialCapable(stack))
 		{
 			info.add("Capability: Flight");
 		}
 
-		if (stack.getItem() == QFItems.battlesuit_boots && isArmorSpecialCapable(stack))
+		if (stack.getItem() == ModItems.battlesuit_boots && isArmorSpecialCapable(stack))
 		{
 			info.add("Capability: Momentum");
 		}
 
-		if (stack.getItem() == QFItems.battlesuit_legs && isArmorSpecialCapable(stack))
+		if (stack.getItem() == ModItems.battlesuit_legs && isArmorSpecialCapable(stack))
 		{
 			info.add("Capability: Strength");
 		}
 
-		if (stack.getItem() == QFItems.battlesuit_helm && isArmorSpecialCapable(stack))
+		if (stack.getItem() == ModItems.battlesuit_helm && isArmorSpecialCapable(stack))
 		{
 			info.add("Capability: Visibility");
 		}

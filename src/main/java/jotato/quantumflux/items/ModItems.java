@@ -3,7 +3,7 @@ package jotato.quantumflux.items;
 import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class QFItems
+public class ModItems
 {
 	public static Item amplificationCrystal;
 	public static Item ironCasing;

@@ -1,7 +1,7 @@
 package jotato.quantumflux;
 
-import jotato.quantumflux.blocks.QFBlocks;
-import jotato.quantumflux.items.QFItems;
+import jotato.quantumflux.blocks.ModBlocks;
+import jotato.quantumflux.items.ModItems;
 import jotato.quantumflux.packets.PacketHandler;
 import jotato.quantumflux.proxy.CommonProxy;
 import jotato.quantumflux.redflux.RedfluxField;
@@ -45,8 +45,8 @@ public class QuantumFlux
     {
     	
         ConfigMan.init(new Configuration(event.getSuggestedConfigurationFile()));
-        QFBlocks.init();
-        QFItems.init();
+        ModBlocks.init();
+        ModItems.init();
         regiterTileEntities();
         FMLCommonHandler.instance().bus().register(new EventHooks());
     }
@@ -93,7 +93,7 @@ public class QuantumFlux
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem()
         {
-            return QFItems.amplificationCrystal;
+            return ModItems.amplificationCrystal;
         }
     };
 }
