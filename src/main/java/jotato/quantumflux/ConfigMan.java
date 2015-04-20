@@ -65,11 +65,11 @@ public class ConfigMan
         rfExciter_maxUpgrades = config.getInt("rfExciter_maxUpgrades", "redfluxField", 640, 100, 1000, "How many upgrades can be applied to an Exciter");
         magnet_strength = config.getInt("magnetStrength", "misc",6, 4, 14, "How far the magnet can reach");
         
-        battlesuit_chargeRate = config.getInt("chargeRate","battlesuit",200,50,500,"How fast the Battlesuit can charge");
+        battlesuit_chargeRate = config.getInt("chargeRate","battlesuit",500,50,500,"How fast the Battlesuit can charge");
         battlesuit_maxEnergy = config.getInt("maxEnergy", "battlesuit", 50000, 10000, 100000, "The maximum amount of energy that the battlesuit can hold");
         battlesuit_drain = config.getInt("drain", "battlesuit", 1, 0, 5, "The amount of energy drained every 20 ticks from battlesuits that have special abilities");
         
         eviscerator_chargeRate = config.getInt("chargeRate","eviscerator",500,20,500,"How fast the Eviscerator can charge");
-        eviscerator_maxEnergy = config.getInt("maxEnergy", "eviscerator", 10000, 10000, 100000, "The maximum amount of energy that the Eviscerator can hold");
+        eviscerator_maxEnergy = config.getInt("maxEnergy", "eviscerator", 50000, 10000, 100000, "The maximum amount of energy that the Eviscerator can hold");
     }
 }
