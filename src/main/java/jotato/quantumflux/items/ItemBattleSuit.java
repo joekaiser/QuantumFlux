@@ -219,17 +219,22 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 	 *            armor slot. 0:boots; 3: helm
 	 * @param player
 	 */
-	public static void doSpecial(int slot, EntityPlayer player)
+	public static void doSpecial(Side side, int slot, EntityPlayer player)
 	{
 		switch (slot)
 		{
 		case 0:
-			player.capabilities.setFlySpeed(.15f);
-			player.capabilities.setPlayerWalkSpeed(.25f);
-			entitiesRunning.put(player, true);
+			if (side==Side.CLIENT)
+			{
+				player.capabilities.setFlySpeed(.15f);
+				player.capabilities.setPlayerWalkSpeed(.25f);
+				entitiesRunning.put(player, true);
+			}
+			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id,40,2));
 			break;
 		case 1:
 			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 40, 2));
+			player.addPotionEffect(new PotionEffect(Potion.digSpeed.id,40,3));
 			break;
 
 		case 2:
@@ -238,7 +243,7 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 			break;
 		case 3:
 			player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 40, 2));
-			player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id, 40));
+			player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id, 40,2));
 			break;
 		}
 
