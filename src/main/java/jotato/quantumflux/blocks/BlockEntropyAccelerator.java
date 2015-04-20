@@ -29,7 +29,7 @@ public class BlockEntropyAccelerator extends BlockContainerBase
 	@SideOnly(Side.CLIENT)
 	protected IIcon icon_front;
 	@SideOnly(Side.CLIENT)
-	protected IIcon icon_front_active;
+	protected IIcon icon_bottom;
 	@SideOnly(Side.CLIENT)
 	protected IIcon icon_side;
 
@@ -44,9 +44,10 @@ public class BlockEntropyAccelerator extends BlockContainerBase
 	@Override
 	public void registerBlockIcons(IIconRegister ir)
 	{
-		this.icon_top = ir.registerIcon(getTexture("machineTop"));
-		this.icon_front = ir.registerIcon(getTexture("entropyAccelerator"));
-		this.icon_side = ir.registerIcon(getTexture("entropyAccelerator"));
+		this.icon_top = ir.registerIcon(getTexture("entropyAccelerator_top"));
+		this.icon_front = ir.registerIcon(getTexture("entropyAccelerator_front"));
+		this.icon_side = ir.registerIcon(getTexture("entropyAccelerator_side"));
+		this.icon_bottom = ir.registerIcon(getTexture("entropyAccelerator_bottom"));
 	}
 
 	@Override
@@ -58,9 +59,13 @@ public class BlockEntropyAccelerator extends BlockContainerBase
 			return icon_front;
 		}
 
-		if (side == 1 || side == 0)
+		if (side == 1)
 		{
 			return this.icon_top;
+		}
+		
+		if(side==0){
+			return this.icon_bottom;
 		}
 
 		return this.icon_side;

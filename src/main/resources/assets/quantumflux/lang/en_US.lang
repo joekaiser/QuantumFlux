@@ -19,7 +19,8 @@ item.upgradeToken.name=Upgrade Token
 item.eviscerator.name=Eviscerator
 item.eviscerator_head.name=Eviscerator Head
 item.eviscerator_rod.name=Eviscerator Rod
-
+item.redstoneCrystal.name=Crystalized Redstone
+item.exciterUpgrade.name=Exciter Upgrade
 
 tile.entropyAccelerator.name=Quantum Entropy Accelerator
 tile.quibitCluster_1.name=Quibit Cluster Level 1
@@ -30,6 +31,6 @@ tile.quibitCluster_5.name=Quibit Cluster Level 5
 tile.zeroPointExtractor.name=Zero Point Extractor (ZPE)
 tile.rfEntangler.name=Quantum RF Entangler
 tile.rfExciter.name=Low RF Exciter
-tile.rfExciter_2.name=High RF Exciter
+tile.molecularInfuser.name=RF Infuser
 
 itemGroup.tabQuantumFlux=QuantumFlux

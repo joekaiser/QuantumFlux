@@ -75,22 +75,22 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List info, boolean p_77624_4_)
 	{
-		if (stack.getItem() == QFItems.battlesuit_chest && isArmorSpecialCapable(stack))
+		if (stack.getItem() == ModItems.battlesuit_chest && isArmorSpecialCapable(stack))
 		{
 			info.add("Capability: Flight");
 		}
 
-		if (stack.getItem() == QFItems.battlesuit_boots && isArmorSpecialCapable(stack))
+		if (stack.getItem() == ModItems.battlesuit_boots && isArmorSpecialCapable(stack))
 		{
-			info.add("Capability: Speed boost");
+			info.add("Capability: Momentum");
 		}
 
-		if (stack.getItem() == QFItems.battlesuit_legs && isArmorSpecialCapable(stack))
+		if (stack.getItem() == ModItems.battlesuit_legs && isArmorSpecialCapable(stack))
 		{
 			info.add("Capability: Strength");
 		}
 
-		if (stack.getItem() == QFItems.battlesuit_helm && isArmorSpecialCapable(stack))
+		if (stack.getItem() == ModItems.battlesuit_helm && isArmorSpecialCapable(stack))
 		{
 			info.add("Capability: Visibility");
 		}
@@ -219,17 +219,21 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 	 *            armor slot. 0:boots; 3: helm
 	 * @param player
 	 */
-	public static void doSpecial(int slot, EntityPlayer player)
+	public static void doSpecial(Side side, int slot, EntityPlayer player)
 	{
 		switch (slot)
 		{
 		case 0:
-			player.capabilities.setFlySpeed(.15f);
-			player.capabilities.setPlayerWalkSpeed(.25f);
-			entitiesRunning.put(player, true);
+			if (side==Side.CLIENT)
+			{
+				player.capabilities.setFlySpeed(.15f);
+				entitiesRunning.put(player, true);
+			}
+			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id,40,2,true));
 			break;
 		case 1:
-			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 40, 2));
+			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 40, 2,true));
+			player.addPotionEffect(new PotionEffect(Potion.digSpeed.id,40,3,true));
 			break;
 
 		case 2:
@@ -237,8 +241,8 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 			entitiesFlying.put(player, true);
 			break;
 		case 3:
-			player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 40, 2));
-			player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id, 40));
+			player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 40, 2,true));
+			player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id, 40,2,true));
 			break;
 		}
 

@@ -1,5 +1,7 @@
 package jotato.quantumflux.blocks;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import jotato.quantumflux.QuantumFlux;
 import jotato.quantumflux.gui.QFGuiHandler.GUI;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_1;
@@ -8,14 +10,27 @@ import jotato.quantumflux.tileentity.TileEntityQuibitCluster_3;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_4;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_5;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 //todo: feel free to refactor this. It is UGLY and I just want to get it working right now
 public class BlockQuibitCluster extends BlockContainerBase
 {
     private int level;
+	@SideOnly(Side.CLIENT)
+	protected IIcon icon_top;
+	@SideOnly(Side.CLIENT)
+	protected IIcon icon_front;
+	@SideOnly(Side.CLIENT)
+	protected IIcon icon_bottom;
+	@SideOnly(Side.CLIENT)
+	protected IIcon icon_side;
+
 
     public BlockQuibitCluster(int level)
     {
@@ -23,6 +38,45 @@ public class BlockQuibitCluster extends BlockContainerBase
         setStepSound(soundTypeMetal);
         this.level = level;
     }
+    
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void registerBlockIcons(IIconRegister ir)
+	{
+		this.icon_top = ir.registerIcon(getTexture("quibitCluster_top"));
+		this.icon_bottom = ir.registerIcon(getTexture("quibitCluster_bottom"));
+		this.icon_front = ir.registerIcon(getTexture("quibitCluster_"+this.level+"_front"));
+		this.icon_side = ir.registerIcon(getTexture("quibitCluster_"+this.level+"_side"));
+	}
+
+	@Override
+	public IIcon getIcon(int side, int meta)
+	{
+		int frontSide = getOrientation(meta, false);
+		if (side == frontSide)
+		{
+			return icon_front;
+		}
+
+		if (side == 1)
+		{
+			return this.icon_top;
+		}
+		if (side == 0)
+		{
+			return this.icon_bottom;
+		}
+
+		return this.icon_side;
+	}
+
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack)
+	{
+		int frontSide = determineOrientation(world, x, y, z, entity);
+		world.setBlockMetadataWithNotify(x, y, z, frontSide, 2);
+
+	}
 
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p6, float p7, float p8, float p9)

@@ -3,7 +3,7 @@ package jotato.quantumflux.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
-public class QFBlocks
+public class ModBlocks
 {
     public static Block entropyAccelerator;
     public static Block quibitCluster_1;
@@ -13,8 +13,7 @@ public class QFBlocks
     public static Block quibitCluster_5;
     public static Block zpe;
     public static Block rfEntangler;
-    public static Block rfExciter;
-    public static Block rfExciterL2;
+    public static BlockRFExciter rfExciter;
     public static Block energyCore_off;
     public static Block energyCore_on;
 
@@ -29,7 +28,6 @@ public class QFBlocks
         zpe = new BlockZPE();
         rfEntangler = new BlockRFEntangler();
         rfExciter = new BlockRFExciter();
-        //rfExciterL2 = new BlockRFExciterL2();
         energyCore_off = new BlockBase(Material.portal,"energyCore_off",1,"pickaxe",0).setCreativeTab(null);
         energyCore_on = new BlockBase(Material.portal,"energyCore_on",1,"pickaxe",0).setCreativeTab(null);
     }

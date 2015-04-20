@@ -22,7 +22,7 @@ group= "jotato.quantumflux" // http://maven.apache.org/guides/mini/guide-naming-
 archivesBaseName = "QuantumFlux"
 
 minecraft {
-    version = "1.7.10-10.13.2.1286"
+    version = "1.7.10-10.13.2.1291"
     runDir = "eclipse"
 }
 
@@ -60,4 +60,9 @@ processResources
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+}
+
+task devbuild(type: Jar) {
+    from sourceSets.main.output
+    classifier = project.minecraft.version + '-dev'
 }

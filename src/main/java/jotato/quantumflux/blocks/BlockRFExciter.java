@@ -4,11 +4,15 @@ import java.text.NumberFormat;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 
+import jotato.quantumflux.ConfigMan;
+import jotato.quantumflux.items.ModItems;
 import jotato.quantumflux.proxy.ClientProxy;
 import jotato.quantumflux.tileentity.TileEntityRFExciter;
+import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -141,12 +145,65 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider
 			if (entity instanceof TileEntityRFExciter)
 			{
 				String used = NumberFormat.getIntegerInstance().format(((TileEntityRFExciter) entity).lastEnergyUsed);
-
-				player.addChatMessage(new ChatComponentText(ChatFormatting.LIGHT_PURPLE + used + " RF used last tick"));
+				String max = NumberFormat.getIntegerInstance().format(((TileEntityRFExciter) entity).getNetPower());
+				player.addChatMessage(new ChatComponentText(ChatFormatting.LIGHT_PURPLE + used + " RF used last tick (max: " + max + ")"));
 			}
 		}
 
 		return super.onBlockActivated(world, x, y, z, player, p_149727_6_, p_149727_7_, p_149727_8_, p_149727_9_);
+	}
+
+	/**
+	 * called when an exciterUpgrade is r-clicked on the block
+	 *
+	 * @return true if successful
+	 */
+	public boolean addUpgrade(World world, int x, int y, int z, int count)
+	{
+		TileEntity entity = world.getTileEntity(x, y, z);
+		if (entity instanceof TileEntityRFExciter)
+		{
+			TileEntityRFExciter exciter = (TileEntityRFExciter) entity;
+			if (exciter.upgradeCount + count <= ConfigMan.rfExciter_maxUpgrades)
+			{
+				exciter.upgradeCount += count;
+				exciter.markDirty();
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public void breakBlock(World world, int x, int y, int z, Block block, int meta)
+	{
+		// TODO Auto-generated method stub
+		TileEntity entity = world.getTileEntity(x, y, z);
+		if (entity instanceof TileEntityRFExciter)
+		{
+			TileEntityRFExciter exciter = (TileEntityRFExciter) entity;
+			int upgrades = exciter.upgradeCount;
+
+			for (int i = 0; i < upgrades; i++)
+			{
+
+				float f = world.rand.nextFloat() * 0.6F + 0.1F;
+				float f1 = world.rand.nextFloat() * 0.6F + 0.1F;
+				float f2 = world.rand.nextFloat() * 0.6F + 0.1F;
+				float f3 = 0.025F;
+
+				EntityItem entityitem = new EntityItem(world, (double) ((float) x + f), (double) ((float) y + f1),
+						(double) ((float) z + f2), new ItemStack(ModItems.exciterUpgrade, 1));
+
+				entityitem.motionX = (double) ((float) world.rand.nextGaussian() * f3);
+				entityitem.motionY = (double) ((float) world.rand.nextGaussian() * f3 + 0.1F);
+				entityitem.motionZ = (double) ((float) world.rand.nextGaussian() * f3);
+				world.spawnEntityInWorld(entityitem);
+			}
+
+		}
+
+		super.breakBlock(world, x, y, z, block, meta);
 	}
 
 	@Override

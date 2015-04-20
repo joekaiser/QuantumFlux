@@ -21,7 +21,7 @@ public class EventHooks
 				ItemStack armor = player.inventory.armorItemInSlot(i);
 				if (armor != null && armor.getItem() instanceof ItemBattleSuit && ItemBattleSuit.isArmorSpecialCapable(armor))
 				{
-					ItemBattleSuit.doSpecial(i, player);
+					ItemBattleSuit.doSpecial(event.side,i, player);
 				} else
 				{
 					ItemBattleSuit.removeSpecial(i, player);

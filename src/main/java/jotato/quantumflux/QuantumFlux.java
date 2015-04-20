@@ -1,7 +1,7 @@
 package jotato.quantumflux;
 
-import jotato.quantumflux.blocks.QFBlocks;
-import jotato.quantumflux.items.QFItems;
+import jotato.quantumflux.blocks.ModBlocks;
+import jotato.quantumflux.items.ModItems;
 import jotato.quantumflux.packets.PacketHandler;
 import jotato.quantumflux.proxy.CommonProxy;
 import jotato.quantumflux.redflux.RedfluxField;
@@ -13,7 +13,6 @@ import jotato.quantumflux.tileentity.TileEntityQuibitCluster_4;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_5;
 import jotato.quantumflux.tileentity.TileEntityRFEntangler;
 import jotato.quantumflux.tileentity.TileEntityRFExciter;
-import jotato.quantumflux.tileentity.TileEntityRFExciterL2;
 import jotato.quantumflux.tileentity.TileEntityZeroPointExtractor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -31,7 +30,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Mod(modid = Reference.MODID, version = Reference.VERSION, name = Reference.MODNAME)
+@Mod(modid = Reference.MODID, version = Reference.VERSION, name = Reference.MODNAME, dependencies="required-after:CoFHAPI")
 public class QuantumFlux
 {
 
@@ -46,8 +45,8 @@ public class QuantumFlux
     {
     	
         ConfigMan.init(new Configuration(event.getSuggestedConfigurationFile()));
-        QFBlocks.init();
-        QFItems.init();
+        ModBlocks.init();
+        ModItems.init();
         regiterTileEntities();
         FMLCommonHandler.instance().bus().register(new EventHooks());
     }
@@ -59,7 +58,6 @@ public class QuantumFlux
         GameRegistry.registerTileEntity(TileEntityZeroPointExtractor.class, "tileZeroPointExtractor");
         GameRegistry.registerTileEntity(TileEntityRFEntangler.class, "tileRFEntangler");
         GameRegistry.registerTileEntity(TileEntityRFExciter.class, "tileRFExciter");
-        GameRegistry.registerTileEntity(TileEntityRFExciterL2.class, "tileRFExciterL2");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_1.class, "tileQuibitCluster1");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_2.class, "tileQuibitCluster2");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_3.class, "tileQuibitCluster3");
@@ -95,7 +93,7 @@ public class QuantumFlux
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem()
         {
-            return QFItems.amplificationCrystal;
+            return ModItems.amplificationCrystal;
         }
     };
 }

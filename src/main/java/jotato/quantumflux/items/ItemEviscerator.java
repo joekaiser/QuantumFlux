@@ -26,7 +26,7 @@ public class ItemEviscerator extends ItemPickaxe implements IEnergyContainerItem
 
     public static ToolMaterial material = EnumHelper.addToolMaterial("eviscerator", 10000, 1000, 50, 30, 1000);
     private static final String energy_tag = "Energy";
-    private int energyUsedPerHit = 200;
+    private int energyUsedPerHit = 100;
 
     protected ItemEviscerator(String name)
     {

@@ -124,6 +124,8 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 			RedfluxField.registerLink(this);
 		}
 	}
+	
+
 
 	@Override
 	public String getOwner()
