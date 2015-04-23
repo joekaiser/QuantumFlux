@@ -17,7 +17,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.2.0"
+version = "1.7.10-1.2.0"
 group= "jotato.quantumflux" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "QuantumFlux"
 
@@ -64,5 +64,5 @@ processResources
 
 task devbuild(type: Jar) {
     from sourceSets.main.output
-    classifier = project.minecraft.version + '-dev'
+    classifier =  'dev'
 }
