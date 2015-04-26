@@ -34,7 +34,7 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 
 	public static ArmorMaterial material = EnumHelper.addArmorMaterial("battleSuitMatieral", 33, new int[] { 4, 9, 7, 4 }, 50);
 	private static final String energy_tag = "Energy";
-	private int energyUsedPerDamageTaken = 100;
+	private int energyUsedPerDamageTaken = 10;
 
 	public ItemBattleSuit(String name, int type)
 	{
@@ -122,7 +122,7 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 	{
 		if (!world.isRemote)
 		{
-			if (world.getTotalWorldTime() % 112 == 0)
+			if (world.getTotalWorldTime() % 1200 == 0)
 			{
 				drainArmor(itemStack, player);
 			}
@@ -229,11 +229,11 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 				player.capabilities.setFlySpeed(.15f);
 				entitiesRunning.put(player, true);
 			}
-			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id,40,2,true));
+			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id,2,2,true));
 			break;
 		case 1:
-			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 40, 2,true));
-			player.addPotionEffect(new PotionEffect(Potion.digSpeed.id,40,3,true));
+			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 2, 2,true));
+			player.addPotionEffect(new PotionEffect(Potion.digSpeed.id,2,2,true));
 			break;
 
 		case 2:
@@ -241,8 +241,8 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 			entitiesFlying.put(player, true);
 			break;
 		case 3:
-			player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 40, 2,true));
-			player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id, 40,2,true));
+			player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 220, 2,true));
+			player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id, 2,2,true));
 			break;
 		}
 

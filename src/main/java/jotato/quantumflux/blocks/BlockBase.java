@@ -1,5 +1,6 @@
 package jotato.quantumflux.blocks;
 
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import jotato.quantumflux.QuantumFlux;
 import net.minecraft.block.Block;
@@ -28,8 +29,6 @@ public class BlockBase extends Block
     {
         this(material,name,hardness);
         setHarvestLevel(harvestTool, harvestLevel);
-      
-
     }
     
     protected String getTexture(String name){

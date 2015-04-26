@@ -23,6 +23,7 @@ public class ClientProxy extends CommonProxy
 
 		BlockRFExciter.renderType = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(new RenderExciter());
+		
 
 	}
 
