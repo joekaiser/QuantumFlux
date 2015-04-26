@@ -27,7 +27,7 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider
 
 	protected BlockRFExciter()
 	{
-		super(Material.rock, "rfExciter", 1, "pickaxe", 0);
+		super(Material.circuits, "rfExciter", .25f, "pickaxe", 0);
 		this.setBlockBounds(.15f, 0f, .15f, .85f, .12f, .85f);
 	}
 
