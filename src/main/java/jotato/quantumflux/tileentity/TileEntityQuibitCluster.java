@@ -2,6 +2,7 @@ package jotato.quantumflux.tileentity;
 
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyHandler;
+import cofh.api.energy.IEnergyReceiver;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jotato.quantumflux.ConfigMan;
@@ -9,7 +10,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public abstract class TileEntityQuibitCluster extends TileEntity implements  IEnergyHandler
+public abstract class TileEntityQuibitCluster extends TileEntity implements IEnergyHandler
 {
 	protected EnergyStorage localEnergyStorage;
 	private int transferRate;
@@ -102,7 +103,7 @@ public abstract class TileEntityQuibitCluster extends TileEntity implements  IEn
 		tag.setTag("Energy", energyTag);
 		tag.setInteger("XferRate", this.transferRate);
 		tag.setInteger("Capacity", this.capacity);
-		tag.setInteger("Level",this.level);
+		tag.setInteger("Level", this.level);
 
 	}
 
@@ -122,15 +123,48 @@ public abstract class TileEntityQuibitCluster extends TileEntity implements  IEn
 	{
 		double stored = getEnergyStored(null);
 		double max = getMaxEnergyStored(null);
-		double v= ((stored /max) *scale);
-		return (int)v;
+		double v = ((stored / max) * scale);
+		return (int) v;
 	}
 
-	
 	@Override
 	public void markDirty()
 	{
 		super.markDirty();
 		worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
+	}
+
+	@Override
+	public void updateEntity()
+	{
+		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
+		{
+			int targetX = xCoord + dir.offsetX;
+			int targetY = yCoord + dir.offsetY;
+			int targetZ = zCoord + dir.offsetZ;
+
+			TileEntity tile = worldObj.getTileEntity(targetX, targetY, targetZ);
+			// todo: make configurable sides for the cluster
+			if (tile instanceof TileEntityQuibitCluster)
+				return;
+			if (tile instanceof IEnergyReceiver)
+			{
+				IEnergyReceiver receiver = (IEnergyReceiver) tile;
+
+				if (receiver.canConnectEnergy(dir.getOpposite()))
+				{
+					int tosend = localEnergyStorage.extractEnergy(transferRate, true);
+					int used = ((IEnergyReceiver) tile).receiveEnergy(dir.getOpposite(), tosend, false);
+					if (used > 0)
+					{
+						this.markDirty();
+					}
+					localEnergyStorage.extractEnergy(used, false);
+				}
+
+			}
+
+		}
+		super.updateEntity();
 	}
 }
