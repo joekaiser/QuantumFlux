@@ -29,8 +29,8 @@ tile.quibitCluster_3.name=Quibit Cluster Level 3
 tile.quibitCluster_4.name=Quibit Cluster Level 4
 tile.quibitCluster_5.name=Quibit Cluster Level 5
 tile.zeroPointExtractor.name=Zero Point Extractor (ZPE)
-tile.rfEntangler.name=Quantum RF Entangler
-tile.rfExciter.name=Low RF Exciter
+tile.rfEntangler.name=RF Entangler
+tile.rfExciter.name=RF Exciter
 tile.molecularInfuser.name=RF Infuser
 
 itemGroup.tabQuantumFlux=QuantumFlux
