@@ -2,8 +2,6 @@ package jotato.quantumflux.blocks;
 
 import java.text.NumberFormat;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
-
 import jotato.quantumflux.proxy.ClientProxy;
 import jotato.quantumflux.tileentity.TileEntityRFEntangler;
 import cpw.mods.fml.relauncher.Side;
@@ -16,6 +14,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -98,7 +97,7 @@ public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_,
 			float p_149727_8_, float p_149727_9_)
 	{
-		
+
 		if (!world.isRemote && player.isSneaking())
 		{
 
@@ -106,20 +105,20 @@ public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
 			if (entity instanceof TileEntityRFEntangler)
 			{
 				player.addChatMessage(new ChatComponentText("----------"));
-				TileEntityRFEntangler entangler = (TileEntityRFEntangler)entity;
+				TileEntityRFEntangler entangler = (TileEntityRFEntangler) entity;
 				String stored = NumberFormat.getIntegerInstance().format(entangler.getEnergyStored(null));
-				player.addChatMessage(new ChatComponentText(ChatFormatting.LIGHT_PURPLE + stored + " RF availble to the RedfluxField"));
-				
+				player.addChatMessage(new ChatComponentText(EnumChatFormatting.LIGHT_PURPLE + stored + " RF availble to the RedfluxField"));
+
 				String in = NumberFormat.getIntegerInstance().format(entangler.lastIn);
-				player.addChatMessage(new ChatComponentText(ChatFormatting.RED + in + " RF added"));
-				
+				player.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + in + " RF added"));
+
 				String out = NumberFormat.getIntegerInstance().format(entangler.lastOut);
-				player.addChatMessage(new ChatComponentText(ChatFormatting.GREEN + out + " RF used"));
+				player.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + out + " RF used"));
 			}
 		}
 		return super.onBlockActivated(world, x, y, z, player, p_149727_6_, p_149727_7_, p_149727_8_, p_149727_9_);
 	}
-	
+
 	@Override
 	public boolean renderAsNormalBlock()
 	{
@@ -150,12 +149,13 @@ public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
 	{
 		return 1;
 	}
-	
+
 	@Override
 	public boolean isNormalCube()
 	{
 		return false;
 	}
+
 	@Override
 	public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_, int p_149646_5_)
 	{

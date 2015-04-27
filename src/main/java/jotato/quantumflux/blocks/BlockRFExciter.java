@@ -2,8 +2,6 @@ package jotato.quantumflux.blocks;
 
 import java.text.NumberFormat;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
-
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.items.ModItems;
 import jotato.quantumflux.proxy.ClientProxy;
@@ -17,6 +15,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -146,7 +145,7 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider
 			{
 				String used = NumberFormat.getIntegerInstance().format(((TileEntityRFExciter) entity).lastEnergyUsed);
 				String max = NumberFormat.getIntegerInstance().format(((TileEntityRFExciter) entity).getNetPower());
-				player.addChatMessage(new ChatComponentText(ChatFormatting.LIGHT_PURPLE + used + " RF used last tick (max: " + max + ")"));
+				player.addChatMessage(new ChatComponentText(EnumChatFormatting.LIGHT_PURPLE + used + " RF used last tick (max: " + max + ")"));
 			}
 		}
 
