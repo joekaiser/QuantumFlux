@@ -10,7 +10,7 @@ Download from [CurseForge](http://www.curse.com/mc-mods/minecraft/228609-quantum
 [CoFH Lib](http://www.curse.com/mc-mods/minecraft/220333-cofhlib)
 
 ### Modpack Distribution
-Sure, please link back to here though. A link to [my patreon](http://www.patreon.com/jotato) would be appriciated. Just don't be a jerk, make claims you can't back, or sell mod items on your server.
+Sure, please link [to this site](http://minecraft.curseforge.com/mc-mods/228609-quantumflux) though. A link to [my patreon](http://www.patreon.com/jotato) would be appriciated. Just don't be a jerk, make claims you can't back, or sell mod items on your server.
 
 ### Developers & Credits
 
