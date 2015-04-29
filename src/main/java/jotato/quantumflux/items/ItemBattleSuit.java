@@ -226,7 +226,7 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 		case 0:
 			if (side==Side.CLIENT)
 			{
-				player.capabilities.setFlySpeed(.15f);
+				player.capabilities.setFlySpeed(.12f);
 				entitiesRunning.put(player, true);
 			}
 			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id,2,2,true));
