@@ -109,7 +109,7 @@ public class Recipes
         
         if (ConfigMan.zpe_enabled)
         {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.zpe), "aza", "cqc", "mmm", 'm', mangalloy, 'z', zbq7, 'a', amplificationCrystal, 'q', quibitCluster_1,
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.zpe), "aza", "cqc", "mmm", 'm', steelIngot, 'z', zbq7, 'a', amplificationCrystal, 'q', quibitCluster_1,
                     'c', quibitCrystal));
         }
     }
