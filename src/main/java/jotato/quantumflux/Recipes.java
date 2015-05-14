@@ -84,7 +84,7 @@ public class Recipes
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.mangalloy), "sss", "sms", "sss", 's', steelIngot, 'm', manganese));
 
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.zbq7), "rlr", "gdg", "rlr", 'r', redstoneBlock, 'l', lapisBlock, 'g', goldBlock, 'd', diamondBlock));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.rfEntangler), "zaz", "zqz", "mmm", 'm', mangalloy, 'a', amplificationCrystal, 'q', quibitCluster_4, 'z', zbq7));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.rfEntangler), "czc", "mqm", "sss", 'm', mangalloy, 's', steelIngot, 'q', quibitCluster_3, 'z', zbq7, 'c', quibitCrystal));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.rfExciter, 4), "qeq", "sgs", 'q', quibitCrystal, 'e', enderPearl, 's', steelIngot, 'g', goldCasing));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.quibitCell), "eae", "aqa", "eae", 'q', quibitCluster_1, 'e', rfExciter, 'a', amplificationCrystal));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.magnet), "r l", "a a", " m ", 'l', lapis, 'r', redstone, 'a', amplificationCrystal, 'm', mangalloy));
