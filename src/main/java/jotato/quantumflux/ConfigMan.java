@@ -26,6 +26,7 @@ public class ConfigMan
     public static int quibitcell_output;
     
     public static int magnet_strength;
+    public static boolean enableSteelRecipe;
     
     public static int battlesuit_maxEnergy;
     public static int battlesuit_chargeRate;
@@ -63,6 +64,8 @@ public class ConfigMan
         rfExciter1_output = config.getInt("rfExciter_baseOutput", "redfluxField", 100, 100, 1000, "The output without any upgrades");
         quibitcell_output = config.getInt("quibitCell_output", "redfluxField", 800, 500, 5000, "How much rf/tick the quibit cell can charge per item");
         rfExciter_maxUpgrades = config.getInt("rfExciter_maxUpgrades", "redfluxField", 640, 100, 1000, "How many upgrades can be applied to an Exciter");
+        
+        enableSteelRecipe = config.getBoolean("enableSteelRecipe", "misc", true, "If you don't want my vanilla-like steel recipe, set this to false. **WARNING** you will need another mod to provide steel under the 'ingotSteel' oredictionary name");
         magnet_strength = config.getInt("magnetStrength", "misc",6, 4, 14, "How far the magnet can reach");
         
         battlesuit_chargeRate = config.getInt("chargeRate","battlesuit",500,50,500,"How fast the Battlesuit can charge");

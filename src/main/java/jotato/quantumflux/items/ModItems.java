@@ -1,5 +1,6 @@
 package jotato.quantumflux.items;
 
+import jotato.quantumflux.ConfigMan;
 import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -34,7 +35,10 @@ public class ModItems
 		amplificationCrystal = new ItemBase("amplificationCrystal");
 		ironCasing = new ItemBase("ironCasing");
 		goldCasing = new ItemBase("goldCasing");
-		steelIngot = new ItemBase("steelIngot");
+		if(ConfigMan.enableSteelRecipe)
+		{
+			steelIngot = new ItemBase("steelIngot");
+		}
 		quibitCrystal = new ItemBase("quibitCrystal");
 		manganese = new ItemBase("manganese");
 		mangalloy = new ItemBase("mangalloyIngot");
@@ -62,7 +66,10 @@ public class ModItems
 
 	private static void registerOreDictionary()
 	{
-		OreDictionary.registerOre("ingotSteel", steelIngot);
+		if(ConfigMan.enableSteelRecipe)
+		{
+			OreDictionary.registerOre("ingotSteel", steelIngot);
+		}
 		OreDictionary.registerOre("dustManganese", manganese);
 		OreDictionary.registerOre("ingotMangalloy", mangalloy);
 

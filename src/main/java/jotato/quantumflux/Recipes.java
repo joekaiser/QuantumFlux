@@ -72,7 +72,10 @@ public class Recipes
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.ironCasing, 4), " l ", "iii", 'l', lapis, 'i', ironIngot);
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.goldCasing, 4), " r ", "ggg", 'r', redstone, 'g', goldIngot);
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.amplificationCrystal), "q q", " d ", "sss", 'q', quartz, 'd', diamond, 's', darkStone);
-        GameRegistry.addShapedRecipe(new ItemStack(ModItems.steelIngot), "c c", " i ", "c c", 'c', coal, 'i', ironIngot);
+        if(ConfigMan.enableSteelRecipe)
+        {
+        	GameRegistry.addShapedRecipe(new ItemStack(ModItems.steelIngot), "c c", " i ", "c c", 'c', coal, 'i', ironIngot);
+        }
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.entropyAccelerator), "ccc", "sfs", "sls", 'c', ironCasing, 'f', furnace, 'l', lavaBucket, 's', steelIngot));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.quibitCrystal, 4), " r ", "qdq", " r ", 'r', redstone, 'q', quartz, 'd', diamond));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.quibitCluster_1), "qcq", "cqc", "sss", 'q', quibitCrystal, 'c', goldCasing, 's', steelIngot));
