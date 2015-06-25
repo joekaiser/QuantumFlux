@@ -34,7 +34,10 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 
 		if (!simulate)
 		{
-			lastIn += taken;
+			if (!worldObj.isRemote)
+			{
+				lastIn += taken;
+			}
 			this.markDirty();
 		}
 
@@ -96,7 +99,10 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 		if (!simulate)
 		{
 			this.markDirty();
-			lastOut += given;
+			if (!worldObj.isRemote)
+			{
+				lastOut += given;
+			}
 		}
 
 		return given;
@@ -124,8 +130,6 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 			RedfluxField.registerLink(this);
 		}
 	}
-	
-
 
 	@Override
 	public String getOwner()
@@ -155,11 +159,11 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 		super.validate();
 		registerWithField();
 	}
-	
+
 	@Override
 	public void updateEntity()
 	{
-		lastIn=0;
-		lastOut=0;
+		lastIn = 0;
+		lastOut = 0;
 	}
 }
