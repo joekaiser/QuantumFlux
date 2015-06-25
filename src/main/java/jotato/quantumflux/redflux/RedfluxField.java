@@ -69,13 +69,18 @@ public final class RedfluxField
 		// Since there are multiple items on the network that can send energy
 		// we will loop over all of them until we have the amount requested
 		// or there is no more left
-		for (IRedfluxProvider link : getLinks(owner))
+		
+		List<IRedfluxProvider> links = getLinks(owner);
+		IRedfluxProvider link = null;
+		
+		for (int i=0;i<links.size();i++)
 		{
+			link=links.get(i);
 			if (link.canSend())
 			{
 				tosend += link.requestEnergy(value - tosend, simulate);
 
-				if (tosend == value)
+				if (tosend >= value)
 				{
 					break;
 				}
