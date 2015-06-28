@@ -101,7 +101,7 @@ public class Recipes
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.darkstonePillar,2), "s","s",'s', darkStone));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.darkstoneLamp,8), "ddd","dld","ddd",'d',darkStone,'l',lapis));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.darkstoneTile,9), "ddd","ddd","ddd",'d',darkStone));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.imaginaryTime), "iqi","gzb","iqi",'i',ironCasing, 'q', quibitCrystal,'g',energizedCrystal,'z',zbq7));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.imaginaryTime), "iqi","gzg","iqi",'i',ironCasing, 'q', quibitCrystal,'g',energizedCrystal,'z',zbq7));
         
         // battlesuit
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.battlesuit_plate), "gg", "gg", 'g', glowingMangalloy));
