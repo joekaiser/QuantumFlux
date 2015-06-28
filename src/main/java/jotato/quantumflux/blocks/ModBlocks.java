@@ -14,8 +14,6 @@ public class ModBlocks
     public static Block zpe;
     public static Block rfEntangler;
     public static BlockRFExciter rfExciter;
-    public static Block energyCore_off;
-    public static Block energyCore_on;
     public static Block darkstoneLamp;
     public static Block darkstone;
     public static Block darkstonePillar;
@@ -34,8 +32,6 @@ public class ModBlocks
         zpe = new BlockZPE();
         rfEntangler = new BlockRFEntangler();
         rfExciter = new BlockRFExciter();
-        energyCore_off = new BlockBase(Material.portal,"energyCore_off",1,"pickaxe",0).setCreativeTab(null);
-        energyCore_on = new BlockBase(Material.portal,"energyCore_on",1,"pickaxe",0).setCreativeTab(null);
         darkstoneLamp = new BlockBase(Material.iron,"darkstone_lamp",.5f).setLightLevel(20f);
         darkstone = new BlockDarkstone();
         darkstonePillar = new BlockBase(Material.iron,"darkstone_pillar",1,"pickaxe",0);

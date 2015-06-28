@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class BlockBase extends Block
 {
-
+	
     protected BlockBase(Material material, String name, float hardness)
     {
         super(material);
@@ -24,6 +24,7 @@ public class BlockBase extends Block
         GameRegistry.registerBlock(this, name);
 
     }
+    
     
     protected BlockBase(Material material, String name, float hardness, String harvestTool, int harvestLevel)
     {
