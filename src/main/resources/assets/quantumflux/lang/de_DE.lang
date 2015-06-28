@@ -31,7 +31,6 @@ tile.quibitCluster_5.name=Quibit Cluster Level 5
 tile.zeroPointExtractor.name=Null-Punkt-Extraktor (NPE)
 tile.rfEntangler.name=RF Verwickler
 tile.rfExciter.name=RF Erreger
-tile.molecularInfuser.name=RF Infundierer
 tile.darkstone.name=Dunkelstein
 tile.darkstone_lamp.name=Dunkelstein-Lampe
 tile.darkstone_pillar.name=Dunkelsteinsäule
