@@ -18,6 +18,7 @@ import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
 
@@ -54,7 +55,7 @@ public class ItemEviscerator extends ItemPickaxe implements IEnergyContainerItem
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List info, boolean p_77624_4_)
     {
-        info.add(EnumChatFormatting.RED + "Charge: " + getEnergyStored(stack));
+        info.add(EnumChatFormatting.RED + String.format(StatCollector.translateToLocal("tooltip.charge"), getEnergyStored(stack)));
     }
 
     @Override

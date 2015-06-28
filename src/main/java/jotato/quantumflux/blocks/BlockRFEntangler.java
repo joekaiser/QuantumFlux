@@ -1,7 +1,5 @@
 package jotato.quantumflux.blocks;
 
-import java.text.NumberFormat;
-
 import jotato.quantumflux.proxy.ClientProxy;
 import jotato.quantumflux.tileentity.TileEntityRFEntangler;
 import cpw.mods.fml.relauncher.Side;
@@ -16,6 +14,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -106,14 +105,14 @@ public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
 			{
 				player.addChatMessage(new ChatComponentText("----------"));
 				TileEntityRFEntangler entangler = (TileEntityRFEntangler) entity;
-				String stored = NumberFormat.getIntegerInstance().format(entangler.getEnergyStored(null));
-				player.addChatMessage(new ChatComponentText(EnumChatFormatting.LIGHT_PURPLE + stored + " RF availble to the RedfluxField"));
+				String stored = String.format(StatCollector.translateToLocal("chat.rfEntanglerStored"), entangler.getEnergyStored(null));
+				player.addChatMessage(new ChatComponentText(EnumChatFormatting.LIGHT_PURPLE + stored));
 
-				String in = NumberFormat.getIntegerInstance().format(entangler.lastIn);
-				player.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + in + " RF added"));
+				String in = String.format(StatCollector.translateToLocal("chat.rfEntanglerIn"), entangler.lastIn);
+				player.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + in));
 
-				String out = NumberFormat.getIntegerInstance().format(entangler.lastOut);
-				player.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + out + " RF used"));
+				String out = String.format(StatCollector.translateToLocal("chat.rfEntanglerOut"), entangler.lastOut);
+				player.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + out));
 			}
 		}
 		return super.onBlockActivated(world, x, y, z, player, p_149727_6_, p_149727_7_, p_149727_8_, p_149727_9_);

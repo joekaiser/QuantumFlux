@@ -38,3 +38,19 @@ tile.darkstone_tile.name=Dunkelsteinziegel
 tile.imaginaryTime.name=Imaginärer Zeitblock
 
 itemGroup.tabQuantumFlux=QuantumFlux
+
+chat.rfEntanglerStored=%,d RF verfügbar im Redflux-Feld
+chat.rfEntanglerIn=%,d RF eingehend
+chat.rfEntanglerOut=%,d RF ausgehend
+chat.rfExciterUsed=%1$,d RF verbraucht im letzten Tick (Max: %2$,d)
+
+gui.quibitCluster=Quibit Cluster (Level %d)
+gui.quibitClusterTransferRateInfinite=Unbeschränkt RF/Tick
+gui.quibitClusterTransferRate=%,d RF/Tick
+gui.quibitClusterMaxStorage=%,d MAX
+
+tooltip.capabilityFlight=Fähigkeit: Fliegen
+tooltip.capabilityMomentum=Fähigkeit: Momentum
+tooltip.capabilityStrength=Fähigkeit: Stärke
+tooltip.capabilityVisibility=Fähigkeit: Sicht
+tooltip.charge=Ladung: %,d

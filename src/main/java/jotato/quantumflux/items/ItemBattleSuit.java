@@ -23,6 +23,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.common.util.EnumHelper;
@@ -77,25 +78,25 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 	{
 		if (stack.getItem() == ModItems.battlesuit_chest && isArmorSpecialCapable(stack))
 		{
-			info.add("Capability: Flight");
+			info.add(StatCollector.translateToLocal("tooltip.capabilityFlight"));
 		}
 
 		if (stack.getItem() == ModItems.battlesuit_boots && isArmorSpecialCapable(stack))
 		{
-			info.add("Capability: Momentum");
+			info.add(StatCollector.translateToLocal("tooltip.capabilityMomentum"));
 		}
 
 		if (stack.getItem() == ModItems.battlesuit_legs && isArmorSpecialCapable(stack))
 		{
-			info.add("Capability: Strength");
+			info.add(StatCollector.translateToLocal("tooltip.capabilityStrength"));
 		}
 
 		if (stack.getItem() == ModItems.battlesuit_helm && isArmorSpecialCapable(stack))
 		{
-			info.add("Capability: Visibility");
+			info.add(StatCollector.translateToLocal("tooltip.capabilityVisibility"));
 		}
 
-		info.add(EnumChatFormatting.RED + "Charge: " + getEnergyStored(stack));
+		info.add(EnumChatFormatting.RED + String.format(StatCollector.translateToLocal("tooltip.charge"), getEnergyStored(stack)));
 	}
 
 	@Override

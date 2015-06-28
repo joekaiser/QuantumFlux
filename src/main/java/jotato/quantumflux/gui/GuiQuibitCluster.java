@@ -11,6 +11,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 
 @SideOnly(Side.CLIENT)
 public class GuiQuibitCluster extends GuiContainer
@@ -30,13 +31,13 @@ public class GuiQuibitCluster extends GuiContainer
 
     private void setupDisplay()
     {
-        this.displayName = "Quibit Cluster (Level " + cluster.level + ")";
+        this.displayName = String.format(StatCollector.translateToLocal("gui.quibitCluster"), cluster.level);
         int transferRate=cluster.getEnergyTransferRate();
         if(transferRate == Integer.MAX_VALUE)
-            this.maxTransfer = "Infinite RF/Tick";
+            this.maxTransfer = StatCollector.translateToLocal("gui.quibitClusterTransferRateInfinite");
         else
-            this.maxTransfer = NumberFormat.getIntegerInstance().format(cluster.getEnergyTransferRate()) + " RF/Tick";
-        this.maxStorage = NumberFormat.getIntegerInstance().format(cluster.getMaxEnergyStored(null)) + " MAX";
+            this.maxTransfer = String.format(StatCollector.translateToLocal("gui.quibitClusterTransferRate"), cluster.getEnergyTransferRate());
+        this.maxStorage = String.format(StatCollector.translateToLocal("gui.quibitClusterMaxStorage"), cluster.getMaxEnergyStored(null));
     }
 
     @Override
