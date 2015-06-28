@@ -1,12 +1,16 @@
 package jotato.quantumflux.blocks;
 
+import jotato.quantumflux.tileentity.TileEntityImaginaryTime;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 
-public class BlockImaginaryTime extends BlockBase
+public class BlockImaginaryTime extends BlockBase implements ITileEntityProvider
 {
 	@SideOnly(Side.CLIENT)
 	protected IIcon icon_side1;
@@ -49,5 +53,10 @@ public class BlockImaginaryTime extends BlockBase
 		return this.icon_sideCurrent;
 	}
 
-
+	@Override
+	public TileEntity createNewTileEntity(World world, int meta)
+	{
+		return new TileEntityImaginaryTime();
+	}
+	
 }

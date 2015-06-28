@@ -35,6 +35,11 @@ public class ConfigMan
     public static int eviscerator_maxEnergy;
     public static int eviscerator_chargeRate;
     
+    public static int imaginaryTime_energyRequirement;
+    public static int imaginaryTime_tickIncrease;
+    public static int imaginaryTime_range;
+    public static int imaginaryTime_chargeRate;
+    
 
     public static void init(Configuration configuration)
     {
@@ -67,6 +72,11 @@ public class ConfigMan
         
         enableSteelRecipe = config.getBoolean("enableSteelRecipe", "misc", true, "If you don't want my vanilla-like steel recipe, set this to false. **WARNING** you will need another mod to provide steel under the 'ingotSteel' oredictionary name");
         magnet_strength = config.getInt("magnetStrength", "misc",6, 4, 14, "How far the magnet can reach");
+        
+        imaginaryTime_energyRequirement =config.getInt("energyRequirement", "imaginaryTime", 200, 50, 1000, "How much nergy is used per work cycle. The higher the number the more RF must be pumped in before work will be done");
+        imaginaryTime_tickIncrease=config.getInt("tickRateIncrease", "imaginaryTime", 2, 1, 4, "How many extra ticks each block will get per cycle");
+        imaginaryTime_range=config.getInt("range", "imaginaryTime", 5, 2, 7, "The area of effect along the X&Z. Y is always 2");
+        imaginaryTime_chargeRate=config.getInt("chargeRate", "imaginaryTime", 1000,25,1000,"How much RF/T it can accept. Setting this lower than the energyRequirement means it won't work every tick");
         
         battlesuit_chargeRate = config.getInt("chargeRate","battlesuit",500,50,500,"How fast the Battlesuit can charge");
         battlesuit_maxEnergy = config.getInt("maxEnergy", "battlesuit", 50000, 10000, 100000, "The maximum amount of energy that the battlesuit can hold");

@@ -6,6 +6,7 @@ import jotato.quantumflux.packets.PacketHandler;
 import jotato.quantumflux.proxy.CommonProxy;
 import jotato.quantumflux.redflux.RedfluxField;
 import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
+import jotato.quantumflux.tileentity.TileEntityImaginaryTime;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_1;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_2;
 import jotato.quantumflux.tileentity.TileEntityQuibitCluster_3;
@@ -63,6 +64,7 @@ public class QuantumFlux
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_3.class, "tileQuibitCluster3");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_4.class, "tileQuibitCluster4");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_5.class, "tileQuibitCluster5");
+        GameRegistry.registerTileEntity(TileEntityImaginaryTime.class, "tileImaginaryTime");
     }
 
     @EventHandler
