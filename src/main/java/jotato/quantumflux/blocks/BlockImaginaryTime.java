@@ -13,11 +13,7 @@ import net.minecraft.world.World;
 public class BlockImaginaryTime extends BlockBase implements ITileEntityProvider
 {
 	@SideOnly(Side.CLIENT)
-	protected IIcon icon_side1;
-	@SideOnly(Side.CLIENT)
-	protected IIcon icon_side2;
-	@SideOnly(Side.CLIENT)
-	protected IIcon icon_sideCurrent;
+	protected IIcon icon_side;
 	@SideOnly(Side.CLIENT)
 	protected IIcon icon_top;
 	
@@ -33,10 +29,8 @@ public class BlockImaginaryTime extends BlockBase implements ITileEntityProvider
 	@Override
 	public void registerBlockIcons(IIconRegister ir)
 	{
-		this.icon_side1 = ir.registerIcon(getTexture("imaginaryBlock_side1"));
-		this.icon_side2 = ir.registerIcon(getTexture("imaginaryBlock__side2"));
+		this.icon_side = ir.registerIcon(getTexture("imaginaryBlock_side1"));
 		this.icon_top = ir.registerIcon(getTexture("imaginaryBlock_top"));
-		this.icon_sideCurrent = this.icon_side1;
 	}
 	
 	@Override
@@ -50,7 +44,7 @@ public class BlockImaginaryTime extends BlockBase implements ITileEntityProvider
 		}
 		
 		//TODO: switch between the two side textures
-		return this.icon_sideCurrent;
+		return this.icon_side;
 	}
 
 	@Override
