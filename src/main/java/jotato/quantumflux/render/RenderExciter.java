@@ -13,7 +13,7 @@ public class RenderExciter extends RenderBlockBase
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer)
 	{
-		renderer.setRenderBounds(0,0,0,1,1,1);
+		renderer.setRenderBounds(.12, .15, .85, 0, .85, .15);
 		super.renderInventoryBlock(block, metadata, modelId, renderer);
 	}
 	@Override

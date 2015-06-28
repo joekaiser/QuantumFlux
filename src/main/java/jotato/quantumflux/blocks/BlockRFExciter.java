@@ -228,11 +228,7 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider
 		return true;
 	}
 
-	@Override
-	public int getRenderBlockPass()
-	{
-		return 1;
-	}
+
 
 	@Override
 	public boolean isNormalCube()
@@ -240,10 +236,6 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider
 		return false;
 	}
 
-	@Override
-	public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_, int p_149646_5_)
-	{
-		return true;
-	}
+
 
 }

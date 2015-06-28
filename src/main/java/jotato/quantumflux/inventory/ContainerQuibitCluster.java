@@ -26,11 +26,18 @@ public class ContainerQuibitCluster extends ContainerBase
 	public void detectAndSendChanges()
 	{
 		super.detectAndSendChanges();
-
-		if (this.lastInternalStorage != this.cluster.getEnergyStored(null))
+		try
 		{
-			ClusterMessage message = new ClusterMessage(cluster.xCoord, cluster.yCoord, cluster.zCoord, cluster.getEnergyStored(null));
-			PacketHandler.net.sendTo(message, (EntityPlayerMP) player);
+			if (this.lastInternalStorage != this.cluster.getEnergyStored(null))
+			{
+				ClusterMessage message = new ClusterMessage(cluster.xCoord, cluster.yCoord, cluster.zCoord, cluster.getEnergyStored(null));
+				PacketHandler.net.sendTo(message, (EntityPlayerMP) player);
+			}
+		}
+		catch(ClassCastException e)
+		{
+			//TODO: Fix this catch
+			//For some reason, a rare error is thrown here (net.minecraft.client.entity.EntityClientPlayerMP cannot be cast to net.minecraft.entity.player.EntityPlayerMP)
 		}
 
 		this.lastInternalStorage = this.cluster.getEnergyStored(null);

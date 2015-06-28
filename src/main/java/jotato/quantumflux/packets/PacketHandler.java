@@ -3,7 +3,6 @@ package jotato.quantumflux.packets;
 import jotato.quantumflux.Reference;
 import jotato.quantumflux.packets.ClusterMessage;
 import jotato.quantumflux.packets.ClusterMessage.ClusterMessageHandler;
-import jotato.quantumflux.packets.RenderBlockMessage.RenderBlockMessageHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
@@ -16,7 +15,6 @@ public class PacketHandler
     public static void initPackets(){
         net= NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MODID);
         registerMessage(ClusterMessageHandler.class, ClusterMessage.class);
-        registerMessage(RenderBlockMessageHandler.class, RenderBlockMessage.class);
     }
     
 

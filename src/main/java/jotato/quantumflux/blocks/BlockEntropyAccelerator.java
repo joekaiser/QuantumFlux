@@ -2,7 +2,6 @@ package jotato.quantumflux.blocks;
 
 import jotato.quantumflux.QuantumFlux;
 import jotato.quantumflux.gui.QFGuiHandler.GUI;
-import jotato.quantumflux.proxy.ClientProxy;
 import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -16,13 +15,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockEntropyAccelerator extends BlockContainerBase
 {
 
-	public static int renderType;
 	
 	@SideOnly(Side.CLIENT)
 	protected IIcon icon_top;
@@ -141,46 +138,5 @@ public class BlockEntropyAccelerator extends BlockContainerBase
 		super.breakBlock(world, x, y, z, block, meta);
 	}
 
-	@Override
-	public boolean renderAsNormalBlock()
-	{
-		return false;
-	}
-
-	@Override
-	public boolean isOpaqueCube()
-	{
-		return false;
-	}
-
-	@Override
-	public int getRenderType()
-	{
-		return renderType;
-	}
-
-	@Override
-	public boolean canRenderInPass(int pass)
-	{
-		ClientProxy.renderPass = pass;
-		return true;
-	}
-
-	@Override
-	public int getRenderBlockPass()
-	{
-		return 1;
-	}
-	
-	@Override
-	public boolean isNormalCube()
-	{
-		return false;
-	}
-	@Override
-	public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_, int p_149646_5_)
-	{
-		return true;
-	}
 
 }
