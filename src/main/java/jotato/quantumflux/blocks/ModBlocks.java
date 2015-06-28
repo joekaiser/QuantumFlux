@@ -20,6 +20,7 @@ public class ModBlocks
     public static Block darkstone;
     public static Block darkstonePillar;
     public static Block darkstoneTile;
+    public static Block imaginaryTime;
 
 
     public static void init()
@@ -39,7 +40,7 @@ public class ModBlocks
         darkstone = new BlockDarkstone();
         darkstonePillar = new BlockBase(Material.iron,"darkstone_pillar",1,"pickaxe",0);
         darkstoneTile = new BlockBase(Material.iron,"darkstone_tile",1,"pickaxe",0);
-        
+        imaginaryTime = new BlockImaginaryTime();
        
     }
 }
