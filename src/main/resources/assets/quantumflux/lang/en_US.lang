@@ -31,7 +31,6 @@ tile.quibitCluster_5.name=Quibit Cluster Level 5
 tile.zeroPointExtractor.name=Zero Point Extractor (ZPE)
 tile.rfEntangler.name=RF Entangler
 tile.rfExciter.name=RF Exciter
-tile.molecularInfuser.name=RF Infuser
 tile.darkstone.name=Darkstone
 tile.darkstone_lamp.name=Darkstone Lamp
 tile.darkstone_pillar.name=Darkstone Pillar
@@ -39,3 +38,19 @@ tile.darkstone_tile.name=Darkstone Tile
 tile.imaginaryTime.name=Imaginary Time Block
 
 itemGroup.tabQuantumFlux=QuantumFlux
+
+chat.rfEntanglerStored=%,d RF available to the RedfluxField
+chat.rfEntanglerIn=%,d RF added
+chat.rfEntanglerOut=%,d RF used
+chat.rfExciterUsed=%1$,d RF used last tick (max: %2$,d)
+
+gui.quibitCluster=Quibit Cluster (Level %d)
+gui.quibitClusterTransferRateInfinite=Infinite RF/Tick
+gui.quibitClusterTransferRate=%,d RF/Tick
+gui.quibitClusterMaxStorage=%,d MAX
+
+tooltip.capabilityFlight=Capability: Flight
+tooltip.capabilityMomentum=Capability: Momentum
+tooltip.capabilityStrength=Capability: Strength
+tooltip.capabilityVisibility=Capability: Visibility
+tooltip.charge=Charge: %,d

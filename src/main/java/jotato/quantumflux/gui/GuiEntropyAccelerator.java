@@ -4,6 +4,7 @@ import java.text.NumberFormat;
 
 import org.lwjgl.opengl.GL11;
 
+import jotato.quantumflux.blocks.ModBlocks;
 import jotato.quantumflux.inventory.ContainerEntropyAccelerator;
 import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
 import cpw.mods.fml.relauncher.Side;
@@ -27,7 +28,7 @@ public class GuiEntropyAccelerator extends GuiContainer
     @Override
     protected void drawGuiContainerForegroundLayer(int p1, int p2)
     {
-        String name = "Quantum Entropy Accelerator";
+        String name = ModBlocks.entropyAccelerator.getLocalizedName();
         this.fontRendererObj.drawString(name, 6, 5, 4210752);
         String energy = NumberFormat.getIntegerInstance().format(incinerator.getEnergyStored(null));
         this.fontRendererObj.drawString(energy, 6, 15, 4210752);
