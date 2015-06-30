@@ -67,20 +67,20 @@ public class ConfigMan
         
         redfluxField_buffer = config.getInt("buffer", "redfluxField", 2500000, 100000, Integer.MAX_VALUE, "The internal storage of each player's field");
         rfExciter1_output = config.getInt("rfExciter_baseOutput", "redfluxField", 100, 100, 1000, "The output without any upgrades");
-        quibitcell_output = config.getInt("quibitCell_output", "redfluxField", 800, 500, 5000, "How much rf/tick the quibit cell can charge per item");
+        quibitcell_output = config.getInt("quibitCell_output", "redfluxField", 100, 100, 500, "How much rf/tick the quibit cell can charge per item");
         rfExciter_maxUpgrades = config.getInt("rfExciter_maxUpgrades", "redfluxField", 640, 100, 1000, "How many upgrades can be applied to an Exciter");
         
         enableSteelRecipe = config.getBoolean("enableSteelRecipe", "misc", true, "If you don't want my vanilla-like steel recipe, set this to false. **WARNING** you will need another mod to provide steel under the 'ingotSteel' oredictionary name");
         magnet_strength = config.getInt("magnetStrength", "misc",6, 4, 14, "How far the magnet can reach");
         
-        imaginaryTime_energyRequirement =config.getInt("energyRequirement", "imaginaryTime", 250, 50, 1000, "How much energy is used per work cycle. The higher the number the more RF must be pumped in before work will be done");
+        imaginaryTime_energyRequirement =config.getInt("energyRequirement", "imaginaryTime", 500, 50, 1000, "How much energy is used per work cycle. The higher the number the more RF must be pumped in before work will be done");
         imaginaryTime_tickIncrease=config.getInt("tickRateIncrease", "imaginaryTime", 1, 1, 4, "How many extra ticks each block will get per cycle");
         imaginaryTime_range=config.getInt("range", "imaginaryTime", 5, 2, 7, "The area of effect along the X&Z. Y is always 2");
         imaginaryTime_chargeRate=config.getInt("chargeRate", "imaginaryTime", 1000,25,1000,"How much RF/T it can accept. Setting this lower than the energyRequirement means it won't work every tick");
         
-        battlesuit_chargeRate = config.getInt("chargeRate","battlesuit",500,50,500,"How fast the Battlesuit can charge");
+        battlesuit_chargeRate = config.getInt("chargeRate","battlesuit",80,50,500,"How fast the Battlesuit can charge");
         battlesuit_maxEnergy = config.getInt("maxEnergy", "battlesuit", 50000, 10000, 100000, "The maximum amount of energy that the battlesuit can hold");
-        battlesuit_drain = config.getInt("drain", "battlesuit", 2, 0, 5, "The amount of energy drained every 1200 ticks from battlesuits that have special abilities");
+        battlesuit_drain = config.getInt("drain", "battlesuit", 2, 0, 5, "The amount of energy drained every 100 ticks from battlesuits that have special abilities");
         
         eviscerator_chargeRate = config.getInt("chargeRate","eviscerator",500,20,500,"How fast the Eviscerator can charge");
         eviscerator_maxEnergy = config.getInt("maxEnergy", "eviscerator", 50000, 10000, 100000, "The maximum amount of energy that the Eviscerator can hold");

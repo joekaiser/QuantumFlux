@@ -35,7 +35,7 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 
 	public static ArmorMaterial material = EnumHelper.addArmorMaterial("battleSuitMatieral", 33, new int[] { 4, 9, 7, 4 }, 50);
 	private static final String energy_tag = "Energy";
-	private int energyUsedPerDamageTaken = 10;
+	private int energyUsedPerDamageTaken =140;
 
 	public ItemBattleSuit(String name, int type)
 	{
@@ -123,7 +123,7 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 	{
 		if (!world.isRemote)
 		{
-			if (world.getTotalWorldTime() % 1200 == 0)
+			if (world.getTotalWorldTime() % 100 == 0)
 			{
 				drainArmor(itemStack, player);
 			}
@@ -154,8 +154,7 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 	public int extractEnergy(ItemStack container, int maxExtract, boolean simulate)
 	{
 		int stored = getEnergyStored(container);
-		int maxICanSend = Math.min(stored, ConfigMan.battlesuit_chargeRate);
-		int toSend = Math.min(maxExtract, maxICanSend);
+		int toSend = Math.min(maxExtract, stored);
 		if (simulate)
 		{
 			return toSend;
