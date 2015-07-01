@@ -35,8 +35,7 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 
 	public static ArmorMaterial material = EnumHelper.addArmorMaterial("battleSuitMatieral", 33, new int[] { 4, 9, 7, 4 }, 50);
 	private static final String energy_tag = "Energy";
-	private int energyUsedPerDamageTaken =140;
-
+	private int energyUsedPerDamageTaken =150;
 	public ItemBattleSuit(String name, int type)
 	{
 		super(material, 0, type);
