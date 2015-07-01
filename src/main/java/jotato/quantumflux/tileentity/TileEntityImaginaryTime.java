@@ -77,7 +77,6 @@ public class TileEntityImaginaryTime extends TileEntity implements IEnergyReceiv
 			int z = this.zCoord;
 			int range = ConfigMan.imaginaryTime_range;
 			int passes = ConfigMan.imaginaryTime_tickIncrease;
-			TileEntity entity;
 			Block block;
 			
 			for(int x2=x-range;x2<x+range; x2++)
@@ -97,26 +96,7 @@ public class TileEntityImaginaryTime extends TileEntity implements IEnergyReceiv
 								}
 							}
 							
-							entity=worldObj.getTileEntity(x2, y2, z2);
-							if(entity!=null)
-							{
-								if(entity instanceof TileEntityImaginaryTime)
-								{
-									break;
-								}
-								for(int pass=0;pass<passes;pass++)
-								{
-									if(entity.isInvalid())
-									{
-										break;
-									}
-									
-									entity.updateEntity();
-								}
-							}
-							
 							block=null;
-							entity=null;
 						}
 					}
 				}
