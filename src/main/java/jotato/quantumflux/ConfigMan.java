@@ -70,7 +70,7 @@ public class ConfigMan
         rfExciter1_output = config.getInt("rfExciter_baseOutput", "redfluxField", 100, 100, 1000, "The output without any upgrades");
         quibitcell_output = config.getInt("quibitCell_output", "redfluxField", 100, 100, 500, "How much rf/tick the quibit cell can charge per item");
         rfExciter_maxUpgrades = config.getInt("rfExciter_maxUpgrades", "redfluxField", 640, 100, 1000, "How many upgrades can be applied to an Exciter");
-        rfExciter_Efficiency = config.getFloat("rfExciter_efficiency", "redfluxField", .85f, .2f, 1f, "How Efficient the EF Exciter is with power. The lower the number, the less efficient it is");
+        rfExciter_Efficiency = config.getFloat("rfExciter_efficiency", "redfluxField", .8f, .2f, 1f, "How Efficient the EF Exciter is with power. The lower the number, the less efficient it is");
         
         enableSteelRecipe = config.getBoolean("enableSteelRecipe", "misc", true, "If you don't want my vanilla-like steel recipe, set this to false. **WARNING** you will need another mod to provide steel under the 'ingotSteel' oredictionary name");
         magnet_strength = config.getInt("magnetStrength", "misc",5, 4, 14, "How far the magnet can reach");
