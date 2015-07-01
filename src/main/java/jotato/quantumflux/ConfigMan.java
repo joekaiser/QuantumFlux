@@ -57,11 +57,11 @@ public class ConfigMan
 
         quibitCluster_baseStorage = config.getInt("baseStorage", "quibitCluster", 500000, 100000, 1000000, "The base amount of RF the Quibit Clusters can hold");
         quibitCluster_baseTransferRate = config.getInt("baseTransferRate", "quibitCluster", 100, 50, 1000, "The base RF/tick the Quibit Clusters can do");
-        quibitCluster_multiplier = config.getInt("multiplier", "quibitCluster", 5, 4, 6, "The multiplyer between each level of the clusters");
+        quibitCluster_multiplier = config.getInt("multiplier", "quibitCluster", 5, 4, 6, "The multiplier between each level of the clusters");
         
         zpe_maxPowerGen = config.getInt("powerGen", "zeroPointExtractor", 150, 32, 256, "The maximum amount of rf/t it can generate");
         zpe_particles = config.getBoolean("particles", "zeroPointExtractor", true, "Enable particle effect");
-        zpe_enabled= config.getBoolean("enabled", "zeroPointExtractor", true, "Enable the Zero Point Extractor");
+        zpe_enabled= config.getBoolean("enabled", "zeroPointExtractor", true, "Enable the Zero Point Extractor. The block is still registered, you just can't craft it.");
         zpe_doesDamage = config.getBoolean("doesDamage", "zeroPointExtractor",true,"Deal damage to Entities in range");
         zpe_damageRange = config.getInt("damageRange", "zeroPointExtractor", 2, 2, 4, "Entities within N blocks will receive damage");
         
@@ -71,7 +71,7 @@ public class ConfigMan
         rfExciter_maxUpgrades = config.getInt("rfExciter_maxUpgrades", "redfluxField", 640, 100, 1000, "How many upgrades can be applied to an Exciter");
         
         enableSteelRecipe = config.getBoolean("enableSteelRecipe", "misc", true, "If you don't want my vanilla-like steel recipe, set this to false. **WARNING** you will need another mod to provide steel under the 'ingotSteel' oredictionary name");
-        magnet_strength = config.getInt("magnetStrength", "misc",6, 4, 14, "How far the magnet can reach");
+        magnet_strength = config.getInt("magnetStrength", "misc",5, 4, 14, "How far the magnet can reach");
         
         imaginaryTime_energyRequirement =config.getInt("energyRequirement", "imaginaryTime", 500, 50, 1000, "How much energy is used per work cycle. The higher the number the more RF must be pumped in before work will be done");
         imaginaryTime_tickIncrease=config.getInt("tickRateIncrease", "imaginaryTime", 1, 1, 4, "How many extra ticks each block will get per cycle");
