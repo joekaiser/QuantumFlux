@@ -69,7 +69,7 @@ public class TileEntityImaginaryTime extends TileEntity implements IEnergyReceiv
 		{
 			return;
 		}
-		
+		//for an example on how to stop upticking, see http://bit.ly/1H154cK
 		if(getEnergyStored(ForgeDirection.UNKNOWN) >= ConfigMan.imaginaryTime_energyRequirement)
 		{
 			int x = this.xCoord;
