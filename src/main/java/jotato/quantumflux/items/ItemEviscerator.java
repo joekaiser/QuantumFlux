@@ -25,7 +25,7 @@ import net.minecraftforge.common.util.EnumHelper;
 public class ItemEviscerator extends ItemPickaxe implements IEnergyContainerItem
 {
 
-    public static ToolMaterial material = EnumHelper.addToolMaterial("eviscerator", 10000, 1000, 50, 30, 1000);
+    public static ToolMaterial material = EnumHelper.addToolMaterial("eviscerator", 10000, 1000, 32, 24, 100);
     private static final String energy_tag = "Energy";
     private int energyUsedPerHit = 100;
 
