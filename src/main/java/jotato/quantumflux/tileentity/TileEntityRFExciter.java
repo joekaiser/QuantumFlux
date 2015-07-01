@@ -17,10 +17,12 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 	public ForgeDirection targetDirection;
 	public int maxOut;
 	public int upgradeCount;
+	public float wirelessEfficiency;
 
 	public TileEntityRFExciter()
 	{
 		maxOut=ConfigMan.rfExciter1_output;
+		wirelessEfficiency = ConfigMan.rfExciter_Efficiency;
 	}
 
 	public String getOwner()
@@ -116,14 +118,18 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 		if (tile instanceof IEnergyReceiver)
 		{
 		    int netPower = getNetPower();
+		    
 			int tosend = extractEnergy(null, netPower, true);
-			int used = ((IEnergyReceiver) tile).receiveEnergy(targetDirection.getOpposite(), tosend, false);
-			if (used > 0)
+			int needed = ((IEnergyReceiver) tile).receiveEnergy(targetDirection.getOpposite(), tosend, true);
+			int willSend = Math.round(needed * wirelessEfficiency);
+			int used = ((IEnergyReceiver) tile).receiveEnergy(targetDirection.getOpposite(), willSend, false);
+			
+			if (needed > 0)
 			{
 				this.markDirty();
 			}
 			lastEnergyUsed = used;
-			extractEnergy(null, used, false);
+			extractEnergy(null, needed, false);
 		}
 	}
 	
