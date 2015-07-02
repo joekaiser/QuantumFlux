@@ -128,7 +128,7 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 			{
 				this.markDirty();
 			}
-			lastEnergyUsed = used;
+			lastEnergyUsed = needed;
 			extractEnergy(null, needed, false);
 		}
 	}
