@@ -105,10 +105,10 @@ public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
 				String stored = String.format(StatCollector.translateToLocal("chat.rfEntanglerStored"), entangler.getEnergyStored(null));
 				player.addChatMessage(new ChatComponentText(EnumChatFormatting.LIGHT_PURPLE + stored));
 
-				String in = String.format(StatCollector.translateToLocal("chat.rfEntanglerIn"), entangler.lastIn);
+				String in = String.format(StatCollector.translateToLocal("chat.rfEntanglerIn"), entangler.reportedIn);
 				player.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + in));
 
-				String out = String.format(StatCollector.translateToLocal("chat.rfEntanglerOut"), entangler.lastOut);
+				String out = String.format(StatCollector.translateToLocal("chat.rfEntanglerOut"), entangler.reportedOut);
 				player.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + out));
 			}
 		}
