@@ -122,7 +122,7 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 			int tosend = extractEnergy(null, netPower, true);
 			int needed = ((IEnergyReceiver) tile).receiveEnergy(targetDirection.getOpposite(), tosend, true);
 			int willSend = Math.round(needed * wirelessEfficiency);
-			int used = ((IEnergyReceiver) tile).receiveEnergy(targetDirection.getOpposite(), willSend, false);
+			((IEnergyReceiver) tile).receiveEnergy(targetDirection.getOpposite(), willSend, false);
 			
 			if (needed > 0)
 			{
