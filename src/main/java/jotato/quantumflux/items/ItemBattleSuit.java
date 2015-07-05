@@ -231,8 +231,8 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id,2,2,true));
 			break;
 		case 1:
-			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 2, 2,true));
-			player.addPotionEffect(new PotionEffect(Potion.digSpeed.id,2,2,true));
+			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 2, 1,true));
+			player.addPotionEffect(new PotionEffect(Potion.digSpeed.id,2,1,true));
 			break;
 
 		case 2:
@@ -240,8 +240,8 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 			entitiesFlying.put(player, true);
 			break;
 		case 3:
-			player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 220, 2,true));
-			player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id, 2,2,true));
+			player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 2, 0,true));
+			player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id, 2,0,true));
 			break;
 		}
 
