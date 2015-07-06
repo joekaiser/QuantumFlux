@@ -1,8 +1,8 @@
-package jotato.quantumflux.inventory;
+package jotato.quantumflux.machine.cluster;
 
+import jotato.quantumflux.inventory.ContainerBase;
 import jotato.quantumflux.packets.ClusterMessage;
 import jotato.quantumflux.packets.PacketHandler;
-import jotato.quantumflux.tileentity.TileEntityQuibitCluster;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;

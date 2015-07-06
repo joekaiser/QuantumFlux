@@ -2,20 +2,20 @@ package jotato.quantumflux;
 
 import jotato.quantumflux.blocks.ModBlocks;
 import jotato.quantumflux.items.ModItems;
+import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_1;
+import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_2;
+import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_3;
+import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_4;
+import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_5;
+import jotato.quantumflux.machine.entangler.TileEntityRFEntangler;
+import jotato.quantumflux.machine.entropyaccerlator.TileEntityEntropyAccelerator;
+import jotato.quantumflux.machine.exciter.TileEntityRFExciter;
+import jotato.quantumflux.machine.imaginarytime.TileEntityImaginaryTime;
+import jotato.quantumflux.machine.infuser.TileEntityMolecularInfuser;
+import jotato.quantumflux.machine.zpe.TileEntityZeroPointExtractor;
 import jotato.quantumflux.packets.PacketHandler;
 import jotato.quantumflux.proxy.CommonProxy;
 import jotato.quantumflux.redflux.RedfluxField;
-import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
-import jotato.quantumflux.tileentity.TileEntityImaginaryTime;
-import jotato.quantumflux.tileentity.TileEntityMolecularInfuser;
-import jotato.quantumflux.tileentity.TileEntityQuibitCluster_1;
-import jotato.quantumflux.tileentity.TileEntityQuibitCluster_2;
-import jotato.quantumflux.tileentity.TileEntityQuibitCluster_3;
-import jotato.quantumflux.tileentity.TileEntityQuibitCluster_4;
-import jotato.quantumflux.tileentity.TileEntityQuibitCluster_5;
-import jotato.quantumflux.tileentity.TileEntityRFEntangler;
-import jotato.quantumflux.tileentity.TileEntityRFExciter;
-import jotato.quantumflux.tileentity.TileEntityZeroPointExtractor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
@@ -77,9 +77,6 @@ public class QuantumFlux
         proxy.initClient();
         new Recipes().init();
         PacketHandler.initPackets();
-
-    
-        
     }
 
     @EventHandler
@@ -97,7 +94,7 @@ public class QuantumFlux
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem()
         {
-            return ModItems.amplificationCrystal;
+            return ModItems.quibitCrystal;
         }
     };
 }

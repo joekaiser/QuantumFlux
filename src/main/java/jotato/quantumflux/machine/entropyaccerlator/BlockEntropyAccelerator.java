@@ -1,8 +1,8 @@
-package jotato.quantumflux.blocks;
+package jotato.quantumflux.machine.entropyaccerlator;
 
 import jotato.quantumflux.QuantumFlux;
+import jotato.quantumflux.blocks.BlockContainerBase;
 import jotato.quantumflux.gui.QFGuiHandler.GUI;
-import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -30,7 +30,7 @@ public class BlockEntropyAccelerator extends BlockContainerBase
 	@SideOnly(Side.CLIENT)
 	protected IIcon icon_side;
 
-	protected BlockEntropyAccelerator()
+	public BlockEntropyAccelerator()
 	{
 		super(Material.iron, "entropyAccelerator", 1, "pickaxe", 0);
 		setStepSound(soundTypeMetal);
@@ -41,10 +41,10 @@ public class BlockEntropyAccelerator extends BlockContainerBase
 	@Override
 	public void registerBlockIcons(IIconRegister ir)
 	{
-		this.icon_top = ir.registerIcon(getTexture("entropyAccelerator_top"));
-		this.icon_front = ir.registerIcon(getTexture("entropyAccelerator_front"));
-		this.icon_side = ir.registerIcon(getTexture("entropyAccelerator_side"));
-		this.icon_bottom = ir.registerIcon(getTexture("entropyAccelerator_bottom"));
+		this.icon_top = ir.registerIcon(getTexture("accelerator/entropyAccelerator_top"));
+		this.icon_front = ir.registerIcon(getTexture("accelerator/entropyAccelerator_front"));
+		this.icon_side = ir.registerIcon(getTexture("accelerator/entropyAccelerator_side"));
+		this.icon_bottom = ir.registerIcon(getTexture("accelerator/entropyAccelerator_bottom"));
 	}
 
 	@Override
@@ -84,6 +84,11 @@ public class BlockEntropyAccelerator extends BlockContainerBase
 
 	}
 
+	@Override
+	public boolean hasTileEntity(int metadata) {
+		return true;
+	}
+	
 	@Override
 	public TileEntity createNewTileEntity(World world, int p1)
 	{

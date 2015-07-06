@@ -1,14 +1,10 @@
-package jotato.quantumflux.blocks;
+package jotato.quantumflux.machine.cluster;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jotato.quantumflux.QuantumFlux;
+import jotato.quantumflux.blocks.BlockContainerBase;
 import jotato.quantumflux.gui.QFGuiHandler.GUI;
-import jotato.quantumflux.tileentity.TileEntityQuibitCluster_1;
-import jotato.quantumflux.tileentity.TileEntityQuibitCluster_2;
-import jotato.quantumflux.tileentity.TileEntityQuibitCluster_3;
-import jotato.quantumflux.tileentity.TileEntityQuibitCluster_4;
-import jotato.quantumflux.tileentity.TileEntityQuibitCluster_5;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
@@ -43,10 +39,10 @@ public class BlockQuibitCluster extends BlockContainerBase
 	@Override
 	public void registerBlockIcons(IIconRegister ir)
 	{
-		this.icon_top = ir.registerIcon(getTexture("quibitCluster_top"));
-		this.icon_bottom = ir.registerIcon(getTexture("quibitCluster_bottom"));
-		this.icon_front = ir.registerIcon(getTexture("quibitCluster_"+this.level+"_front"));
-		this.icon_side = ir.registerIcon(getTexture("quibitCluster_"+this.level+"_side"));
+		this.icon_top = ir.registerIcon(getTexture("cluster/quibitCluster_top"));
+		this.icon_bottom = ir.registerIcon(getTexture("cluster/quibitCluster_bottom"));
+		this.icon_front = ir.registerIcon(getTexture("cluster/quibitCluster_"+this.level+"_front"));
+		this.icon_side = ir.registerIcon(getTexture("cluster/quibitCluster_"+this.level+"_side"));
 	}
 
 	@Override

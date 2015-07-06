@@ -1,4 +1,4 @@
-package jotato.quantumflux.tileentity;
+package jotato.quantumflux.machine.cluster;
 
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyHandler;

@@ -1,9 +1,9 @@
-package jotato.quantumflux.blocks;
+package jotato.quantumflux.machine.zpe;
 
 import java.util.Random;
 
 import jotato.quantumflux.ConfigMan;
-import jotato.quantumflux.tileentity.TileEntityZeroPointExtractor;
+import jotato.quantumflux.blocks.BlockBase;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.ITileEntityProvider;
@@ -16,7 +16,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockZPE extends BlockBase implements ITileEntityProvider
+public class BlockZPE extends BlockBase
 {
     @SideOnly(Side.CLIENT)
     protected IIcon icon_top;
@@ -25,7 +25,7 @@ public class BlockZPE extends BlockBase implements ITileEntityProvider
     @SideOnly(Side.CLIENT)
     protected IIcon icon_bottom;
 
-    protected BlockZPE()
+    public BlockZPE()
     {
         super(Material.iron, "zeroPointExtractor", 1, "pickaxe", 0);
         setStepSound(soundTypeMetal);
@@ -36,9 +36,9 @@ public class BlockZPE extends BlockBase implements ITileEntityProvider
     @Override
     public void registerBlockIcons(IIconRegister ir)
     {
-        this.icon_top = ir.registerIcon(getTexture("zpe_top"));
-        this.icon_side = ir.registerIcon(getTexture("zpe_side"));
-        this.icon_bottom = ir.registerIcon(getTexture("zpe_bottom"));
+        this.icon_top = ir.registerIcon(getTexture("zpe/zpe_top"));
+        this.icon_side = ir.registerIcon(getTexture("zpe/zpe_side"));
+        this.icon_bottom = ir.registerIcon(getTexture("zpe/zpe_bottom"));
     }
 
     @Override
@@ -71,9 +71,13 @@ public class BlockZPE extends BlockBase implements ITileEntityProvider
     }
     
     @Override
-    public TileEntity createNewTileEntity(World world, int p1)
-    {
-        return new TileEntityZeroPointExtractor();
+	public boolean hasTileEntity(int metadata) {
+		return true;
+	}
+    
+    @Override
+    public TileEntity createTileEntity(World world, int metadata) {		
+    	return new TileEntityZeroPointExtractor();
     }
 
 }

@@ -1,11 +1,9 @@
-package jotato.quantumflux.gui;
+package jotato.quantumflux.machine.cluster;
 
 import java.text.NumberFormat;
 
 import org.lwjgl.opengl.GL11;
 
-import jotato.quantumflux.inventory.ContainerQuibitCluster;
-import jotato.quantumflux.tileentity.TileEntityQuibitCluster;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.inventory.GuiContainer;

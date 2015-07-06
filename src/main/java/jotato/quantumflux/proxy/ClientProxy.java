@@ -1,7 +1,7 @@
 package jotato.quantumflux.proxy;
 
-import jotato.quantumflux.blocks.BlockRFExciter;
-import jotato.quantumflux.render.RenderExciter;
+import jotato.quantumflux.machine.exciter.BlockRFExciter;
+import jotato.quantumflux.machine.exciter.RenderExciter;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy

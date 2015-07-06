@@ -1,8 +1,8 @@
-package jotato.quantumflux.blocks;
+package jotato.quantumflux.machine.entangler;
 
-import jotato.quantumflux.tileentity.TileEntityRFEntangler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import jotato.quantumflux.blocks.BlockBase;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -16,7 +16,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
-public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
+public class BlockRFEntangler extends BlockBase
 {
 
 	@SideOnly(Side.CLIENT)
@@ -26,7 +26,7 @@ public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
 	@SideOnly(Side.CLIENT)
 	protected IIcon icon_top;
 
-	protected BlockRFEntangler()
+	public BlockRFEntangler()
 	{
 		super(Material.iron, "rfEntangler", 6, "pickaxe", 0);
 		setStepSound(soundTypeMetal);
@@ -36,9 +36,9 @@ public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
 	@Override
 	public void registerBlockIcons(IIconRegister ir)
 	{
-		this.icon_front = ir.registerIcon(getTexture("rfEntangler_front"));
-		this.icon_side = ir.registerIcon(getTexture("rfEntangler_side"));
-		this.icon_top = ir.registerIcon(getTexture("rfEntangler_top"));
+		this.icon_front = ir.registerIcon(getTexture("entangler/rfEntangler_front"));
+		this.icon_side = ir.registerIcon(getTexture("entangler/rfEntangler_side"));
+		this.icon_top = ir.registerIcon(getTexture("entangler/rfEntangler_top"));
 	}
 
 	@Override
@@ -82,10 +82,14 @@ public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
 		}
 
 	}
-
+	
 	@Override
-	public TileEntity createNewTileEntity(World world, int p1)
-	{
+	public boolean hasTileEntity(int metadata) {
+		return true;
+	}
+	
+	@Override
+	public TileEntity createTileEntity(World world, int metadata) {
 		return new TileEntityRFEntangler();
 	}
 

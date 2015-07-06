@@ -1,12 +1,10 @@
-package jotato.quantumflux.gui;
+package jotato.quantumflux.machine.entropyaccerlator;
 
 import java.text.NumberFormat;
 
 import org.lwjgl.opengl.GL11;
 
 import jotato.quantumflux.blocks.ModBlocks;
-import jotato.quantumflux.inventory.ContainerEntropyAccelerator;
-import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.inventory.GuiContainer;

@@ -1,6 +1,6 @@
-package jotato.quantumflux.blocks;
+package jotato.quantumflux.machine.imaginarytime;
 
-import jotato.quantumflux.tileentity.TileEntityImaginaryTime;
+import jotato.quantumflux.blocks.BlockBase;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.ITileEntityProvider;
@@ -10,7 +10,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class BlockImaginaryTime extends BlockBase implements ITileEntityProvider
+public class BlockImaginaryTime extends BlockBase
 {
 	@SideOnly(Side.CLIENT)
 	protected IIcon icon_side;
@@ -18,7 +18,7 @@ public class BlockImaginaryTime extends BlockBase implements ITileEntityProvider
 	protected IIcon icon_top;
 	
 
-	protected BlockImaginaryTime()
+	public BlockImaginaryTime()
 	{
 		super(Material.iron, "imaginaryTime", 1.3f, "pickaxe", 0);
 		setStepSound(soundTypeMetal);
@@ -29,8 +29,8 @@ public class BlockImaginaryTime extends BlockBase implements ITileEntityProvider
 	@Override
 	public void registerBlockIcons(IIconRegister ir)
 	{
-		this.icon_side = ir.registerIcon(getTexture("imaginaryBlock_side1"));
-		this.icon_top = ir.registerIcon(getTexture("imaginaryBlock_top"));
+		this.icon_side = ir.registerIcon(getTexture("time/imaginaryBlock_side1"));
+		this.icon_top = ir.registerIcon(getTexture("time/imaginaryBlock_top"));
 	}
 	
 	@Override
@@ -48,8 +48,12 @@ public class BlockImaginaryTime extends BlockBase implements ITileEntityProvider
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World world, int meta)
-	{
+	public boolean hasTileEntity(int metadata) {
+		return true;
+	}
+	
+	@Override
+	public TileEntity createTileEntity(World world, int metadata) {
 		return new TileEntityImaginaryTime();
 	}
 	

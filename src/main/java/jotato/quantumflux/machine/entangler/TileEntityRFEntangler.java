@@ -1,4 +1,4 @@
-package jotato.quantumflux.tileentity;
+package jotato.quantumflux.machine.entangler;
 
 import java.util.UUID;
 

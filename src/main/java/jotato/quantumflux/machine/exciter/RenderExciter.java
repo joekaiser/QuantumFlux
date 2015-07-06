@@ -1,7 +1,7 @@
-package jotato.quantumflux.render;
+package jotato.quantumflux.machine.exciter;
 
-import jotato.quantumflux.blocks.BlockRFExciter;
 import jotato.quantumflux.blocks.ModBlocks;
+import jotato.quantumflux.render.RenderBlockBase;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.world.IBlockAccess;

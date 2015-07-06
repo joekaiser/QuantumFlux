@@ -1,9 +1,11 @@
 package jotato.quantumflux.gui;
 
-import jotato.quantumflux.inventory.ContainerEntropyAccelerator;
-import jotato.quantumflux.inventory.ContainerQuibitCluster;
-import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
-import jotato.quantumflux.tileentity.TileEntityQuibitCluster;
+import jotato.quantumflux.machine.cluster.ContainerQuibitCluster;
+import jotato.quantumflux.machine.cluster.GuiQuibitCluster;
+import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster;
+import jotato.quantumflux.machine.entropyaccerlator.ContainerEntropyAccelerator;
+import jotato.quantumflux.machine.entropyaccerlator.GuiEntropyAccelerator;
+import jotato.quantumflux.machine.entropyaccerlator.TileEntityEntropyAccelerator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;

@@ -1,8 +1,8 @@
-package jotato.quantumflux.inventory;
+package jotato.quantumflux.machine.entropyaccerlator;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import jotato.quantumflux.tileentity.TileEntityEntropyAccelerator;
+import jotato.quantumflux.inventory.ContainerBase;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;

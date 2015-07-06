@@ -1,6 +1,6 @@
-package jotato.quantumflux.blocks;
+package jotato.quantumflux.machine.infuser;
 
-import jotato.quantumflux.tileentity.TileEntityMolecularInfuser;
+import jotato.quantumflux.blocks.BlockContainerBase;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -21,7 +21,7 @@ public class BlockMolecularInfuser extends BlockContainerBase
 	@SideOnly(Side.CLIENT)
 	protected IIcon icon_side;
 
-	protected BlockMolecularInfuser()
+	public BlockMolecularInfuser()
 	{
 		super(Material.iron, "molecularInfuser", 1, "pickaxe", 0);
 		setStepSound(soundTypeMetal);
@@ -32,9 +32,9 @@ public class BlockMolecularInfuser extends BlockContainerBase
 	@Override
 	public void registerBlockIcons(IIconRegister ir)
 	{
-		this.icon_top = ir.registerIcon(getTexture("molecularInfuser_top"));
-		this.icon_front = ir.registerIcon(getTexture("molecularInfuser_front"));
-		this.icon_side = ir.registerIcon(getTexture("molecularInfuser_side"));
+		this.icon_top = ir.registerIcon(getTexture("infuser/molecularInfuser_top"));
+		this.icon_front = ir.registerIcon(getTexture("infuser/molecularInfuser_front"));
+		this.icon_side = ir.registerIcon(getTexture("infuser/molecularInfuser_side"));
 	}
 
 	@Override
@@ -73,6 +73,11 @@ public class BlockMolecularInfuser extends BlockContainerBase
 		return true;
 
 	}
+	
+	@Override
+	public boolean hasTileEntity(int metadata) {
+		return true;
+	};
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int p1)

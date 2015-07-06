@@ -1,9 +1,9 @@
-package jotato.quantumflux.blocks;
+package jotato.quantumflux.machine.exciter;
 
 import jotato.quantumflux.ConfigMan;
+import jotato.quantumflux.blocks.BlockBase;
 import jotato.quantumflux.items.ModItems;
 import jotato.quantumflux.proxy.ClientProxy;
-import jotato.quantumflux.tileentity.TileEntityRFExciter;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -19,14 +19,21 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class BlockRFExciter extends BlockBase implements ITileEntityProvider
+public class BlockRFExciter extends BlockBase
 {
 	public static int renderType;
 
-	protected BlockRFExciter()
+	public BlockRFExciter()
 	{
 		super(Material.circuits, "rfExciter", .25f, "pickaxe", 0);
 		this.setBlockBounds(.15f, 0f, .15f, .85f, .12f, .85f);
+	}
+	
+	
+	@Override
+	protected String getTexture(String name) {
+		// TODO Auto-generated method stub
+		return super.getTexture("exciter/"+name);
 	}
 
 	@Override
@@ -96,10 +103,15 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World world, int meta)
-	{
+	public boolean hasTileEntity(int metadata) {
+		return true;
+	}
+	
+	@Override
+	public TileEntity createTileEntity(World world, int metadata) {
 		return new TileEntityRFExciter();
 	}
+
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack)

@@ -1,8 +1,8 @@
 package jotato.quantumflux.packets;
 
 import net.minecraft.tileentity.TileEntity;
-import jotato.quantumflux.tileentity.TileEntityQuibitCluster;
 import io.netty.buffer.ByteBuf;
+import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
