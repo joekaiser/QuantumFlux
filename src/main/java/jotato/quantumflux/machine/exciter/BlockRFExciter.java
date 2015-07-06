@@ -5,7 +5,6 @@ import jotato.quantumflux.blocks.BlockBase;
 import jotato.quantumflux.items.ModItems;
 import jotato.quantumflux.proxy.ClientProxy;
 import net.minecraft.block.Block;
-import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
