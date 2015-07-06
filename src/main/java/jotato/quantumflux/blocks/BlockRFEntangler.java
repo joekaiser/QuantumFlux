@@ -28,7 +28,7 @@ public class BlockRFEntangler extends BlockBase implements ITileEntityProvider
 
 	protected BlockRFEntangler()
 	{
-		super(Material.iron, "rfEntangler", 6, "pickaxe", 1);
+		super(Material.iron, "rfEntangler", 6, "pickaxe", 0);
 		setStepSound(soundTypeMetal);
 	}
 

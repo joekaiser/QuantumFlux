@@ -27,7 +27,7 @@ public class BlockZPE extends BlockBase implements ITileEntityProvider
 
     protected BlockZPE()
     {
-        super(Material.iron, "zeroPointExtractor", 1, "pickaxe", 1);
+        super(Material.iron, "zeroPointExtractor", 1, "pickaxe", 0);
         setStepSound(soundTypeMetal);
         setLightLevel(.3f);
     }

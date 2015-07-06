@@ -32,7 +32,7 @@ public class BlockEntropyAccelerator extends BlockContainerBase
 
 	protected BlockEntropyAccelerator()
 	{
-		super(Material.iron, "entropyAccelerator", 1, "pickaxe", 1);
+		super(Material.iron, "entropyAccelerator", 1, "pickaxe", 0);
 		setStepSound(soundTypeMetal);
 		setLightLevel(.3f);
 	}
