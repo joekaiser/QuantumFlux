@@ -1,0 +1,56 @@
+item.amplificationCrystal.name=Кристалл усиления
+item.ironCasing.name=Железная оболочка
+item.steelIngot.name=Стальной слиток
+item.goldCasing.name=Золотая оьолочка
+item.quibitCrystal.name=Квибит кристалл
+item.manganese.name=Марганцевая пыль
+item.mangalloyIngot.name=Марганцевый сплав
+item.zbq7.name=ZBQ-7
+item.quibitCell.name=Квибит капсула
+item.energizedCrystal.name=Заряженный кристалл
+item.magnet.name=Притягиватель
+item.glowingMangalloy.name=Светящийся марганцевый сплав
+item.battlesuit_helmet.name=Шлем из боекомплекта
+item.battlesuit_chestplate.name=Нагрудник из боекомплекта
+item.battlesuit_leggings.name=Поножи из боекомплекта
+item.battlesuit_boots.name=Ботинки из боекомплекта
+item.battlesuit_plate.name=Пластина для боекомплекта
+item.upgradeToken.name=Жетон усиления 
+item.eviscerator.name=Потрошитель
+item.eviscerator_head.name=Обух Потрошителя
+item.eviscerator_rod.name=Стержень Потрошителя
+item.redstoneCrystal.name=Кристализованный редстоун
+item.exciterUpgrade.name=Усилитель Резонатора
+
+tile.entropyAccelerator.name=Ускоритель квантовой энтропии
+tile.quibitCluster_1.name=Кластер Квибита 1 ур.
+tile.quibitCluster_2.name=Кластер Квибита 2 ур.
+tile.quibitCluster_3.name=Кластер Квибита 3 ур.
+tile.quibitCluster_4.name=Кластер Квибита 4 ур.
+tile.quibitCluster_5.name=Кластер Квибита 5 ур.
+tile.zeroPointExtractor.name=Экстрактор Нулевой Точки (ЭНТ)
+tile.rfEntangler.name=RF Улавливатель
+tile.rfExciter.name=RF Резонатор
+tile.darkstone.name=Темнокамень
+tile.darkstone_lamp.name=Темнокаменная лампа
+tile.darkstone_pillar.name=Темнокаменная колонна
+tile.darkstone_tile.name=Темнокаменная плита
+tile.imaginaryTime.name=Блок Мнимого времени
+
+itemGroup.tabQuantumFlux=QuantumFlux
+
+chat.rfEntanglerStored=%,d RF доступно в RF-пространстве
+chat.rfEntanglerIn=%,d RF добавлено
+chat.rfEntanglerOut=%,d RF используется
+chat.rfExciterUsed=%1$,d RF за тик сейчас (max: %2$,d)
+
+gui.quibitCluster=Кластер Квибита (Уровень %d)
+gui.quibitClusterTransferRateInfinite=Бесконечный RF/Тик
+gui.quibitClusterTransferRate=%,d RF/Тик
+gui.quibitClusterMaxStorage=%,d МАКС
+
+tooltip.capabilityFlight=Возможности: Полёт
+tooltip.capabilityMomentum=Возможности: Импульс
+tooltip.capabilityStrength=Возможности: Прочность
+tooltip.capabilityVisibility=Capability: Visibility
+tooltip.charge=Charge: %,d
