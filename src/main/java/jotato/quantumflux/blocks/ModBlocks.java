@@ -26,7 +26,7 @@ public class ModBlocks
     public static Block darkstonePillar;
     public static Block darkstoneTile;
     public static Block imaginaryTime;
-    public static Block molecularInfuser;
+    //public static Block molecularInfuser;
 
     public static void init()
     {
@@ -44,7 +44,7 @@ public class ModBlocks
         darkstonePillar = new BlockBase(Material.iron,"darkstone_pillar",1,"pickaxe",0);
         darkstoneTile = new BlockBase(Material.iron,"darkstone_tile",1,"pickaxe",0);
         imaginaryTime = new BlockImaginaryTime();
-        molecularInfuser = new BlockMolecularInfuser();
+        //molecularInfuser = new BlockMolecularInfuser();
        
     }
 }
