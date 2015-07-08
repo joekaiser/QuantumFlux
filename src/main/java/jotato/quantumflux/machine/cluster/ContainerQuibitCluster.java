@@ -11,10 +11,10 @@ public class ContainerQuibitCluster extends ContainerBase
 {
 	int lastInternalStorage;
 
-	private TileEntityQuibitCluster_Deprecated cluster;
+	private TileEntityQuibitCluster cluster;
 	private EntityPlayer player;
 
-	public ContainerQuibitCluster(EntityPlayer player, TileEntityQuibitCluster_Deprecated cluster)
+	public ContainerQuibitCluster(EntityPlayer player, TileEntityQuibitCluster cluster)
 	{
 		super(null);
 		this.cluster = cluster;

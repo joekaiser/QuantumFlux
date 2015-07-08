@@ -5,7 +5,6 @@ import cofh.api.energy.IEnergyHandler;
 import cofh.api.energy.IEnergyReceiver;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import jotato.quantumflux.ConfigMan;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -16,20 +15,11 @@ public class TileEntityQuibitCluster extends TileEntity implements IEnergyHandle
 	private int capacity;
 	public int level;
 
-	public TileEntityQuibitCluster() {
+	public TileEntityQuibitCluster(QuibitClusterSettings settings) {
 		
-		this.level = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
-		this.transferRate = ConfigMan.quibitCluster_baseTransferRate;
-		this.capacity = ConfigMan.quibitCluster_baseStorage;
-		
-		// todo: anything other than this ugly hack!
-		for (int i = 1; i < level; i++) {
-			this.transferRate *= ConfigMan.quibitCluster_multiplier;
-			this.capacity *= ConfigMan.quibitCluster_multiplier;
-		}
-		if (level == 5) {
-			this.transferRate = Integer.MAX_VALUE;
-		}
+		this.transferRate = settings.transferRate;
+		this.capacity = settings.capacity;
+		this.level = settings.level;
 		
 		localEnergyStorage = new EnergyStorage(this.capacity, this.transferRate);
 	}
