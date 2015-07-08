@@ -1,5 +1,6 @@
 package jotato.quantumflux.blocks;
 
+import jotato.quantumflux.machine.cluster.BlockQuibitCluster;
 import jotato.quantumflux.machine.cluster.BlockQuibitCluster_Depricated;
 import jotato.quantumflux.machine.entangler.BlockRFEntangler;
 import jotato.quantumflux.machine.entropyaccelerator.BlockEntropyAccelerator;
@@ -26,7 +27,8 @@ public class ModBlocks
     public static Block darkstoneTile;
     public static Block imaginaryTime;
     //public static Block molecularInfuser;
-
+    public static Block quibitCluster;
+    
     public static void init()
     {
         entropyAccelerator = new BlockEntropyAccelerator();
@@ -44,6 +46,7 @@ public class ModBlocks
         darkstoneTile = new BlockBase(Material.iron,"darkstone_tile",1,"pickaxe",0,null);
         imaginaryTime = new BlockImaginaryTime();
         //molecularInfuser = new BlockMolecularInfuser();
+        quibitCluster = new BlockQuibitCluster();
        
     }
 }

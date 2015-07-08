@@ -17,25 +17,27 @@ public class ItemBlockBase extends ItemBlock {
 	public ItemBlockBase(Block block) {
 		super(block);
 	}
-	
+
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool){
+	public void addInformation(ItemStack itemstack, EntityPlayer player,
+			List list, boolean bool) {
 		addSimpleTooltipInformation(itemstack, player, list);
-		
-		if(hasAdvancedTooltip()){
-			if(showAdvancedTooltip()){
+
+		if (hasAdvancedTooltip()) {
+			if (showAdvancedTooltip()) {
 				addAdvancedTooltipInformation(itemstack, player, list);
-			}else
-			{
+			} else {
 				addShowDetailsTooltip(list);
 			}
 		}
 	}
 
-	public void addSimpleTooltipInformation(ItemStack itemstack, EntityPlayer player, List list) {
+	public void addSimpleTooltipInformation(ItemStack itemstack,
+			EntityPlayer player, List list) {
 	}
 
-	public void addAdvancedTooltipInformation(ItemStack itemstack, EntityPlayer player, List list) {
+	public void addAdvancedTooltipInformation(ItemStack itemstack,
+			EntityPlayer player, List list) {
 	}
 
 	public boolean hasAdvancedTooltip() {
@@ -43,10 +45,32 @@ public class ItemBlockBase extends ItemBlock {
 	}
 
 	public boolean showAdvancedTooltip() {
-		return Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT);
+		return Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)
+				|| Keyboard.isKeyDown(Keyboard.KEY_RSHIFT);
+	}
+
+	public void addShowDetailsTooltip(List list) {
+		list.add(EnumChatFormatting.WHITE + "" + EnumChatFormatting.ITALIC
+				+ StatCollector.translateToLocal("tooltip.showDetails"));
 	}
 	
-	public void addShowDetailsTooltip(List list) {
-	    list.add(EnumChatFormatting.WHITE + "" + EnumChatFormatting.ITALIC + StatCollector.translateToLocal("tooltip.showDetails"));
-	  }
+	@Override
+	public String getUnlocalizedName(ItemStack itemStack) {
+		if (this.hasSubtypes) {
+			int metadata = itemStack.getItemDamage();
+			return super.getUnlocalizedName(itemStack) + "."
+					+ Integer.toString(metadata);
+		} else {
+			return super.getUnlocalizedName(itemStack);
+		}
+	}
+
+	@Override
+	public String getUnlocalizedName() {
+		if (this.hasSubtypes) {
+			return super.getUnlocalizedName() + ".0";
+		} else {
+			return super.getUnlocalizedName();
+		}
+	}
 }

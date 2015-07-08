@@ -2,6 +2,7 @@ package jotato.quantumflux;
 
 import jotato.quantumflux.blocks.ModBlocks;
 import jotato.quantumflux.items.ModItems;
+import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster;
 import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_1;
 import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_2;
 import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_3;
@@ -67,6 +68,7 @@ public class QuantumFlux
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_5.class, "tileQuibitCluster5");
         GameRegistry.registerTileEntity(TileEntityImaginaryTime.class, "tileImaginaryTime");
         GameRegistry.registerTileEntity(TileEntityMolecularInfuser.class, "tileMolecularInfuser");
+        GameRegistry.registerTileEntity(TileEntityQuibitCluster.class, "tileQuibitCluster");
     }
 
     @EventHandler
