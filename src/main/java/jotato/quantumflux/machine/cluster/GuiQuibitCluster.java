@@ -15,12 +15,12 @@ import net.minecraft.util.StatCollector;
 public class GuiQuibitCluster extends GuiContainer
 {
     private static final ResourceLocation guiScreen = new ResourceLocation("quantumflux:textures/gui/quibitCluster.png");
-    private TileEntityQuibitCluster cluster;
+    private TileEntityQuibitCluster_Deprecated cluster;
     private String displayName;
     private String maxStorage;
     private String maxTransfer;
 
-    public GuiQuibitCluster(EntityPlayer player, TileEntityQuibitCluster cluster)
+    public GuiQuibitCluster(EntityPlayer player, TileEntityQuibitCluster_Deprecated cluster)
     {
         super(new ContainerQuibitCluster(player, cluster));
         this.cluster = cluster;

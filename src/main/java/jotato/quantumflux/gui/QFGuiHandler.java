@@ -2,7 +2,7 @@ package jotato.quantumflux.gui;
 
 import jotato.quantumflux.machine.cluster.ContainerQuibitCluster;
 import jotato.quantumflux.machine.cluster.GuiQuibitCluster;
-import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster;
+import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_Deprecated;
 import jotato.quantumflux.machine.entropyaccelerator.ContainerEntropyAccelerator;
 import jotato.quantumflux.machine.entropyaccelerator.GuiEntropyAccelerator;
 import jotato.quantumflux.machine.entropyaccelerator.TileEntityEntropyAccelerator;
@@ -44,27 +44,27 @@ public class QFGuiHandler implements IGuiHandler
         }
         if (gui == GUI.QUIBIT_CLUSTER_1)
         {
-            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            TileEntityQuibitCluster_Deprecated cluster = (TileEntityQuibitCluster_Deprecated) world.getTileEntity(x, y, z);
             return new ContainerQuibitCluster(player, cluster);
         }
         if (gui == GUI.QUIBIT_CLUSTER_2)
         {
-            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            TileEntityQuibitCluster_Deprecated cluster = (TileEntityQuibitCluster_Deprecated) world.getTileEntity(x, y, z);
             return new ContainerQuibitCluster(player, cluster);
         }
         if (gui == GUI.QUIBIT_CLUSTER_3)
         {
-            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            TileEntityQuibitCluster_Deprecated cluster = (TileEntityQuibitCluster_Deprecated) world.getTileEntity(x, y, z);
             return new ContainerQuibitCluster(player, cluster);
         }
         if (gui == GUI.QUIBIT_CLUSTER_4)
         {
-            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            TileEntityQuibitCluster_Deprecated cluster = (TileEntityQuibitCluster_Deprecated) world.getTileEntity(x, y, z);
             return new ContainerQuibitCluster(player, cluster);
         }
         if (gui == GUI.QUIBIT_CLUSTER_5)
         {
-            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            TileEntityQuibitCluster_Deprecated cluster = (TileEntityQuibitCluster_Deprecated) world.getTileEntity(x, y, z);
             return new ContainerQuibitCluster(player, cluster);
         }
         return null;
@@ -84,27 +84,27 @@ public class QFGuiHandler implements IGuiHandler
         
         if (gui == GUI.QUIBIT_CLUSTER_1)
         {
-            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            TileEntityQuibitCluster_Deprecated cluster = (TileEntityQuibitCluster_Deprecated) world.getTileEntity(x, y, z);
             return new GuiQuibitCluster(player, cluster);
         }
         if (gui == GUI.QUIBIT_CLUSTER_2)
         {
-            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            TileEntityQuibitCluster_Deprecated cluster = (TileEntityQuibitCluster_Deprecated) world.getTileEntity(x, y, z);
             return new GuiQuibitCluster(player, cluster);
         }
         if (gui == GUI.QUIBIT_CLUSTER_3)
         {
-            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            TileEntityQuibitCluster_Deprecated cluster = (TileEntityQuibitCluster_Deprecated) world.getTileEntity(x, y, z);
             return new GuiQuibitCluster(player, cluster);
         }
         if (gui == GUI.QUIBIT_CLUSTER_4)
         {
-            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            TileEntityQuibitCluster_Deprecated cluster = (TileEntityQuibitCluster_Deprecated) world.getTileEntity(x, y, z);
             return new GuiQuibitCluster(player, cluster);
         }
         if (gui == GUI.QUIBIT_CLUSTER_5)
         {
-            TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
+            TileEntityQuibitCluster_Deprecated cluster = (TileEntityQuibitCluster_Deprecated) world.getTileEntity(x, y, z);
             return new GuiQuibitCluster(player, cluster);
         }
 

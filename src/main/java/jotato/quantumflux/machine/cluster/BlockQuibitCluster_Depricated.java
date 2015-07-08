@@ -30,7 +30,7 @@ public class BlockQuibitCluster_Depricated extends BlockContainerBase
 
     public BlockQuibitCluster_Depricated(int level)
     {
-        super(Material.iron, "quibitCluster_" + level, 3, "pickaxe", 0,ItemBlockQuibitCluster.class);
+        super(Material.iron, "quibitCluster_" + level, 3, "pickaxe", 0,ItemBlockQuibitCluster_Deprecated.class);
         setStepSound(soundTypeMetal);
         this.level = level;
     }

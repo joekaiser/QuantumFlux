@@ -2,7 +2,7 @@ package jotato.quantumflux.packets;
 
 import net.minecraft.tileentity.TileEntity;
 import io.netty.buffer.ByteBuf;
-import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster;
+import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_Deprecated;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -49,8 +49,8 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
         @Override
         public IMessage onMessage(ClusterMessage message, MessageContext ctx) {
         	TileEntity tile = FMLClientHandler.instance().getWorldClient().getTileEntity(message.x, message.y,message.z);
-        	if(tile instanceof TileEntityQuibitCluster){
-        		((TileEntityQuibitCluster)tile).setEnergyStored(message.energryStored);
+        	if(tile instanceof TileEntityQuibitCluster_Deprecated){
+        		((TileEntityQuibitCluster_Deprecated)tile).setEnergyStored(message.energryStored);
         	}
             return null; 
         }

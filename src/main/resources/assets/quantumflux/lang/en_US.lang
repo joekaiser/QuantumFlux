@@ -58,7 +58,7 @@ tooltip.charge=Charge: %,d
 
 tooltip.showDetails=Press SHIFT for more
 
-tooltip.quibitcluster.help=Stores RF like a battery
+tooltip.quibitcluster_d.help=Deprecated. Place in a crafting grid to get the new one
 
 tooltip.entangler.help=Provides power to the RedfluxField
 tooltip.entangler.buffer=Has an internal buffer of %d

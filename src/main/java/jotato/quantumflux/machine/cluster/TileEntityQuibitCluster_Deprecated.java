@@ -10,14 +10,14 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public abstract class TileEntityQuibitCluster extends TileEntity implements IEnergyHandler
+public abstract class TileEntityQuibitCluster_Deprecated extends TileEntity implements IEnergyHandler
 {
 	protected EnergyStorage localEnergyStorage;
 	private int transferRate;
 	private int capacity;
 	public int level;
 
-	public TileEntityQuibitCluster(int transferRate, int capacity, int level)
+	public TileEntityQuibitCluster_Deprecated(int transferRate, int capacity, int level)
 	{
 
 		this.transferRate = transferRate;
@@ -145,7 +145,7 @@ public abstract class TileEntityQuibitCluster extends TileEntity implements IEne
 
 			TileEntity tile = worldObj.getTileEntity(targetX, targetY, targetZ);
 			// todo: make configurable sides for the cluster
-			if (tile instanceof TileEntityQuibitCluster)
+			if (tile instanceof TileEntityQuibitCluster_Deprecated)
 				return;
 			if (tile instanceof IEnergyReceiver)
 			{

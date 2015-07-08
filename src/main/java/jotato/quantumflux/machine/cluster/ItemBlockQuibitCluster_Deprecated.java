@@ -9,9 +9,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
-public class ItemBlockQuibitCluster extends ItemBlockBase{
+public class ItemBlockQuibitCluster_Deprecated extends ItemBlockBase{
 
-	public ItemBlockQuibitCluster(Block block) {
+	public ItemBlockQuibitCluster_Deprecated(Block block) {
 		super(block);
 		// TODO Auto-generated constructor stub
 	}
@@ -19,7 +19,7 @@ public class ItemBlockQuibitCluster extends ItemBlockBase{
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void addSimpleTooltipInformation(ItemStack itemstack, EntityPlayer player, List list) {
-		list.add(StatCollector.translateToLocal("tooltip.quibitcluster.help"));
+		list.add(StatCollector.translateToLocal("tooltip.quibitcluster_d.help"));
 	}
 	
 
