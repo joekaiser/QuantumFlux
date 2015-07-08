@@ -8,7 +8,7 @@ import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_3;
 import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_4;
 import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_5;
 import jotato.quantumflux.machine.entangler.TileEntityRFEntangler;
-import jotato.quantumflux.machine.entropyaccerlator.TileEntityEntropyAccelerator;
+import jotato.quantumflux.machine.entropyaccelerator.TileEntityEntropyAccelerator;
 import jotato.quantumflux.machine.exciter.TileEntityRFExciter;
 import jotato.quantumflux.machine.imaginarytime.TileEntityImaginaryTime;
 import jotato.quantumflux.machine.infuser.TileEntityMolecularInfuser;

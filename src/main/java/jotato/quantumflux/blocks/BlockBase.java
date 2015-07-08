@@ -6,6 +6,7 @@ import jotato.quantumflux.QuantumFlux;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -13,7 +14,7 @@ import net.minecraft.world.World;
 public class BlockBase extends Block
 {
 	
-    protected BlockBase(Material material, String name, float hardness)
+    protected BlockBase(Material material, String name, float hardness, Class<? extends ItemBlock> itemBlock)
     {
         super(material);
 
@@ -21,14 +22,19 @@ public class BlockBase extends Block
         setCreativeTab(QuantumFlux.tab);
         setBlockTextureName(getTexture(name));
         setHardness(hardness);
-        GameRegistry.registerBlock(this, name);
+        if(itemBlock !=null){
+        	GameRegistry.registerBlock(this, itemBlock, name);
+        }
+        else{
+        	GameRegistry.registerBlock(this, name);
+        }
 
     }
     
     
-    protected BlockBase(Material material, String name, float hardness, String harvestTool, int harvestLevel)
+    protected BlockBase(Material material, String name, float hardness, String harvestTool, int harvestLevel, Class<? extends ItemBlock> itemBlock)
     {
-        this(material,name,hardness);
+        this(material,name,hardness, itemBlock);
         setHarvestLevel(harvestTool, harvestLevel);
     }
     

@@ -27,7 +27,7 @@ public class BlockRFEntangler extends BlockBase
 
 	public BlockRFEntangler()
 	{
-		super(Material.iron, "rfEntangler", 6, "pickaxe", 0);
+		super(Material.iron, "rfEntangler", 6, "pickaxe", 0,ItemBlockRFEntangler.class);
 		setStepSound(soundTypeMetal);
 	}
 

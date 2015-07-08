@@ -6,6 +6,7 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
@@ -14,7 +15,7 @@ import net.minecraft.world.World;
 public class BlockContainerBase extends BlockContainer
 {
 
-	protected BlockContainerBase(Material material, String name, float hardness)
+	protected BlockContainerBase(Material material, String name, float hardness, Class<? extends ItemBlock> itemBlock)
     {
         super(material);
 
@@ -22,13 +23,18 @@ public class BlockContainerBase extends BlockContainer
         setCreativeTab(QuantumFlux.tab);
         setBlockTextureName(getTexture(name));
         setHardness(hardness);
-        GameRegistry.registerBlock(this, name);
+        if(itemBlock !=null){
+        	GameRegistry.registerBlock(this, itemBlock, name);
+        }
+        else{
+        	GameRegistry.registerBlock(this, name);
+        }
 
     }
 	
-	protected BlockContainerBase(Material material, String name, float hardness, String harvestTool, int harvestLevel)
+	protected BlockContainerBase(Material material, String name, float hardness, String harvestTool, int harvestLevel, Class<? extends ItemBlock> itemBlock)
     {
-		this(material,name, hardness);
+		this(material,name, hardness, itemBlock);
         setHarvestLevel(harvestTool, harvestLevel);
 
     }

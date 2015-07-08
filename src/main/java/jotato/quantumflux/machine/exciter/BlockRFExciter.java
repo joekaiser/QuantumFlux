@@ -24,7 +24,7 @@ public class BlockRFExciter extends BlockBase
 
 	public BlockRFExciter()
 	{
-		super(Material.circuits, "rfExciter", .25f, "pickaxe", 0);
+		super(Material.circuits, "rfExciter", .25f, "pickaxe", 0,ItemBlockRFExciter.class);
 		this.setBlockBounds(.15f, 0f, .15f, .85f, .12f, .85f);
 	}
 	

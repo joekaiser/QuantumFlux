@@ -1,4 +1,4 @@
-package jotato.quantumflux.machine.entropyaccerlator;
+package jotato.quantumflux.machine.entropyaccelerator;
 
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyProvider;

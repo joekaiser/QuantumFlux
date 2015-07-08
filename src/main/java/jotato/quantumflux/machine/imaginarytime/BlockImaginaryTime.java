@@ -19,7 +19,7 @@ public class BlockImaginaryTime extends BlockBase
 
 	public BlockImaginaryTime()
 	{
-		super(Material.iron, "imaginaryTime", 1.3f, "pickaxe", 0);
+		super(Material.iron, "imaginaryTime", 1.3f, "pickaxe", 0,ItemBlockImaginaryTime.class);
 		setStepSound(soundTypeMetal);
 	
 	}

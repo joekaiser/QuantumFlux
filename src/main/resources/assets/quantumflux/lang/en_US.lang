@@ -55,3 +55,24 @@ tooltip.capabilityMomentum=Capability: Momentum
 tooltip.capabilityStrength=Capability: Strength
 tooltip.capabilityVisibility=Capability: Visibility
 tooltip.charge=Charge: %,d
+
+tooltip.showDetails=Press SHIFT for more
+
+tooltip.quibitcluster.help=Stores RF like a battery
+
+tooltip.entangler.help=Provides power to the RedfluxField
+tooltip.entangler.buffer=Has an internal buffer of %d
+tooltip.entangler.output=Provides an infinite amount of RF/tick
+tooltip.entangler.efficiency=Has an efficiency of %d percent
+
+tooltip.accelerator.help=Converts matter to a little bit of energy
+tooltip.accelerator.expanded=Can provide %d RF/tick
+
+tooltip.rfexciter.help=Pulls RF from the RedfluxField
+tooltip.rfexciter.upgrade=Add Exciter Upgrades for additional power 
+
+tooltip.imaginarytime.help=Manipulates time to increase the growth of crops
+tooltip.imaginarytime.requirements=Requires %d RF/tick to operate
+
+tooltip.zpe.help=Generates RF from a localized region of SpaceTime
+tooltip.zpe.help2=It works better at low altitudes 

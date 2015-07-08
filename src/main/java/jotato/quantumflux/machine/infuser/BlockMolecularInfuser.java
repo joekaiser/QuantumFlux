@@ -23,7 +23,7 @@ public class BlockMolecularInfuser extends BlockContainerBase
 
 	public BlockMolecularInfuser()
 	{
-		super(Material.iron, "molecularInfuser", 1, "pickaxe", 0);
+		super(Material.iron, "molecularInfuser", 1, "pickaxe", 0,null);
 		setStepSound(soundTypeMetal);
 		setLightLevel(.3f);
 	}

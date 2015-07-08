@@ -1,4 +1,4 @@
-package jotato.quantumflux.machine.entropyaccerlator;
+package jotato.quantumflux.machine.entropyaccelerator;
 
 import jotato.quantumflux.QuantumFlux;
 import jotato.quantumflux.blocks.BlockContainerBase;
@@ -32,7 +32,7 @@ public class BlockEntropyAccelerator extends BlockContainerBase
 
 	public BlockEntropyAccelerator()
 	{
-		super(Material.iron, "entropyAccelerator", 1, "pickaxe", 0);
+		super(Material.iron, "entropyAccelerator", 1, "pickaxe", 0,ItemBlockEntropyAccelerator.class);
 		setStepSound(soundTypeMetal);
 		setLightLevel(.3f);
 	}

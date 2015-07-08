@@ -1,4 +1,4 @@
-package jotato.quantumflux.machine.entropyaccerlator;
+package jotato.quantumflux.machine.entropyaccelerator;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

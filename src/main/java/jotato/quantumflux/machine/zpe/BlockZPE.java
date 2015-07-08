@@ -26,7 +26,7 @@ public class BlockZPE extends BlockBase
 
     public BlockZPE()
     {
-        super(Material.iron, "zeroPointExtractor", 1, "pickaxe", 0);
+        super(Material.iron, "zeroPointExtractor", 1, "pickaxe", 0,ItemBlockZPE.class);
         setStepSound(soundTypeMetal);
         setLightLevel(.3f);
     }
