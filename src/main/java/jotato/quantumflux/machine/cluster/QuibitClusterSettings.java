@@ -1,5 +1,7 @@
 package jotato.quantumflux.machine.cluster;
 
+import java.text.NumberFormat;
+
 import jotato.quantumflux.ConfigMan;
 
 public class QuibitClusterSettings{
@@ -18,5 +20,17 @@ public class QuibitClusterSettings{
 		if (level == 5) {
 			this.transferRate = Integer.MAX_VALUE;
 		}
+	}
+	
+	public String getTransferRateFormatted(){
+		if(level==5){
+			return "Infinite";
+		}
+		return NumberFormat.getIntegerInstance().format(transferRate);
+	}
+	
+	public String getCapacityFormatted(){
+		
+		return NumberFormat.getIntegerInstance().format(capacity);
 	}
 }

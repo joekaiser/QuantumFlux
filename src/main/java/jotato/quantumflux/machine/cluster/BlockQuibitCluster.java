@@ -28,6 +28,8 @@ public class BlockQuibitCluster extends BlockContainerBase {
 	@SideOnly(Side.CLIENT)
 	protected IIcon[] icon_side = new IIcon[5];
 
+	private final int numberOfLevels = 5;
+
 	public BlockQuibitCluster() {
 		super(Material.iron, "quibitCluster", 3, "pickaxe", 0, ItemBlockQuibitCluster.class);
 		setStepSound(soundTypeMetal);
@@ -39,7 +41,7 @@ public class BlockQuibitCluster extends BlockContainerBase {
 		this.icon_top = ir.registerIcon(getTexture("cluster/quibitCluster_top"));
 		this.icon_bottom = ir.registerIcon(getTexture("cluster/quibitCluster_bottom"));
 
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < numberOfLevels; i++) {
 			this.icon_side[i] = ir.registerIcon(getTexture("cluster/quibitCluster_" + (i + 1) + "_side"));
 		}
 
@@ -47,7 +49,7 @@ public class BlockQuibitCluster extends BlockContainerBase {
 
 	@Override
 	public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List) {
-		for (int metadata = 0; metadata < 5; metadata++) {
+		for (int metadata = 0; metadata < numberOfLevels; metadata++) {
 			par3List.add(new ItemStack(ModBlocks.quibitCluster, 1, metadata));
 		}
 	}
@@ -80,7 +82,12 @@ public class BlockQuibitCluster extends BlockContainerBase {
 	}
 
 	public static QuibitClusterSettings getQuibitClusterSettings(ItemStack itemstack) {
-		return new QuibitClusterSettings(itemstack.getItemDamage());
+		return new QuibitClusterSettings(itemstack.getItemDamage() + 1);
+	}
+
+	@Override
+	public int damageDropped(int meta) {
+		return meta;
 	}
 
 }

@@ -19,7 +19,7 @@ public class ItemBlockQuibitCluster_Deprecated extends ItemBlockBase{
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void addSimpleTooltipInformation(ItemStack itemstack, EntityPlayer player, List list) {
-		list.add(StatCollector.translateToLocal("tooltip.quibitcluster_d.help"));
+		list.add(StatCollector.translateToLocal("tooltip.quibitcluster.deprecated"));
 	}
 	
 

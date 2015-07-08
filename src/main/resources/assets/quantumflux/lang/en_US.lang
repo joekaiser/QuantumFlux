@@ -65,7 +65,10 @@ tooltip.charge=Charge: %,d
 
 tooltip.showDetails=Press SHIFT for more
 
-tooltip.quibitcluster_d.help=Deprecated. Place in a crafting grid to get the new one
+tooltip.quibitcluster.deprecated=Deprecated. Place in a crafting grid to get the new one
+tooltip.quibitcluster.help=Stores RF to be used later
+tooltip.quibitcluster.capacity=Can hold %d RF
+tooltip.quibitcluster.transfer=Transfers %d RF/tick
 
 tooltip.entangler.help=Provides power to the RedfluxField
 tooltip.entangler.buffer=Has an internal buffer of %d

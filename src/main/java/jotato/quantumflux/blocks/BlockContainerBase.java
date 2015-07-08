@@ -97,6 +97,5 @@ public class BlockContainerBase extends BlockContainer
     {
         return super.onBlockActivated(world, x, y, z, player, p6, p7, p8, p9);
     }
-
    
 }

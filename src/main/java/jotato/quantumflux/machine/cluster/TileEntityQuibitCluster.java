@@ -23,6 +23,8 @@ public class TileEntityQuibitCluster extends TileEntity implements IEnergyHandle
 		
 		localEnergyStorage = new EnergyStorage(this.capacity, this.transferRate);
 	}
+	
+	public TileEntityQuibitCluster(){}
 
 	protected EnergyStorage getEnergyDevice() {
 		return localEnergyStorage;
@@ -90,11 +92,17 @@ public class TileEntityQuibitCluster extends TileEntity implements IEnergyHandle
 	@Override
 	public void readFromNBT(NBTTagCompound tag) {
 		super.readFromNBT(tag);
-		NBTTagCompound energyTag = tag.getCompoundTag("Energy");
-		this.getEnergyDevice().readFromNBT(energyTag);
+		
 		this.level = tag.getInteger("Level");
 		this.capacity = tag.getInteger("Capacity");
 		this.transferRate = tag.getInteger("XferRate");
+		
+		if(this.getEnergyDevice()==null){
+			this.localEnergyStorage = new EnergyStorage(capacity,transferRate);
+		}
+		
+		NBTTagCompound energyTag = tag.getCompoundTag("Energy");
+		this.getEnergyDevice().readFromNBT(energyTag);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -120,7 +128,7 @@ public class TileEntityQuibitCluster extends TileEntity implements IEnergyHandle
 
 			TileEntity tile = worldObj.getTileEntity(targetX, targetY, targetZ);
 			// todo: make configurable sides for the cluster
-			if (tile instanceof TileEntityQuibitCluster_Deprecated)
+			if (tile instanceof TileEntityQuibitCluster)
 				return;
 			if (tile instanceof IEnergyReceiver) {
 				IEnergyReceiver receiver = (IEnergyReceiver) tile;
