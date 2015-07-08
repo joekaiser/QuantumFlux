@@ -29,7 +29,7 @@ public class GuiQuibitCluster extends GuiContainer
 
     private void setupDisplay()
     {
-        this.displayName = String.format(StatCollector.translateToLocal("gui.quibitCluster"), cluster.level);
+        this.displayName = String.format(StatCollector.translateToLocal("gui.quibitCluster"), cluster.level+1);
         int transferRate=cluster.getEnergyTransferRate();
         if(transferRate == Integer.MAX_VALUE)
             this.maxTransfer = StatCollector.translateToLocal("gui.quibitClusterTransferRateInfinite");
