@@ -1,6 +1,6 @@
 package jotato.quantumflux.blocks;
 
-import jotato.quantumflux.machine.cluster.BlockQuibitCluster;
+import jotato.quantumflux.machine.cluster.BlockQuibitCluster_Depricated;
 import jotato.quantumflux.machine.entangler.BlockRFEntangler;
 import jotato.quantumflux.machine.entropyaccelerator.BlockEntropyAccelerator;
 import jotato.quantumflux.machine.exciter.BlockRFExciter;
@@ -30,11 +30,11 @@ public class ModBlocks
     public static void init()
     {
         entropyAccelerator = new BlockEntropyAccelerator();
-        quibitCluster_1 = new BlockQuibitCluster(1);
-        quibitCluster_2 = new BlockQuibitCluster(2);
-        quibitCluster_3 = new BlockQuibitCluster(3);
-        quibitCluster_4 = new BlockQuibitCluster(4);
-        quibitCluster_5 = new BlockQuibitCluster(5);
+        quibitCluster_1 = new BlockQuibitCluster_Depricated(1);
+        quibitCluster_2 = new BlockQuibitCluster_Depricated(2);
+        quibitCluster_3 = new BlockQuibitCluster_Depricated(3);
+        quibitCluster_4 = new BlockQuibitCluster_Depricated(4);
+        quibitCluster_5 = new BlockQuibitCluster_Depricated(5);
         zpe = new BlockZPE();
         rfEntangler = new BlockRFEntangler();
         rfExciter = new BlockRFExciter();

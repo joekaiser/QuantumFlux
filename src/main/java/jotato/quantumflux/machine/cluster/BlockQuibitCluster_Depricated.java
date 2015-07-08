@@ -15,7 +15,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 //todo: feel free to refactor this. It is UGLY and I just want to get it working right now
-public class BlockQuibitCluster extends BlockContainerBase
+public class BlockQuibitCluster_Depricated extends BlockContainerBase
 {
     private int level;
 	@SideOnly(Side.CLIENT)
@@ -28,7 +28,7 @@ public class BlockQuibitCluster extends BlockContainerBase
 	protected IIcon icon_side;
 
 
-    public BlockQuibitCluster(int level)
+    public BlockQuibitCluster_Depricated(int level)
     {
         super(Material.iron, "quibitCluster_" + level, 3, "pickaxe", 0,ItemBlockQuibitCluster.class);
         setStepSound(soundTypeMetal);
