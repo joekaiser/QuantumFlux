@@ -41,8 +41,10 @@ public class GuiInfuser extends GuiContainer{
 	        int l = (this.height - this.ySize) / 2;
 	        this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
 
-	        int bufferScale = this.infuser.getBufferScaled(76);
+	        int bufferScale = infuser.getBufferScaled(76);
 	        this.drawTexturedModalRect(k + 154, l + 80 - bufferScale + 1, 0, 241 - bufferScale, 12, bufferScale);
 
+	        int progressScale = infuser.getProgressScaled(27);
+	        this.drawTexturedModalRect(k + 60, l + 43, 16, 166, 56, progressScale);
 	    }
 }

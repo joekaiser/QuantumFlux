@@ -1,10 +1,13 @@
 package jotato.quantumflux.machine.infuser;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import jotato.quantumflux.inventory.ContainerBase;
 import jotato.quantumflux.packets.EnergyStorageMessage;
 import jotato.quantumflux.packets.PacketHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 
 public class ContainerInfuser extends ContainerBase {
@@ -12,6 +15,7 @@ public class ContainerInfuser extends ContainerBase {
 
 	private TileEntityMolecularInfuser infuser;
 	private EntityPlayer player;
+	private int lastEnergyReserved;
 
 	public ContainerInfuser(EntityPlayer player, TileEntityMolecularInfuser infuser)
 	{
@@ -23,11 +27,29 @@ public class ContainerInfuser extends ContainerBase {
 		addSlotToContainer(new Slot(infuser, 2, 80, 54));
 		addPlayerInventorySlots(player.inventory);
 	}
+	
+	@Override
+    public void addCraftingToCrafters(ICrafting craft)
+    {
+        super.addCraftingToCrafters(craft);
+        craft.sendProgressBarUpdate(this, 0, this.infuser.energyReserved);
+    }
 
 	@Override
 	public void detectAndSendChanges()
 	{
 		super.detectAndSendChanges();
+		 for (int i = 0; i < this.crafters.size(); ++i)
+	        {
+	            ICrafting craft = (ICrafting) crafters.get(i);
+	            if (this.lastEnergyReserved != infuser.energyReserved)
+	            {
+	                craft.sendProgressBarUpdate(this, 0, infuser.energyReserved);
+	            }
+	        }
+
+	        this.lastEnergyReserved = infuser.energyReserved;
+		
 		try
 		{
 			if (this.lastInternalStorage != this.infuser.getEnergyStored(null))
@@ -44,4 +66,14 @@ public class ContainerInfuser extends ContainerBase {
 
 		this.lastInternalStorage = this.infuser.getEnergyStored(null);
 	}
+	
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void updateProgressBar(int id, int value)
+    {
+        if (id == 0)
+        {
+            this.infuser.energyReserved=value;
+        }
+    }
 }

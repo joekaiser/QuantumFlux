@@ -17,9 +17,9 @@ public class TileEntityMolecularInfuser extends TileEntity implements IEnergyRec
 	private ItemStack[] inventory = new ItemStack[3];
 	private static final int[] inputSlots = { 0, 1 };
 	private static final int[] outputSlot = {2};
-	private int energyNeeded=2400;
-	private int energyReserved=0;
-	private int energyConsumedPerTick=16;
+	private int energyNeeded=5600;
+	public int energyReserved=0;
+	private int energyConsumedPerTick=20;
 	private InfuserRecipe currentRecipe;
 
 	public TileEntityMolecularInfuser() {
@@ -197,5 +197,16 @@ public class TileEntityMolecularInfuser extends TileEntity implements IEnergyRec
 		double v = ((stored / max) * scale);
 		return (int) v;
 	}
+	
+	@SideOnly(Side.CLIENT)
+	public int getProgressScaled(int scale)
+	{
+		double done = energyReserved;
+		double max = energyNeeded;
+		double v = ((done / max) * scale);
+		return (int) v;
+	}
+	
+	
 	//todo: NBT State
 }
