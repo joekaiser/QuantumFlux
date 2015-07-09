@@ -5,11 +5,12 @@ import cofh.api.energy.IEnergyHandler;
 import cofh.api.energy.IEnergyReceiver;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import jotato.quantumflux.redflux.ISetEnergy;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityQuibitCluster extends TileEntity implements IEnergyHandler {
+public class TileEntityQuibitCluster extends TileEntity implements IEnergyHandler, ISetEnergy {
 	protected EnergyStorage localEnergyStorage;
 	private int transferRate;
 	private int capacity;

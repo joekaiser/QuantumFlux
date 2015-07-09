@@ -18,8 +18,8 @@ public class InfuserRecipeManager {
 	
 	
 	public static void addDefaultRecipes(){
-		addRecipe("ingotSteel", new ItemStack(Items.ender_pearl,16), new ItemStack(ModItems.crystalizedRedstone));
-		addRecipe(new ItemStack(Items.iron_ingot), new ItemStack(Blocks.packed_ice), new ItemStack(ModItems.steelIngot));
+		addRecipe(new ItemStack(Blocks.sand), new ItemStack(Blocks.quartz_block), new ItemStack(ModItems.silica));
+		addRecipe(new ItemStack(ModItems.silica), new ItemStack(Items.paper), new ItemStack(ModItems.blankCircuit));
 	}
 	
 

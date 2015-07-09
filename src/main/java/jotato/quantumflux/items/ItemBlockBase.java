@@ -2,8 +2,8 @@ package jotato.quantumflux.items;
 
 import java.util.List;
 
-import org.lwjgl.input.Keyboard;
 
+import cofh.lib.util.helpers.StringHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
@@ -45,8 +45,7 @@ public class ItemBlockBase extends ItemBlock {
 	}
 
 	public boolean showAdvancedTooltip() {
-		return Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)
-				|| Keyboard.isKeyDown(Keyboard.KEY_RSHIFT);
+		return StringHelper.isShiftKeyDown();
 	}
 
 	public void addShowDetailsTooltip(List list) {

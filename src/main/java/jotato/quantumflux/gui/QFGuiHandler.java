@@ -9,6 +9,9 @@ import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_Deprecated;
 import jotato.quantumflux.machine.entropyaccelerator.ContainerEntropyAccelerator;
 import jotato.quantumflux.machine.entropyaccelerator.GuiEntropyAccelerator;
 import jotato.quantumflux.machine.entropyaccelerator.TileEntityEntropyAccelerator;
+import jotato.quantumflux.machine.infuser.ContainerInfuser;
+import jotato.quantumflux.machine.infuser.GuiInfuser;
+import jotato.quantumflux.machine.infuser.TileEntityMolecularInfuser;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -17,7 +20,7 @@ public class QFGuiHandler implements IGuiHandler {
 
 	public enum GUI {
 		INCINERATOR(0), QUIBIT_CLUSTER_1(1), QUIBIT_CLUSTER_2(2), QUIBIT_CLUSTER_3(3), QUIBIT_CLUSTER_4(
-				4), QUIBIT_CLUSTER_5(5), QUIBIT_CLUSTER(6);
+				4), QUIBIT_CLUSTER_5(5), QUIBIT_CLUSTER(6), INFUSER(7);
 
 		public int ordinal;
 
@@ -69,6 +72,10 @@ public class QFGuiHandler implements IGuiHandler {
 			TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
 			return new ContainerQuibitCluster(player, cluster);
 		}
+		if (gui == GUI.INFUSER) {
+			TileEntityMolecularInfuser tile = (TileEntityMolecularInfuser) world.getTileEntity(x, y, z);
+			return new ContainerInfuser(player, tile);
+		}
 		return null;
 
 	}
@@ -110,6 +117,10 @@ public class QFGuiHandler implements IGuiHandler {
 		if (gui == GUI.QUIBIT_CLUSTER) {
 			TileEntityQuibitCluster cluster = (TileEntityQuibitCluster) world.getTileEntity(x, y, z);
 			return new GuiQuibitCluster(player, cluster);
+		}
+		if (gui == GUI.INFUSER) {
+			TileEntityMolecularInfuser tile = (TileEntityMolecularInfuser) world.getTileEntity(x, y, z);
+			return new GuiInfuser(player, tile);
 		}
 
 		return null;

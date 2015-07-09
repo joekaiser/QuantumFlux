@@ -29,6 +29,8 @@ public class ModItems
 	public static Item upgradeToken;
 	public static Item crystalizedRedstone;
 	public static Item exciterUpgrade;
+	public static Item silica;
+	public static Item blankCircuit;
 
 	public static void init()
 	{
@@ -53,6 +55,8 @@ public class ModItems
 		upgradeToken = new ItemBase("upgradeToken").setMaxStackSize(1);
 		crystalizedRedstone = new ItemBase("redstoneCrystal");
 		exciterUpgrade =new ItemExciterUpgrade();
+		silica = new ItemBase("silica");
+		blankCircuit = new ItemBase("blankCircuit");
 		
 		battlesuit_plate = new ItemBase("battlesuit_plate");
 		battlesuit_helm = new ItemBattleSuit("battlesuit_helmet", 0);

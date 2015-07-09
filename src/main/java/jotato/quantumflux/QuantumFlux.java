@@ -12,6 +12,7 @@ import jotato.quantumflux.machine.entangler.TileEntityRFEntangler;
 import jotato.quantumflux.machine.entropyaccelerator.TileEntityEntropyAccelerator;
 import jotato.quantumflux.machine.exciter.TileEntityRFExciter;
 import jotato.quantumflux.machine.imaginarytime.TileEntityImaginaryTime;
+import jotato.quantumflux.machine.infuser.InfuserRecipeManager;
 import jotato.quantumflux.machine.infuser.TileEntityMolecularInfuser;
 import jotato.quantumflux.machine.zpe.TileEntityZeroPointExtractor;
 import jotato.quantumflux.packets.PacketHandler;
@@ -51,6 +52,7 @@ public class QuantumFlux
         ModBlocks.init();
         ModItems.init();
         regiterTileEntities();
+        InfuserRecipeManager.addDefaultRecipes();
         FMLCommonHandler.instance().bus().register(new EventHooks());
     }
 
@@ -69,6 +71,7 @@ public class QuantumFlux
         GameRegistry.registerTileEntity(TileEntityImaginaryTime.class, "tileImaginaryTime");
         GameRegistry.registerTileEntity(TileEntityMolecularInfuser.class, "tileMolecularInfuser");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster.class, "tileQuibitCluster");
+        GameRegistry.registerTileEntity(TileEntityMolecularInfuser.class, "tilemolecularInfuser");
     }
 
     @EventHandler

@@ -2,29 +2,28 @@ package jotato.quantumflux.packets;
 
 import net.minecraft.tileentity.TileEntity;
 import io.netty.buffer.ByteBuf;
-import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster;
-import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_Deprecated;
+import jotato.quantumflux.redflux.ISetEnergy;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 
 
-  public  class ClusterMessage implements IMessage
+  public class EnergyStorageMessage implements IMessage
   {
 	  private int x;
 	  private int y;
 	  private int z;
-	  private int energryStored;
+	  private int energyStored;
 
-    public ClusterMessage() {}
+    public EnergyStorageMessage() {}
     
-    public ClusterMessage(int x, int y, int z, int energyStored)
+    public EnergyStorageMessage(int x, int y, int z, int energyStored)
     {
       this.x=x;
       this.y=y;
       this.z=z;
-      this.energryStored = energyStored;
+      this.energyStored = energyStored;
     }
     
     @Override
@@ -33,7 +32,7 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
       this.x=buf.readInt();
       this.y=buf.readInt();
       this.z=buf.readInt();
-      this.energryStored = buf.readInt();
+      this.energyStored = buf.readInt();
      
     }
     
@@ -43,20 +42,17 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
     	 buf.writeInt(this.x);
     	 buf.writeInt(this.y);
     	 buf.writeInt(this.z);
-    	 buf.writeInt(this.energryStored);
+    	 buf.writeInt(this.energyStored);
     }
     
-    public static class ClusterMessageHandler implements IMessageHandler<ClusterMessage, IMessage>{
+    public static class EnergyStorageMessageHandler implements IMessageHandler<EnergyStorageMessage, IMessage>{
         @Override
-        public IMessage onMessage(ClusterMessage message, MessageContext ctx) {
+        public IMessage onMessage(EnergyStorageMessage message, MessageContext ctx) {
         	TileEntity tile = FMLClientHandler.instance().getWorldClient().getTileEntity(message.x, message.y,message.z);
-        	if(tile instanceof TileEntityQuibitCluster_Deprecated){
-        		((TileEntityQuibitCluster_Deprecated)tile).setEnergyStored(message.energryStored);
+        	if(tile instanceof ISetEnergy){
+        		((ISetEnergy)tile).setEnergyStored(message.energyStored);
         	}
         	
-        	if(tile instanceof TileEntityQuibitCluster){
-        		((TileEntityQuibitCluster)tile).setEnergyStored(message.energryStored);
-        	}
             return null; 
         }
     }
