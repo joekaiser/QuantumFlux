@@ -18,7 +18,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-//todo: feel free to refactor this. It is UGLY and I just want to get it working right now
+
 public class BlockQuibitCluster extends BlockContainerBase {
 
 	@SideOnly(Side.CLIENT)
@@ -26,7 +26,7 @@ public class BlockQuibitCluster extends BlockContainerBase {
 	@SideOnly(Side.CLIENT)
 	protected IIcon icon_bottom;
 	@SideOnly(Side.CLIENT)
-	protected IIcon[] icon_side = new IIcon[5];
+	protected IIcon[] icon_side;
 
 	private final int numberOfLevels = 5;
 
@@ -38,6 +38,7 @@ public class BlockQuibitCluster extends BlockContainerBase {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister ir) {
+		this.icon_side = new IIcon[numberOfLevels];
 		this.icon_top = ir.registerIcon(getTexture("cluster/quibitCluster_top"));
 		this.icon_bottom = ir.registerIcon(getTexture("cluster/quibitCluster_bottom"));
 
