@@ -9,6 +9,7 @@ import jotato.quantumflux.redflux.ISetEnergy;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -221,6 +222,14 @@ public class TileEntityItemFabricator extends TileEntity implements IEnergyRecei
 	private ItemStack getCurrentOutputStack() {
 		return inventory[2];
 	}
+	
+	private ItemStack getFirstInput() {
+		return inventory[0];
+	}
+	
+	private ItemStack getSecondInput() {
+		return inventory[1];
+	}
 
 	@SideOnly(Side.CLIENT)
 	public int getBufferScaled(int scale) {
@@ -238,5 +247,55 @@ public class TileEntityItemFabricator extends TileEntity implements IEnergyRecei
 		return (int) v;
 	}
 
-	// todo: NBT State
+	@Override
+	public void writeToNBT(NBTTagCompound tag)
+	{
+		super.writeToNBT(tag);
+		tag.setInteger("energyReserved", energyReserved);
+
+		NBTTagCompound firstSlot = new NBTTagCompound();
+		if (getFirstInput() != null)
+		{
+			getFirstInput().writeToNBT(firstSlot);
+		}
+		tag.setTag("firstSlot", firstSlot);
+		
+		NBTTagCompound secondSlot = new NBTTagCompound();
+		if (getSecondInput() != null)
+		{
+			getSecondInput().writeToNBT(secondSlot);
+		}
+		tag.setTag("secondSlot", secondSlot);
+		
+		NBTTagCompound outSlot = new NBTTagCompound();
+		if (getCurrentOutputStack() != null)
+		{
+			getCurrentOutputStack().writeToNBT(outSlot);
+		}
+		tag.setTag("outSlot", outSlot);
+
+		NBTTagCompound energyTag = new NBTTagCompound();
+		this.energyStorage.writeToNBT(energyTag);
+		tag.setTag("energy", energyTag);
+
+
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound tag)
+	{
+		super.readFromNBT(tag);
+		NBTTagCompound firstSlot = tag.getCompoundTag("firstSlot");
+		NBTTagCompound secondSlot = tag.getCompoundTag("secondSlot");
+		NBTTagCompound outSlot = tag.getCompoundTag("outSlot");
+		NBTTagCompound energyTag = tag.getCompoundTag("energy");
+
+
+		this.inventory[0] = ItemStack.loadItemStackFromNBT(firstSlot);
+		this.inventory[1] = ItemStack.loadItemStackFromNBT(secondSlot);
+		this.inventory[2] = ItemStack.loadItemStackFromNBT(outSlot);
+		this.energyReserved = tag.getInteger("energyReserved");
+		this.energyStorage.readFromNBT(energyTag);
+	}
+
 }
