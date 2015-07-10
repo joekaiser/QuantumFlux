@@ -19,7 +19,7 @@ public class ContainerInfuser extends ContainerBase {
 
 	public ContainerInfuser(EntityPlayer player, TileEntityMolecularInfuser infuser)
 	{
-		super(null);
+		super(infuser);
 		this.infuser = infuser;
 		this.player = player;
 		addSlotToContainer(new Slot(infuser, 0, 54, 24));

@@ -16,10 +16,10 @@ public class TileEntityMolecularInfuser extends TileEntity implements IEnergyRec
 	EnergyStorage energyStorage;
 	private ItemStack[] inventory = new ItemStack[3];
 	private static final int[] inputSlots = { 0, 1 };
-	private static final int[] outputSlot = {2};
-	private int energyNeeded=5600;
-	public int energyReserved=0;
-	private int energyConsumedPerTick=20;
+	private static final int[] outputSlot = { 2 };
+	private int energyNeeded = 5600;
+	public int energyReserved = 0;
+	private int energyConsumedPerTick = 20;
 	private InfuserRecipe currentRecipe;
 
 	public TileEntityMolecularInfuser() {
@@ -50,8 +50,8 @@ public class TileEntityMolecularInfuser extends TileEntity implements IEnergyRec
 	public int getSizeInventory() {
 		return inventory.length;
 	}
-	
-	public void setEnergyStored(int amount){
+
+	public void setEnergyStored(int amount) {
 		energyStorage.setEnergyStored(amount);
 	}
 
@@ -137,10 +137,9 @@ public class TileEntityMolecularInfuser extends TileEntity implements IEnergyRec
 	@Override
 	public int[] getAccessibleSlotsFromSide(int side) {
 
-		if (side == 0 || side == 1){
+		if (side == 0 || side == 1) {
 			return outputSlot;
-		}
-		else {
+		} else {
 			return inputSlots;
 		}
 	}
@@ -152,61 +151,92 @@ public class TileEntityMolecularInfuser extends TileEntity implements IEnergyRec
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack item, int side) {
-		return slot==outputSlot[0];
+		return slot == outputSlot[0];
 	}
-	
+
 	@Override
 	public void updateEntity() {
-		if(canDoWork()){
+		if (canDoWork()) {
 			int energyUsed = energyStorage.extractEnergy(energyConsumedPerTick, false);
-			energyReserved +=energyUsed;
-			
-			//todo: deal with backlog of stuff
-			if(energyReserved >=energyNeeded){
-				decrStackSize(0, currentRecipe.getFirstInput().stackSize);
-				decrStackSize(1, currentRecipe.getSecondInput().stackSize);
-				setInventorySlotContents(2, currentRecipe.getResult());
-				currentRecipe = null;
-				energyReserved=0;
+			if (energyReserved < energyNeeded) {
+				energyReserved += energyUsed;
+			}
+
+			if (energyReserved >= energyNeeded) {
+
+				if (canOutputItem(currentRecipe.getResult())) {
+					decrStackSize(0, currentRecipe.getFirstInput().stackSize);
+					decrStackSize(1, currentRecipe.getSecondInput().stackSize);
+					if (getCurrentOutputStack() == null) {
+						setInventorySlotContents(2, currentRecipe.getResult());
+					} else {
+						getCurrentOutputStack().stackSize += currentRecipe.getResult().stackSize;
+					}
+					currentRecipe = null;
+					energyReserved = 0;
+				}
 			}
 		}
 		super.updateEntity();
 	}
-	
-	private boolean canDoWork(){
-	
-		if(currentRecipe !=null){
+
+	private boolean canOutputItem(ItemStack item) {
+		
+		//if this doesn't match it means the user swapped in new items mid-processing
+		if(!currentRecipe.matches(inventory[0],inventory[1])){
+			return false;
+		}
+		
+		if (getCurrentOutputStack() == null) {
+			return true;
+		}
+		if (getCurrentOutputStack().getItem() != item.getItem()) {
+			return false;
+		}
+		if (getCurrentOutputStack().stackSize + item.stackSize <= getCurrentOutputStack().getMaxStackSize()) {
+			return true;
+		}
+
+		return false;
+	}
+
+	private boolean canDoWork() {
+
+		if (inventory[0] == null || inventory[1] == null) {
+			return false;
+		}
+
+		if (currentRecipe != null) {
+			return true;
+		}
+
+		currentRecipe = InfuserRecipeManager.getRecipe(inventory[0], inventory[1]);
+		if (currentRecipe != null) {
 			return true;
 		}
 		
-		if(inventory[0] != null && inventory[1]!=null){
-			currentRecipe = InfuserRecipeManager.getRecipe(inventory[0], inventory[1]);
-			if(currentRecipe!=null){
-				
-				return true;
-			}
-		}
 		return false;
 	}
-	
+
+	private ItemStack getCurrentOutputStack() {
+		return inventory[2];
+	}
+
 	@SideOnly(Side.CLIENT)
-	public int getBufferScaled(int scale)
-	{
+	public int getBufferScaled(int scale) {
 		double stored = getEnergyStored(null);
 		double max = getMaxEnergyStored(null);
 		double v = ((stored / max) * scale);
 		return (int) v;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
-	public int getProgressScaled(int scale)
-	{
+	public int getProgressScaled(int scale) {
 		double done = energyReserved;
 		double max = energyNeeded;
 		double v = ((done / max) * scale);
 		return (int) v;
 	}
-	
-	
-	//todo: NBT State
+
+	// todo: NBT State
 }
