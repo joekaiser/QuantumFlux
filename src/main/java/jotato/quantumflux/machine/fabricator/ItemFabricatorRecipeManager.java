@@ -1,4 +1,4 @@
-package jotato.quantumflux.machine.infuser;
+package jotato.quantumflux.machine.fabricator;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -12,15 +12,25 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class InfuserRecipeManager {
+public class ItemFabricatorRecipeManager {
 
-	public static Map<List<ComparableItemStack>, InfuserRecipe> recipeMap = new HashMap<List<ComparableItemStack>, InfuserRecipeManager.InfuserRecipe>();
+	public static Map<List<ComparableItemStack>, InfuserRecipe> recipeMap = new HashMap<List<ComparableItemStack>, ItemFabricatorRecipeManager.InfuserRecipe>();
 
 	public static void addDefaultRecipes() {
 		addRecipe(new ItemStack(Blocks.sand), new ItemStack(Blocks.quartz_block), new ItemStack(ModItems.silica));
 		addRecipe(new ItemStack(ModItems.silica), new ItemStack(Items.paper), new ItemStack(ModItems.blankCircuit));
 	}
 
+	public static void refreshRecipes(){
+		//warning, this will overwrite all recipes with the default
+		//if there are any recipes added outside of addDefaultRecipes
+		//they will be lost.
+		//todo: iterate over the hashmap and create a new one based off of it
+		
+		recipeMap.clear();
+		addDefaultRecipes();
+	}
+	
 	public static InfuserRecipe addRecipe(ItemStack first, ItemStack second, ItemStack result) {
 
 		InfuserRecipe recipe = null;
@@ -67,13 +77,13 @@ public class InfuserRecipeManager {
 
 		ComparableItemStack q1 = new ComparableItemStack(first);
 		ComparableItemStack q2 = new ComparableItemStack(second);
-
+		
 		InfuserRecipe recipe = recipeMap.get(Arrays.asList(q1, q2));
 
 		if (recipe == null) {
 			recipe = recipeMap.get(Arrays.asList(q2, q1));
 		}
-
+		
 		return recipe;
 	}
 
@@ -109,15 +119,15 @@ public class InfuserRecipeManager {
 		public boolean matches(ItemStack first, ItemStack second) {
 			ComparableItemStack orig_first = new ComparableItemStack(getFirstInput());
 			ComparableItemStack orig_second = new ComparableItemStack(getSecondInput());
-			
+
 			ComparableItemStack new_first = new ComparableItemStack(first);
 			ComparableItemStack new_second = new ComparableItemStack(second);
-			
-			if(orig_first.isEqual(new_first) && orig_second.isEqual(new_second)){
+
+			if (orig_first.isEqual(new_first) && orig_second.isEqual(new_second)) {
 				return true;
 			}
-			
-			if(orig_first.isEqual(new_second) && orig_second.isEqual(new_first)){
+
+			if (orig_first.isEqual(new_second) && orig_second.isEqual(new_first)) {
 				return true;
 			}
 			return false;

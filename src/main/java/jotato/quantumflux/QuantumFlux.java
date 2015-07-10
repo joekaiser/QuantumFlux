@@ -11,9 +11,9 @@ import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_5;
 import jotato.quantumflux.machine.entangler.TileEntityRFEntangler;
 import jotato.quantumflux.machine.entropyaccelerator.TileEntityEntropyAccelerator;
 import jotato.quantumflux.machine.exciter.TileEntityRFExciter;
+import jotato.quantumflux.machine.fabricator.ItemFabricatorRecipeManager;
+import jotato.quantumflux.machine.fabricator.TileEntityItemFabricator;
 import jotato.quantumflux.machine.imaginarytime.TileEntityImaginaryTime;
-import jotato.quantumflux.machine.infuser.InfuserRecipeManager;
-import jotato.quantumflux.machine.infuser.TileEntityMolecularInfuser;
 import jotato.quantumflux.machine.zpe.TileEntityZeroPointExtractor;
 import jotato.quantumflux.packets.PacketHandler;
 import jotato.quantumflux.proxy.CommonProxy;
@@ -30,6 +30,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartedEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -52,7 +53,6 @@ public class QuantumFlux
         ModBlocks.init();
         ModItems.init();
         regiterTileEntities();
-        InfuserRecipeManager.addDefaultRecipes();
         FMLCommonHandler.instance().bus().register(new EventHooks());
     }
 
@@ -69,9 +69,9 @@ public class QuantumFlux
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_4.class, "tileQuibitCluster4");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster_5.class, "tileQuibitCluster5");
         GameRegistry.registerTileEntity(TileEntityImaginaryTime.class, "tileImaginaryTime");
-        GameRegistry.registerTileEntity(TileEntityMolecularInfuser.class, "tileMolecularInfuser");
+        GameRegistry.registerTileEntity(TileEntityItemFabricator.class, "tileMolecularInfuser");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster.class, "tileQuibitCluster");
-        GameRegistry.registerTileEntity(TileEntityMolecularInfuser.class, "tilemolecularInfuser");
+        GameRegistry.registerTileEntity(TileEntityItemFabricator.class, "tilemolecularInfuser");
     }
 
     @EventHandler
@@ -80,18 +80,23 @@ public class QuantumFlux
         proxy.initCommon();
         proxy.initServer();
         proxy.initClient();
-        new Recipes().init();
         PacketHandler.initPackets();
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+        new Recipes().init();
     }
     
     @EventHandler
     public void serverStopping(FMLServerStoppingEvent event){
     	RedfluxField.purge();
+    }
+    
+    @EventHandler
+    public void serverStarted(FMLServerStartedEvent event){
+    	ItemFabricatorRecipeManager.refreshRecipes();
     }
 
     public static CreativeTabs tab = new CreativeTabs("tabQuantumFlux") {

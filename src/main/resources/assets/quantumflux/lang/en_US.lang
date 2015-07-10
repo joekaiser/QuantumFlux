@@ -45,7 +45,7 @@ tile.darkstone_lamp.name=Darkstone Lamp
 tile.darkstone_pillar.name=Darkstone Pillar
 tile.darkstone_tile.name=Darkstone Tile
 tile.imaginaryTime.name=Imaginary Time Block
-tile.molecularInfuser.name=Item Fabricator
+tile.itemFabricator.name=Item Fabricator
 
 itemGroup.tabQuantumFlux=QuantumFlux
 

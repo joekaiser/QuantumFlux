@@ -1,4 +1,4 @@
-package jotato.quantumflux.machine.infuser;
+package jotato.quantumflux.machine.fabricator;
 
 
 import org.lwjgl.opengl.GL11;
@@ -8,15 +8,15 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 
-public class GuiInfuser extends GuiContainer{
+public class GUIItemFabricator extends GuiContainer{
 	  private static final ResourceLocation guiScreen = new ResourceLocation("quantumflux:textures/gui/molecularInfuser.png");
-	    private TileEntityMolecularInfuser infuser;
+	    private TileEntityItemFabricator infuser;
 	    private String displayName;
 
 
-	    public GuiInfuser(EntityPlayer player, TileEntityMolecularInfuser infuser)
+	    public GUIItemFabricator(EntityPlayer player, TileEntityItemFabricator infuser)
 	    {
-	        super(new ContainerInfuser(player, infuser));
+	        super(new ContainerItemFabricator(player, infuser));
 	        this.infuser = infuser;
 	        setupDisplay();
 	    }

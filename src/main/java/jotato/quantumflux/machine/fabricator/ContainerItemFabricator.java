@@ -1,4 +1,4 @@
-package jotato.quantumflux.machine.infuser;
+package jotato.quantumflux.machine.fabricator;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -10,14 +10,14 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 
-public class ContainerInfuser extends ContainerBase {
+public class ContainerItemFabricator extends ContainerBase {
 	int lastInternalStorage;
 
-	private TileEntityMolecularInfuser infuser;
+	private TileEntityItemFabricator infuser;
 	private EntityPlayer player;
 	private int lastEnergyReserved;
 
-	public ContainerInfuser(EntityPlayer player, TileEntityMolecularInfuser infuser)
+	public ContainerItemFabricator(EntityPlayer player, TileEntityItemFabricator infuser)
 	{
 		super(infuser);
 		this.infuser = infuser;

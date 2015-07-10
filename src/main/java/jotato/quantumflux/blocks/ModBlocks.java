@@ -5,8 +5,8 @@ import jotato.quantumflux.machine.cluster.BlockQuibitCluster_Depricated;
 import jotato.quantumflux.machine.entangler.BlockRFEntangler;
 import jotato.quantumflux.machine.entropyaccelerator.BlockEntropyAccelerator;
 import jotato.quantumflux.machine.exciter.BlockRFExciter;
+import jotato.quantumflux.machine.fabricator.BlockItemFabricator;
 import jotato.quantumflux.machine.imaginarytime.BlockImaginaryTime;
-import jotato.quantumflux.machine.infuser.BlockMolecularInfuser;
 import jotato.quantumflux.machine.zpe.BlockZPE;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -27,7 +27,7 @@ public class ModBlocks
     public static Block darkstonePillar;
     public static Block darkstoneTile;
     public static Block imaginaryTime;
-    public static Block molecularInfuser;
+    public static Block itemFabricator;
     public static Block quibitCluster;
     
     public static void init()
@@ -46,7 +46,7 @@ public class ModBlocks
         darkstonePillar = new BlockBase(Material.iron,"darkstone_pillar",1,"pickaxe",0,null);
         darkstoneTile = new BlockBase(Material.iron,"darkstone_tile",1,"pickaxe",0,null);
         imaginaryTime = new BlockImaginaryTime();
-        molecularInfuser = new BlockMolecularInfuser();
+        itemFabricator = new BlockItemFabricator();
         quibitCluster = new BlockQuibitCluster();
        
     }

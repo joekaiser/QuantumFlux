@@ -1,10 +1,10 @@
-package jotato.quantumflux.machine.infuser;
+package jotato.quantumflux.machine.fabricator;
 
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyReceiver;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import jotato.quantumflux.machine.infuser.InfuserRecipeManager.InfuserRecipe;
+import jotato.quantumflux.machine.fabricator.ItemFabricatorRecipeManager.InfuserRecipe;
 import jotato.quantumflux.redflux.ISetEnergy;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityMolecularInfuser extends TileEntity implements IEnergyReceiver, ISidedInventory, ISetEnergy {
+public class TileEntityItemFabricator extends TileEntity implements IEnergyReceiver, ISidedInventory, ISetEnergy {
 	EnergyStorage energyStorage;
 	private ItemStack[] inventory = new ItemStack[3];
 	private static final int[] inputSlots = { 0, 1 };
@@ -22,7 +22,7 @@ public class TileEntityMolecularInfuser extends TileEntity implements IEnergyRec
 	private int energyConsumedPerTick = 20;
 	private InfuserRecipe currentRecipe;
 
-	public TileEntityMolecularInfuser() {
+	public TileEntityItemFabricator() {
 		energyStorage = new EnergyStorage(50000, 80);
 	}
 
@@ -210,7 +210,7 @@ public class TileEntityMolecularInfuser extends TileEntity implements IEnergyRec
 			return true;
 		}
 
-		currentRecipe = InfuserRecipeManager.getRecipe(inventory[0], inventory[1]);
+		currentRecipe = ItemFabricatorRecipeManager.getRecipe(inventory[0], inventory[1]);
 		if (currentRecipe != null) {
 			return true;
 		}
