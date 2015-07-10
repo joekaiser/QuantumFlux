@@ -11,7 +11,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 //todo: break this out into Crafting Recipes and Furnace Recipes
-public class Recipes
+public class CraftingRecipes
 {
 	ItemStack lapis = new ItemStack(Items.dye, 1, 4);
 	ItemStack redstone = new ItemStack(Items.redstone);
@@ -54,6 +54,7 @@ public class Recipes
 	ItemStack darkStone = new ItemStack(ModBlocks.darkstone);
 	ItemStack glowStoneDust = new ItemStack(Items.glowstone_dust);
 	ItemStack cobblestone = new ItemStack(Blocks.cobblestone);
+	ItemStack blankCircuit = new ItemStack(ModItems.blankCircuit);
 
 	String manganese = "dustManganese";
 	String mangalloy = "ingotMangalloy";
@@ -127,6 +128,7 @@ public class Recipes
 				new ShapedOreRecipe(new ItemStack(ModBlocks.darkstoneTile, 9), "ddd", "ddd", "ddd", 'd', darkStone));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.imaginaryTime), "igi", "gzg", "mgm", 'i',
 				ironCasing, 'g', energizedCrystal, 'z', zbq7, 'm', mangalloy));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.quantumDisk), "iei","ici",'e',enderPearl,'c',blankCircuit,'i',ironIngot));
 
 		// battlesuit
 		GameRegistry.addRecipe(

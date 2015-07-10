@@ -41,10 +41,10 @@ public class ModBlocks
         zpe = new BlockZPE();
         rfEntangler = new BlockRFEntangler();
         rfExciter = new BlockRFExciter();
-        darkstoneLamp = new BlockBase(Material.iron,"darkstone_lamp",.5f,null).setLightLevel(2f);
+        darkstoneLamp = new BlockBase(Material.rock,"darkstone_lamp",.5f,null).setLightLevel(2f);
         darkstone = new BlockDarkstone();
-        darkstonePillar = new BlockBase(Material.iron,"darkstone_pillar",1,"pickaxe",0,null);
-        darkstoneTile = new BlockBase(Material.iron,"darkstone_tile",1,"pickaxe",0,null);
+        darkstonePillar = new BlockBase(Material.rock,"darkstone_pillar",1,"pickaxe",0,null);
+        darkstoneTile = new BlockBase(Material.rock,"darkstone_tile",1,"pickaxe",0,null);
         imaginaryTime = new BlockImaginaryTime();
         itemFabricator = new BlockItemFabricator();
         quibitCluster = new BlockQuibitCluster();

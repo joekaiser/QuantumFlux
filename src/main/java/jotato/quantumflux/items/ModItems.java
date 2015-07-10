@@ -31,6 +31,7 @@ public class ModItems
 	public static Item exciterUpgrade;
 	public static Item silica;
 	public static Item blankCircuit;
+	public static Item quantumDisk;
 
 	public static void init()
 	{
@@ -57,6 +58,7 @@ public class ModItems
 		exciterUpgrade =new ItemExciterUpgrade();
 		silica = new ItemBase("silica");
 		blankCircuit = new ItemBase("blankCircuit");
+		quantumDisk = new ItemBase("quantumDisk");
 		
 		battlesuit_plate = new ItemBase("battlesuit_plate");
 		battlesuit_helm = new ItemBattleSuit("battlesuit_helmet", 0);

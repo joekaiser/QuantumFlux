@@ -86,7 +86,7 @@ public class QuantumFlux
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        new Recipes().init();
+        new CraftingRecipes().init();
     }
     
     @EventHandler

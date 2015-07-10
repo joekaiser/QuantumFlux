@@ -23,6 +23,7 @@ item.redstoneCrystal.name=Crystalized Redstone
 item.exciterUpgrade.name=Exciter Upgrade
 item.silica.name=Silica
 item.blankCircuit.name=Blank Circuit
+item.quantumDisk.name=Quantum Disk
 
 tile.entropyAccelerator.name=Quantum Entropy Accelerator
 tile.quibitCluster_1.name=Quibit Cluster Level 1

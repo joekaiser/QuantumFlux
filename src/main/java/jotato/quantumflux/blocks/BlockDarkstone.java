@@ -14,7 +14,7 @@ public class BlockDarkstone extends BlockBase
 	
 	public BlockDarkstone()
 	{
-		super(Material.iron, "darkstone", 1f, "pickaxe", 0,null);
+		super(Material.rock, "darkstone", 1f, "pickaxe", 0,null);
 		setStepSound(soundTypeMetal);
 	}
 	
