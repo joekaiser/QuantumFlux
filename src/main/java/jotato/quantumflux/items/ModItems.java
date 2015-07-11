@@ -31,7 +31,10 @@ public class ModItems
 	public static Item exciterUpgrade;
 	public static Item silica;
 	public static Item blankCircuit;
+	public static Item advancedCircuit;
 	public static Item quantumDisk;
+	public static Item titaniumIngot;
+	public static Item mysticQuartz;
 
 	public static void init()
 	{
@@ -58,7 +61,10 @@ public class ModItems
 		exciterUpgrade =new ItemExciterUpgrade();
 		silica = new ItemBase("silica");
 		blankCircuit = new ItemBase("blankCircuit");
+		advancedCircuit = new ItemBase("advancedCircuit");
 		quantumDisk = new ItemBase("quantumDisk");
+		titaniumIngot = new ItemBase("ingotTitanium");
+		mysticQuartz = new ItemBase("mysticQuartz");
 		
 		battlesuit_plate = new ItemBase("battlesuit_plate");
 		battlesuit_helm = new ItemBattleSuit("battlesuit_helmet", 0);
@@ -78,7 +84,7 @@ public class ModItems
 		}
 		OreDictionary.registerOre("dustManganese", manganese);
 		OreDictionary.registerOre("ingotMangalloy", mangalloy);
-
+		OreDictionary.registerOre("ingotTitanium", titaniumIngot);
 	}
 	
 	

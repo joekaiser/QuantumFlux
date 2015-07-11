@@ -18,6 +18,7 @@ import jotato.quantumflux.machine.zpe.TileEntityZeroPointExtractor;
 import jotato.quantumflux.packets.PacketHandler;
 import jotato.quantumflux.proxy.CommonProxy;
 import jotato.quantumflux.redflux.RedfluxField;
+import jotato.quantumflux.world.OreGenerator;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
@@ -53,6 +54,7 @@ public class QuantumFlux
         ModBlocks.init();
         ModItems.init();
         regiterTileEntities();
+      	GameRegistry.registerWorldGenerator(OreGenerator.INSTANCE, 1984);
         FMLCommonHandler.instance().bus().register(new EventHooks());
     }
 

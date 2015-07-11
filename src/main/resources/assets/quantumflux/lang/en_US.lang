@@ -23,7 +23,11 @@ item.redstoneCrystal.name=Crystalized Redstone
 item.exciterUpgrade.name=Exciter Upgrade
 item.silica.name=Silica
 item.blankCircuit.name=Blank Circuit
+item.advancedCircuit.name=Advanced Circuit
 item.quantumDisk.name=Quantum Disk
+item.ingotTitanium.name=Titanium Ingot
+item.mysticQuartz.name=Mystic Quartz
+
 
 tile.entropyAccelerator.name=Quantum Entropy Accelerator
 tile.quibitCluster_1.name=Quibit Cluster Level 1
@@ -47,6 +51,7 @@ tile.darkstone_pillar.name=Darkstone Pillar
 tile.darkstone_tile.name=Darkstone Tile
 tile.imaginaryTime.name=Imaginary Time Block
 tile.itemFabricator.name=Item Fabricator
+tile.titaniumOre.name=Titanium Ore
 
 itemGroup.tabQuantumFlux=QuantumFlux
 

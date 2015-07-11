@@ -150,6 +150,7 @@ public class CraftingRecipes
 
 	private void furnaceRecipes() {
 		GameRegistry.addSmelting(redstone, new ItemStack(ModItems.crystalizedRedstone), 5);
+		GameRegistry.addSmelting(new ItemStack(ModBlocks.titaniumOre), new ItemStack(ModItems.titaniumIngot), 5);
 	}
 
 	private void shapelessRecipes() {

@@ -19,6 +19,8 @@ public class ItemFabricatorRecipeManager {
 	public static void addDefaultRecipes() {
 		addRecipe(new ItemStack(Blocks.sand), new ItemStack(Blocks.quartz_block), new ItemStack(ModItems.silica));
 		addRecipe(new ItemStack(ModItems.silica), new ItemStack(Items.paper), new ItemStack(ModItems.blankCircuit));
+		addRecipe("ingotTitanium", new ItemStack(Items.quartz), new ItemStack(ModItems.mysticQuartz));
+		addRecipe(new ItemStack(ModItems.mysticQuartz), new ItemStack(ModItems.blankCircuit), new ItemStack(ModItems.advancedCircuit));
 	}
 
 	public static void refreshRecipes(){
