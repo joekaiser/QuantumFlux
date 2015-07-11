@@ -55,7 +55,9 @@ public class CraftingRecipes
 	ItemStack glowStoneDust = new ItemStack(Items.glowstone_dust);
 	ItemStack cobblestone = new ItemStack(Blocks.cobblestone);
 	ItemStack blankCircuit = new ItemStack(ModItems.blankCircuit);
-
+	ItemStack advancedCircuit = new ItemStack(ModItems.advancedCircuit);
+	ItemStack enderCrystal = new ItemStack(ModItems.enderCrystal);
+			
 	String manganese = "dustManganese";
 	String mangalloy = "ingotMangalloy";
 	String steelIngot = "ingotSteel";
@@ -128,7 +130,8 @@ public class CraftingRecipes
 				new ShapedOreRecipe(new ItemStack(ModBlocks.darkstoneTile, 9), "ddd", "ddd", "ddd", 'd', darkStone));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.imaginaryTime), "igi", "gzg", "mgm", 'i',
 				ironCasing, 'g', energizedCrystal, 'z', zbq7, 'm', mangalloy));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.quantumDisk), "iei","ici",'e',enderPearl,'c',blankCircuit,'i',ironIngot));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.harmoicOscillator), " r ", "g g","eae",'r',crystalizedRedstone,'g',goldIngot,'e',enderCrystal,'a',advancedCircuit));
+
 
 		// battlesuit
 		GameRegistry.addRecipe(
