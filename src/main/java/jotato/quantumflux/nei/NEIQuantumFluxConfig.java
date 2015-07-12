@@ -10,10 +10,8 @@ import codechicken.nei.PositionedStack;
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
 import cofh.lib.inventory.ComparableItemStack;
-import jotato.quantumflux.Logger;
 import jotato.quantumflux.Reference;
 import jotato.quantumflux.machine.fabricator.ContainerItemFabricator;
-import jotato.quantumflux.machine.fabricator.GUIItemFabricator;
 import jotato.quantumflux.machine.fabricator.ItemFabricatorRecipeManager;
 import jotato.quantumflux.machine.fabricator.ItemFabricatorRecipeManager.InfuserRecipe;
 import jotato.quantumflux.util.SimplePosition;
@@ -33,10 +31,10 @@ public class NEIQuantumFluxConfig implements IConfigureNEI {
 
 	@Override
 	public void loadConfig() {
+		//todo: At some point after 1.3.0 hide the old quibit cluster's from NEI and the creative menu
 		loadRecipes();
 		API.registerRecipeHandler(ItemFabricatorNEIHandler.INSTANCE);
 		API.registerUsageHandler(ItemFabricatorNEIHandler.INSTANCE);
-		API.setGuiOffset(GUIItemFabricator.class, -125, -125);
 	}
 
 	private void loadRecipes() {
@@ -45,7 +43,6 @@ public class NEIQuantumFluxConfig implements IConfigureNEI {
 
 	private void loadItemFabricator(){
 		
-		Logger.info("___Loading ItemFab recipes");
 		SimplePosition slot1 = ContainerItemFabricator.slot1;
 		SimplePosition slot2 = ContainerItemFabricator.slot2;
 		SimplePosition slotOut = ContainerItemFabricator.slotOut;
@@ -53,10 +50,12 @@ public class NEIQuantumFluxConfig implements IConfigureNEI {
 		for(Entry<List<ComparableItemStack>, InfuserRecipe> recipe: ItemFabricatorRecipeManager.getRecipes().entrySet()){
 			List<PositionedStack> key = new ArrayList();
 			InfuserRecipe iRecipe = recipe.getValue();
-			key.add(new PositionedStack(iRecipe.getFirstInput(), slot1.X, slot1.Y));
-			key.add(new PositionedStack(iRecipe.getSecondInput(), slot2.X, slot2.Y));
+			//todo: I don't know why the GUI draws a little off.
+			// Figure it out and remove the offset calc
+			key.add(new PositionedStack(iRecipe.getFirstInput(), slot1.X-5, slot1.Y-11));
+			key.add(new PositionedStack(iRecipe.getSecondInput(), slot2.X-5, slot2.Y-11));
 			
-			itemFabricatorRecipes.put(key, new PositionedStack(iRecipe.getResult(), slotOut.X, slotOut.Y));
+			itemFabricatorRecipes.put(key, new PositionedStack(iRecipe.getResult(), slotOut.X-5, slotOut.Y-11));
 			
 		}
 	}

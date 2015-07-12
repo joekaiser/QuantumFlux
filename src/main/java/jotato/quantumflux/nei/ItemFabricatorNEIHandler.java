@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.Map.Entry;
 
+import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
@@ -84,6 +85,14 @@ public class ItemFabricatorNEIHandler extends TemplateRecipeHandler {
             }
         }
     }
+   
+    
+    @Override
+    public void drawBackground(int recipe) {
+    	super.drawBackground(recipe);
+    	GuiDraw.drawTexturedModalRect(149, 6, 0, 180, 12, 59);
+    }
+   
     
 	public class CachedItemFabricatorRecipe extends TemplateRecipeHandler.CachedRecipe {
 		public List<PositionedStack> input;
