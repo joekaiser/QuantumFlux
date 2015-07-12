@@ -4,8 +4,8 @@ import java.util.List;
 
 import cofh.api.energy.IEnergyContainerItem;
 import jotato.quantumflux.ConfigMan;
-import jotato.quantumflux.NbtUtils;
 import jotato.quantumflux.QuantumFlux;
+import jotato.quantumflux.util.NbtUtils;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

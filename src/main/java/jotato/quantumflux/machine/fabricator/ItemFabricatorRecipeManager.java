@@ -14,7 +14,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemFabricatorRecipeManager {
 
-	public static Map<List<ComparableItemStack>, InfuserRecipe> recipeMap = new HashMap<List<ComparableItemStack>, ItemFabricatorRecipeManager.InfuserRecipe>();
+	private static Map<List<ComparableItemStack>, InfuserRecipe> recipeMap = new HashMap<List<ComparableItemStack>, ItemFabricatorRecipeManager.InfuserRecipe>();
 
 	public static void addDefaultRecipes() {
 		addRecipe(new ItemStack(Blocks.sand), new ItemStack(Blocks.quartz_block), new ItemStack(ModItems.silica));
@@ -22,6 +22,10 @@ public class ItemFabricatorRecipeManager {
 		addRecipe("ingotTitanium", new ItemStack(Items.quartz), new ItemStack(ModItems.mysticQuartz));
 		addRecipe(new ItemStack(ModItems.mysticQuartz), new ItemStack(ModItems.blankCircuit), new ItemStack(ModItems.advancedCircuit));
 		addRecipe(new ItemStack(Items.ender_pearl), new ItemStack(ModItems.crystalizedRedstone), new ItemStack(ModItems.enderCrystal));
+	}
+	
+	public static Map<List<ComparableItemStack>, InfuserRecipe> getRecipes(){
+		return recipeMap;
 	}
 
 	public static void refreshRecipes(){

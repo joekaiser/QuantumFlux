@@ -7,7 +7,7 @@ import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
 import jotato.quantumflux.ConfigMan;
-import jotato.quantumflux.ModUtils;
+import jotato.quantumflux.util.ModUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;

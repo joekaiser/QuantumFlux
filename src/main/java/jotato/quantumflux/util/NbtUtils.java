@@ -1,4 +1,4 @@
-package jotato.quantumflux;
+package jotato.quantumflux.util;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
