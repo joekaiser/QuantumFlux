@@ -20,11 +20,12 @@ public class TileEntityItemFabricator extends TileEntity implements IEnergyRecei
 	private static final int[] outputSlot = { 2 };
 	private int energyNeeded = 5600;
 	public int energyReserved = 0;
-	private int energyConsumedPerTick = 20;
+
 	private InfuserRecipe currentRecipe;
 
 	public TileEntityItemFabricator() {
 		energyStorage = new EnergyStorage(50000, 80);
+
 	}
 
 	@Override
@@ -155,10 +156,15 @@ public class TileEntityItemFabricator extends TileEntity implements IEnergyRecei
 		return slot == outputSlot[0];
 	}
 
+	private int getEnergyConsumedPerTick() {
+		return isAdvanced() ? 40 : 20;
+	}
+
 	@Override
 	public void updateEntity() {
 		if (canDoWork()) {
-			int energyUsed = energyStorage.extractEnergy(energyConsumedPerTick, false);
+			int toConsume = getEnergyConsumedPerTick();
+			int energyUsed = energyStorage.extractEnergy(toConsume, false);
 			if (energyReserved < energyNeeded) {
 				energyReserved += energyUsed;
 			}
@@ -182,12 +188,13 @@ public class TileEntityItemFabricator extends TileEntity implements IEnergyRecei
 	}
 
 	private boolean canOutputItem(ItemStack item) {
-		
-		//if this doesn't match it means the user swapped in new items mid-processing
-		if(!currentRecipe.matches(inventory[0],inventory[1])){
+
+		// if this doesn't match it means the user swapped in new items
+		// mid-processing
+		if (!currentRecipe.matches(inventory[0], inventory[1])) {
 			return false;
 		}
-		
+
 		if (getCurrentOutputStack() == null) {
 			return true;
 		}
@@ -215,18 +222,18 @@ public class TileEntityItemFabricator extends TileEntity implements IEnergyRecei
 		if (currentRecipe != null) {
 			return true;
 		}
-		
+
 		return false;
 	}
 
 	private ItemStack getCurrentOutputStack() {
 		return inventory[2];
 	}
-	
+
 	private ItemStack getFirstInput() {
 		return inventory[0];
 	}
-	
+
 	private ItemStack getSecondInput() {
 		return inventory[1];
 	}
@@ -248,28 +255,24 @@ public class TileEntityItemFabricator extends TileEntity implements IEnergyRecei
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound tag)
-	{
+	public void writeToNBT(NBTTagCompound tag) {
 		super.writeToNBT(tag);
 		tag.setInteger("energyReserved", energyReserved);
 
 		NBTTagCompound firstSlot = new NBTTagCompound();
-		if (getFirstInput() != null)
-		{
+		if (getFirstInput() != null) {
 			getFirstInput().writeToNBT(firstSlot);
 		}
 		tag.setTag("firstSlot", firstSlot);
-		
+
 		NBTTagCompound secondSlot = new NBTTagCompound();
-		if (getSecondInput() != null)
-		{
+		if (getSecondInput() != null) {
 			getSecondInput().writeToNBT(secondSlot);
 		}
 		tag.setTag("secondSlot", secondSlot);
-		
+
 		NBTTagCompound outSlot = new NBTTagCompound();
-		if (getCurrentOutputStack() != null)
-		{
+		if (getCurrentOutputStack() != null) {
 			getCurrentOutputStack().writeToNBT(outSlot);
 		}
 		tag.setTag("outSlot", outSlot);
@@ -278,18 +281,15 @@ public class TileEntityItemFabricator extends TileEntity implements IEnergyRecei
 		this.energyStorage.writeToNBT(energyTag);
 		tag.setTag("energy", energyTag);
 
-
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound tag)
-	{
+	public void readFromNBT(NBTTagCompound tag) {
 		super.readFromNBT(tag);
 		NBTTagCompound firstSlot = tag.getCompoundTag("firstSlot");
 		NBTTagCompound secondSlot = tag.getCompoundTag("secondSlot");
 		NBTTagCompound outSlot = tag.getCompoundTag("outSlot");
 		NBTTagCompound energyTag = tag.getCompoundTag("energy");
-
 
 		this.inventory[0] = ItemStack.loadItemStackFromNBT(firstSlot);
 		this.inventory[1] = ItemStack.loadItemStackFromNBT(secondSlot);
@@ -298,4 +298,7 @@ public class TileEntityItemFabricator extends TileEntity implements IEnergyRecei
 		this.energyStorage.readFromNBT(energyTag);
 	}
 
+	private boolean isAdvanced() {
+		return false;
+	}
 }

@@ -11,8 +11,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 //todo: break this out into Crafting Recipes and Furnace Recipes
-public class CraftingRecipes
-{
+public class CraftingRecipes {
 	ItemStack lapis = new ItemStack(Items.dye, 1, 4);
 	ItemStack redstone = new ItemStack(Items.redstone);
 	ItemStack diamond = new ItemStack(Items.diamond);
@@ -57,11 +56,13 @@ public class CraftingRecipes
 	ItemStack blankCircuit = new ItemStack(ModItems.blankCircuit);
 	ItemStack advancedCircuit = new ItemStack(ModItems.advancedCircuit);
 	ItemStack enderCrystal = new ItemStack(ModItems.enderCrystal);
-			
+	ItemStack harmonicOscillator = new ItemStack(ModItems.harmonicOscillator);
+
 	String manganese = "dustManganese";
 	String mangalloy = "ingotMangalloy";
 	String steelIngot = "ingotSteel";
 	String dyeBlack = "dyeBlack";
+	String titaniumIngot = "ingotTitanium";
 
 	public void init() {
 		shapedRecipes();
@@ -130,8 +131,10 @@ public class CraftingRecipes
 				new ShapedOreRecipe(new ItemStack(ModBlocks.darkstoneTile, 9), "ddd", "ddd", "ddd", 'd', darkStone));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.imaginaryTime), "igi", "gzg", "mgm", 'i',
 				ironCasing, 'g', energizedCrystal, 'z', zbq7, 'm', mangalloy));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.harmoicOscillator), " r ", "g g","eae",'r',crystalizedRedstone,'g',goldIngot,'e',enderCrystal,'a',advancedCircuit));
-
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.harmonicOscillator), " r ", "g g", "eae", 'r',
+				crystalizedRedstone, 'g', goldIngot, 'e', enderCrystal, 'a', advancedCircuit));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.itemFabricator), "g g", "tat", "ddd", 'g',
+				goldCasing, 't', titaniumIngot, 'a',amplificationCrystal, 'd', darkStone));
 
 		// battlesuit
 		GameRegistry.addRecipe(
@@ -178,6 +181,7 @@ public class CraftingRecipes
 				new ItemStack(ModBlocks.quibitCluster_4)));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModBlocks.quibitCluster, 1, 4),
 				new ItemStack(ModBlocks.quibitCluster_5)));
+
 	}
 
 }

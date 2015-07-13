@@ -28,7 +28,7 @@ item.quantumDisk.name=Quantum Disk
 item.ingotTitanium.name=Titanium Ingot
 item.mysticQuartz.name=Mystic Quartz
 item.harmoicOscillator.name=Harmonic Oscillator
-iten.enderCrystal.name=Ender Crystal
+item.enderCrystal.name=Ender Crystal
 
 tile.entropyAccelerator.name=Quantum Entropy Accelerator
 tile.quibitCluster_1.name=Quibit Cluster Level 1
@@ -96,3 +96,4 @@ tooltip.imaginarytime.requirements=Requires %d RF/tick to operate
 
 tooltip.zpe.help=Generates RF from a localized region of SpaceTime
 tooltip.zpe.help2=It works better at low altitudes 
+

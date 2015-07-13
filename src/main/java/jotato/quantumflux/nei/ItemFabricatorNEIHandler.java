@@ -16,11 +16,11 @@ import net.minecraft.util.StatCollector;
 public class ItemFabricatorNEIHandler extends TemplateRecipeHandler {
 
 	private final static String recipeID="quantumflux:itemFabricator";
-	public final static ItemFabricatorNEIHandler INSTANCE = new ItemFabricatorNEIHandler();
+
 	
 	@Override
 	public String getRecipeName() {
-		return StatCollector.translateToLocal("tile.itemFabricator.name");
+		return StatCollector.translateToLocal("tile.itemFabricator.0.name");
 	}
 
 	@Override
