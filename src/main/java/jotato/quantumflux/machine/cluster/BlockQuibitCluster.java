@@ -78,7 +78,7 @@ public class BlockQuibitCluster extends BlockContainerBase {
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 
-		return new TileEntityQuibitCluster(new QuibitClusterSettings(meta));
+		return new TileEntityQuibitCluster(new QuibitClusterSettings(meta+1));
 
 	}
 
