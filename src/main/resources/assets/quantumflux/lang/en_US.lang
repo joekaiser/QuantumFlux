@@ -55,6 +55,7 @@ tile.imaginaryTime.name=Imaginary Time Block
 tile.itemFabricator.name=Item Fabricator
 tile.titaniumOre.name=Titanium Ore
 tile.storehouse.name=Storehouse
+tile.creativeCluster.name=Creative Cluster
 
 itemGroup.tabQuantumFlux=QuantumFlux
 

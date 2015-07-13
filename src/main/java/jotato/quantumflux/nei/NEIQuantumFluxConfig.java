@@ -11,10 +11,12 @@ import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
 import cofh.lib.inventory.ComparableItemStack;
 import jotato.quantumflux.Reference;
+import jotato.quantumflux.blocks.ModBlocks;
 import jotato.quantumflux.machine.fabricator.ContainerItemFabricator;
 import jotato.quantumflux.machine.fabricator.ItemFabricatorRecipeManager;
 import jotato.quantumflux.machine.fabricator.ItemFabricatorRecipeManager.InfuserRecipe;
 import jotato.quantumflux.util.SimplePosition;
+import net.minecraft.item.ItemStack;
 
 public class NEIQuantumFluxConfig implements IConfigureNEI {
 	private static HashMap<List<PositionedStack>, PositionedStack> itemFabricatorRecipes = new HashMap();
@@ -41,6 +43,12 @@ public class NEIQuantumFluxConfig implements IConfigureNEI {
 		loadRecipes();
 		API.registerRecipeHandler(itemFabricatorNEIHandler);
 		API.registerUsageHandler(itemFabricatorNEIHandler);
+		API.hideItem(new ItemStack(ModBlocks.creativeCluster));
+		API.hideItem(new ItemStack(ModBlocks.quibitCluster_1));
+		API.hideItem(new ItemStack(ModBlocks.quibitCluster_2));
+		API.hideItem(new ItemStack(ModBlocks.quibitCluster_3));
+		API.hideItem(new ItemStack(ModBlocks.quibitCluster_4));
+		API.hideItem(new ItemStack(ModBlocks.quibitCluster_5));
 	}
 
 	private void loadRecipes() {

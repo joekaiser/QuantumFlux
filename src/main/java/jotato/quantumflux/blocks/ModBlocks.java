@@ -1,5 +1,6 @@
 package jotato.quantumflux.blocks;
 
+import jotato.quantumflux.machine.cluster.BlockCreativeCluster;
 import jotato.quantumflux.machine.cluster.BlockQuibitCluster;
 import jotato.quantumflux.machine.cluster.BlockQuibitCluster_Depricated;
 import jotato.quantumflux.machine.entangler.BlockRFEntangler;
@@ -33,6 +34,7 @@ public class ModBlocks
     public static Block quibitCluster;
     public static Block titaniumOre;
     public static Block storehouse;
+    public static Block creativeCluster;
     
     public static void init()
     {
@@ -54,6 +56,7 @@ public class ModBlocks
         quibitCluster = new BlockQuibitCluster();
         titaniumOre = new BlockBase(Material.rock,"titaniumOre", 5.5f, null);
         storehouse = new BlockStorehouse();
+        creativeCluster = new BlockCreativeCluster();
         registerOreDictionary();
     }
     
