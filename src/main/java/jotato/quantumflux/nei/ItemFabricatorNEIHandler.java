@@ -20,7 +20,7 @@ public class ItemFabricatorNEIHandler extends TemplateRecipeHandler {
 	
 	@Override
 	public String getRecipeName() {
-		return StatCollector.translateToLocal("tile.itemFabricator.0.name");
+		return StatCollector.translateToLocal("tile.itemFabricator.name");
 	}
 
 	@Override

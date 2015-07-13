@@ -37,6 +37,7 @@ public class ModItems
 	public static Item mysticQuartz;
 	public static Item harmonicOscillator;
 	public static Item enderCrystal;
+	public static Item titaniumPlate;
 	
 	public static void init()
 	{
@@ -69,6 +70,7 @@ public class ModItems
 		mysticQuartz = new ItemBase("mysticQuartz");
 		harmonicOscillator = new ItemBase("harmoicOscillator");
 		enderCrystal = new ItemBase("enderCrystal");
+		titaniumPlate = new ItemBase("titaniumPlate");
 		
 		battlesuit_plate = new ItemBase("battlesuit_plate");
 		battlesuit_helm = new ItemBattleSuit("battlesuit_helmet", 0);

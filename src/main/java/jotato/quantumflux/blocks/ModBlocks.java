@@ -8,6 +8,7 @@ import jotato.quantumflux.machine.exciter.BlockRFExciter;
 import jotato.quantumflux.machine.fabricator.BlockItemFabricator;
 import jotato.quantumflux.machine.imaginarytime.BlockImaginaryTime;
 import jotato.quantumflux.machine.zpe.BlockZPE;
+import jotato.quantumflux.storehouse.BlockStorehouse;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.oredict.OreDictionary;
@@ -31,6 +32,7 @@ public class ModBlocks
     public static Block itemFabricator;
     public static Block quibitCluster;
     public static Block titaniumOre;
+    public static Block storehouse;
     
     public static void init()
     {
@@ -51,7 +53,7 @@ public class ModBlocks
         itemFabricator = new BlockItemFabricator();
         quibitCluster = new BlockQuibitCluster();
         titaniumOre = new BlockBase(Material.rock,"titaniumOre", 5.5f, null);
-       
+        storehouse = new BlockStorehouse();
         registerOreDictionary();
     }
     

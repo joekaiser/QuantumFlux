@@ -29,6 +29,7 @@ item.ingotTitanium.name=Titanium Ingot
 item.mysticQuartz.name=Mystic Quartz
 item.harmoicOscillator.name=Harmonic Oscillator
 item.enderCrystal.name=Ender Crystal
+item.titaniumPlate.name=Titanium Plate
 
 tile.entropyAccelerator.name=Quantum Entropy Accelerator
 tile.quibitCluster_1.name=Quibit Cluster Level 1
@@ -53,6 +54,7 @@ tile.darkstone_tile.name=Darkstone Tile
 tile.imaginaryTime.name=Imaginary Time Block
 tile.itemFabricator.name=Item Fabricator
 tile.titaniumOre.name=Titanium Ore
+tile.storehouse.name=Storehouse
 
 itemGroup.tabQuantumFlux=QuantumFlux
 
@@ -66,6 +68,7 @@ gui.quibitClusterTransferRateInfinite=Infinite RF/Tick
 gui.quibitClusterTransferRate=%,d RF/Tick
 gui.quibitClusterMaxStorage=%,d MAX
 gui.molecularinfuser=Item Fabricator
+gui.storehouse=Storehouse
 
 tooltip.capabilityFlight=Capability: Flight
 tooltip.capabilityMomentum=Capability: Momentum

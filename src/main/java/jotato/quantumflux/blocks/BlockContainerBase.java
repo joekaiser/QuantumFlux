@@ -8,7 +8,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -102,7 +102,7 @@ public class BlockContainerBase extends BlockContainer
         return super.onBlockActivated(world, x, y, z, player, p6, p7, p8, p9);
     }
     
-    public void dropInventory(World world, int x, int y, int z, Block block, ISidedInventory tileentity){
+    public void dropInventory(World world, int x, int y, int z, Block block, IInventory tileentity){
     	if (tileentity != null)
 		{
 			for (int i = 0; i < tileentity.getSizeInventory(); ++i)

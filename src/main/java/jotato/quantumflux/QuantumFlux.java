@@ -18,6 +18,7 @@ import jotato.quantumflux.machine.zpe.TileEntityZeroPointExtractor;
 import jotato.quantumflux.packets.PacketHandler;
 import jotato.quantumflux.proxy.CommonProxy;
 import jotato.quantumflux.redflux.RedfluxField;
+import jotato.quantumflux.storehouse.TileEntityStorehouse;
 import jotato.quantumflux.world.OreGenerator;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -74,6 +75,7 @@ public class QuantumFlux
         GameRegistry.registerTileEntity(TileEntityItemFabricator.class, "tileMolecularInfuser");
         GameRegistry.registerTileEntity(TileEntityQuibitCluster.class, "tileQuibitCluster");
         GameRegistry.registerTileEntity(TileEntityItemFabricator.class, "tilemolecularInfuser");
+        GameRegistry.registerTileEntity(TileEntityStorehouse.class, "tileStorehouse");
     }
 
     @EventHandler

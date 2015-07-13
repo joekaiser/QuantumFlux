@@ -57,6 +57,7 @@ public class CraftingRecipes {
 	ItemStack advancedCircuit = new ItemStack(ModItems.advancedCircuit);
 	ItemStack enderCrystal = new ItemStack(ModItems.enderCrystal);
 	ItemStack harmonicOscillator = new ItemStack(ModItems.harmonicOscillator);
+	ItemStack titaniumPlate = new ItemStack(ModItems.titaniumPlate);
 
 	String manganese = "dustManganese";
 	String mangalloy = "ingotMangalloy";
@@ -134,7 +135,11 @@ public class CraftingRecipes {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.harmonicOscillator), " r ", "g g", "eae", 'r',
 				crystalizedRedstone, 'g', goldIngot, 'e', enderCrystal, 'a', advancedCircuit));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.itemFabricator), "g g", "tat", "ddd", 'g',
-				goldCasing, 't', titaniumIngot, 'a',amplificationCrystal, 'd', darkStone));
+				goldCasing, 't', titaniumIngot, 'a', amplificationCrystal, 'd', darkStone));
+		GameRegistry
+				.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.titaniumPlate, 3), "ttt", 't', titaniumIngot));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.quantumDisk), " e ", "tat", " e ", 'e',
+				enderCrystal, 't', titaniumPlate, 'a', advancedCircuit));
 
 		// battlesuit
 		GameRegistry.addRecipe(

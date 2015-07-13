@@ -12,6 +12,9 @@ import jotato.quantumflux.machine.entropyaccelerator.TileEntityEntropyAccelerato
 import jotato.quantumflux.machine.fabricator.ContainerItemFabricator;
 import jotato.quantumflux.machine.fabricator.GUIItemFabricator;
 import jotato.quantumflux.machine.fabricator.TileEntityItemFabricator;
+import jotato.quantumflux.storehouse.ContainerStorehouse;
+import jotato.quantumflux.storehouse.GuiStorehouse;
+import jotato.quantumflux.storehouse.TileEntityStorehouse;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -20,7 +23,7 @@ public class QFGuiHandler implements IGuiHandler {
 
 	public enum GUI {
 		INCINERATOR(0), QUIBIT_CLUSTER_1(1), QUIBIT_CLUSTER_2(2), QUIBIT_CLUSTER_3(3), QUIBIT_CLUSTER_4(
-				4), QUIBIT_CLUSTER_5(5), QUIBIT_CLUSTER(6), INFUSER(7);
+				4), QUIBIT_CLUSTER_5(5), QUIBIT_CLUSTER(6), INFUSER(7), STOREHOUSE(8);
 
 		public int ordinal;
 
@@ -76,6 +79,10 @@ public class QFGuiHandler implements IGuiHandler {
 			TileEntityItemFabricator tile = (TileEntityItemFabricator) world.getTileEntity(x, y, z);
 			return new ContainerItemFabricator(player, tile);
 		}
+		if (gui == GUI.STOREHOUSE) {
+			TileEntityStorehouse tile = (TileEntityStorehouse) world.getTileEntity(x, y, z);
+			return new ContainerStorehouse(player, tile);
+		}
 		return null;
 
 	}
@@ -121,6 +128,10 @@ public class QFGuiHandler implements IGuiHandler {
 		if (gui == GUI.INFUSER) {
 			TileEntityItemFabricator tile = (TileEntityItemFabricator) world.getTileEntity(x, y, z);
 			return new GUIItemFabricator(player, tile);
+		}
+		if (gui == GUI.STOREHOUSE) {
+			TileEntityStorehouse tile = (TileEntityStorehouse) world.getTileEntity(x, y, z);
+			return new GuiStorehouse(player, tile);
 		}
 
 		return null;
