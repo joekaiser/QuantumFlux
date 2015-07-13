@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import jotato.quantumflux.ConfigMan;
-import jotato.quantumflux.ModUtils;
+import jotato.quantumflux.util.ModUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;

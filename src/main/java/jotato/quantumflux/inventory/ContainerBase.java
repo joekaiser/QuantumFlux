@@ -39,6 +39,9 @@ public class ContainerBase extends Container
 
     @Override
     public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int i) {
+    	if(inventory==null){
+    		return null;
+    	}
         ItemStack itemstack = null;
         Slot slot = (Slot) this.inventorySlots.get(i);
         int invSize = this.inventory.getSizeInventory();

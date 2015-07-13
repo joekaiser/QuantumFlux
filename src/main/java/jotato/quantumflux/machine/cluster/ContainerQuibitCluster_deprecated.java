@@ -1,7 +1,7 @@
 package jotato.quantumflux.machine.cluster;
 
 import jotato.quantumflux.inventory.ContainerBase;
-import jotato.quantumflux.packets.ClusterMessage;
+import jotato.quantumflux.packets.EnergyStorageMessage;
 import jotato.quantumflux.packets.PacketHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -30,7 +30,7 @@ public class ContainerQuibitCluster_deprecated extends ContainerBase
 		{
 			if (this.lastInternalStorage != this.cluster.getEnergyStored(null))
 			{
-				ClusterMessage message = new ClusterMessage(cluster.xCoord, cluster.yCoord, cluster.zCoord, cluster.getEnergyStored(null));
+				EnergyStorageMessage message = new EnergyStorageMessage(cluster.xCoord, cluster.yCoord, cluster.zCoord, cluster.getEnergyStored(null));
 				PacketHandler.net.sendTo(message, (EntityPlayerMP) player);
 			}
 		}

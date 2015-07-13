@@ -29,7 +29,15 @@ public class ModItems
 	public static Item upgradeToken;
 	public static Item crystalizedRedstone;
 	public static Item exciterUpgrade;
-
+	public static Item silica;
+	public static Item blankCircuit;
+	public static Item advancedCircuit;
+	public static Item quantumDisk;
+	public static Item titaniumIngot;
+	public static Item mysticQuartz;
+	public static Item harmonicOscillator;
+	public static Item enderCrystal;
+	
 	public static void init()
 	{
 		amplificationCrystal = new ItemBase("amplificationCrystal");
@@ -53,6 +61,14 @@ public class ModItems
 		upgradeToken = new ItemBase("upgradeToken").setMaxStackSize(1);
 		crystalizedRedstone = new ItemBase("redstoneCrystal");
 		exciterUpgrade =new ItemExciterUpgrade();
+		silica = new ItemBase("silica");
+		blankCircuit = new ItemBase("blankCircuit");
+		advancedCircuit = new ItemBase("advancedCircuit");
+		quantumDisk = new ItemBase("quantumDisk");
+		titaniumIngot = new ItemBase("ingotTitanium");
+		mysticQuartz = new ItemBase("mysticQuartz");
+		harmonicOscillator = new ItemBase("harmoicOscillator");
+		enderCrystal = new ItemBase("enderCrystal");
 		
 		battlesuit_plate = new ItemBase("battlesuit_plate");
 		battlesuit_helm = new ItemBattleSuit("battlesuit_helmet", 0);
@@ -72,7 +88,7 @@ public class ModItems
 		}
 		OreDictionary.registerOre("dustManganese", manganese);
 		OreDictionary.registerOre("ingotMangalloy", mangalloy);
-
+		OreDictionary.registerOre("ingotTitanium", titaniumIngot);
 	}
 	
 	

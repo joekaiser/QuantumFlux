@@ -1,4 +1,4 @@
-package jotato.quantumflux;
+package jotato.quantumflux.util;
 
 import java.util.List;
 
