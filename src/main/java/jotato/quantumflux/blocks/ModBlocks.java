@@ -29,6 +29,7 @@ public class ModBlocks
     public static Block darkstone;
     public static Block darkstonePillar;
     public static Block darkstoneTile;
+    public static Block darkstoneOrnate;
     public static Block imaginaryTime;
     public static Block itemFabricator;
     public static Block quibitCluster;
@@ -51,6 +52,7 @@ public class ModBlocks
         darkstone = new BlockDarkstone();
         darkstonePillar = new BlockBase(Material.rock,"darkstone_pillar",1,"pickaxe",0,null);
         darkstoneTile = new BlockBase(Material.rock,"darkstone_tile",1,"pickaxe",0,null);
+        darkstoneOrnate = new BlockBase(Material.rock,"darkstone_ornate",1,"pickaxe",0,null);
         imaginaryTime = new BlockImaginaryTime();
         itemFabricator = new BlockItemFabricator();
         quibitCluster = new BlockQuibitCluster();

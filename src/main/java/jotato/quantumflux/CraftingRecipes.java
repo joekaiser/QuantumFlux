@@ -130,6 +130,8 @@ public class CraftingRecipes {
 				.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.darkstonePillar, 2), "s", "s", 's', darkStone));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.darkstoneLamp, 8), "ddd", "dld", "ddd", 'd',
 				darkStone, 'l', lapis));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.darkstoneOrnate, 4), "d d", " x ", "d d", 'd',
+				darkStone, 'x', stone));
 		GameRegistry.addRecipe(
 				new ShapedOreRecipe(new ItemStack(ModBlocks.darkstoneTile, 9), "ddd", "ddd", "ddd", 'd', darkStone));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.imaginaryTime), "igi", "gzg", "mgm", 'i',
