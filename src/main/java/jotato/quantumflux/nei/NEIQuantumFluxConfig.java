@@ -59,10 +59,10 @@ public class NEIQuantumFluxConfig implements IConfigureNEI {
 			InfuserRecipe iRecipe = recipe.getValue();
 			// todo: I don't know why the GUI draws a little off.
 			// Figure it out and remove the offset calc
-			key.add(new PositionedStack(iRecipe.getFirstInput(), slot1.X - 5, slot1.Y - 11));
-			key.add(new PositionedStack(iRecipe.getSecondInput(), slot2.X - 5, slot2.Y - 11));
+			key.add(new PositionedStack(iRecipe.getFirstInput(), slot1.X - 5, slot1.Y + 10));
+			key.add(new PositionedStack(iRecipe.getSecondInput(), slot2.X - 5, slot2.Y + 10));
 
-			itemFabricatorRecipes.put(key, new PositionedStack(iRecipe.getResult(), slotOut.X - 5, slotOut.Y - 11));
+			itemFabricatorRecipes.put(key, new PositionedStack(iRecipe.getResult(), slotOut.X - 5, slotOut.Y + 10));
 
 		}
 	}
