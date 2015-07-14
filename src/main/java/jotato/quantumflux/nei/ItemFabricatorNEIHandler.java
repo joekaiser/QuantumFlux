@@ -1,8 +1,11 @@
 package jotato.quantumflux.nei;
 
+import java.awt.Rectangle;
 import java.util.List;
 import java.util.Set;
 import java.util.Map.Entry;
+
+import org.lwjgl.opengl.GL11;
 
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIServerUtils;
@@ -20,7 +23,7 @@ public class ItemFabricatorNEIHandler extends TemplateRecipeHandler {
 	
 	@Override
 	public String getRecipeName() {
-		return StatCollector.translateToLocal("tile.itemFabricator.0.name");
+		return StatCollector.translateToLocal("tile.itemFabricator.name");
 	}
 
 	@Override
@@ -31,6 +34,12 @@ public class ItemFabricatorNEIHandler extends TemplateRecipeHandler {
 	@Override
 	public int recipiesPerPage() {
 		return 1;
+	}
+	
+	@Override
+	public void loadTransferRects() {
+		transferRects.add(new RecipeTransferRect(new Rectangle(55, 53, 15, 27), recipeID));
+		transferRects.add(new RecipeTransferRect(new Rectangle(96, 53, 15, 27), recipeID));
 	}
 	
 	@Override
@@ -89,8 +98,15 @@ public class ItemFabricatorNEIHandler extends TemplateRecipeHandler {
     
     @Override
     public void drawBackground(int recipe) {
-    	super.drawBackground(recipe);
-    	GuiDraw.drawTexturedModalRect(149, 6, 0, 180, 12, 59);
+    	GL11.glColor4f(1, 1, 1, 1);
+    	GuiDraw.changeTexture(getGuiTexture());
+    	GuiDraw.drawTexturedModalRect(0, 14, 5, 4, 166, 78);
+    }
+    
+    @Override
+    public void drawExtras(int recipe) {
+    	drawProgressBar(55, 53, 16, 166, 56, 27, 48, 1);
+    	drawProgressBar(149, 15, 0, 166, 12, 76, 48 * (50000 / 5600), 7);
     }
    
     
