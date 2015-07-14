@@ -23,7 +23,7 @@ public class BlockStorehouse extends BlockContainerBase {
 	protected IIcon icon_front;
 	
 	public BlockStorehouse() {
-		super(Material.iron, "quantumChest", 2.5f, null);
+		super(Material.iron, "storehouse", 2.5f, null);
 		setStepSound(soundTypeMetal);
 	}
 	@SideOnly(Side.CLIENT)

@@ -3,6 +3,7 @@ package jotato.quantumflux;
 import jotato.quantumflux.blocks.ModBlocks;
 import jotato.quantumflux.items.ItemBattleSuit;
 import jotato.quantumflux.items.ModItems;
+import cofh.lib.util.helpers.ItemHelper;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -58,6 +59,7 @@ public class CraftingRecipes {
 	ItemStack enderCrystal = new ItemStack(ModItems.enderCrystal);
 	ItemStack harmonicOscillator = new ItemStack(ModItems.harmonicOscillator);
 	ItemStack titaniumPlate = new ItemStack(ModItems.titaniumPlate);
+	ItemStack quantumDisk = new ItemStack(ModItems.quantumDisk);
 
 	String manganese = "dustManganese";
 	String mangalloy = "ingotMangalloy";
@@ -140,6 +142,8 @@ public class CraftingRecipes {
 				.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.titaniumPlate, 3), "ttt", 't', titaniumIngot));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.quantumDisk), " e ", "tat", " e ", 'e',
 				enderCrystal, 't', titaniumPlate, 'a', advancedCircuit));
+		ItemHelper.addShapedOreRecipe(ModBlocks.storehouse, "tpt", "cqc", "ghg", 't', titaniumPlate, 'p',
+				advancedCircuit, 'q', quantumDisk, 'c', quibitCrystal, 'g', goldCasing, 'h', harmonicOscillator);
 
 		// battlesuit
 		GameRegistry.addRecipe(
