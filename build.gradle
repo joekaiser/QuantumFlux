@@ -26,7 +26,7 @@ repositories {
 
 apply plugin: 'forge'
 
-version = "1.7.10-1.3.0-A1"
+version = "1.7.10-1.3.0-A2"
 group= "jotato.quantumflux" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "QuantumFlux"
 
