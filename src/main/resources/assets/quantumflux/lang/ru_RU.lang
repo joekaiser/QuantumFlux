@@ -21,6 +21,14 @@ item.eviscerator_head.name=Обух Потрошителя
 item.eviscerator_rod.name=Стержень Потрошителя
 item.redstoneCrystal.name=Кристализованный редстоун
 item.exciterUpgrade.name=Усилитель Резонатора
+item.silica.name=Кремень
+item.blankCircuit.name=Пустая схема
+item.advancedCircuit.name=Продвинутая схема
+item.quantumDisk.name=Квантовый диск
+item.ingotTitanium.name=Титановый слиток
+item.mysticQuartz.name=Мистический кварц
+item.harmoicOscillator.name=Гармонический осциллятор
+item.enderCrystal.name=Кристал Эндера
 
 tile.entropyAccelerator.name=Ускоритель квантовой энтропии
 tile.quibitCluster_1.name=Кластер Квибита 1 ур.
@@ -28,6 +36,13 @@ tile.quibitCluster_2.name=Кластер Квибита 2 ур.
 tile.quibitCluster_3.name=Кластер Квибита 3 ур.
 tile.quibitCluster_4.name=Кластер Квибита 4 ур.
 tile.quibitCluster_5.name=Кластер Квибита 5 ур.
+
+tile.quibitCluster.0.name=Кластер Квибита 1 ур.
+tile.quibitCluster.1.name=Кластер Квибита 2 ур.
+tile.quibitCluster.2.name=Кластер Квибита 3 ур.
+tile.quibitCluster.3.name=Кластер Квибита 4 ур.
+tile.quibitCluster.4.name=Кластер Квибита 5 ур.
+
 tile.zeroPointExtractor.name=Экстрактор Нулевой Точки (ЭНТ)
 tile.rfEntangler.name=RF Улавливатель
 tile.rfExciter.name=RF Резонатор
@@ -36,6 +51,8 @@ tile.darkstone_lamp.name=Темнокаменная лампа
 tile.darkstone_pillar.name=Темнокаменная колонна
 tile.darkstone_tile.name=Темнокаменная плита
 tile.imaginaryTime.name=Блок Мнимого времени
+tile.itemFabricator.name=Создатель предметов
+tile.titaniumOre.name=Титановая руда
 
 itemGroup.tabQuantumFlux=QuantumFlux
 
@@ -48,9 +65,34 @@ gui.quibitCluster=Кластер Квибита (Уровень %d)
 gui.quibitClusterTransferRateInfinite=Бесконечный RF/Тик
 gui.quibitClusterTransferRate=%,d RF/Тик
 gui.quibitClusterMaxStorage=%,d МАКС
+gui.molecularinfuser=Создатель предметов
 
 tooltip.capabilityFlight=Возможности: Полёт
 tooltip.capabilityMomentum=Возможности: Импульс
 tooltip.capabilityStrength=Возможности: Прочность
 tooltip.capabilityVisibility=Возможности: Видимость
 tooltip.charge=Заряд: %,d
+
+tooltip.showDetails=Зажмите SHIFT для информации
+
+tooltip.quibitcluster.deprecated=Устарело. Поместите в сетку создания, чтобы обновить.
+tooltip.quibitcluster.help=Хранит RF для последующего использования
+tooltip.quibitcluster.capacity=Может накопить %d RF
+tooltip.quibitcluster.transfer=Передача %d RF/тик
+
+tooltip.entangler.help=Передаёт энергию через RF-пространство
+tooltip.entangler.buffer=Имеет внутренний буфер %d
+tooltip.entangler.output=Обеспечивает бесконечную скорость передачи RF/тик
+tooltip.entangler.efficiency=Имеет эффективность %d процентов
+
+tooltip.accelerator.help=Извлекает немного энергии из материи
+tooltip.accelerator.expanded=Может обеспечить %d RF/тик
+
+tooltip.rfexciter.help=Вытягивает энергию из RF-пространства
+tooltip.rfexciter.upgrade=Повышает мощность RF Резонатора 
+
+tooltip.imaginarytime.help=Управляет временем для ускорения роста растений
+tooltip.imaginarytime.requirements=Требует %d RF/тик за операцию
+
+tooltip.zpe.help=Генерирует RF энергию из пространства-времени
+tooltip.zpe.help2=Работает лучше около коренной породы
