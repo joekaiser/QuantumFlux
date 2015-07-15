@@ -56,7 +56,7 @@ public class ModBlocks
         imaginaryTime = new BlockImaginaryTime();
         itemFabricator = new BlockItemFabricator();
         quibitCluster = new BlockQuibitCluster();
-        titaniumOre = new BlockBase(Material.rock,"titaniumOre", 5.5f, null);
+        titaniumOre = new BlockBase(Material.rock,"titaniumOre", 10f, "pickaxe",3,null);
         storehouse = new BlockStorehouse();
         creativeCluster = new BlockCreativeCluster();
         registerOreDictionary();
