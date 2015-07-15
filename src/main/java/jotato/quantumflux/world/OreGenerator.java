@@ -18,9 +18,9 @@ public class OreGenerator implements IWorldGenerator {
 	private final List<WorldGenInfo> generators = new ArrayList();
 
 	public  OreGenerator() {
-		//titanium is about .4% or ore distribution 
+		//titanium is about .4% of ore distribution 
 		WorldGenSparseMinableCluster titaniumGen = new WorldGenSparseMinableCluster(new ItemStack(ModBlocks.titaniumOre), 4, Blocks.stone);
-		generators.add(new WorldGenInfo(titaniumGen, 7, 11, 4, .15));
+		generators.add(new WorldGenInfo(titaniumGen, 7, 11, 5, .175));
 	}
 
 	@Override
