@@ -17,7 +17,7 @@ public class ItemFabricatorRecipeManager {
 	private static Map<List<ComparableItemStack>, InfuserRecipe> recipeMap = new HashMap<List<ComparableItemStack>, ItemFabricatorRecipeManager.InfuserRecipe>();
 
 	public static void addDefaultRecipes() {
-		addRecipe(new ItemStack(Blocks.sand), new ItemStack(Blocks.quartz_block), new ItemStack(ModItems.silica));
+		addRecipe(new ItemStack(Blocks.sand), new ItemStack(Blocks.quartz_block), new ItemStack(ModItems.silica,4));
 		addRecipe(new ItemStack(ModItems.silica), new ItemStack(Items.paper), new ItemStack(ModItems.blankCircuit));
 		addRecipe("ingotTitanium", new ItemStack(Items.quartz), new ItemStack(ModItems.mysticQuartz));
 		addRecipe(new ItemStack(ModItems.mysticQuartz), new ItemStack(ModItems.blankCircuit), new ItemStack(ModItems.advancedCircuit));

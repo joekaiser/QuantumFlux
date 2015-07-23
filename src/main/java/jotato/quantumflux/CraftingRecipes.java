@@ -138,10 +138,9 @@ public class CraftingRecipes {
 				ironCasing, 'g', energizedCrystal, 'z', zbq7, 'm', mangalloy));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.harmonicOscillator), " r ", "g g", "eae", 'r',
 				crystalizedRedstone, 'g', goldIngot, 'e', enderCrystal, 'a', advancedCircuit));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.itemFabricator), "g g", "tat", "ddd", 'g',
-				goldCasing, 't', titaniumIngot, 'a', amplificationCrystal, 'd', darkStone));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.itemFabricator), "t t", "tat", "ddd", 't', ironCasing, 'a', amplificationCrystal, 'd', darkStone));
 		GameRegistry
-				.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.titaniumPlate, 3), "ttt", 't', titaniumIngot));
+				.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.titaniumPlate, 6), "ttt", 't', titaniumIngot));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.quantumDisk), " e ", "tat", " e ", 'e',
 				enderCrystal, 't', titaniumPlate, 'a', advancedCircuit));
 		ItemHelper.addShapedOreRecipe(ModBlocks.storehouse, "tpt", "cqc", "ghg", 't', titaniumPlate, 'p',
