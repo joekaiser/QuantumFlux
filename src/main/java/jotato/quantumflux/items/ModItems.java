@@ -2,10 +2,14 @@ package jotato.quantumflux.items;
 
 import jotato.quantumflux.ConfigMan;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class ModItems
 {
+	public static ToolMaterial titaniumMaterial = EnumHelper.addToolMaterial("titaniumMaterial", 4, 3072, 11.5f, 6.5f, 24);
+	
 	public static Item amplificationCrystal;
 	public static Item ironCasing;
 	public static Item goldCasing;
@@ -38,9 +42,11 @@ public class ModItems
 	public static Item harmonicOscillator;
 	public static Item enderCrystal;
 	public static Item titaniumPlate;
+	public static Item titaniumSword;
 	
 	public static void init()
 	{
+		
 		amplificationCrystal = new ItemBase("amplificationCrystal");
 		ironCasing = new ItemBase("ironCasing");
 		goldCasing = new ItemBase("goldCasing");
@@ -71,6 +77,7 @@ public class ModItems
 		harmonicOscillator = new ItemBase("harmoicOscillator");
 		enderCrystal = new ItemBase("enderCrystal");
 		titaniumPlate = new ItemBase("titaniumPlate");
+		titaniumSword =new ItemTitaniumSword("titaniumSword");
 		
 		battlesuit_plate = new ItemBase("battlesuit_plate");
 		battlesuit_helm = new ItemBattleSuit("battlesuit_helmet", 0);

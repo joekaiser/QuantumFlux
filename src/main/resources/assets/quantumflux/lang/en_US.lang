@@ -30,6 +30,7 @@ item.mysticQuartz.name=Mystic Quartz
 item.harmoicOscillator.name=Harmonic Oscillator
 item.enderCrystal.name=Ender Crystal
 item.titaniumPlate.name=Titanium Plate
+item.titaniumSword.name=Titanium Sword
 
 tile.entropyAccelerator.name=Quantum Entropy Accelerator
 tile.quibitCluster_1.name=Quibit Cluster Level 1

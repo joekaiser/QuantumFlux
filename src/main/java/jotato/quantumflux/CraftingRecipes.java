@@ -66,6 +66,7 @@ public class CraftingRecipes {
 	String steelIngot = "ingotSteel";
 	String dyeBlack = "dyeBlack";
 	String titaniumIngot = "ingotTitanium";
+	String stick ="stickWood";
 
 	public void init() {
 		shapedRecipes();
@@ -145,6 +146,8 @@ public class CraftingRecipes {
 				enderCrystal, 't', titaniumPlate, 'a', advancedCircuit));
 		ItemHelper.addShapedOreRecipe(ModBlocks.storehouse, "tpt", "cqc", "ghg", 't', titaniumPlate, 'p',
 				advancedCircuit, 'q', quantumDisk, 'c', quibitCrystal, 'g', goldCasing, 'h', harmonicOscillator);
+		
+		ItemHelper.addShapedOreRecipe(ModItems.titaniumSword,"t","t","s",'t',titaniumIngot,'s',stick);
 
 		// battlesuit
 		GameRegistry.addRecipe(

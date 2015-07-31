@@ -1,9 +1,11 @@
 package jotato.quantumflux;
 
 import jotato.quantumflux.items.ItemBattleSuit;
+import jotato.quantumflux.machine.fabricator.ItemFabricatorRecipeManager;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
+import cpw.mods.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
@@ -29,6 +31,11 @@ public class EventHooks
 			}
 		}
 
+	}
+	
+	@SubscribeEvent
+	public void ClientConnectedToServer(ClientConnectedToServerEvent  event){
+		ItemFabricatorRecipeManager.refreshRecipes();
 	}
 
 }
