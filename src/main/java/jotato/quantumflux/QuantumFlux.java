@@ -93,6 +93,7 @@ public class QuantumFlux
     public void postInit(FMLPostInitializationEvent event)
     {
         new CraftingRecipes().init();
+    	ItemFabricatorRecipeManager.refreshRecipes();
     }
     
     @EventHandler
@@ -102,7 +103,7 @@ public class QuantumFlux
     
     @EventHandler
     public void serverStarted(FMLServerStartedEvent event){
-    	ItemFabricatorRecipeManager.refreshRecipes();
+
     }
 
     public static CreativeTabs tab = new CreativeTabs("tabQuantumFlux") {
