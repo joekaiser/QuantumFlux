@@ -12,6 +12,7 @@ import codechicken.nei.api.IConfigureNEI;
 import cofh.lib.inventory.ComparableItemStack;
 import jotato.quantumflux.Reference;
 import jotato.quantumflux.blocks.ModBlocks;
+import jotato.quantumflux.items.ModItems;
 import jotato.quantumflux.machine.fabricator.ContainerItemFabricator;
 import jotato.quantumflux.machine.fabricator.ItemFabricatorRecipeManager;
 import jotato.quantumflux.machine.fabricator.ItemFabricatorRecipeManager.InfuserRecipe;
@@ -49,6 +50,10 @@ public class NEIQuantumFluxConfig implements IConfigureNEI {
 		API.hideItem(new ItemStack(ModBlocks.quibitCluster_3));
 		API.hideItem(new ItemStack(ModBlocks.quibitCluster_4));
 		API.hideItem(new ItemStack(ModBlocks.quibitCluster_5));
+		API.hideItem(new ItemStack(ModItems.manganese));
+		API.hideItem(new ItemStack(ModItems.harmonicOscillator));
+		API.hideItem(new ItemStack(ModItems.titaniumPlate));
+		API.hideItem(new ItemStack(ModItems.goldCasing));
 	}
 
 	private void loadRecipes() {

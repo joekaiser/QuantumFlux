@@ -3,12 +3,14 @@ package jotato.quantumflux.items;
 import jotato.quantumflux.ConfigMan;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class ModItems
 {
 	public static ToolMaterial titaniumMaterial = EnumHelper.addToolMaterial("titaniumMaterial", 4, 3072, 11.5f, 6.5f, 24);
+	public static ArmorMaterial titaniumArmor = EnumHelper.addArmorMaterial("titaniumArmor", 45, new int[]{3,9,7,3}, 30);
 	
 	public static Item amplificationCrystal;
 	public static Item ironCasing;
@@ -43,19 +45,23 @@ public class ModItems
 	public static Item enderCrystal;
 	public static Item titaniumPlate;
 	public static Item titaniumSword;
+	public static Item titanium_chest;
+	public static Item titanium_legs;
+	public static Item titanium_boots;
+	public static Item titanium_helm;
 	
 	public static void init()
 	{
 		
 		amplificationCrystal = new ItemBase("amplificationCrystal");
 		ironCasing = new ItemBase("ironCasing");
-		goldCasing = new ItemBase("goldCasing");
+		goldCasing = new ItemBase("goldCasing").setCreativeTab(null);
 		if(ConfigMan.enableSteelRecipe)
 		{
 			steelIngot = new ItemBase("steelIngot");
 		}
 		quibitCrystal = new ItemBase("quibitCrystal");
-		manganese = new ItemBase("manganese");
+		manganese = new ItemBase("manganese").setCreativeTab(null);
 		mangalloy = new ItemBase("mangalloyIngot");
 		zbq7 = new ItemBase("zbq7").setMaxStackSize(1);
 		quibitCell = new ItemQuibitCell();
@@ -74,9 +80,9 @@ public class ModItems
 		quantumDisk = new ItemBase("quantumDisk");
 		titaniumIngot = new ItemBase("ingotTitanium");
 		mysticQuartz = new ItemBase("mysticQuartz");
-		harmonicOscillator = new ItemBase("harmoicOscillator");
+		harmonicOscillator = new ItemBase("harmoicOscillator").setCreativeTab(null);
 		enderCrystal = new ItemBase("enderCrystal");
-		titaniumPlate = new ItemBase("titaniumPlate");
+		titaniumPlate = new ItemBase("titaniumPlate").setCreativeTab(null);
 		titaniumSword =new ItemTitaniumSword("titaniumSword");
 		
 		battlesuit_plate = new ItemBase("battlesuit_plate");
@@ -84,6 +90,11 @@ public class ModItems
 		battlesuit_chest = new ItemBattleSuit("battlesuit_chestplate", 1);
 		battlesuit_legs = new ItemBattleSuit("battlesuit_leggings", 2);
 		battlesuit_boots = new ItemBattleSuit("battlesuit_boots", 3);
+		
+		titanium_helm = new ItemTitaniumArmor("titanium_helmet", 0);
+		titanium_chest = new ItemTitaniumArmor("titanium_chestplate", 1);
+		titanium_legs = new ItemTitaniumArmor("titanium_leggings", 2);
+		titanium_boots = new ItemTitaniumArmor("titanium_boots", 3);
 		
 		registerOreDictionary();
 	
@@ -95,7 +106,7 @@ public class ModItems
 		{
 			OreDictionary.registerOre("ingotSteel", steelIngot);
 		}
-		OreDictionary.registerOre("dustManganese", manganese);
+
 		OreDictionary.registerOre("ingotMangalloy", mangalloy);
 		OreDictionary.registerOre("ingotTitanium", titaniumIngot);
 	}

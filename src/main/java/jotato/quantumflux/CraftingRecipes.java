@@ -24,7 +24,6 @@ public class CraftingRecipes {
 	ItemStack ironBlock = new ItemStack(Blocks.iron_block);
 	ItemStack amplificationCrystal = new ItemStack(ModItems.amplificationCrystal);
 	ItemStack ironCasing = new ItemStack(ModItems.ironCasing);
-	ItemStack goldCasing = new ItemStack(ModItems.goldCasing);
 	ItemStack coal = new ItemStack(Items.coal);
 	ItemStack furnace = new ItemStack(Blocks.furnace);
 	ItemStack lavaBucket = new ItemStack(Items.lava_bucket);
@@ -43,7 +42,6 @@ public class CraftingRecipes {
 	ItemStack goldNugget = new ItemStack(Items.gold_nugget);
 	ItemStack energizedCrystal = new ItemStack(ModItems.energizedCrystal);
 	ItemStack netherStar = new ItemStack(Items.nether_star);
-	ItemStack glowingMangalloy = new ItemStack(ModItems.glowingMangalloy);
 	ItemStack battlesuite_plate = new ItemStack(ModItems.battlesuit_plate);
 	ItemStack feather = new ItemStack(Items.feather);
 	ItemStack upgradeToken = new ItemStack(ModItems.upgradeToken);
@@ -58,15 +56,13 @@ public class CraftingRecipes {
 	ItemStack advancedCircuit = new ItemStack(ModItems.advancedCircuit);
 	ItemStack enderCrystal = new ItemStack(ModItems.enderCrystal);
 	ItemStack harmonicOscillator = new ItemStack(ModItems.harmonicOscillator);
-	ItemStack titaniumPlate = new ItemStack(ModItems.titaniumPlate);
 	ItemStack quantumDisk = new ItemStack(ModItems.quantumDisk);
 
-	String manganese = "dustManganese";
 	String mangalloy = "ingotMangalloy";
 	String steelIngot = "ingotSteel";
 	String dyeBlack = "dyeBlack";
 	String titaniumIngot = "ingotTitanium";
-	String stick ="stickWood";
+	String stick = "stickWood";
 
 	public void init() {
 		shapedRecipes();
@@ -75,91 +71,124 @@ public class CraftingRecipes {
 	}
 
 	private void shapedRecipes() {
+		
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.ironCasing, 4), " l ", "iii", 'l', lapis, 'i', ironIngot);
-		GameRegistry.addShapedRecipe(new ItemStack(ModItems.goldCasing, 4), " r ", "ggg", 'r', redstone, 'g',
-				goldIngot);
+		
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.amplificationCrystal), "q q", " d ", "sss", 'q', quartz,
 				'd', diamond, 's', darkStone);
+		
 		if (ConfigMan.enableSteelRecipe) {
 			GameRegistry.addShapedRecipe(new ItemStack(ModItems.steelIngot), "c c", " i ", "c c", 'c', coal, 'i',
 					ironIngot);
 		}
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.entropyAccelerator), "ccc", "sfs", "sls",
 				'c', ironCasing, 'f', furnace, 'l', lavaBucket, 's', steelIngot));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.quibitCrystal, 4), " r ", "qdq", " r ", 'r',
 				redstone, 'q', quartz, 'd', diamond));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.quibitCluster, 1, 0), "qcq", "cqc", "sss",
-				'q', quibitCrystal, 'c', goldCasing, 's', steelIngot));
+				'q', quibitCrystal, 'c', ironCasing, 's', steelIngot));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.quibitCluster, 1, 1), "qqa", "qqa", 'q',
 				quibitCluster_1, 'a', amplificationCrystal));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.quibitCluster, 1, 2), "qqa", "qqa", 'q',
 				quibitCluster_2, 'a', amplificationCrystal));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.quibitCluster, 1, 3), "qqa", "qqa", 'q',
 				quibitCluster_3, 'a', amplificationCrystal));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.quibitCluster, 1, 4), "qqa", "qqa", 'q',
 				quibitCluster_4, 'a', amplificationCrystal));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.manganese), "grg", "rir", "grg", 'r',
-				redstone, 'i', ironIngot, 'g', goldNugget));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.mangalloy), "sss", "sms", "sss", 's',
-				steelIngot, 'm', manganese));
-
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.mangalloy), "sss", "srs", "sss", 's',
+				steelIngot, 'r', redstone));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.zbq7), "rlr", "gdg", "rlr", 'r',
 				redstoneBlock, 'l', lapisBlock, 'g', goldBlock, 'd', diamondBlock));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.rfEntangler), "czc", "mqm", "sss", 'm',
 				mangalloy, 's', steelIngot, 'q', quibitCluster_3, 'z', zbq7, 'c', quibitCrystal));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.rfExciter, 4), "qeq", "sgs", 'q',
-				quibitCrystal, 'e', enderPearl, 's', steelIngot, 'g', goldCasing));
+				quibitCrystal, 'e', enderPearl, 's', steelIngot, 'g', ironCasing));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.quibitCell), "eae", "aqa", "eae", 'q',
 				quibitCluster_1, 'e', rfExciter, 'a', amplificationCrystal));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.magnet), "r l", "a a", " m ", 'l', lapis, 'r',
 				redstone, 'a', amplificationCrystal, 'm', mangalloy));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.energizedCrystal, 4), "zcz", "csc", "zcz",
 				'c', quibitCrystal, 'z', zbq7, 's', netherStar));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.glowingMangalloy, 8), "mmm", "mem", "mmm",
-				'm', mangalloy, 'e', energizedCrystal));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.eviscerator_rod), "pgp", "pdp", "pdp", 'g',
 				goldNugget, 'p', battlesuite_plate, 'd', diamond));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.eviscerator_head), "dp ", "p n", 'd', diamond,
 				'p', battlesuite_plate, 'n', netherStar));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.eviscerator), "h", "r", "r", 'r',
 				eviscerator_rod, 'h', eviscerator_head));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.exciterUpgrade, 2), "cqc", "sss", 'c',
 				crystalizedRedstone, 'q', quibitCrystal, 's', darkStone));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.darkstone, 8), "scs", "sis", "scs", 's',
 				stone, 'i', dyeBlack, 'c', cobblestone));
+		
 		GameRegistry
 				.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.darkstonePillar, 2), "s", "s", 's', darkStone));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.darkstoneLamp, 8), "ddd", "dld", "ddd", 'd',
 				darkStone, 'l', lapis));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.darkstoneOrnate, 4), "d d", " x ", "d d", 'd',
-				darkStone, 'x', stone));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.darkstoneOrnate, 4), "d d", " x ", "d d",
+				'd', darkStone, 'x', stone));
+		
 		GameRegistry.addRecipe(
 				new ShapedOreRecipe(new ItemStack(ModBlocks.darkstoneTile, 9), "ddd", "ddd", "ddd", 'd', darkStone));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.imaginaryTime), "igi", "gzg", "mgm", 'i',
 				ironCasing, 'g', energizedCrystal, 'z', zbq7, 'm', mangalloy));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.harmonicOscillator), " r ", "g g", "eae", 'r',
 				crystalizedRedstone, 'g', goldIngot, 'e', enderCrystal, 'a', advancedCircuit));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.itemFabricator), "t t", "tat", "ddd", 't', ironCasing, 'a', amplificationCrystal, 'd', darkStone));
-		GameRegistry
-				.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.titaniumPlate, 6), "ttt", 't', titaniumIngot));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.quantumDisk), " e ", "tat", " e ", 'e',
-				enderCrystal, 't', titaniumPlate, 'a', advancedCircuit));
-		ItemHelper.addShapedOreRecipe(ModBlocks.storehouse, "tpt", "cqc", "ghg", 't', titaniumPlate, 'p',
-				advancedCircuit, 'q', quantumDisk, 'c', quibitCrystal, 'g', goldCasing, 'h', harmonicOscillator);
 		
-		ItemHelper.addShapedOreRecipe(ModItems.titaniumSword,"t","t","s",'t',titaniumIngot,'s',stick);
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.itemFabricator), "t t", "tat", "ddd", 't',
+				ironCasing, 'a', amplificationCrystal, 'd', darkStone));
+
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.quantumDisk), " e ", "tat", " e ", 'e',
+				enderCrystal, 't', titaniumIngot, 'a', blankCircuit));
+		
+		ItemHelper.addShapedOreRecipe(ModBlocks.storehouse, "tpt", "cqc", "gpg", 't', titaniumIngot, 'p',
+				advancedCircuit, 'q', quantumDisk, 'c', quibitCrystal, 'g', ironCasing);
+
+		ItemHelper.addShapedOreRecipe(ModItems.titaniumSword, "t", "t", "s", 't', titaniumIngot, 's', stick);
 
 		// battlesuit
-		GameRegistry.addRecipe(
-				new ShapedOreRecipe(new ItemStack(ModItems.battlesuit_plate), "gg", "gg", 'g', glowingMangalloy));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.battlesuit_plate), "mam", " t ", "mam", 'm',
+				mangalloy, 't', titaniumIngot, 'a', energizedCrystal));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(ModItems.battlesuit_helm, 0, false),
 				"mmm", "m m", 'm', battlesuite_plate));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(ModItems.battlesuit_chest, 0, false),
 				"m m", "mmm", "mmm", 'm', battlesuite_plate));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(ModItems.battlesuit_legs, 0, false),
 				"mmm", "m m", "m m", 'm', battlesuite_plate));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(ModItems.battlesuit_boots, 0, false),
 				"m m", "m m", 'm', battlesuite_plate));
+
+		// titaniumarmor
+		ItemHelper.addShapedOreRecipe(ModItems.titanium_helm, "ttt", "t t", 't', titaniumIngot);
+		ItemHelper.addShapedOreRecipe(ModItems.titanium_chest, "t t", "ttt", "ttt", 't', titaniumIngot);
+		ItemHelper.addShapedOreRecipe(ModItems.titanium_legs, "ttt", "t t", "t t", 't', titaniumIngot);
+		ItemHelper.addShapedOreRecipe(ModItems.titanium_boots, "t t", "t t", 't', titaniumIngot);
 
 		if (ConfigMan.zpe_enabled) {
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.zpe), "aza", "cqc", "mmm", 'm',

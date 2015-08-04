@@ -10,11 +10,18 @@ item.quibitCell.name=Quibit Cell
 item.energizedCrystal.name=EnergizedCrystal
 item.magnet.name= Item Magnet
 item.glowingMangalloy.name=Glowing Mangalloy
+
 item.battlesuit_helmet.name=Battlesuit Helmet
 item.battlesuit_chestplate.name=Battlesuit Chestplate
 item.battlesuit_leggings.name=Battlesuit Leggings
 item.battlesuit_boots.name=Battlesuit Boots
 item.battlesuit_plate.name=Battlesuit Plate
+
+item.titanium_helmet.name=Titanium Helmet
+item.titanium_chestplate.name=Titanium Chestplate
+item.titanium_leggings.name=Titanium Leggings
+item.titanium_boots.name=Titanium Boots
+
 item.upgradeToken.name=Upgrade Token
 item.eviscerator.name=Eviscerator
 item.eviscerator_head.name=Eviscerator Head
