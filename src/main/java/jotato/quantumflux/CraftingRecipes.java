@@ -106,7 +106,7 @@ public class CraftingRecipes {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.mangalloy), "sss", "srs", "sss", 's',
 				steelIngot, 'r', redstone));
 		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.zbq7), "rlr", "gdg", "rlr", 'r',
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.zbq7,2), "rlr", "gdg", "rlr", 'r',
 				redstoneBlock, 'l', lapisBlock, 'g', goldBlock, 'd', diamondBlock));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.rfEntangler), "czc", "mqm", "sss", 'm',

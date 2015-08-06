@@ -75,7 +75,7 @@ public class TileEntityImaginaryTime extends TileEntity implements IEnergyReceiv
 			int x = this.xCoord;
 			int y = this.yCoord;
 			int z = this.zCoord;
-			int range = ConfigMan.imaginaryTime_range;
+			int range = ConfigMan.imaginaryTime_range+1;
 			int passes = ConfigMan.imaginaryTime_tickIncrease;
 			Block block;
 			
