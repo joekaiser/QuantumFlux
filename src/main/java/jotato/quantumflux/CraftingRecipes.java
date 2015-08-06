@@ -169,7 +169,7 @@ public class CraftingRecipes {
 		ItemHelper.addShapedOreRecipe(ModItems.titaniumSword, "t", "t", "s", 't', titaniumIngot, 's', stick);
 
 		// battlesuit
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.battlesuit_plate), "mam", " t ", "mam", 'm',
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.battlesuit_plate,2), "mam", " t ", "mam", 'm',
 				mangalloy, 't', titaniumIngot, 'a', energizedCrystal));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(ItemBattleSuit.newArmorPiece(ModItems.battlesuit_helm, 0, false),
