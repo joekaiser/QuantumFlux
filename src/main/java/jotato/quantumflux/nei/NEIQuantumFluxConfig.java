@@ -39,8 +39,6 @@ public class NEIQuantumFluxConfig implements IConfigureNEI {
 
 	@Override
 	public void loadConfig() {
-		// todo: At some point after 1.3.0 hide the old quibit cluster's from
-		// NEI and the creative menu
 		loadRecipes();
 		API.registerRecipeHandler(itemFabricatorNEIHandler);
 		API.registerUsageHandler(itemFabricatorNEIHandler);
@@ -54,6 +52,7 @@ public class NEIQuantumFluxConfig implements IConfigureNEI {
 		API.hideItem(new ItemStack(ModItems.harmonicOscillator));
 		API.hideItem(new ItemStack(ModItems.titaniumPlate));
 		API.hideItem(new ItemStack(ModItems.goldCasing));
+		API.hideItem(new ItemStack(ModBlocks.storehouse));
 	}
 
 	private void loadRecipes() {
