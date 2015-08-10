@@ -109,7 +109,11 @@ public class TileEntityStorehouse extends TileEntity implements IInventory {
 
 		for (int i = 0; i < nbttaglist.tagCount(); ++i) {
 			NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
-			int j = nbttagcompound1.getInteger("Slot");
+			int j;
+			if (nbttagcompound1.hasKey("Slot")) // Compatibility check
+				j = nbttagcompound1.getByte("Slot") & 255;
+			else
+				j = nbttagcompound1.getInteger("SlotID");
 
 			if (j >= 0 && j < this.inventory.length) {
 				this.inventory[j] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
@@ -125,7 +129,7 @@ public class TileEntityStorehouse extends TileEntity implements IInventory {
 		for (int i = 0; i < this.inventory.length; ++i) {
 			if (this.inventory[i] != null) {
 				NBTTagCompound nbttagcompound1 = new NBTTagCompound();
-				nbttagcompound1.setInteger("Slot", i);
+				nbttagcompound1.setInteger("SlotID", i);
 				this.inventory[i].writeToNBT(nbttagcompound1);
 				nbttaglist.appendTag(nbttagcompound1);
 			}
