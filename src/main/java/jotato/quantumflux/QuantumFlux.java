@@ -14,11 +14,11 @@ import jotato.quantumflux.machine.entropyaccelerator.TileEntityEntropyAccelerato
 import jotato.quantumflux.machine.exciter.TileEntityRFExciter;
 import jotato.quantumflux.machine.fabricator.TileEntityItemFabricator;
 import jotato.quantumflux.machine.imaginarytime.TileEntityImaginaryTime;
+import jotato.quantumflux.machine.storehouse.TileEntityStorehouse;
 import jotato.quantumflux.machine.zpe.TileEntityZeroPointExtractor;
 import jotato.quantumflux.packets.PacketHandler;
 import jotato.quantumflux.proxy.CommonProxy;
 import jotato.quantumflux.redflux.RedfluxField;
-import jotato.quantumflux.storehouse.TileEntityStorehouse;
 import jotato.quantumflux.world.OreGenerator;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

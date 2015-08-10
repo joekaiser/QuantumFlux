@@ -163,8 +163,8 @@ public class CraftingRecipes {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.quantumDisk), " e ", "tat", " e ", 'e',
 				enderCrystal, 't', titaniumIngot, 'a', blankCircuit));
 		
-//		ItemHelper.addShapedOreRecipe(ModBlocks.storehouse, "tpt", "cqc", "gpg", 't', titaniumIngot, 'p',
-//				advancedCircuit, 'q', quantumDisk, 'c', quibitCrystal, 'g', ironCasing);
+		ItemHelper.addShapedOreRecipe(ModBlocks.storehouse, "tpt", "cqc", "gpg", 't', titaniumIngot, 'p',
+				advancedCircuit, 'q', quantumDisk, 'c', quibitCrystal, 'g', ironCasing);
 
 		ItemHelper.addShapedOreRecipe(ModItems.titaniumSword, "t", "t", "s", 't', titaniumIngot, 's', stick);
 

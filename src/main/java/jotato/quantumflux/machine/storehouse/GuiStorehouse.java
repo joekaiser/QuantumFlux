@@ -1,4 +1,4 @@
-package jotato.quantumflux.storehouse;
+package jotato.quantumflux.machine.storehouse;
 
 import java.util.ArrayList;
 import java.util.Collections;

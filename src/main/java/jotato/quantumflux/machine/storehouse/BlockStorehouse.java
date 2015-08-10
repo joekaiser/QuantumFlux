@@ -1,4 +1,4 @@
-package jotato.quantumflux.storehouse;
+package jotato.quantumflux.machine.storehouse;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

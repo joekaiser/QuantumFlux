@@ -1,4 +1,4 @@
-package jotato.quantumflux.storehouse;
+package jotato.quantumflux.machine.storehouse;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;

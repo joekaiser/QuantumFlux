@@ -1,4 +1,4 @@
-package jotato.quantumflux.storehouse;
+package jotato.quantumflux.machine.storehouse;
 
 import jotato.quantumflux.inventory.ContainerBase;
 import jotato.quantumflux.inventory.SlotSearchable;

@@ -12,9 +12,9 @@ import jotato.quantumflux.machine.entropyaccelerator.TileEntityEntropyAccelerato
 import jotato.quantumflux.machine.fabricator.ContainerItemFabricator;
 import jotato.quantumflux.machine.fabricator.GUIItemFabricator;
 import jotato.quantumflux.machine.fabricator.TileEntityItemFabricator;
-import jotato.quantumflux.storehouse.ContainerStorehouse;
-import jotato.quantumflux.storehouse.GuiStorehouse;
-import jotato.quantumflux.storehouse.TileEntityStorehouse;
+import jotato.quantumflux.machine.storehouse.ContainerStorehouse;
+import jotato.quantumflux.machine.storehouse.GuiStorehouse;
+import jotato.quantumflux.machine.storehouse.TileEntityStorehouse;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;

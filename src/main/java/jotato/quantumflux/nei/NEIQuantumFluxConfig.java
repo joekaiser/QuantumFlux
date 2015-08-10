@@ -52,7 +52,6 @@ public class NEIQuantumFluxConfig implements IConfigureNEI {
 		API.hideItem(new ItemStack(ModItems.harmonicOscillator));
 		API.hideItem(new ItemStack(ModItems.titaniumPlate));
 		API.hideItem(new ItemStack(ModItems.goldCasing));
-		API.hideItem(new ItemStack(ModBlocks.storehouse));
 	}
 
 	private void loadRecipes() {
