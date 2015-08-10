@@ -25,7 +25,7 @@ public class BlockItemFabricator extends BlockContainerBase {
 	protected IIcon icon_side;
 
 	public BlockItemFabricator() {
-		super(Material.iron, "itemFabricator", 1, "pickaxe", 0, ItemBlockItemFabricator.class);
+		super(Material.iron, "itemFabricator", 1, "pickaxe", 0,null);
 		setStepSound(soundTypeMetal);
 		setLightLevel(.3f);
 	}

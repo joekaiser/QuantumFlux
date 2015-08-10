@@ -118,13 +118,11 @@ public class TileEntityItemFabricator extends TileEntity implements IEnergyRecei
 
 	@Override
 	public void openInventory() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void closeInventory() {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -157,11 +155,13 @@ public class TileEntityItemFabricator extends TileEntity implements IEnergyRecei
 	}
 
 	private int getEnergyConsumedPerTick() {
-		return isAdvanced() ? 40 : 20;
+		return 20;
 	}
 
 	@Override
 	public void updateEntity() {
+
+		
 		if (canDoWork()) {
 			int toConsume = getEnergyConsumedPerTick();
 			int energyUsed = energyStorage.extractEnergy(toConsume, false);
@@ -298,7 +298,4 @@ public class TileEntityItemFabricator extends TileEntity implements IEnergyRecei
 		this.energyStorage.readFromNBT(energyTag);
 	}
 
-	private boolean isAdvanced() {
-		return false;
-	}
 }

@@ -23,7 +23,7 @@ public class GUIItemFabricator extends GuiContainer{
 
 	    private void setupDisplay()
 	    {
-	        this.displayName = StatCollector.translateToLocal("gui.molecularinfuser");
+	        this.displayName = StatCollector.translateToLocal("gui.itemFabricator");
 	    }
 
 	    @Override

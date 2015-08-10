@@ -77,7 +77,7 @@ gui.quibitCluster=Quibit Cluster (Level %d)
 gui.quibitClusterTransferRateInfinite=Infinite RF/Tick
 gui.quibitClusterTransferRate=%,d RF/Tick
 gui.quibitClusterMaxStorage=%,d MAX
-gui.molecularinfuser=Item Fabricator
+gui.itemFabricator=Item Fabricator
 gui.storehouse=Storehouse
 
 tooltip.capabilityFlight=Capability: Flight

@@ -15,7 +15,7 @@ item.battlesuit_chestplate.name=Боевой нагрудник
 item.battlesuit_leggings.name=Боевые поножи
 item.battlesuit_boots.name=Боевые ботинки
 item.battlesuit_plate.name=Пластина для боекомплекта
-item.upgradeToken.name=Жетон усиления 
+item.upgradeToken.name=Жетон усиления
 item.eviscerator.name=Потрошитель
 item.eviscerator_head.name=Обух Потрошителя
 item.eviscerator_rod.name=Стержень Потрошителя
@@ -65,7 +65,7 @@ gui.quibitCluster=Кластер Квибита (Уровень %d)
 gui.quibitClusterTransferRateInfinite=Бесконечный RF/Тик
 gui.quibitClusterTransferRate=%,d RF/Тик
 gui.quibitClusterMaxStorage=%,d МАКС
-gui.molecularinfuser=Создатель предметов
+gui.itemFabricator=Создатель предметов
 
 tooltip.capabilityFlight=Возможности: Полёт
 tooltip.capabilityMomentum=Возможности: Импульс
@@ -89,7 +89,7 @@ tooltip.accelerator.help=Извлекает немного энергии из �
 tooltip.accelerator.expanded=Может обеспечить %d RF/тик
 
 tooltip.rfexciter.help=Вытягивает энергию из RF-пространства
-tooltip.rfexciter.upgrade=Повышает мощность RF Резонатора 
+tooltip.rfexciter.upgrade=Повышает мощность RF Резонатора
 
 tooltip.imaginarytime.help=Управляет временем для ускорения роста растений
 tooltip.imaginarytime.requirements=Требует %d RF/тик за операцию
