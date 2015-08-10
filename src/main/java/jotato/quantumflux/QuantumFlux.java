@@ -12,6 +12,7 @@ import jotato.quantumflux.machine.cluster.TileEntityQuibitCluster_5;
 import jotato.quantumflux.machine.entangler.TileEntityRFEntangler;
 import jotato.quantumflux.machine.entropyaccelerator.TileEntityEntropyAccelerator;
 import jotato.quantumflux.machine.exciter.TileEntityRFExciter;
+import jotato.quantumflux.machine.fabricator.ItemFabricatorRecipeManager;
 import jotato.quantumflux.machine.fabricator.TileEntityItemFabricator;
 import jotato.quantumflux.machine.imaginarytime.TileEntityImaginaryTime;
 import jotato.quantumflux.machine.storehouse.TileEntityStorehouse;
@@ -101,7 +102,7 @@ public class QuantumFlux
     
     @EventHandler
     public void serverStarted(FMLServerStartedEvent event){
-
+    	ItemFabricatorRecipeManager.refreshRecipes();
     }
 
     public static CreativeTabs tab = new CreativeTabs("tabQuantumFlux") {
