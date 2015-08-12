@@ -30,6 +30,9 @@ public class TileEntityCreativeCluster extends TileEntity implements IEnergyProv
 
 	@Override
 	public void updateEntity() {
+		if (worldObj.isRemote)
+			return;
+
 		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 			int targetX = xCoord + dir.offsetX;
 			int targetY = yCoord + dir.offsetY;
