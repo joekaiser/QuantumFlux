@@ -122,6 +122,9 @@ public class TileEntityQuibitCluster extends TileEntity implements IEnergyHandle
 
 	@Override
 	public void updateEntity() {
+		if (worldObj.isRemote)
+			return;
+
 		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 			int targetX = xCoord + dir.offsetX;
 			int targetY = yCoord + dir.offsetY;

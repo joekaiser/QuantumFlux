@@ -161,7 +161,9 @@ public class TileEntityItemFabricator extends TileEntity implements IEnergyRecei
 	@Override
 	public void updateEntity() {
 
-		
+		if (worldObj.isRemote)
+			return;
+
 		if (canDoWork()) {
 			int toConsume = getEnergyConsumedPerTick();
 			int energyUsed = energyStorage.extractEnergy(toConsume, false);
