@@ -63,7 +63,7 @@ public class ModItems
 		quibitCrystal = new ItemBase("quibitCrystal");
 		manganese = new ItemBase("manganese").setCreativeTab(null);
 		mangalloy = new ItemBase("mangalloyIngot");
-		zbq7 = new ItemBase("zbq7").setMaxStackSize(1);
+		zbq7 = new ItemBase("zbq7").setMaxStackSize(16);
 		quibitCell = new ItemQuibitCell();
 		energizedCrystal = new ItemBase("energizedCrystal");
 		magnet = new ItemMagnet();
