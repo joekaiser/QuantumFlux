@@ -33,7 +33,7 @@ public class ItemBattleSuit extends ItemArmor implements IEnergyContainerItem, I
 	public static Map<EntityPlayer, Boolean> entitiesFlying = new WeakHashMap<EntityPlayer, Boolean>();
 	public static Map<EntityPlayer, Boolean> entitiesRunning = new WeakHashMap<EntityPlayer, Boolean>();
 
-	public static ArmorMaterial material = EnumHelper.addArmorMaterial("battleSuitMatieral", 33, new int[] { 4, 9, 7, 4 }, 50);
+	public static ArmorMaterial material = EnumHelper.addArmorMaterial("battleSuitMatieral", 33, new int[] { 3, 8, 6, 3 }, 50);
 	private static final String energy_tag = "Energy";
 	private int energyUsedPerDamageTaken =150;
 	public ItemBattleSuit(String name, int type)
