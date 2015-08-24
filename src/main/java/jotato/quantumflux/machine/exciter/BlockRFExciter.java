@@ -1,5 +1,8 @@
 package jotato.quantumflux.machine.exciter;
 
+import com.typesafe.config.Config;
+
+import codechicken.lib.math.MathHelper;
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.blocks.BlockBase;
 import jotato.quantumflux.items.ModItems;
@@ -18,30 +21,25 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class BlockRFExciter extends BlockBase
-{
+public class BlockRFExciter extends BlockBase {
 	public static int renderType;
 
-	public BlockRFExciter()
-	{
-		super(Material.circuits, "rfExciter", .25f, "pickaxe", 0,ItemBlockRFExciter.class);
+	public BlockRFExciter() {
+		super(Material.circuits, "rfExciter", .25f, "pickaxe", 0, ItemBlockRFExciter.class);
 		this.setBlockBounds(.15f, 0f, .15f, .85f, .12f, .85f);
 	}
-	
-	
+
 	@Override
 	protected String getTexture(String name) {
 		// TODO Auto-generated method stub
-		return super.getTexture("exciter/"+name);
+		return super.getTexture("exciter/" + name);
 	}
 
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
-	{
+	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
 		float minx = 0, miny = 0, minz = 0, maxx = 1, maxy = 1, maxz = 1;
 
-		switch (world.getBlockMetadata(x, y, z))
-		{
+		switch (world.getBlockMetadata(x, y, z)) {
 		case 1: // top (ypos)
 			maxx = .85f;
 			maxy = 1f;
@@ -105,29 +103,24 @@ public class BlockRFExciter extends BlockBase
 	public boolean hasTileEntity(int metadata) {
 		return true;
 	}
-	
+
 	@Override
 	public TileEntity createTileEntity(World world, int metadata) {
 		return new TileEntityRFExciter();
 	}
 
-
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack)
-	{
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack) {
 		super.onBlockPlacedBy(world, x, y, z, entity, itemStack);
 
-		if (entity instanceof EntityPlayer)
-		{
+		if (entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entity;
-			if (world.getTileEntity(x, y, z) instanceof TileEntityRFExciter)
-			{
+			if (world.getTileEntity(x, y, z) instanceof TileEntityRFExciter) {
 				TileEntityRFExciter te = (TileEntityRFExciter) world.getTileEntity(x, y, z);
 
 				// todo: allow the owner to unlock and prevent other from
 				// stealing the lock
-				if (te.owner == null)
-				{
+				if (te.owner == null) {
 					te.owner = player.getGameProfile().getId();
 				}
 
@@ -138,22 +131,19 @@ public class BlockRFExciter extends BlockBase
 	}
 
 	@Override
-	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
-	{
+	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta) {
 		return ForgeDirection.getOrientation(side).getOpposite().ordinal();
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_,
-			float p_149727_8_, float p_149727_9_)
-	{
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_,
+			float p_149727_7_, float p_149727_8_, float p_149727_9_) {
 
-		if (!world.isRemote && player.isSneaking())
-		{
+		if (!world.isRemote && player.isSneaking()) {
 			TileEntity entity = world.getTileEntity(x, y, z);
-			if (entity instanceof TileEntityRFExciter)
-			{
-				String used = String.format(StatCollector.translateToLocal("chat.rfExciterUsed"), ((TileEntityRFExciter) entity).lastEnergyUsed, ((TileEntityRFExciter) entity).getNetPower());
+			if (entity instanceof TileEntityRFExciter) {
+				String used = String.format(StatCollector.translateToLocal("chat.rfExciterUsed"),
+						((TileEntityRFExciter) entity).lastEnergyUsed, ((TileEntityRFExciter) entity).getNetPower());
 				player.addChatMessage(new ChatComponentText(EnumChatFormatting.LIGHT_PURPLE + used));
 			}
 		}
@@ -164,36 +154,31 @@ public class BlockRFExciter extends BlockBase
 	/**
 	 * called when an exciterUpgrade is r-clicked on the block
 	 *
-	 * @return true if successful
+	 * @return the number of upgrades applied
 	 */
-	public boolean addUpgrade(World world, int x, int y, int z, int count)
-	{
+	public int addUpgrade(World world, int x, int y, int z, int count) {
 		TileEntity entity = world.getTileEntity(x, y, z);
-		if (entity instanceof TileEntityRFExciter)
-		{
+		if (entity instanceof TileEntityRFExciter) {
 			TileEntityRFExciter exciter = (TileEntityRFExciter) entity;
-			if (exciter.upgradeCount + count <= ConfigMan.rfExciter_maxUpgrades)
-			{
-				exciter.upgradeCount += count;
-				exciter.markDirty();
-				return true;
-			}
+			int toApply = Math.min(count, ConfigMan.rfExciter_maxUpgrades - exciter.upgradeCount);
+
+			exciter.upgradeCount += toApply;
+			exciter.markDirty();
+			return toApply;
+
 		}
-		return false;
+		return 0;
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta)
-	{
+	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
 		// TODO Auto-generated method stub
 		TileEntity entity = world.getTileEntity(x, y, z);
-		if (entity instanceof TileEntityRFExciter)
-		{
+		if (entity instanceof TileEntityRFExciter) {
 			TileEntityRFExciter exciter = (TileEntityRFExciter) entity;
 			int upgrades = exciter.upgradeCount;
 
-			for (int i = 0; i < upgrades; i++)
-			{
+			for (int i = 0; i < upgrades; i++) {
 
 				float f = world.rand.nextFloat() * 0.6F + 0.1F;
 				float f1 = world.rand.nextFloat() * 0.6F + 0.1F;
@@ -215,38 +200,29 @@ public class BlockRFExciter extends BlockBase
 	}
 
 	@Override
-	public boolean renderAsNormalBlock()
-	{
+	public boolean renderAsNormalBlock() {
 		return false;
 	}
 
 	@Override
-	public boolean isOpaqueCube()
-	{
+	public boolean isOpaqueCube() {
 		return false;
 	}
 
 	@Override
-	public int getRenderType()
-	{
+	public int getRenderType() {
 		return renderType;
 	}
 
 	@Override
-	public boolean canRenderInPass(int pass)
-	{
+	public boolean canRenderInPass(int pass) {
 		ClientProxy.renderPass = pass;
 		return true;
 	}
 
-
-
 	@Override
-	public boolean isNormalCube()
-	{
+	public boolean isNormalCube() {
 		return false;
 	}
-
-
 
 }
