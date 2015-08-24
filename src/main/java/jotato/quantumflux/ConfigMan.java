@@ -28,6 +28,7 @@ public class ConfigMan
     
     public static int magnet_strength;
     public static boolean enableSteelRecipe;
+    public static boolean enableTitaniumGen;
     
     public static int battlesuit_maxEnergy;
     public static int battlesuit_chargeRate;
@@ -73,6 +74,7 @@ public class ConfigMan
         rfExciter_Efficiency = config.getFloat("rfExciter_efficiency", "redfluxField", .8f, .2f, 1f, "How Efficient the EF Exciter is with power. The lower the number, the less efficient it is");
         
         enableSteelRecipe = config.getBoolean("enableSteelRecipe", "misc", true, "If you don't want my vanilla-like steel recipe, set this to false. **WARNING** you will need another mod to provide steel under the 'ingotSteel' oredictionary name");
+        enableTitaniumGen = config.getBoolean("enableTitaniumGen", "misc", true, "If you don't want Titanium generated, set this to false. **WARNING** you will need another mod to provide Titanium under the 'oreTitanium' oredictionary name");
         magnet_strength = config.getInt("magnetStrength", "misc",5, 4, 14, "How far the magnet can reach");
         
         imaginaryTime_energyRequirement =config.getInt("energyRequirement", "imaginaryTime", 500, 50, 1000, "How much energy is used per work cycle. The higher the number the more RF must be pumped in before work will be done");
