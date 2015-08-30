@@ -11,6 +11,7 @@ import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 
 public class ItemMagnet extends ItemBase
@@ -66,12 +67,15 @@ public class ItemMagnet extends ItemBase
 			itemToGet.delayBeforeCanPickup = 50;
 
 			EntityItemPickupEvent pickupEvent = new EntityItemPickupEvent(player, itemToGet);
+			MinecraftForge.EVENT_BUS.post(pickupEvent);
 			ItemStack itemStackToGet = itemToGet.getEntityItem();
 			int stackSize = itemStackToGet.stackSize;
-
+			
+			
 			if (pickupEvent.getResult() == Result.ALLOW || stackSize <= 0 || player.inventory.addItemStackToInventory(itemStackToGet))
 			{
 
+			
 				player.onItemPickup(itemToGet, stackSize);
 
 				world.playSoundAtEntity(player, "random.pop", 0.15F,
