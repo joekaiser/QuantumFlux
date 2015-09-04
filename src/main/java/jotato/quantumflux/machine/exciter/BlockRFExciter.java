@@ -1,8 +1,5 @@
 package jotato.quantumflux.machine.exciter;
 
-import com.typesafe.config.Config;
-
-import codechicken.lib.math.MathHelper;
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.blocks.BlockBase;
 import jotato.quantumflux.items.ModItems;
