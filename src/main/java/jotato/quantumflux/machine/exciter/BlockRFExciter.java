@@ -1,16 +1,20 @@
 package jotato.quantumflux.machine.exciter;
 
+import java.util.List;
+
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.blocks.BlockBase;
 import jotato.quantumflux.items.ModItems;
 import jotato.quantumflux.proxy.ClientProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
@@ -23,13 +27,20 @@ public class BlockRFExciter extends BlockBase {
 
 	public BlockRFExciter() {
 		super(Material.circuits, "rfExciter", .25f, "pickaxe", 0, ItemBlockRFExciter.class);
-		this.setBlockBounds(.15f, 0f, .15f, .85f, .12f, .85f);
 	}
 
 	@Override
 	protected String getTexture(String name) {
 		// TODO Auto-generated method stub
 		return super.getTexture("exciter/" + name);
+	}
+
+	@SuppressWarnings("rawtypes")
+	@Override
+	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB mask, List list, Entity entity)
+	{
+		this.setBlockBoundsBasedOnState(world, x, y, z);
+		super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
 	}
 
 	@Override

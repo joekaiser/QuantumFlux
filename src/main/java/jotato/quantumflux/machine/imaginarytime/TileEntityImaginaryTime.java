@@ -79,9 +79,9 @@ public class TileEntityImaginaryTime extends TileEntity implements IEnergyReceiv
 			int passes = ConfigMan.imaginaryTime_tickIncrease;
 			Block block;
 			
-			for(int x2=x-range;x2<x+range; x2++)
+			for(int x2=x-range; x2<=x+range; x2++)
 			{
-				for(int z2=z-range;z2<z+range; z2++)
+				for(int z2=z-range; z2<=z+range; z2++)
 				{
 					for(int y2=y-2;y2<y+2; y2++)
 					{
