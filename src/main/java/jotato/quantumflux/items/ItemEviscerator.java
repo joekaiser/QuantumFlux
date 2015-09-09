@@ -42,6 +42,12 @@ public class ItemEviscerator extends ItemPickaxe implements IEnergyContainerItem
 
     }
 
+    @Override
+    public boolean isDamageable()
+    {
+        return true;
+    }
+
     @SuppressWarnings({ "rawtypes", "unchecked" })
     @Override
     public void getSubItems(Item item, CreativeTabs tab, List list)
