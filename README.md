@@ -20,7 +20,8 @@ Sure, please link [to this site](http://minecraft.curseforge.com/mc-mods/228609-
 
 Thanks to Team CoFH for a great [RF API](https://github.com/CoFH/RedstoneFlux-API)   
 Thanks to [SciguyRyan](https://twitter.com/sciguyryan) for ideas and being awesome  
-Thanks to [KingDaddyDMAC](http://www.youtube.com/user/kingdaddydmac) and [xBCrafted](http://www.youtube.com/user/xbxaxcx) for putting up with me bouncing ideas off you :)  
+Thanks to [KingDaddyDMAC](http://www.youtube.com/user/kingdaddydmac) and [xBCrafted](http://www.youtube.com/user/xbxaxcx) for putting up with me bouncing ideas off you :)
+Thanks to [FantasyTeddy](https://github.com/FantasyTeddy) for help with fixing bugs
 And most of all, a big THANK YOU to the community for all the support, feedback, and general awesomeness!
 
 
