@@ -54,21 +54,8 @@ public class TileEntityZeroPointExtractor extends TileEntity implements IEnergyP
 			return;
 		}
 
-		if (worldObj.getBlockPowerInput(xCoord, yCoord, zCoord) > 0)
-			return;
-
 		this.energy.receiveEnergy(Math.max(ConfigMan.zpe_maxPowerGen - this.yCoord, 1), false);
-		if(ConfigMan.zpe_doesDamage)
-		{
-			List<EntityLivingBase> theLiving = ModUtils.getEntitiesInRange(EntityLivingBase.class, worldObj, xCoord,yCoord,zCoord, ConfigMan.zpe_damageRange);
-			if(theLiving != null){
-				for(EntityLivingBase life:theLiving){
-					life.addPotionEffect(new PotionEffect(Potion.hunger.id,120,0));
-					life.addPotionEffect(new PotionEffect(Potion.weakness.id,120,0));
-					life.addPotionEffect(new PotionEffect(Potion.wither.id,80,0));
-				}
-			}
-		}
+
 		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
 		{
 			int targetX = xCoord + dir.offsetX;
@@ -84,6 +71,7 @@ public class TileEntityZeroPointExtractor extends TileEntity implements IEnergyP
 				{
 					int tosend = energy.extractEnergy(ConfigMan.zpe_maxPowerGen, true);
 					int used = ((IEnergyReceiver) tile).receiveEnergy(dir.getOpposite(), tosend, false);
+					//TODO: need this? It doesn't really *need* state saved
 					if (used > 0)
 					{
 						this.markDirty();
