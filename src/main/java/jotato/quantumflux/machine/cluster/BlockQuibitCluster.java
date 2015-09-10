@@ -1,5 +1,6 @@
 package jotato.quantumflux.machine.cluster;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cpw.mods.fml.relauncher.Side;
@@ -11,6 +12,7 @@ import jotato.quantumflux.gui.QFGuiHandler.GUI;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -73,6 +75,45 @@ public class BlockQuibitCluster extends BlockContainerBase {
 			float p9) {
 		player.openGui(QuantumFlux.instance, GUI.QUIBIT_CLUSTER.ordinal, world, x, y, z);
 		return true;
+	}
+
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack) {
+		if (itemStack != null && itemStack.getItem() instanceof ItemBlockQuibitCluster) {
+			ItemBlockQuibitCluster itemBlock = (ItemBlockQuibitCluster)itemStack.getItem();
+			TileEntityQuibitCluster tileEntity = (TileEntityQuibitCluster)world.getTileEntity(x, y, z);
+			tileEntity.setEnergyStored(itemBlock.getEnergyStored(itemStack));
+		}
+	}
+
+	@Override
+	public boolean removedByPlayer(World world, EntityPlayer player, int x, int y, int z, boolean willHarvest) {
+		if (willHarvest)
+			return true;
+		
+		return super.removedByPlayer(world, player, x, y, z, willHarvest);
+	}
+
+	@Override
+	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta) {
+		super.harvestBlock(world, player, x, y, z, meta);
+		world.setBlockToAir(x, y, z);
+	}
+
+	@Override
+	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+		
+		TileEntityQuibitCluster tileEntity = (TileEntityQuibitCluster)world.getTileEntity(x, y, z);
+		
+		Item item = getItemDropped(metadata, world.rand, fortune);
+		if (item != null && item instanceof ItemBlockQuibitCluster) {
+			ItemBlockQuibitCluster itemBlock = (ItemBlockQuibitCluster)item;
+			ItemStack itemStack = new ItemStack(itemBlock, 1, damageDropped(metadata));
+			itemBlock.setEnergyStored(itemStack, tileEntity.getEnergyStored(null));
+			ret.add(itemStack);
+		}
+		return ret;
 	}
 
 	@Override
