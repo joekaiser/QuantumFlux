@@ -85,6 +85,9 @@ public class TileEntityImaginaryTime extends TileEntity implements IEnergyReceiv
 				{
 					for(int y2=y-2;y2<y+2; y2++)
 					{
+						if(worldObj.rand.nextDouble()<.5){
+							continue;
+						}
 						block = worldObj.getBlock(x2, y2, z2);
 						if(block!=null)
 						{
