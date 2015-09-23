@@ -84,14 +84,16 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 		super.writeToNBT(tag);
 		
 		tag.setInteger("upgradeCount", upgradeCount);
-		tag.setInteger("direction",targetDirection.ordinal());
 		
-		if(owner ==null)
-		{
-			//ISSUE: #23. I don't see how owner is null, but if it is it makes no sense to even bother
-			return;
+		if(targetDirection!=null){
+			tag.setInteger("direction",targetDirection.ordinal());
 		}
-		tag.setString("owner", owner.toString());
+		
+		if(owner !=null)
+		{
+			tag.setString("owner", owner.toString());
+		}
+		
 		
 	}
 
