@@ -3,6 +3,7 @@ package jotato.quantumflux.machine.entangler;
 import java.util.UUID;
 
 import jotato.quantumflux.ConfigMan;
+import jotato.quantumflux.Logger;
 import jotato.quantumflux.redflux.IRedfluxProvider;
 import jotato.quantumflux.redflux.RedfluxField;
 import cofh.api.energy.EnergyStorage;
@@ -64,6 +65,11 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 	{
 		super.writeToNBT(tag);
 
+		if(owner==null){
+			//todo: I don't know how this happens, but it does. Probably on a server crash
+			return;
+		}
+		
 		NBTTagCompound energyTag = new NBTTagCompound();
 		this.storage.writeToNBT(energyTag);
 		tag.setTag("Energy", energyTag);
@@ -74,11 +80,16 @@ public class TileEntityRFEntangler extends TileEntity implements IEnergyReceiver
 	public void readFromNBT(NBTTagCompound tag)
 	{
 		super.readFromNBT(tag);
+		try{
 		NBTTagCompound energyTag = tag.getCompoundTag("Energy");
 		this.storage.readFromNBT(energyTag);
 		this.owner = UUID.fromString(tag.getString("owner"));
-
+		
 		registerWithField();
+		}
+		catch(Exception ex){
+			Logger.error("HEY YOU! An RF Entangler at %d, %d, %d has corrupt data. The owner needs to replace it", xCoord, yCoord, zCoord);
+		}
 	}
 
 	@Override

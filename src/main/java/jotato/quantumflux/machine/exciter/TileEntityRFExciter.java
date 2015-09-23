@@ -109,7 +109,7 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 		}
 		catch(Exception ex)
 		{
-			Logger.error("HEY YOU! There was an error when trying to load the exciter at %d %d %d. you will want to have the owner brake it and replace it. \r\n\r\n %s", xCoord, yCoord, zCoord, ex);
+			Logger.error("HEY YOU! An RF Exciter has corrupt data at %d, %d, %d. The owner will need to replace it.", xCoord, yCoord, zCoord, ex);
 			
 		}
 	}
