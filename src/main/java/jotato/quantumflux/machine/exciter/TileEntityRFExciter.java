@@ -3,6 +3,7 @@ package jotato.quantumflux.machine.exciter;
 import java.util.UUID;
 
 import jotato.quantumflux.ConfigMan;
+import jotato.quantumflux.Logger;
 import jotato.quantumflux.redflux.RedfluxField;
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
@@ -81,23 +82,34 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 	public void writeToNBT(NBTTagCompound tag)
 	{
 		super.writeToNBT(tag);
+		
+		tag.setInteger("upgradeCount", upgradeCount);
+		tag.setInteger("direction",targetDirection.ordinal());
+		
 		if(owner ==null)
 		{
 			//ISSUE: #23. I don't see how owner is null, but if it is it makes no sense to even bother
 			return;
 		}
 		tag.setString("owner", owner.toString());
-		tag.setInteger("direction",targetDirection.ordinal());
-		tag.setInteger("upgradeCount", upgradeCount);
+		
 	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound tag)
 	{
 		super.readFromNBT(tag);
-		this.owner = UUID.fromString(tag.getString("owner"));
-		this.targetDirection = ForgeDirection.getOrientation(tag.getInteger("direction"));
-		this.upgradeCount = tag.getInteger("upgradeCount");
+		try
+		{
+			this.owner = UUID.fromString(tag.getString("owner"));
+			this.targetDirection = ForgeDirection.getOrientation(tag.getInteger("direction"));
+			this.upgradeCount = tag.getInteger("upgradeCount");
+		}
+		catch(Exception ex)
+		{
+			Logger.error("HEY YOU! There was an error when trying to load the exciter at %d %d %d. you will want to have the owner brake it and replace it. \r\n\r\n %s", xCoord, yCoord, zCoord, ex);
+			
+		}
 	}
 
 	@Override
@@ -107,6 +119,10 @@ public class TileEntityRFExciter extends TileEntity implements IEnergyProvider
 
 		if (worldObj.isRemote)
 		{
+			return;
+		}
+		
+		if(targetDirection == null ||owner==null ){
 			return;
 		}
 
