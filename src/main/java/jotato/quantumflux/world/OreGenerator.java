@@ -14,6 +14,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.OreGenEvent;
+import net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable;
+import net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType;
 
 public class OreGenerator implements IWorldGenerator {
 
@@ -35,12 +37,13 @@ public class OreGenerator implements IWorldGenerator {
 			genOre(gen, world, random, chunkX * 16, chunkZ * 16);
 		}
 	}
+	
+
 
 	private void genOre(WorldGenInfo info, World world, Random random, int x, int z) {
 		
-		OreGenEvent event = new OreGenEvent(world, random, x, z);
-		MinecraftForge.EVENT_BUS.post(event);
-		
+		GenerateMinable  event = new GenerateMinable(world, random, info.generator, x, z, EventType.CUSTOM);
+		MinecraftForge.ORE_GEN_BUS.post(event);
 		if (event.isCanceled()){
 			return;
 		}
