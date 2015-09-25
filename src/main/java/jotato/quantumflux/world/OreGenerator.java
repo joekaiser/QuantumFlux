@@ -12,6 +12,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.terraingen.OreGenEvent;
 
 public class OreGenerator implements IWorldGenerator {
 
@@ -35,6 +37,14 @@ public class OreGenerator implements IWorldGenerator {
 	}
 
 	private void genOre(WorldGenInfo info, World world, Random random, int x, int z) {
+		
+		OreGenEvent event = new OreGenEvent(world, random, x, z);
+		MinecraftForge.EVENT_BUS.post(event);
+		
+		if (event.isCanceled()){
+			return;
+		}
+		
 		for (int i = 0; i < info.chances; i++) {
 			if (random.nextDouble() < info.rarity) {
 
