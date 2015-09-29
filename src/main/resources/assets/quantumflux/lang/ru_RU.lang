@@ -10,11 +10,18 @@ item.quibitCell.name=Квибит капсула
 item.energizedCrystal.name=Заряженный кристалл
 item.magnet.name=Притягиватель
 item.glowingMangalloy.name=Светящийся марганцевый сплав
+
 item.battlesuit_helmet.name=Боевой шлем
 item.battlesuit_chestplate.name=Боевой нагрудник
 item.battlesuit_leggings.name=Боевые поножи
 item.battlesuit_boots.name=Боевые ботинки
-item.battlesuit_plate.name=Пластина для боекомплекта
+item.battlesuit_plate.name=Боевая пластина
+
+item.titanium_helmet.name=Титановый шлем
+item.titanium_chestplate.name=Титановый нагрудник
+item.titanium_leggings.name=Титановые поножи
+item.titanium_boots.name=Титановые ботинки
+
 item.upgradeToken.name=Жетон усиления
 item.eviscerator.name=Потрошитель
 item.eviscerator_head.name=Обух Потрошителя
@@ -29,6 +36,8 @@ item.ingotTitanium.name=Титановый слиток
 item.mysticQuartz.name=Мистический кварц
 item.harmoicOscillator.name=Гармонический осциллятор
 item.enderCrystal.name=Кристал Эндера
+item.titaniumPlate.name=Титановая пластина
+item.titaniumSword.name=Титановый меч
 
 tile.entropyAccelerator.name=Ускоритель квантовой энтропии
 tile.quibitCluster_1.name=Кластер Квибита 1 ур.
@@ -44,15 +53,18 @@ tile.quibitCluster.3.name=Кластер Квибита 4 ур.
 tile.quibitCluster.4.name=Кластер Квибита 5 ур.
 
 tile.zeroPointExtractor.name=Экстрактор Нулевой Точки (ЭНТ)
-tile.rfEntangler.name=RF Улавливатель
+tile.rfEntangler.name=RF Распространитель
 tile.rfExciter.name=RF Резонатор
 tile.darkstone.name=Темнокамень
 tile.darkstone_lamp.name=Темнокаменная лампа
 tile.darkstone_pillar.name=Темнокаменная колонна
 tile.darkstone_tile.name=Темнокаменная плита
+tile.darkstone_ornate.name=Декоративный темнокамень
 tile.imaginaryTime.name=Блок Мнимого времени
 tile.itemFabricator.name=Создатель предметов
 tile.titaniumOre.name=Титановая руда
+tile.storehouse.name=Склад
+tile.creativeCluster.name=Креативный кластер
 
 itemGroup.tabQuantumFlux=QuantumFlux
 
@@ -66,6 +78,7 @@ gui.quibitClusterTransferRateInfinite=Бесконечный RF/Тик
 gui.quibitClusterTransferRate=%,d RF/Тик
 gui.quibitClusterMaxStorage=%,d МАКС
 gui.itemFabricator=Создатель предметов
+gui.storehouse=Склад
 
 tooltip.capabilityFlight=Возможности: Полёт
 tooltip.capabilityMomentum=Возможности: Импульс

@@ -12,11 +12,7 @@ Download from [CurseForge](http://www.curse.com/mc-mods/minecraft/228609-quantum
 ### Modpack Distribution
 Sure, please link [to this site](http://minecraft.curseforge.com/mc-mods/228609-quantumflux) though. A link to [my patreon](http://www.patreon.com/jotato) would be appriciated. Just don't be a jerk, make claims you can't back, or sell mod items on your server.
 
-### Developers & Credits
-
-**Lead Developer:** [Jotato](http://twitter.com/jotato)
-
-**Credits:**
+###Credits
 
 Thanks to Team CoFH for a great [RF API](https://github.com/CoFH/RedstoneFlux-API)   
 Thanks to [SciguyRyan](https://twitter.com/sciguyryan) for ideas and being awesome  
