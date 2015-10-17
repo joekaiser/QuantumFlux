@@ -53,9 +53,9 @@ public class BlockContainerBase extends BlockContainer
     {
     }
 
-    protected int determineOrientation(World world, int x, int y, int z, EntityLivingBase entity)
+    protected int determineOrientation(World world, int x, int y, int z, EntityLivingBase entity, boolean allowUpDown)
     {
-        if (MathHelper.abs((float) entity.posX - (float) x) < 2.0F && MathHelper.abs((float) entity.posZ - (float) z) < 2.0F)
+        if (MathHelper.abs((float) entity.posX - (float) x) < 2.0F && MathHelper.abs((float) entity.posZ - (float) z) < 2.0F && allowUpDown)
         {
             double d0 = entity.posY + 1.82D - (double) entity.yOffset;
 
@@ -75,19 +75,9 @@ public class BlockContainerBase extends BlockContainer
 
     }
 
-    protected int getOrientation(int meta, boolean allowUpDown)
+    protected int getOrientation(int meta)
     {
-        int value = meta & 7;
-
-        if (!allowUpDown)
-        {
-            if (value == 0 || value == 1)
-            {
-                // todo:determine which direction the player was facing
-                value = 3;
-            }
-        }
-        return value;
+        return meta & 7;
     }
 
     @Override
