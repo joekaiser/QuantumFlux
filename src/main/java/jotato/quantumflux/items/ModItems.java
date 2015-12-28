@@ -33,7 +33,6 @@ public class ModItems
     public static Item eviscerator_rod;
     public static Item eviscerator_head;
 	public static Item upgradeToken;
-	public static Item crystalizedRedstone;
 	public static Item exciterUpgrade;
 	public static Item silica;
 	public static Item blankCircuit;
@@ -72,7 +71,6 @@ public class ModItems
         eviscerator_head = new ItemBase("eviscerator_head");
         eviscerator_rod = new ItemBase("eviscerator_rod");
 		upgradeToken = new ItemBase("upgradeToken").setMaxStackSize(1);
-		crystalizedRedstone = new ItemBase("redstoneCrystal");
 		exciterUpgrade =new ItemExciterUpgrade();
 		silica = new ItemBase("silica");
 		blankCircuit = new ItemBase("blankCircuit");

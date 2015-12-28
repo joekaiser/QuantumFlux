@@ -21,7 +21,7 @@ public class ItemFabricatorRecipeManager {
 		addRecipe(new ItemStack(ModItems.silica), new ItemStack(Items.paper), new ItemStack(ModItems.blankCircuit));
 		addRecipe("ingotTitanium", new ItemStack(Items.quartz), new ItemStack(ModItems.mysticQuartz));
 		addRecipe(new ItemStack(ModItems.mysticQuartz), new ItemStack(ModItems.blankCircuit), new ItemStack(ModItems.advancedCircuit));
-		addRecipe(new ItemStack(Items.ender_pearl), new ItemStack(ModItems.crystalizedRedstone), new ItemStack(ModItems.enderCrystal));
+		addRecipe(new ItemStack(Items.ender_pearl), new ItemStack(Items.redstone), new ItemStack(ModItems.enderCrystal));
 	}
 	
 	public static Map<List<ComparableItemStack>, InfuserRecipe> getRecipes(){

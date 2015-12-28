@@ -48,7 +48,6 @@ public class CraftingRecipes {
 	ItemStack spiderEye = new ItemStack(Items.spider_eye);
 	ItemStack eviscerator_rod = new ItemStack(ModItems.eviscerator_rod);
 	ItemStack eviscerator_head = new ItemStack(ModItems.eviscerator_head);
-	ItemStack crystalizedRedstone = new ItemStack(ModItems.crystalizedRedstone);
 	ItemStack darkStone = new ItemStack(ModBlocks.darkstone);
 	ItemStack glowStoneDust = new ItemStack(Items.glowstone_dust);
 	ItemStack cobblestone = new ItemStack(Blocks.cobblestone);
@@ -134,7 +133,7 @@ public class CraftingRecipes {
 				eviscerator_rod, 'h', eviscerator_head));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.exciterUpgrade, 2), "cqc", "sss", 'c',
-				crystalizedRedstone, 'q', quibitCrystal, 's', darkStone));
+				redstone, 'q', quibitCrystal, 's', darkStone));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.darkstone, 8), "scs", "sis", "scs", 's',
 				stone, 'i', dyeBlack, 'c', cobblestone));
@@ -155,7 +154,7 @@ public class CraftingRecipes {
 				ironCasing, 'g', energizedCrystal, 'z', zbq7, 'm', mangalloy));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.harmonicOscillator), " r ", "g g", "eae", 'r',
-				crystalizedRedstone, 'g', goldIngot, 'e', enderCrystal, 'a', advancedCircuit));
+				redstone, 'g', goldIngot, 'e', enderCrystal, 'a', advancedCircuit));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.itemFabricator), "t t", "tat", "ddd", 't',
 				ironCasing, 'a', amplificationCrystal, 'd', darkStone));
@@ -197,7 +196,6 @@ public class CraftingRecipes {
 	}
 
 	private void furnaceRecipes() {
-		GameRegistry.addSmelting(redstone, new ItemStack(ModItems.crystalizedRedstone), 5);
 		GameRegistry.addSmelting(new ItemStack(ModBlocks.titaniumOre), new ItemStack(ModItems.titaniumIngot), 5);
 	}
 
