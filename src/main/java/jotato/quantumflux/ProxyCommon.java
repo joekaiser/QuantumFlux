@@ -1,6 +1,7 @@
 package jotato.quantumflux;
 
 import jotato.quantumflux.registers.BlockRegister;
+import jotato.quantumflux.registers.EventRegister;
 import jotato.quantumflux.registers.ItemRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.EntityPig;
@@ -32,10 +33,9 @@ public class ProxyCommon {
 	}
 	
 	public void registerTickHandlers() {
-		MinecraftForge.EVENT_BUS.register(this);
+		MinecraftForge.EVENT_BUS.register(new EventRegister());
 	}
-	
-	/*Events*/
+
 	
 
 }

@@ -21,6 +21,7 @@ public final class ItemRegister {
 		craftingPieces.addItem("quibitCrystal");
 		craftingPieces.addItem("goldCasing");
 		craftingPieces.addItem("amplificationCrystal");
+		craftingPieces.addItem("enderCrystal");
 		
 		magnet = new ItemMagnet();
 	}
