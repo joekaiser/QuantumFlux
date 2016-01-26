@@ -1,0 +1,9 @@
+{
+    "variants": {
+           "type=plain": { "model": "quantumflux:darkstone_plain"},
+           "type=lamp": { "model": "quantumflux:darkstone_lamp" },
+           "type=ornate": { "model": "quantumflux:darkstone_ornate" },
+            "type=tile": { "model": "quantumflux:darkstone_tile" }
+          
+    }
+}

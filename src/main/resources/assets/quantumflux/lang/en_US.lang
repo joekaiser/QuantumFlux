@@ -1,9 +1,9 @@
+itemGroup.tabQuantumFlux=QuantumFlux
+
 item.amplificationCrystal.name=Amplification Crystal
-item.ironCasing.name=Iron Casing
 item.steelIngot.name=Steel Ingot
 item.goldCasing.name=Gold Casing
 item.quibitCrystal.name=Quibit Crystal
-item.manganese.name=Manganese
 item.mangalloyIngot.name=Mangalloy
 item.zbq7.name=ZBQ-7
 item.quibitCell.name=Quibit Cell
@@ -39,74 +39,39 @@ item.enderCrystal.name=Ender Crystal
 item.titaniumPlate.name=Titanium Plate
 item.titaniumSword.name=Titanium Sword
 
-tile.entropyAccelerator.name=Quantum Entropy Accelerator
-tile.quibitCluster_1.name=Quibit Cluster Level 1
-tile.quibitCluster_2.name=Quibit Cluster Level 2
-tile.quibitCluster_3.name=Quibit Cluster Level 3
-tile.quibitCluster_4.name=Quibit Cluster Level 4
-tile.quibitCluster_5.name=Quibit Cluster Level 5
+tile.darkstone.plain.name=Darkstone
+tile.darkstone.lamp.name=Darkstone Lamp
+tile.darkstone.pillar.name=Darkstone Pillar
+tile.darkstone.tile.name=Darkstone Tile
+tile.darkstone.ornate.name=Decorative Darkstone
 
-tile.quibitCluster.0.name=Quibit Cluster Level 1
-tile.quibitCluster.1.name=Quibit Cluster Level 2
-tile.quibitCluster.2.name=Quibit Cluster Level 3
-tile.quibitCluster.3.name=Quibit Cluster Level 4
-tile.quibitCluster.4.name=Quibit Cluster Level 5
+tile.entropyAccelerator.name=Quantum Entropy Accelerator
+
+tile.quibitCluster.creative.name=Creative Quibit Cluster
+tile.quibitCluster.one.name=Quibit Cluster Level 1
+tile.quibitCluster.two.name=Quibit Cluster Level 2
+tile.quibitCluster.three.name=Quibit Cluster Level 3
+tile.quibitCluster.four.name=Quibit Cluster Level 4
+tile.quibitCluster.five.name=Quibit Cluster Level 5
 
 tile.zeroPointExtractor.name=Zero Point Extractor (ZPE)
+
+tile.imaginaryTime.name=Imaginary Time Block
+
 tile.rfEntangler.name=RF Entangler
 tile.rfExciter.name=RF Exciter
-tile.darkstone.name=Darkstone
-tile.darkstone_lamp.name=Darkstone Lamp
-tile.darkstone_pillar.name=Darkstone Pillar
-tile.darkstone_tile.name=Darkstone Tile
-tile.darkstone_ornate.name=Decorative Darkstone
-tile.imaginaryTime.name=Imaginary Time Block
+
+
 tile.itemFabricator.name=Item Fabricator
 tile.titaniumOre.name=Titanium Ore
 tile.storehouse.name=Storehouse
-tile.creativeCluster.name=Creative Cluster
 
-itemGroup.tabQuantumFlux=QuantumFlux
 
-chat.rfEntanglerStored=%,d RF available to the RedfluxField
-chat.rfEntanglerIn=%,d RF added
-chat.rfEntanglerOut=%,d RF used
-chat.rfExciterUsed=%1$,d RF used last tick (max: %2$,d)
 
-gui.quibitCluster=Quibit Cluster (Level %d)
-gui.quibitClusterTransferRateInfinite=Infinite RF/Tick
-gui.quibitClusterTransferRate=%,d RF/Tick
-gui.quibitClusterMaxStorage=%,d MAX
-gui.itemFabricator=Item Fabricator
-gui.storehouse=Storehouse
+chat.rfStored=%s RF in reserve
+chat.rfStored.max= (%s capacity)
 
-tooltip.capabilityFlight=Capability: Flight
-tooltip.capabilityMomentum=Capability: Momentum
-tooltip.capabilityStrength=Capability: Strength
-tooltip.capabilityVisibility=Capability: Visibility
-tooltip.charge=Charge: %,d
 
-tooltip.showDetails=Press SHIFT for more
 
-tooltip.quibitcluster.deprecated=Deprecated. Place in a crafting grid to get the new one
-tooltip.quibitcluster.help=Stores RF to be used later
-tooltip.quibitcluster.capacity=Can hold %d RF
-tooltip.quibitcluster.transfer=Transfers %d RF/tick
 
-tooltip.entangler.help=Provides power to the RedfluxField
-tooltip.entangler.buffer=Has an internal buffer of %d
-tooltip.entangler.output=Provides an infinite amount of RF/tick
-tooltip.entangler.efficiency=Has an efficiency of %d percent
-
-tooltip.accelerator.help=Converts matter to a little bit of energy
-tooltip.accelerator.expanded=Can provide %d RF/tick
-
-tooltip.rfexciter.help=Pulls RF from the RedfluxField
-tooltip.rfexciter.upgrade=Add Exciter Upgrades for additional power 
-
-tooltip.imaginarytime.help=Manipulates time to increase the growth of crops
-tooltip.imaginarytime.requirements=Requires %d RF/tick to operate
-
-tooltip.zpe.help=Generates RF from a localized region of SpaceTime
-tooltip.zpe.help2=It works better at low altitudes 
 
