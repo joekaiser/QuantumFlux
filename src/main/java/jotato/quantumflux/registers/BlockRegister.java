@@ -6,6 +6,8 @@ import jotato.quantumflux.blocks.darkstone.BlockDarkstone;
 import jotato.quantumflux.machines.cluster.BlockQuibitCluster;
 import jotato.quantumflux.machines.cluster.TileCreativeCluster;
 import jotato.quantumflux.machines.cluster.TileQuibitCluster;
+import jotato.quantumflux.machines.entangler.BlockRFEntangler;
+import jotato.quantumflux.machines.entangler.TileRFEntangler;
 import jotato.quantumflux.machines.entropyaccelerator.BlockEntropyAccelerator;
 import jotato.quantumflux.machines.entropyaccelerator.TileEntropyAccelerator;
 import jotato.quantumflux.machines.imaginarytime.BlockImaginaryTime;
@@ -23,6 +25,7 @@ public final class BlockRegister {
 	public static BlockBase entropyAccelerator;
 	public static BlockBase quibitCluster;
 	public static BlockBase darkstone;
+	public static BlockBase rfEntangler;
 
 	public static void init() {
 		imaginaryTime = new BlockImaginaryTime();
@@ -30,6 +33,7 @@ public final class BlockRegister {
 		entropyAccelerator = new BlockEntropyAccelerator();
 		quibitCluster = new BlockQuibitCluster();
 		darkstone = new BlockDarkstone();
+		rfEntangler = new BlockRFEntangler();
 		
 		initTileEntities();
 	}
@@ -41,6 +45,7 @@ public final class BlockRegister {
 		GameRegistry.registerTileEntity(TileEntropyAccelerator.class, "QFTILE_entropyAccelerator");
 		GameRegistry.registerTileEntity(TileQuibitCluster.class, "QFTILE_quibitCluster");
 		GameRegistry.registerTileEntity(TileCreativeCluster.class, "QFTILE_creativeCluster");
+		GameRegistry.registerTileEntity(TileRFEntangler.class, "QFTILE_rfEntnagler");
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -51,5 +56,6 @@ public final class BlockRegister {
 		entropyAccelerator.initModel();
 		quibitCluster.initModel();
 		darkstone.initModel();
+		rfEntangler.initModel();
 	}
 }

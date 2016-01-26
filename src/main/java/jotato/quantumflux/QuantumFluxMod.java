@@ -51,7 +51,7 @@ public class QuantumFluxMod {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem() {
-			return ItemRegister.magnet;
+			return ItemRegister.craftingPieces.getSubItem("quibitCrystal").getItem();
 		}
 	};
 

@@ -63,7 +63,7 @@ public class ConfigMan
         zpe_particles = config.getBoolean("particles", "zeroPointExtractor", true, "Enable particle effect");
         zpe_enabled= config.getBoolean("enabled", "zeroPointExtractor", true, "Enable the Zero Point Extractor. The block is still registered, you just can't craft it.");
         
-        redfluxField_buffer = config.getInt("buffer", "redfluxField", 2500000, 100000, Integer.MAX_VALUE, "The internal storage of each player's field");
+        redfluxField_buffer = config.getInt("buffer", "redfluxField", 50000, 50000, 1000000, "The internal storage of each player's field");
         rfExciter1_output = config.getInt("rfExciter_baseOutput", "redfluxField", 100, 100, 1000, "The output without any upgrades");
         quibitcell_output = config.getInt("quibitCell_output", "redfluxField", 100, 100, 500, "How much rf/tick the quibit cell can charge per item");
         rfExciter_maxUpgrades = config.getInt("rfExciter_maxUpgrades", "redfluxField", 640, 100, 1000, "How many upgrades can be applied to an Exciter");

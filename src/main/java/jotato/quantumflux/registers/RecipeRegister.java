@@ -147,6 +147,11 @@ public class RecipeRegister {
 					"qcq",
 					"ggg", 'g',goldCasing,'e',enderCrystal,'q',quibitCrystal,'c',quibitCluster2);
 			
+			addShapedOreRecipe(true, BlockRegister.rfEntangler,
+					"qsq",
+					"xax",
+					"ccc", 'q',quibitCrystal,'s',netherStar,'x',advancedCircuit,'a',quibitCluster1,'c',goldCasing);
+			
 		}
 
 		private void shapelessRecipes() {
