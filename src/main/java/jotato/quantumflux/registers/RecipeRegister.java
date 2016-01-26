@@ -145,12 +145,7 @@ public class RecipeRegister {
 			addShapedOreRecipe(ConfigMan.zpe_enabled, BlockRegister.zeroPointExtractor,
 					"geg",
 					"qcq",
-					"ggg", 'q',goldCasing,'e',enderCrystal,'q',quibitCrystal,'c',quibitCluster2);
-					
-			
-			
-
-		
+					"ggg", 'g',goldCasing,'e',enderCrystal,'q',quibitCrystal,'c',quibitCluster2);
 			
 		}
 
