@@ -35,16 +35,16 @@ public class ItemCraftingPiece extends ItemBase {
 		super("craftingPiece");
 		this.setHasSubtypes(true);
 	}
-	
+
 	@Override
 	public void initModel() {
-		
-		for(SubItem item : subItemList){
-			Logger.info("    Registering model for %s",item.name);
-			ModelLoader.setCustomModelResourceLocation(this, item.meta, new ModelResourceLocation(QuantumFluxMod.TEXTURE_BASE+item.name, "inventory"));
+
+		for (SubItem item : subItemList) {
+			Logger.info("    Registering model for %s", item.name);
+			ModelLoader.setCustomModelResourceLocation(this, item.meta,
+					new ModelResourceLocation(QuantumFluxMod.TEXTURE_BASE + item.name, "inventory"));
 		}
 	}
-	
 
 	public ItemStack addItem(String name, String oreDictName) {
 
@@ -84,11 +84,15 @@ public class ItemCraftingPiece extends ItemBase {
 	}
 
 	public ItemStack getSubItem(String name) {
+		return getSubItem(name, 1);
+	}
+
+	public ItemStack getSubItem(String name, int amount) {
 		if (subItemMap.containsKey(name)) {
 			int meta = subItemMap.get(name).meta;
-			return new ItemStack(this, 1, meta);
+			return new ItemStack(this, amount, meta);
 		}
-		return new ItemStack(Items.apple);
+		return new ItemStack(Items.apple, amount);
 	}
 
 	@Override

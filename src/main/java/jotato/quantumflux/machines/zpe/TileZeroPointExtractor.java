@@ -8,6 +8,7 @@ import jotato.quantumflux.blocks.TileBase;
 import jotato.quantumflux.helpers.BlockHelpers;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 
@@ -47,11 +48,9 @@ public class TileZeroPointExtractor extends TileBase implements IEnergyProvider,
 		this.energy.receiveEnergy(Math.max(ConfigMan.zpe_maxPowerGen - getPos().getY(), 1), false);
 
 		for (EnumFacing dir : EnumFacing.values()) {
-			int targetX = getPos().getX() + dir.getFrontOffsetX();
-			int targetY = getPos().getY() + dir.getFrontOffsetY();
-			int targetZ = getPos().getZ() + dir.getFrontOffsetZ();
+			BlockPos targetBlock = getPos().add(dir.getDirectionVec());
 
-			TileEntity tile = worldObj.getTileEntity(BlockHelpers.getBlockPosFromXYZ(targetX, targetY, targetZ));
+			TileEntity tile = worldObj.getTileEntity(targetBlock);
 			if (tile instanceof IEnergyReceiver) {
 				IEnergyReceiver receiver = (IEnergyReceiver) tile;
 

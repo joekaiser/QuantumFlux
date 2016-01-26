@@ -96,28 +96,34 @@ public class BlockQuibitCluster extends BlockBase implements ITileEntityProvider
 	public static QuibitClusterSettings getQuibitClusterSettings(ItemStack item) {
 		return new QuibitClusterSettings(item.getItemDamage());
 	}
-	
+
 	public static QuibitClusterSettings getQuibitClusterSettings(int level) {
 		return new QuibitClusterSettings(level);
 	}
 
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
+		if (meta == 0) {
+			return new TileCreativeCluster();
+		}
 		return new TileQuibitCluster(getQuibitClusterSettings(meta));
 	}
-	
+
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
 			EnumFacing side, float hitX, float hitY, float hitZ) {
-		
-		if(worldIn.isRemote) return false;
 
-		TileQuibitCluster te = (TileQuibitCluster) worldIn.getTileEntity(pos);
+		if (worldIn.isRemote)
+			return false;
 
-		BlockHelpers.BroadcastRFStored(playerIn, (IEnergyProvider)te);
+		TileEntity te = worldIn.getTileEntity(pos);
 
-		return true;
-		
+		if (te instanceof IEnergyProvider) {
+			BlockHelpers.BroadcastRFStored(playerIn, (IEnergyProvider) te);
+			return true;
+		}
+		return false;
+
 	}
 
 }

@@ -4,6 +4,8 @@ import jotato.quantumflux.Logger;
 import jotato.quantumflux.blocks.BlockBase;
 import jotato.quantumflux.blocks.darkstone.BlockDarkstone;
 import jotato.quantumflux.machines.cluster.BlockQuibitCluster;
+import jotato.quantumflux.machines.cluster.TileCreativeCluster;
+import jotato.quantumflux.machines.cluster.TileQuibitCluster;
 import jotato.quantumflux.machines.entropyaccelerator.BlockEntropyAccelerator;
 import jotato.quantumflux.machines.entropyaccelerator.TileEntropyAccelerator;
 import jotato.quantumflux.machines.imaginarytime.BlockImaginaryTime;
@@ -34,9 +36,11 @@ public final class BlockRegister {
 
 	private static void initTileEntities() {
 		Logger.info("Registering TileEntities");
-		GameRegistry.registerTileEntity(TileImaginaryTime.class, "QFTILEimaginaryTime");
-		GameRegistry.registerTileEntity(TileZeroPointExtractor.class, "QFTILEzeroPointExtractor");
-		GameRegistry.registerTileEntity(TileEntropyAccelerator.class, "QFTILEentropyAccelerator");
+		GameRegistry.registerTileEntity(TileImaginaryTime.class, "QFTILE_imaginaryTime");
+		GameRegistry.registerTileEntity(TileZeroPointExtractor.class, "QFTILE_zeroPointExtractor");
+		GameRegistry.registerTileEntity(TileEntropyAccelerator.class, "QFTILE_entropyAccelerator");
+		GameRegistry.registerTileEntity(TileQuibitCluster.class, "QFTILE_quibitCluster");
+		GameRegistry.registerTileEntity(TileCreativeCluster.class, "QFTILE_creativeCluster");
 	}
 
 	@SideOnly(Side.CLIENT)

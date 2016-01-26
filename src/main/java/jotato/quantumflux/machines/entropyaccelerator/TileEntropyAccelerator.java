@@ -88,7 +88,7 @@ public class TileEntropyAccelerator extends TileSimpleInventory implements IEner
 			}
 
 			for (EnumFacing dir : EnumFacing.values()) {
-				BlockPos targetBlock = new BlockPos(dir.getDirectionVec());
+				BlockPos targetBlock = getPos().add(dir.getDirectionVec());
 
 				TileEntity tile = worldObj.getTileEntity(targetBlock);
 				if (tile instanceof IEnergyReceiver) {

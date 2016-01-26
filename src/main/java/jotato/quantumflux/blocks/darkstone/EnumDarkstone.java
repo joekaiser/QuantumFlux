@@ -55,6 +55,10 @@ public enum EnumDarkstone implements IStringSerializable
   }
   
   public static ItemStack getDarkstoneType(EnumDarkstone type){
-	  return new ItemStack(BlockRegister.darkstone,1,type.meta);
+	  return getDarkstoneType(type,1);
+  }
+  
+  public static ItemStack getDarkstoneType(EnumDarkstone type, int amount){
+	  return new ItemStack(BlockRegister.darkstone,amount,type.meta);
   }
 }

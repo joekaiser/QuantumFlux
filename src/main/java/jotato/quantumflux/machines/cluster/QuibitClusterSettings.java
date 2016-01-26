@@ -23,6 +23,7 @@ public class QuibitClusterSettings{
 	}
 	
 	public String getTransferRateFormatted(){
+		
 		if(level==5){
 			return "Infinite";
 		}

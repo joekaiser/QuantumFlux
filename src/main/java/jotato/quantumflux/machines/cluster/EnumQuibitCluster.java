@@ -1,5 +1,7 @@
 package jotato.quantumflux.machines.cluster;
 
+import jotato.quantumflux.registers.BlockRegister;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 
 public enum EnumQuibitCluster implements IStringSerializable
@@ -52,5 +54,9 @@ public enum EnumQuibitCluster implements IStringSerializable
     for (EnumQuibitCluster level : values()) {
       META_LOOKUP[level.getMetadata()] = level;
     }
+  }
+  
+  public static ItemStack getQuibitClusterFromType(EnumQuibitCluster type){
+	  return new ItemStack(BlockRegister.quibitCluster,1,type.meta);
   }
 }

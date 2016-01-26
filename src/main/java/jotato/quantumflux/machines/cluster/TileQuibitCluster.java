@@ -80,7 +80,7 @@ public class TileQuibitCluster extends TileBase implements IEnergyHandler, ITick
 			return;
 
 		for (EnumFacing dir : EnumFacing.values()) {
-			BlockPos targetBlock = new BlockPos(dir.getDirectionVec());
+			BlockPos targetBlock = getPos().add(dir.getDirectionVec());
 
 			TileEntity tile = worldObj.getTileEntity(targetBlock);
 			if (tile instanceof TileQuibitCluster)
@@ -90,7 +90,7 @@ public class TileQuibitCluster extends TileBase implements IEnergyHandler, ITick
 
 				if (receiver.canConnectEnergy(dir.getOpposite())) {
 					int tosend = localEnergyStorage.extractEnergy(ConfigMan.incinerator_output, true);
-					int used = ((IEnergyReceiver) tile).receiveEnergy(dir.getOpposite(), tosend, false);
+					int used = receiver.receiveEnergy(dir.getOpposite(), tosend, false);
 					if (used > 0) {
 						this.markDirty();
 					}
