@@ -24,6 +24,8 @@ public final class ItemRegister {
 		craftingPieces.addItem("goldCasing");
 		craftingPieces.addItem("amplificationCrystal");
 		craftingPieces.addItem("enderCrystal");
+		craftingPieces.addItem("quantumDisk");
+		craftingPieces.addItem("advancedCircuit");
 		
 		magnet = new ItemMagnet();
 		exciterUpgrade = new ItemExciterUpgrade();
