@@ -13,16 +13,20 @@ public class RecipeRegister {
 	// vanilla resources
 		String ingotIron = "ingotIron";
 		String ingotGold = "ingotGold";
+		String nuggetGold = "nuggetGold";
 		ItemStack redstone = new ItemStack(Items.redstone);
 		ItemStack quartz = new ItemStack(Items.quartz);
 		ItemStack diamond = new ItemStack(Items.diamond);
 		ItemStack enderPearl = new ItemStack(Items.ender_pearl);
+		ItemStack paper = new ItemStack(Items.paper);
 
 		//modItems
 		ItemStack goldCasing = ItemRegister.craftingPieces.getSubItem("goldCasing");
 		ItemStack amplificationCrystal = ItemRegister.craftingPieces.getSubItem("amplificationCrystal");
 		ItemStack quibitCrystal = ItemRegister.craftingPieces.getSubItem("quibitCrystal");
 		ItemStack enderCrystal = ItemRegister.craftingPieces.getSubItem("enderCrystal");
+		ItemStack quantumDisk = ItemRegister.craftingPieces.getSubItem("quantumDisk");
+		ItemStack advancedCircuit = ItemRegister.craftingPieces.getSubItem("advancedCircuit");
 		ItemStack darkstone = EnumDarkstone.getDarkstoneType(EnumDarkstone.plain);
 		
 
@@ -53,6 +57,18 @@ public class RecipeRegister {
 			addShapedOreRecipe(true, enderPearl,
 					"ee",
 					"ee" ,'e',enderCrystal);
+			
+			addShapedOreRecipe(true, advancedCircuit,
+					"grg",
+					"eee",
+					"ppp" ,'g', nuggetGold,'r',redstone,'e',enderCrystal,'p',paper);
+			
+			addShapedOreRecipe(true, ItemRegister.magnet,
+					"e e",
+					"a a",
+					"iii", 'e', enderCrystal,'a',amplificationCrystal,'i',ingotIron);
+			
+			
 
 		
 			
