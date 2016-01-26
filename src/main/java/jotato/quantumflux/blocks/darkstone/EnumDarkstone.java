@@ -1,5 +1,7 @@
 package jotato.quantumflux.blocks.darkstone;
 
+import jotato.quantumflux.registers.BlockRegister;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 
 public enum EnumDarkstone implements IStringSerializable
@@ -50,5 +52,9 @@ public enum EnumDarkstone implements IStringSerializable
     for (EnumDarkstone level : values()) {
       META_LOOKUP[level.getMetadata()] = level;
     }
+  }
+  
+  public static ItemStack getDarkstoneType(EnumDarkstone type){
+	  return new ItemStack(BlockRegister.darkstone,1,type.meta);
   }
 }
