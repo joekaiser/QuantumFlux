@@ -6,6 +6,7 @@ import jotato.quantumflux.items.ItemBase;
 import jotato.quantumflux.items.ItemCraftingPiece;
 import jotato.quantumflux.items.ItemExciterUpgrade;
 import jotato.quantumflux.items.ItemMagnet;
+import jotato.quantumflux.items.ItemQuibitCell;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
@@ -17,6 +18,7 @@ public final class ItemRegister {
 	public static ItemCraftingPiece craftingPieces;
 	public static ItemBase magnet;
 	public static ItemBase exciterUpgrade;
+	public static ItemBase quibitCell;
 	
 	public static void init() {
 		craftingPieces = new ItemCraftingPiece();
@@ -29,6 +31,7 @@ public final class ItemRegister {
 		
 		magnet = new ItemMagnet();
 		exciterUpgrade = new ItemExciterUpgrade();
+		quibitCell = new ItemQuibitCell();
 	}
 
 	public static void registerRenders() {
@@ -37,6 +40,7 @@ public final class ItemRegister {
 		craftingPieces.initModel();
 		magnet.initModel();
 		exciterUpgrade.initModel();
+		quibitCell.initModel();
 
 	}
 

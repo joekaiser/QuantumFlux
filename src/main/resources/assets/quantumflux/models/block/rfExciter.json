@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"particle": "quantumflux:blocks/exciter/_block",
+        "down":  "quantumflux:blocks/exciter/_block",
+        "up":  "quantumflux:blocks/exciter/_block",
+        "east":  "quantumflux:blocks/exciter/_block",
+        "west": "quantumflux:blocks/exciter/_block",
+        "north": "quantumflux:blocks/exciter/_block",
+        "south":  "quantumflux:blocks/exciter/_block"
+	}
+}
