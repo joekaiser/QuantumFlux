@@ -31,6 +31,8 @@ public final class BlockRegister {
 	public static BlockBase rfExciter;
 
 	public static void init() {
+		initTileEntities();
+		
 		imaginaryTime = new BlockImaginaryTime();
 		zeroPointExtractor = new BlockZeroPointExtractor();
 		entropyAccelerator = new BlockEntropyAccelerator();
@@ -39,7 +41,7 @@ public final class BlockRegister {
 		rfEntangler = new BlockRFEntangler();
 		rfExciter = new BlockRFExciter();
 		
-		initTileEntities();
+		
 	}
 
 	private static void initTileEntities() {

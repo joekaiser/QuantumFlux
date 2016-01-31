@@ -1,7 +1,7 @@
 {
 	"parent": "builtin/generated",
 	"textures": {
-		"layer0": "quantumflux:items/goldcasing"
+		"layer0": "quantumflux:items/goldCasing"
 	},
 	"display": {
 		"thirdperson": {

@@ -152,6 +152,10 @@ public class RecipeRegister {
 					"xax",
 					"ccc", 'q',quibitCrystal,'s',netherStar,'x',advancedCircuit,'a',quibitCluster1,'c',goldCasing);
 			
+			addShapedOreRecipe(true, BlockRegister.rfExciter,
+					"qeq",
+					"cqc",'q',quibitCrystal,'e',enderCrystal,'c',goldCasing);
+			
 		}
 
 		private void shapelessRecipes() {
