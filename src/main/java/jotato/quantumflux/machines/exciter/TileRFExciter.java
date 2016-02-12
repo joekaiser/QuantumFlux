@@ -126,7 +126,7 @@ public class TileRFExciter extends TileEntity implements IEnergyProvider, ITicka
 		}
 		
 		if(targetDirection == null){
-			targetDirection = worldObj.getBlockState(getPos()).getValue(BlockHelpers.FACING).getOpposite();
+			targetDirection = worldObj.getBlockState(getPos()).getValue(BlockHelpers.FACING);
 		}
 
 		BlockPos targetBlock = getPos().add(targetDirection.getDirectionVec());
