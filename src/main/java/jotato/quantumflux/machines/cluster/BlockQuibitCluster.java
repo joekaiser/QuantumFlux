@@ -116,13 +116,7 @@ public class BlockQuibitCluster extends BlockBase implements ITileEntityProvider
 		if (worldIn.isRemote)
 			return false;
 
-		TileEntity te = worldIn.getTileEntity(pos);
-
-		if (te instanceof IEnergyProvider) {
-			BlockHelpers.BroadcastRFStored(playerIn, (IEnergyProvider) te);
-			return true;
-		}
-		return false;
+		return BlockHelpers.BroadcastRFStored(playerIn, worldIn.getTileEntity(pos));
 
 	}
 

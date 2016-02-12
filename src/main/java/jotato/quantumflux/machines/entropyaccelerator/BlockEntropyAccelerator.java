@@ -52,12 +52,9 @@ public class BlockEntropyAccelerator extends BlockBase implements ITileEntityPro
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
 			EnumFacing side, float hitX, float hitY, float hitZ) {
 		
-		if(worldIn.isRemote) return false;
+		if (worldIn.isRemote)
+			return false;
 
-		TileEntropyAccelerator te = (TileEntropyAccelerator) worldIn.getTileEntity(pos);
-
-		BlockHelpers.BroadcastRFStored(playerIn, te);
-
-		return true;
+		return BlockHelpers.BroadcastRFStored(playerIn, worldIn.getTileEntity(pos));
 	}
 }
