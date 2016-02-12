@@ -1,7 +1,7 @@
 package jotato.quantumflux.machines.cluster;
 
 import cofh.api.energy.EnergyStorage;
-import cofh.api.energy.IEnergyHandler;
+import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.blocks.TileBase;
@@ -13,7 +13,7 @@ import net.minecraft.util.ITickable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class TileQuibitCluster extends TileBase implements IEnergyHandler, ITickable {
+public class TileQuibitCluster extends TileBase implements IEnergyProvider, IEnergyReceiver, ITickable {
 	protected EnergyStorage localEnergyStorage;
 	private int transferRate;
 	private int capacity;
