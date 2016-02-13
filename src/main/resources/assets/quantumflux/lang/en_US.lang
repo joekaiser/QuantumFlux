@@ -70,7 +70,7 @@ tile.storehouse.name=Storehouse
 
 chat.rfStored=%s RF in reserve
 chat.rfStored.max= (%s capacity)
-
+chat.rfExciter.maxTransfer=%s maximum transfer
 
 
 
