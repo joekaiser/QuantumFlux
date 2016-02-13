@@ -1,10 +1,12 @@
 package jotato.quantumflux.machines.exciter;
 
 import jotato.quantumflux.ConfigMan;
+import jotato.quantumflux.Logger;
 import jotato.quantumflux.blocks.BlockBase;
 import jotato.quantumflux.helpers.BlockHelpers;
 import jotato.quantumflux.registers.ItemRegister;
 import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -26,9 +28,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockRFExciter extends BlockBase implements ITileEntityProvider {
 
 	public BlockRFExciter() {
-		super("rfExciter");
+		super(Material.circuits,"rfExciter");
 		setDefaultState(blockState.getBaseState().withProperty(BlockHelpers.FACING, EnumFacing.NORTH));
-
 	}
 
 	@Override
@@ -100,6 +101,7 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider {
 	public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state) {
 		return null;
 	}
+	
 
 	/**
 	 * called when an exciterUpgrade is r-clicked on the block
@@ -159,7 +161,7 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider {
 			}
 		}
 
-		return false;
+		return true;
 	}
 
 }

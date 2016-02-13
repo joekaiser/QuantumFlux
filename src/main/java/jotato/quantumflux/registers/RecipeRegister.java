@@ -156,6 +156,11 @@ public class RecipeRegister {
 					"qeq",
 					"cqc",'q',quibitCrystal,'e',enderCrystal,'c',goldCasing);
 			
+			addShapedOreRecipe(true, ItemRegister.quibitCell,
+					" q ",
+					"gcg",
+					"rrr", 'q',quibitCrystal,'g',goldCasing,'c',quibitCluster3,'r',redstone);
+			
 		}
 
 		private void shapelessRecipes() {
