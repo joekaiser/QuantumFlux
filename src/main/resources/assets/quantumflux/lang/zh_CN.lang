@@ -1,0 +1,112 @@
+item.amplificationCrystal.name=放大晶体
+item.ironCasing.name=铁制外壳
+item.steelIngot.name=钢锭
+item.goldCasing.name=金制外壳
+item.quibitCrystal.name=量子比特水晶
+item.manganese.name=锰
+item.mangalloyIngot.name=锰合金锭
+item.zbq7.name=ZBQ-7
+item.quibitCell.name=量子比特单元
+item.energizedCrystal.name=充能水晶
+item.magnet.name=物品磁铁
+item.glowingMangalloy.name=荧光锰合金锭
+
+item.battlesuit_helmet.name=战斗头盔
+item.battlesuit_chestplate.name=战斗胸甲
+item.battlesuit_leggings.name=战斗护腿
+item.battlesuit_boots.name=战斗靴子
+item.battlesuit_plate.name=战斗装甲板
+
+item.titanium_helmet.name=钛头盔
+item.titanium_chestplate.name=钛胸甲
+item.titanium_leggings.name=钛护腿
+item.titanium_boots.name=钛靴子
+
+item.upgradeToken.name=升级装置
+item.eviscerator.name=剔骨者
+item.eviscerator_head.name=剔骨者头部
+item.eviscerator_rod.name=剔骨者手柄
+item.redstoneCrystal.name=晶化红石
+item.exciterUpgrade.name=激励器升级
+item.silica.name=硅粉
+item.blankCircuit.name=空白电路板
+item.advancedCircuit.name=高级电路板
+item.quantumDisk.name=量子磁盘
+item.ingotTitanium.name=钛锭
+item.mysticQuartz.name=神秘石英
+item.harmoicOscillator.name=谐波发生器
+item.enderCrystal.name=末影水晶
+item.titaniumPlate.name=钛板
+item.titaniumSword.name=钛剑
+
+tile.entropyAccelerator.name=量子熵变加速器
+tile.quibitCluster_1.name=一级量子比特簇
+tile.quibitCluster_2.name=二级量子比特簇
+tile.quibitCluster_3.name=三级量子比特簇
+tile.quibitCluster_4.name=四级量子比特簇
+tile.quibitCluster_5.name=五级量子比特簇
+
+tile.quibitCluster.0.name=一级量子比特簇
+tile.quibitCluster.1.name=二级量子比特簇
+tile.quibitCluster.2.name=三级量子比特簇
+tile.quibitCluster.3.name=四级量子比特簇
+tile.quibitCluster.4.name=五级量子比特簇
+
+tile.zeroPointExtractor.name=零点提取器(ZPE)
+tile.rfEntangler.name=RF纠缠器
+tile.rfExciter.name=RF激励器
+tile.darkstone.name=暗黑秘石
+tile.darkstone_lamp.name=暗黑秘石灯
+tile.darkstone_pillar.name=暗黑秘石柱
+tile.darkstone_tile.name=暗黑秘石砖
+tile.darkstone_ornate.name=暗黑装饰石
+tile.imaginaryTime.name=幻想时间方块
+tile.itemFabricator.name=物品制造器
+tile.titaniumOre.name=钛矿石
+tile.storehouse.name=存储仓库
+tile.creativeCluster.name=创造量子比特簇
+
+itemGroup.tabQuantumFlux=量子通量
+
+chat.rfEntanglerStored=%,d RF可用于红石通量(RF)场
+chat.rfEntanglerIn=%,d RF/t正在输入
+chat.rfEntanglerOut=%,d RF/t正在使用
+chat.rfExciterUsed=%1$,d RF上一tick被使用了 (上限: %2$,d)
+
+gui.quibitCluster=量子比特簇 (等级 %d)
+gui.quibitClusterTransferRateInfinite=无限 RF/Tick
+gui.quibitClusterTransferRate=%,d RF/Tick
+gui.quibitClusterMaxStorage=%,d 最大
+gui.itemFabricator=物品制造器
+gui.storehouse=存储仓库
+
+tooltip.capabilityFlight=能力: 飞行
+tooltip.capabilityMomentum=能力: 动量
+tooltip.capabilityStrength=能力: 力量
+tooltip.capabilityVisibility=能力: 视力
+tooltip.charge=充能: %,d
+
+tooltip.showDetails=按住SHIFT以查看更多信息
+
+tooltip.quibitcluster.deprecated=已废弃.放入合成栏来得到一个新的.
+tooltip.quibitcluster.help=存储RF以备不时之需
+tooltip.quibitcluster.capacity=能存储 %d RF
+tooltip.quibitcluster.transfer=传输 %d RF/tick
+
+tooltip.entangler.help=给红石通量(RF)场提供能量
+tooltip.entangler.buffer=有一个 %d 的内部缓存
+tooltip.entangler.output=每tick输出RF无上限
+tooltip.entangler.efficiency=传输效率只有 %d%%
+
+tooltip.accelerator.help=将物质转换为少量能量
+tooltip.accelerator.expanded=能提供 %d RF/tick
+
+tooltip.rfexciter.help=从红石通量(RF)场中获取RF
+tooltip.rfexciter.upgrade=加入激励器升级以获得更多能量
+
+tooltip.imaginarytime.help=操控时间来增加作物的生长速度
+tooltip.imaginarytime.requirements=需要 %d RF/tick 来运作
+
+tooltip.zpe.help=从局部时空中产生RF
+tooltip.zpe.help2=高度越低，产能效果越好
+
