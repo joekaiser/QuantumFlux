@@ -15,14 +15,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockBase extends Block {
 
 	public BlockBase(String name) {
-		this(Material.rock, name, null);
+		this(Material.rock, name, null,2);
 	}
 
 	public BlockBase(Material material, String name) {
-		this(material, name, null);
+		this(material, name, null,2);
+		
 	}
 
-	public BlockBase(Material material, String name, Class<? extends ItemBlock> itemclass) {
+	public BlockBase(Material material, String name, Class<? extends ItemBlock> itemclass, float hardness) {
 		super(material);
 		setUnlocalizedName(name);
 		setRegistryName(name);
@@ -33,6 +34,7 @@ public class BlockBase extends Block {
 		}
 		setCreativeTab(QuantumFluxMod.tab);
 		setStepSound(soundTypeStone);
+		setHardness(hardness);
 	}
 
 	public String getSimpleName() {

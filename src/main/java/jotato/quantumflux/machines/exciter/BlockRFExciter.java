@@ -30,6 +30,7 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider {
 	public BlockRFExciter() {
 		super(Material.circuits,"rfExciter");
 		setDefaultState(blockState.getBaseState().withProperty(BlockHelpers.FACING, EnumFacing.NORTH));
+		setHardness(.5f);
 	}
 
 	@Override
