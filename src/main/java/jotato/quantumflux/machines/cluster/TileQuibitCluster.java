@@ -18,6 +18,7 @@ public class TileQuibitCluster extends TileBase implements IEnergyProvider, IEne
 	private int transferRate;
 	private int capacity;
 	public int level;
+	public int lastUsed;
 
 	public TileQuibitCluster(QuibitClusterSettings settings) {
 
@@ -89,11 +90,12 @@ public class TileQuibitCluster extends TileBase implements IEnergyProvider, IEne
 				IEnergyReceiver receiver = (IEnergyReceiver) tile;
 
 				if (receiver.canConnectEnergy(dir.getOpposite())) {
-					int tosend = localEnergyStorage.extractEnergy(ConfigMan.incinerator_output, true);
+					int tosend = localEnergyStorage.extractEnergy(transferRate, true);
 					int used = receiver.receiveEnergy(dir.getOpposite(), tosend, false);
 					if (used > 0) {
 						this.markDirty();
 					}
+					this.lastUsed = used;
 					localEnergyStorage.extractEnergy(used, false);
 				}
 

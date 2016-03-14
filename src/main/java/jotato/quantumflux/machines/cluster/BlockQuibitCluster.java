@@ -3,6 +3,7 @@ package jotato.quantumflux.machines.cluster;
 import java.util.List;
 
 import cofh.api.energy.IEnergyProvider;
+import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.Logger;
 import jotato.quantumflux.QuantumFluxMod;
 import jotato.quantumflux.blocks.BlockBase;
@@ -21,6 +22,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
@@ -33,7 +36,7 @@ public class BlockQuibitCluster extends BlockBase implements ITileEntityProvider
 	public static final PropertyEnum LEVEL = PropertyEnum.create("level", EnumQuibitCluster.class);
 
 	public BlockQuibitCluster() {
-		super(Material.rock, "quibitCluster", ItemBlockQuibitCluster.class,3);
+		super(Material.rock, "quibitCluster", ItemBlockQuibitCluster.class, 3);
 	}
 
 	@Override
@@ -116,7 +119,16 @@ public class BlockQuibitCluster extends BlockBase implements ITileEntityProvider
 		if (worldIn.isRemote)
 			return false;
 
-		return BlockHelpers.BroadcastRFStored(playerIn, worldIn.getTileEntity(pos));
+		TileEntity te = worldIn.getTileEntity(pos);
+		if (te instanceof TileQuibitCluster) {
+			TileQuibitCluster teqc = (TileQuibitCluster) worldIn.getTileEntity(pos);
+
+			if (ConfigMan.isDebug) {
+				playerIn.addChatMessage(
+						new ChatComponentText(EnumChatFormatting.WHITE + String.valueOf(teqc.lastUsed)));
+			}
+		}
+		return BlockHelpers.BroadcastRFStored(playerIn, te);
 
 	}
 
