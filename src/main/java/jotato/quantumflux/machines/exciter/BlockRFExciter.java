@@ -85,12 +85,6 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider {
 		return false;
 	}
 
-	// @Override
-	// public AxisAlignedBB getCollisionBoundingBox(IBlockState worldIn, World
-	// pos, BlockPos state) {
-	// return new AxisAlignedB
-	// }
-
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		EnumFacing facing = state.getValue(BlockHelpers.FACING);
