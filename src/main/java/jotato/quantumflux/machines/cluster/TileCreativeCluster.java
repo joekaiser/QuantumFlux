@@ -2,12 +2,11 @@ package jotato.quantumflux.machines.cluster;
 
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
-import jotato.quantumflux.ConfigMan;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.math.BlockPos;
 
 public class TileCreativeCluster extends TileEntity implements IEnergyProvider, ITickable {
 	public int transferRate=100000;

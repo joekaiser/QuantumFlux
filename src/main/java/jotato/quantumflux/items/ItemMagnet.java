@@ -1,17 +1,20 @@
 package jotato.quantumflux.items;
 
 import java.util.Iterator;
-import java.util.List;
 
 import jotato.quantumflux.Logger;
 import jotato.quantumflux.helpers.EntityHelpers;
-import jotato.quantumflux.helpers.ItemHelpers;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
@@ -22,7 +25,6 @@ public class ItemMagnet extends ItemBase {
 	protected double distanceFromPlayer;
 	protected static String name = "magnet";
 
-
 	public ItemMagnet() {
 		super(name);
 		setMaxStackSize(1);
@@ -31,10 +33,10 @@ public class ItemMagnet extends ItemBase {
 		setMaxDamage(0);
 
 	}
-	
+
 	@Override
 	public void initModel() {
-		Logger.info("    Registering model for %s",getSimpleName());
+		Logger.info("    Registering model for %s", getSimpleName());
 		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
 		ModelLoader.setCustomModelResourceLocation(this, 1, new ModelResourceLocation(getRegistryName(), "inventory"));
 	}
@@ -45,11 +47,12 @@ public class ItemMagnet extends ItemBase {
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player) {
-		if (!world.isRemote && player.isSneaking()) {
-			item.setItemDamage(item.getItemDamage() == 0 ? 1 : 0);
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
+			EnumHand hand) {
+		if (!worldIn.isRemote && playerIn.isSneaking()) {
+			itemStackIn.setItemDamage(itemStackIn.getItemDamage() == 0 ? 1 : 0);
 		}
-		return item;
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -78,9 +81,8 @@ public class ItemMagnet extends ItemBase {
 			if (pickupEvent.getResult() == Result.ALLOW || stackSize <= 0
 					|| player.inventory.addItemStackToInventory(itemStackToGet)) {
 				player.onItemPickup(itemToGet, stackSize);
-
-				world.playSoundAtEntity(player, "random.pop", 0.15F,
-						((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
+				world.playSound(player, player.getPosition(), SoundEvents.entity_item_pickup, SoundCategory.AMBIENT,
+						0.15F, ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
 			}
 		}
 
@@ -99,8 +101,11 @@ public class ItemMagnet extends ItemBase {
 			player.addExperience(xpAmount);
 			xpToGet.setDead();
 			xpToGet.setInvisible(true);
-			world.playSoundAtEntity(player, "random.orb", 0.08F,
+			world.playSound(player, player.getPosition(), SoundEvents.entity_experience_orb_pickup,
+					SoundCategory.AMBIENT, 0.08F,
 					0.5F * ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.8F));
+			
+			
 		}
 
 	}

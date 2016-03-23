@@ -4,14 +4,14 @@ import jotato.quantumflux.blocks.BlockBase;
 import jotato.quantumflux.helpers.BlockHelpers;
 import jotato.quantumflux.helpers.EntityHelpers;
 import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockRFEntangler extends BlockBase implements ITileEntityProvider{
@@ -60,8 +60,8 @@ public class BlockRFEntangler extends BlockBase implements ITileEntityProvider{
 	}
 
 	@Override
-	protected BlockState createBlockState() {
-		return new BlockState(this, BlockHelpers.FACING);
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, BlockHelpers.FACING);
 	}
 	
 	

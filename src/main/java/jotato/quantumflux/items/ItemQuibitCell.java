@@ -4,10 +4,13 @@ import cofh.api.energy.IEnergyContainerItem;
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.Logger;
 import jotato.quantumflux.redflux.RedfluxField;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 
@@ -18,10 +21,10 @@ public class ItemQuibitCell extends ItemBase {
 		canRepair = false;
 		setMaxDamage(0);
 	}
-	
+
 	@Override
 	public void initModel() {
-		Logger.info("    Registering model for %s",getSimpleName());
+		Logger.info("    Registering model for %s", getSimpleName());
 		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
 		ModelLoader.setCustomModelResourceLocation(this, 1, new ModelResourceLocation(getRegistryName(), "inventory"));
 	}
@@ -36,11 +39,12 @@ public class ItemQuibitCell extends ItemBase {
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn) {
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
+			EnumHand hand) {
 		if (!worldIn.isRemote && playerIn.isSneaking()) {
 			itemStackIn.setItemDamage(itemStackIn.getItemDamage() == 0 ? 1 : 0);
 		}
-		return itemStackIn;
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
 	}
 
 	@Override
@@ -54,10 +58,8 @@ public class ItemQuibitCell extends ItemBase {
 
 		EntityPlayer player = (EntityPlayer) entity;
 		String owner = player.getGameProfile().getId().toString();
-		for (ItemStack target : player.inventory.mainInventory)
-		{
-			if (target != null && target.getItem() instanceof IEnergyContainerItem)
-			{
+		for (ItemStack target : player.inventory.mainInventory) {
+			if (target != null && target.getItem() instanceof IEnergyContainerItem) {
 				int tosend = RedfluxField.requestEnergy(ConfigMan.quibitcell_output, true, owner);
 				int needed = ((IEnergyContainerItem) target.getItem()).receiveEnergy(target, tosend, true);
 				int willSend = Math.round(needed * ConfigMan.rfExciter_Efficiency);
@@ -65,11 +67,9 @@ public class ItemQuibitCell extends ItemBase {
 				RedfluxField.requestEnergy(needed, false, owner);
 			}
 		}
-		
-		for (ItemStack target : player.inventory.armorInventory)
-		{
-			if (target != null && target.getItem() instanceof IEnergyContainerItem)
-			{
+
+		for (ItemStack target : player.inventory.armorInventory) {
+			if (target != null && target.getItem() instanceof IEnergyContainerItem) {
 				int tosend = RedfluxField.requestEnergy(ConfigMan.quibitcell_output, true, owner);
 				int needed = ((IEnergyContainerItem) target.getItem()).receiveEnergy(target, tosend, true);
 				int willSend = Math.round(needed * ConfigMan.rfExciter_Efficiency);

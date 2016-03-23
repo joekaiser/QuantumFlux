@@ -32,7 +32,8 @@ public enum EnumDarkstone implements IStringSerializable
     return META_LOOKUP[meta];
   }
 
-  public String getName()
+  @Override
+public String getName()
   {
     return this.name;
   }

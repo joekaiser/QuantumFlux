@@ -1,7 +1,5 @@
 package jotato.quantumflux.blocks.darkstone;
 
-import cofh.api.energy.IEnergyContainerItem;
-import jotato.quantumflux.helpers.NbtHelpers;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;

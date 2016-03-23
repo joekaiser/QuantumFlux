@@ -5,12 +5,11 @@ import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.blocks.TileBase;
-import jotato.quantumflux.helpers.BlockHelpers;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.math.BlockPos;
 
 public class TileZeroPointExtractor extends TileBase implements IEnergyProvider, ITickable {
 

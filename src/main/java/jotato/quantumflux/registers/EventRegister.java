@@ -2,7 +2,6 @@ package jotato.quantumflux.registers;
 
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityEnderman;
-import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

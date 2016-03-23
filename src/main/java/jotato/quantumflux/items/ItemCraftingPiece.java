@@ -7,7 +7,7 @@ import gnu.trove.map.TMap;
 import gnu.trove.map.hash.THashMap;
 import jotato.quantumflux.Logger;
 import jotato.quantumflux.QuantumFluxMod;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;

@@ -5,8 +5,8 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.IChatComponent;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
 
 public abstract class TileSimpleInventory extends TileBase  implements IInventory {
 
@@ -158,8 +158,9 @@ public abstract class TileSimpleInventory extends TileBase  implements IInventor
 	}
 
 	@Override
-	public IChatComponent getDisplayName() {
-		return new ChatComponentText(name);
+	public ITextComponent getDisplayName() {
+		return new TextComponentString(name);
 	}
+	
 
 }

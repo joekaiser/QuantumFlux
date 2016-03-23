@@ -2,7 +2,6 @@ package jotato.quantumflux.machines.cluster;
 
 import java.util.List;
 
-import cofh.api.energy.IEnergyProvider;
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.Logger;
 import jotato.quantumflux.QuantumFluxMod;
@@ -12,19 +11,19 @@ import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -84,8 +83,8 @@ public class BlockQuibitCluster extends BlockBase implements ITileEntityProvider
 	}
 
 	@Override
-	protected BlockState createBlockState() {
-		return new BlockState(this, new IProperty[] { LEVEL });
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, new IProperty[] { LEVEL });
 	}
 
 	@Override
@@ -114,7 +113,7 @@ public class BlockQuibitCluster extends BlockBase implements ITileEntityProvider
 
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
-			EnumFacing side, float hitX, float hitY, float hitZ) {
+			EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
 
 		if (worldIn.isRemote)
 			return false;
@@ -124,8 +123,7 @@ public class BlockQuibitCluster extends BlockBase implements ITileEntityProvider
 			TileQuibitCluster teqc = (TileQuibitCluster) worldIn.getTileEntity(pos);
 
 			if (ConfigMan.isDebug) {
-				playerIn.addChatMessage(
-						new ChatComponentText(EnumChatFormatting.WHITE + String.valueOf(teqc.lastUsed)));
+				playerIn.addChatMessage(new TextComponentString(String.valueOf(teqc.lastUsed)));
 			}
 		}
 		return BlockHelpers.BroadcastRFStored(playerIn, te);

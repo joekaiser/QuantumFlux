@@ -2,7 +2,6 @@ package jotato.quantumflux.machines.imaginarytime;
 
 import jotato.quantumflux.blocks.BlockBase;
 import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 

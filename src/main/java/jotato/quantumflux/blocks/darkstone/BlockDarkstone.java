@@ -5,19 +5,18 @@ import java.util.List;
 import jotato.quantumflux.Logger;
 import jotato.quantumflux.QuantumFluxMod;
 import jotato.quantumflux.blocks.BlockBase;
-import jotato.quantumflux.helpers.BlockHelpers;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
@@ -47,8 +46,8 @@ public class BlockDarkstone extends BlockBase {
 	}
 	
 	@Override
-	public int getLightValue(IBlockAccess world, BlockPos pos) {
-		if(world.getBlockState(pos).getValue(TYPE)==EnumDarkstone.lamp){
+	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+		if(state.getValue(TYPE)==EnumDarkstone.lamp){
 			return 15;
 		}
 		return 0;
@@ -85,9 +84,10 @@ public class BlockDarkstone extends BlockBase {
 	}
 
 	@Override
-	protected BlockState createBlockState() {
-		return new BlockState(this, new IProperty[] { TYPE });
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, new IProperty[] { TYPE });
 	}
+	
 
 	@Override
 	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing blockFaceClickedOn, float hitX, float hitY,

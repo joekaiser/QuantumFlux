@@ -6,13 +6,11 @@ import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.blocks.TileBase;
 import jotato.quantumflux.helpers.BlockHelpers;
 import net.minecraft.block.Block;
-import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraft.util.math.BlockPos;
 
 public class TileImaginaryTime extends TileBase implements IEnergyReceiver, ITickable {
 	protected EnergyStorage localEnergyStorage;
@@ -61,7 +59,7 @@ public class TileImaginaryTime extends TileBase implements IEnergyReceiver, ITic
 						block = targetBlockState.getBlock();
 						if (block != null) {
 
-							((Block) block).updateTick(worldObj, targetPos, targetBlockState, worldObj.rand);
+							block.updateTick(worldObj, targetPos, targetBlockState, worldObj.rand);
 
 							block = null;
 						}

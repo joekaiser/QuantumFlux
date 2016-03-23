@@ -4,19 +4,12 @@ import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
 import jotato.quantumflux.ConfigMan;
-import jotato.quantumflux.blocks.TileBase;
 import jotato.quantumflux.blocks.TileSimpleInventory;
-import jotato.quantumflux.helpers.BlockHelpers;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IChatComponent;
 import net.minecraft.util.ITickable;
-import net.minecraft.util.Vec3i;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -150,5 +143,6 @@ public class TileEntropyAccelerator extends TileSimpleInventory implements IEner
 	public int getMaxEnergyStored(EnumFacing from) {
 		return energy.getMaxEnergyStored();
 	}
+
 
 }

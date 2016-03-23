@@ -4,12 +4,10 @@ import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.blocks.darkstone.EnumDarkstone;
 import jotato.quantumflux.machines.cluster.EnumQuibitCluster;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockGravel;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.chunk.Chunk.EnumCreateEntityType;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 

@@ -1,34 +1,31 @@
 package jotato.quantumflux.machines.exciter;
 
 import jotato.quantumflux.ConfigMan;
-import jotato.quantumflux.Logger;
 import jotato.quantumflux.blocks.BlockBase;
 import jotato.quantumflux.helpers.BlockHelpers;
 import jotato.quantumflux.registers.ItemRegister;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumWorldBlockLayer;
-import net.minecraft.util.StatCollector;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockRFExciter extends BlockBase implements ITileEntityProvider {
 
 	public BlockRFExciter() {
-		super(Material.circuits,"rfExciter");
+		super(Material.circuits, "rfExciter");
 		setDefaultState(blockState.getBaseState().withProperty(BlockHelpers.FACING, EnumFacing.NORTH));
 		setHardness(.5f);
 	}
@@ -69,8 +66,8 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider {
 	}
 
 	@Override
-	protected BlockState createBlockState() {
-		return new BlockState(this, BlockHelpers.FACING);
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, BlockHelpers.FACING);
 	}
 
 	@Override
@@ -78,31 +75,52 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider {
 		return new TileRFExciter();
 	}
 
-	@SideOnly(Side.CLIENT)
-	public EnumWorldBlockLayer getBlockLayer() {
-		return EnumWorldBlockLayer.SOLID;
-	}
-
 	@Override
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
 	@Override
-	public boolean isFullCube() {
+	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
-	@Override
-	public int getRenderType() {
-		return 3;
-	}
+	// @Override
+	// public AxisAlignedBB getCollisionBoundingBox(IBlockState worldIn, World
+	// pos, BlockPos state) {
+	// return new AxisAlignedB
+	// }
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state) {
-		return null;
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		EnumFacing facing = state.getValue(BlockHelpers.FACING);
+
+		if (facing == EnumFacing.UP) {
+			return new AxisAlignedBB(.15, .85, .15, .85, 1, .85);
+		}
+
+		if (facing == EnumFacing.DOWN) {
+			return new AxisAlignedBB(.15, 0, .15, .85, .15, .85);
+		}
+
+		if (facing == EnumFacing.NORTH) {
+			return new AxisAlignedBB(.15, .15, 0, .85, .85, .15);
+		}
+
+		if (facing == EnumFacing.SOUTH) {
+			return new AxisAlignedBB(.15, .15, .85, .85, .85, 1);
+		}
+
+		if (facing == EnumFacing.EAST) {
+			return new AxisAlignedBB(.85, .15, .15, 1, .85, .85);
+		}
+		if (facing == EnumFacing.WEST) {
+			return new AxisAlignedBB(0, .15, .15, .15, .85, .85);
+		}
+		
+		return super.getBoundingBox(state, source, pos);
+		
 	}
-	
 
 	/**
 	 * called when an exciterUpgrade is r-clicked on the block
@@ -137,28 +155,27 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider {
 				float f2 = world.rand.nextFloat() * 0.6F + 0.1F;
 				float f3 = 0.025F;
 
-				EntityItem entityitem = new EntityItem(world, (double) ((float) pos.getX() + f),
-						(double) ((float) pos.getY() + f1), (double) ((float) pos.getZ() + f2),
+				EntityItem entityitem = new EntityItem(world, pos.getX() + f, pos.getY() + f1, pos.getZ() + f2,
 						new ItemStack(ItemRegister.exciterUpgrade, 1));
 
-				entityitem.motionX = (double) ((float) world.rand.nextGaussian() * f3);
-				entityitem.motionY = (double) ((float) world.rand.nextGaussian() * f3 + 0.1F);
-				entityitem.motionZ = (double) ((float) world.rand.nextGaussian() * f3);
+				entityitem.motionX = (float) world.rand.nextGaussian() * f3;
+				entityitem.motionY = (float) world.rand.nextGaussian() * f3 + 0.1F;
+				entityitem.motionZ = (float) world.rand.nextGaussian() * f3;
 				world.spawnEntityInWorld(entityitem);
 			}
 
 		}
 	}
-	
+
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,
-			EnumFacing side, float hitX, float hitY, float hitZ) {
-		if (!world.isRemote && player.isSneaking()) {
-			TileEntity entity = world.getTileEntity(pos);
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
+			EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+
+		if (!worldIn.isRemote && playerIn.isSneaking()) {
+			TileEntity entity = worldIn.getTileEntity(pos);
 			if (entity instanceof TileRFExciter) {
-				String used = String.format(StatCollector.translateToLocal("chat.rfExciter.maxTransfer"),
-						((TileRFExciter) entity).getNetPower());
-				player.addChatMessage(new ChatComponentText(EnumChatFormatting.LIGHT_PURPLE + used));
+				playerIn.addChatMessage(new TextComponentTranslation("chat.rfExciter.maxTransfer",
+						((TileRFExciter) entity).getNetPower()));
 			}
 		}
 

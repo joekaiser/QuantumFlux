@@ -3,13 +3,12 @@ package jotato.quantumflux.machines.cluster;
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
-import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.blocks.TileBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -67,12 +66,6 @@ public class TileQuibitCluster extends TileBase implements IEnergyProvider, IEne
 		double max = getMaxEnergyStored(null);
 		double v = ((stored / max) * scale);
 		return (int) v;
-	}
-
-	@Override
-	public void markDirty() {
-		super.markDirty();
-		worldObj.markBlockForUpdate(this.getPos());
 	}
 
 	@Override
