@@ -37,7 +37,7 @@ item.mysticQuartz.name=Mystic Quartz
 item.harmoicOscillator.name=Harmonic Oscillator
 item.enderCrystal.name=Ender Crystal
 item.titaniumPlate.name=Titanium Plate
-item.titaniumSword.name=Titanium Sword
+item.netherbane.name=The Netherbane
 
 tile.darkstone.plain.name=Darkstone
 tile.darkstone.lamp.name=Darkstone Lamp
@@ -72,6 +72,8 @@ chat.rfStored=%s RF in reserve
 chat.rfStored.max= (%s capacity)
 chat.rfExciter.maxTransfer=%s maximum transfer
 
+
+flair.item.netherBane=Sabre of the Moon
 
 
 
