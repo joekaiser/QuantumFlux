@@ -6,20 +6,11 @@
 QuantumFlux is a Forge mod for Minecraft that focuses on adding ways to generate, store, and transport RF power. More information can be found on the official [forum topic](http://bitly.com/19gUP8j) or the wiki.  
 Download from [CurseForge](http://www.curse.com/mc-mods/minecraft/228609-quantumflux)
 
-### Dependencies
-[CoFH Lib](http://www.curse.com/mc-mods/minecraft/220333-cofhlib)
-
 ### Modpack Distribution
 Sure, please link [to this site](http://minecraft.curseforge.com/mc-mods/228609-quantumflux) though. A link to [my patreon](http://www.patreon.com/jotato) would be appriciated. Just don't be a jerk, make claims you can't back, or sell mod items on your server.
 
 ###Credits
-
-Thanks to Team CoFH for a great [RF API](https://github.com/CoFH/RedstoneFlux-API)   
-Thanks to [SciguyRyan](https://twitter.com/sciguyryan) for ideas and being awesome  
-Thanks to [KingDaddyDMAC](http://www.youtube.com/user/kingdaddydmac) and [xBCrafted](http://www.youtube.com/user/xbxaxcx) for putting up with me bouncing ideas off you :)  
 Thanks to [FantasyTeddy](https://github.com/FantasyTeddy) for help with fixing bugs  
-And most of all, a big THANK YOU to the community for all the support, feedback, and general awesomeness!
-
 
 ### License
 **Copyright 2015 Joe Kaiser**  
