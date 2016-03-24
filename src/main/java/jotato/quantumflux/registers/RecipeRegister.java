@@ -1,5 +1,7 @@
 package jotato.quantumflux.registers;
 
+import org.omg.CORBA.IRObjectOperations;
+
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.blocks.darkstone.EnumDarkstone;
 import jotato.quantumflux.machines.cluster.EnumQuibitCluster;
@@ -158,6 +160,10 @@ public class RecipeRegister {
 					" q ",
 					"gcg",
 					"rrr", 'q',quibitCrystal,'g',goldCasing,'c',quibitCluster3,'r',redstone);
+			
+			addShapedOreRecipe(true, ItemRegister.voidBucket,
+					"iei",
+					" i " ,'i',ingotIron,'e',enderPearl);
 			
 		}
 

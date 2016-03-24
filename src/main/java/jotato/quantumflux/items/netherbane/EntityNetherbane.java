@@ -5,14 +5,12 @@ import jotato.quantumflux.registers.ItemRegister;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntitySkeleton;
-import net.minecraft.init.PotionTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import sun.net.spi.nameservice.NameServiceDescriptor;
 
 public class EntityNetherbane extends EntityItem {
 
@@ -52,11 +50,10 @@ public class EntityNetherbane extends EntityItem {
 
 		super.onUpdate();
 
-
 		if (timer.hasTimePartPassed(worldObj, timer.TIME_PART_HALF + rand.nextInt(15))) {
 			EntityLightningBolt lightning = new EntityLightningBolt(worldObj, posX - rand.nextInt(7) + rand.nextInt(7),
-					posY, posZ - rand.nextInt(7) + rand.nextInt(7),true);
-			
+					posY, posZ - rand.nextInt(7) + rand.nextInt(7), true);
+
 			lightning.dimension = this.dimension;
 			worldObj.addWeatherEffect(lightning);
 		}
@@ -79,10 +76,12 @@ public class EntityNetherbane extends EntityItem {
 				skele.setLocationAndAngles(posX, posY, posZ, MathHelper.wrapAngleTo180_float(rand.nextFloat() * 360.0F),
 						0.0F);
 
-			
-				skele.addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("strength"), 20, 2, false, false));
-				skele.addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("regeneration"), 20, 1, false, false));
-				skele.addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("speed"), 20, 1, false, false));
+				skele.addPotionEffect(
+						new PotionEffect(Potion.getPotionFromResourceLocation("strength"), 20, 2, false, false));
+				skele.addPotionEffect(
+						new PotionEffect(Potion.getPotionFromResourceLocation("regeneration"), 20, 1, false, false));
+				skele.addPotionEffect(
+						new PotionEffect(Potion.getPotionFromResourceLocation("speed"), 20, 1, false, false));
 				skele.setCustomNameTag(names[subStep]);
 				skele.setSkeletonType(1);
 				skele.playLivingSound();

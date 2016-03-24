@@ -38,6 +38,7 @@ item.harmoicOscillator.name=Harmonic Oscillator
 item.enderCrystal.name=Ender Crystal
 item.titaniumPlate.name=Titanium Plate
 item.netherbane.name=The Netherbane
+item.voidBucket.name=Void Bucket
 
 tile.darkstone.plain.name=Darkstone
 tile.darkstone.lamp.name=Darkstone Lamp
