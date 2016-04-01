@@ -165,6 +165,11 @@ public class RecipeRegister {
 					"iei",
 					" i " ,'i',ingotIron,'e',enderPearl);
 			
+			addShapedOreRecipe(true, ItemRegister.craftingPieces.getSubItem("enderCrystal", 4),
+					" q ",
+					"qeq",
+					" q ", 'q',quartz,'e',enderPearl);
+			
 		}
 
 		private void shapelessRecipes() {
