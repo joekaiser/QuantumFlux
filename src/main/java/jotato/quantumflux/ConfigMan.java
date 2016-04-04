@@ -14,7 +14,6 @@ public class ConfigMan
     public static int quibitCluster_baseTransferRate;
     public static int quibitCluster_multiplier;
     
-    public static boolean zpe_particles;
     public static int zpe_maxPowerGen;
     public static boolean zpe_enabled;
     
@@ -27,7 +26,6 @@ public class ConfigMan
     public static boolean isDebug;
     public static int magnet_strength;
     public static boolean enableSteelRecipe;
-    public static boolean enableTitaniumGen;
     
     public static int battlesuit_maxEnergy;
     public static int battlesuit_chargeRate;
@@ -61,7 +59,6 @@ public class ConfigMan
         quibitCluster_multiplier = config.getInt("multiplier", "quibitCluster", 5, 4, 6, "The multiplier between each level of the clusters");
         
         zpe_maxPowerGen = config.getInt("powerGen", "zeroPointExtractor", 150, 32, 256, "The maximum amount of rf/t it can generate");
-        zpe_particles = config.getBoolean("particles", "zeroPointExtractor", true, "Enable particle effect");
         zpe_enabled= config.getBoolean("enabled", "zeroPointExtractor", true, "Enable the Zero Point Extractor. The block is still registered, you just can't craft it.");
         
         redfluxField_buffer = config.getInt("buffer", "redfluxField", 50000, 50000, 1000000, "The internal storage of each player's field");
@@ -71,7 +68,6 @@ public class ConfigMan
         rfExciter_Efficiency = config.getFloat("rfExciter_efficiency", "redfluxField", .8f, .2f, 1f, "How Efficient the EF Exciter is with power. The lower the number, the less efficient it is");
         
         enableSteelRecipe = config.getBoolean("enableSteelRecipe", "misc", true, "If you don't want my vanilla-like steel recipe, set this to false. **WARNING** you will need another mod to provide steel under the 'ingotSteel' oredictionary name");
-        enableTitaniumGen = config.getBoolean("enableTitaniumGen", "misc", true, "If you don't want Titanium generated, set this to false. **WARNING** you will need another mod to provide Titanium under the 'oreTitanium' oredictionary name");
         magnet_strength = config.getInt("magnetStrength", "misc",5, 4, 14, "How far the magnet can reach");
         isDebug = config.getBoolean("debugMode", "misc", false , "Developer only");
         
