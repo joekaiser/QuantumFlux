@@ -31,6 +31,8 @@ public class RecipeRegister {
 		ItemStack furnace = new ItemStack(Blocks.furnace);
 		ItemStack lavaBucket = new ItemStack(Items.lava_bucket);
 		ItemStack netherStar = new ItemStack(Items.nether_star);
+		ItemStack stick = new ItemStack(Items.stick);
+		ItemStack slimeBall = new ItemStack(Items.slime_ball);
 
 		//modItems
 		ItemStack goldCasing = ItemRegister.craftingPieces.getSubItem("goldCasing");
@@ -169,6 +171,11 @@ public class RecipeRegister {
 					" q ",
 					"qeq",
 					" q ", 'q',quartz,'e',enderPearl);
+			
+			addShapedOreRecipe(true, ItemRegister.matterTransporter,
+					"b b",
+					" c ",
+					" s ", 'b', slimeBall,'c',advancedCircuit,'s',stick);
 			
 		}
 

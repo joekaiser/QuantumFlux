@@ -6,6 +6,7 @@ import jotato.quantumflux.items.ItemBase;
 import jotato.quantumflux.items.ItemCraftingPiece;
 import jotato.quantumflux.items.ItemExciterUpgrade;
 import jotato.quantumflux.items.ItemMagnet;
+import jotato.quantumflux.items.ItemMatterTransporter;
 import jotato.quantumflux.items.ItemQuibitCell;
 import jotato.quantumflux.items.ItemVoidBucket;
 import jotato.quantumflux.items.netherbane.ItemNetherbane;
@@ -28,6 +29,7 @@ public final class ItemRegister {
 	public static ItemBase quibitCell;
 	public static ItemNetherbane netherbane;
 	public static ItemBase voidBucket;
+	public static ItemBase matterTransporter;
 
 	public static void init() {
 
@@ -44,6 +46,7 @@ public final class ItemRegister {
 		quibitCell = new ItemQuibitCell();
 		netherbane = new ItemNetherbane();
 		voidBucket = new ItemVoidBucket();
+		matterTransporter = new ItemMatterTransporter();
 	}
 
 	public static void registerRenders() {
@@ -55,6 +58,7 @@ public final class ItemRegister {
 		quibitCell.initModel();
 		netherbane.initModel();
 		voidBucket.initModel();
+		matterTransporter.initModel();
 
 	}
 
