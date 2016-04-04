@@ -145,9 +145,9 @@ public class RecipeRegister {
 					"cqc", 'c',goldCasing,'q',quibitCrystal,'s',netherStar,'3',quibitCluster3);
 			
 			addShapedOreRecipe(ConfigMan.zpe_enabled, BlockRegister.zeroPointExtractor,
-					"geg",
+					"aea",
 					"qcq",
-					"ggg", 'g',goldCasing,'e',enderCrystal,'q',quibitCrystal,'c',quibitCluster2);
+					"ggg", 'a',advancedCircuit, 'g',goldCasing,'e',enderCrystal,'q',quibitCrystal,'c',quibitCluster2);
 			
 			addShapedOreRecipe(true, BlockRegister.rfEntangler,
 					"qsq",

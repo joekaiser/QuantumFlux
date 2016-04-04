@@ -30,8 +30,8 @@ plugins {
 version = "1.9-2.0.4"
 group= "jotato.quantumflux" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "quantumflux"
-//sourceCompatibility = 1.8
-//targetCompatibility = 1.8
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 minecraft {
     version = "1.9-12.16.0.1836-1.9"
