@@ -1,6 +1,8 @@
 package jotato.quantumflux.registers;
 
 import jotato.quantumflux.items.netherbane.EntityNetherbane;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.init.Items;
@@ -11,16 +13,45 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class EventRegister {
 
+	
+	@SubscribeEvent
+	public void onLivingDrops(LivingDropsEvent event) {
+		EntityLivingBase entity = event.getEntityLiving();
+	
+		if (entity.worldObj.isRemote)
+			return;
+		
+		if (entity instanceof EntityEnderman) {
+			if (entity.worldObj.rand.nextDouble() < .05) {
+
+				ItemStack enderCrystal = ItemRegister.craftingPieces.getSubItem("enderCrystal");
+				if (event.getLootingLevel() > 0) {
+					int bonus = entity.worldObj.rand.nextInt(event.getLootingLevel());
+					enderCrystal.stackSize += bonus;
+				}
+				EntityItem enderCrystalEntity = new EntityItem(entity.worldObj, entity.posX,
+						entity.posY, entity.posZ, enderCrystal);
+
+				enderCrystalEntity.dimension = entity.dimension;
+
+				event.getDrops().add(enderCrystalEntity);
+			}
+		}
+	}
 
 	@SubscribeEvent
 	public void onItemToss(ItemTossEvent event) {
-		if(event.entity.worldObj.isRemote) 
+		Entity entity = event.getEntity();
+		EntityItem entityItem = event.getEntityItem();
+		
+		if(entity.worldObj.isRemote) 
 			return;
 		
-		if (event.entityItem.dimension == -1) {
-			ItemStack itemTossed = event.entityItem.getEntityItem();
+		
+		if (entityItem.dimension == -1) {
+			ItemStack itemTossed = entityItem.getEntityItem();
 			if (itemTossed.getDisplayName().equals("Netherbane") && itemTossed.getItem().equals(Items.diamond_sword)) {
-				event.entity.worldObj.spawnEntityInWorld(EntityNetherbane.convert(event.entityItem));
+				entity.worldObj.spawnEntityInWorld(EntityNetherbane.convert(entityItem));
 				event.setCanceled(true);
 				
 			}

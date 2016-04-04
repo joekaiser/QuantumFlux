@@ -34,7 +34,7 @@ archivesBaseName = "quantumflux"
 //targetCompatibility = 1.8
 
 minecraft {
-    version = "1.9-12.16.0.1802-1.9"
+    version = "1.9-12.16.0.1836-1.9"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
@@ -47,7 +47,7 @@ minecraft {
 }
 
 dependencies {	
-    deobfProvided "mezz.jei:jei_1.9:3.0.3.166"
+    //deobfProvided "mezz.jei:jei_1.9:3.2.5.179"
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"

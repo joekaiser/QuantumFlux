@@ -1,5 +1,8 @@
 package jotato.quantumflux.blocks;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 import jotato.quantumflux.Logger;
 import jotato.quantumflux.QuantumFluxMod;
 import net.minecraft.block.Block;
@@ -16,36 +19,48 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockBase extends Block {
 
 	public BlockBase(String name) {
-		this(Material.rock, name, null,2);
+		this(Material.rock, name, null, 2);
 	}
 
 	public BlockBase(Material material, String name) {
-		this(material, name, null,2);
-		
+		this(material, name, null, 2);
+
 	}
 
 	public BlockBase(Material material, String name, Class<? extends ItemBlock> itemclass, float hardness) {
 		super(material);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		if (itemclass != null) {
-			GameRegistry.registerBlock(this, itemclass);
-		} else {
-			GameRegistry.registerBlock(this);
-		}
 		setCreativeTab(QuantumFluxMod.tab);
 		setStepSound(SoundType.STONE);
 		setHardness(hardness);
-	}
-
-	public String getSimpleName() {
-		return getUnlocalizedName().substring(5);
+		
+		GameRegistry.register(this);
+		if (itemclass != null) {
+			GameRegistry.register(createItemBlock(itemclass), getRegistryName());
+		}
+		else{
+			GameRegistry.register(new ItemBlock(this),getRegistryName());
+		}
 	}
 
 	@SideOnly(Side.CLIENT)
 	public void initModel() {
-		Logger.info("    Registering model for %s", getSimpleName());
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0,
-				new ModelResourceLocation(getRegistryName(), "inventory"));
+		Logger.info("    Registering model for %s", getRegistryName());
+		Item item = Item.getItemFromBlock(this);
+
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0,new ModelResourceLocation(getRegistryName(), "inventory"));
+	}
+
+	private ItemBlock createItemBlock(Class<? extends ItemBlock> itemBlockClass) {
+		try {
+			Class<?>[] ctorArgClasses = new Class<?>[1];
+			ctorArgClasses[0] = Block.class;
+			Constructor<? extends ItemBlock> itemCtor = itemBlockClass.getConstructor(ctorArgClasses);
+			return itemCtor.newInstance(this);
+		} catch (NoSuchMethodException | InstantiationException | IllegalAccessException
+				| InvocationTargetException e) {
+			throw new RuntimeException(e);
+		}
 	}
 }
