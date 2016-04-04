@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityEnderman;
+import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
@@ -15,7 +16,7 @@ public class EventRegister {
 
 	
 	@SubscribeEvent
-	public void onLivingDrops(LivingDropsEvent event) {
+	public void onLivingDrops_enderman(LivingDropsEvent event) {
 		EntityLivingBase entity = event.getEntityLiving();
 	
 		if (entity.worldObj.isRemote)
@@ -35,6 +36,25 @@ public class EventRegister {
 				enderCrystalEntity.dimension = entity.dimension;
 
 				event.getDrops().add(enderCrystalEntity);
+			}
+		}
+	}
+	
+	@SubscribeEvent
+	public void onLivingDrops_pig(LivingDropsEvent event) {
+		EntityLivingBase entity = event.getEntityLiving();
+		if (entity.worldObj.isRemote)
+			return;
+		
+		if(entity instanceof EntityPig){
+			if(entity.worldObj.rand.nextDouble() <.0002){
+				EntityItem hamCheese = new EntityItem(entity.worldObj,
+						entity.posX,entity.posY,entity.posZ,
+						new ItemStack(ItemRegister.hamCheese));
+				hamCheese.dimension = entity.dimension;
+				
+				event.getDrops().add(hamCheese);
+				
 			}
 		}
 	}

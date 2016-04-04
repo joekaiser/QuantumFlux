@@ -40,6 +40,7 @@ item.titaniumPlate.name=Titanium Plate
 item.netherbane.name=The Netherbane
 item.voidBucket.name=Void Bucket
 item.matterTransporter.name=Matter Transporter
+item.hamCheese.name=Ham & Cheese Sandwhich
 
 tile.darkstone.plain.name=Darkstone
 tile.darkstone.lamp.name=Darkstone Lamp

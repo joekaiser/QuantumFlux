@@ -13,8 +13,10 @@ import jotato.quantumflux.items.netherbane.ItemNetherbane;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemFood;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -30,6 +32,7 @@ public final class ItemRegister {
 	public static ItemNetherbane netherbane;
 	public static ItemBase voidBucket;
 	public static ItemBase matterTransporter;
+	public static Item hamCheese;
 
 	public static void init() {
 
@@ -47,6 +50,9 @@ public final class ItemRegister {
 		netherbane = new ItemNetherbane();
 		voidBucket = new ItemVoidBucket();
 		matterTransporter = new ItemMatterTransporter();
+		hamCheese = new ItemFood(10, 1f, true).setUnlocalizedName("hamCheese").setCreativeTab(QuantumFluxMod.tab);
+		GameRegistry.registerItem(hamCheese, "hamCheese");
+		
 	}
 
 	public static void registerRenders() {
@@ -59,6 +65,7 @@ public final class ItemRegister {
 		netherbane.initModel();
 		voidBucket.initModel();
 		matterTransporter.initModel();
+		registerGenericItem(hamCheese, 0);
 
 	}
 
