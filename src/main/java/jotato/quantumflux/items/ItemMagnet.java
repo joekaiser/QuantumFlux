@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
+import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 
 public class ItemMagnet extends ItemBase {
@@ -95,16 +96,14 @@ public class ItemMagnet extends ItemBase {
 			if (xpToGet.isDead || xpToGet.isInvisible()) {
 				continue;
 			}
-			int xpAmount = xpToGet.xpValue;
-			xpToGet.xpValue = 0;
 			player.xpCooldown = 0;
-			player.addExperience(xpAmount);
-			xpToGet.setDead();
-			xpToGet.setInvisible(true);
-			world.playSound(player, player.getPosition(), SoundEvents.entity_experience_orb_pickup,
-					SoundCategory.AMBIENT, 0.08F,
-					0.5F * ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.8F));
-			
+			xpToGet.delayBeforeCanPickup=0;
+			xpToGet.setPosition(player.posX,player.posY,player.posZ);
+			PlayerPickupXpEvent xpEvent = new PlayerPickupXpEvent(player, xpToGet);
+			MinecraftForge.EVENT_BUS.post(xpEvent);
+			if(xpEvent.getResult()==Result.ALLOW){
+				xpToGet.onCollideWithPlayer(player);
+			}
 			
 		}
 
