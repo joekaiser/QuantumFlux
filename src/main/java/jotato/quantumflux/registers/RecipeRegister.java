@@ -91,9 +91,9 @@ public class RecipeRegister {
 					"ddd",'r',redstone,'q',quibitCrystal,'d',darkstone);
 			
 			addShapedOreRecipe(true, EnumDarkstone.getDarkstoneType(EnumDarkstone.plain, 16),
-					"ccc",
+					"csc",
 					"cdc",
-					"ccc",'c',cobblestone,'d',dyeBlack);
+					"csc",'c',cobblestone,'d',dyeBlack,'s',stone);
 			
 			addShapedOreRecipe(true, EnumDarkstone.getDarkstoneType(EnumDarkstone.lamp, 4),
 					"d d",
