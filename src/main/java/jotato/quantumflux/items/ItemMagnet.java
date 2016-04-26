@@ -3,6 +3,8 @@ package jotato.quantumflux.items;
 import java.util.Iterator;
 
 import cpw.mods.fml.common.eventhandler.Event.Result;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.gameevent.PlayerEvent.ItemPickupEvent;
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.util.ModUtils;
 import net.minecraft.entity.Entity;
@@ -67,12 +69,14 @@ public class ItemMagnet extends ItemBase
 			itemToGet.delayBeforeCanPickup = 50;
 
 			EntityItemPickupEvent pickupEvent = new EntityItemPickupEvent(player, itemToGet);
+			ItemPickupEvent itemPickupEvent = new ItemPickupEvent(player, itemToGet);
 			MinecraftForge.EVENT_BUS.post(pickupEvent);
+			FMLCommonHandler.instance().bus().post(itemPickupEvent);
 			ItemStack itemStackToGet = itemToGet.getEntityItem();
 			int stackSize = itemStackToGet.stackSize;
 			
 			
-			if (pickupEvent.getResult() == Result.ALLOW || stackSize <= 0 || player.inventory.addItemStackToInventory(itemStackToGet))
+			if (pickupEvent.getResult() == Result.ALLOW || stackSize <= 0 || itemPickupEvent.pickedUp == itemToGet || player.inventory.addItemStackToInventory(itemStackToGet))
 			{
 
 			
