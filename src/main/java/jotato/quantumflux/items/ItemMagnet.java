@@ -76,7 +76,7 @@ public class ItemMagnet extends ItemBase
 			int stackSize = itemStackToGet.stackSize;
 			
 			
-			if (pickupEvent.getResult() == Result.ALLOW || stackSize <= 0 || itemPickupEvent.pickedUp == itemToGet || player.inventory.addItemStackToInventory(itemStackToGet))
+			if (pickupEvent.getResult() == Result.ALLOW || stackSize <= 0 || itemPickupEvent.getResult() == Result.ALLOW || player.inventory.addItemStackToInventory(itemStackToGet))
 			{
 
 			
