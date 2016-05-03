@@ -50,7 +50,7 @@ public class BlockEntropyAccelerator extends BlockContainerBase
 	@Override
 	public IIcon getIcon(int side, int meta)
 	{
-		int frontSide = getOrientation(meta, false);
+		int frontSide = getOrientation(meta);
 		if (side == frontSide)
 		{
 			return icon_front;
@@ -71,7 +71,7 @@ public class BlockEntropyAccelerator extends BlockContainerBase
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack)
 	{
-		int frontSide = determineOrientation(world, x, y, z, entity);
+		int frontSide = determineOrientation(world, x, y, z, entity, false);
 		world.setBlockMetadataWithNotify(x, y, z, frontSide, 2);
 
 	}
