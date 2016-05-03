@@ -73,14 +73,15 @@ public class ItemMagnet extends ItemBase {
 				player.posZ, this.distanceFromPlayer).iterator();
 		while (iterator.hasNext()) {
 			EntityItem itemToGet = (EntityItem) iterator.next();
+			itemToGet.setPosition(player.posX,player.posY,player.posZ);
 
 			EntityItemPickupEvent pickupEvent = new EntityItemPickupEvent(player, itemToGet);
 			MinecraftForge.EVENT_BUS.post(pickupEvent);
 			ItemStack itemStackToGet = itemToGet.getEntityItem();
 			int stackSize = itemStackToGet.stackSize;
 
-			if (pickupEvent.getResult() == Result.ALLOW || stackSize <= 0
-					|| player.inventory.addItemStackToInventory(itemStackToGet)) {
+			if (pickupEvent.getResult() == Result.ALLOW && stackSize > 0
+					&& player.inventory.addItemStackToInventory(itemStackToGet)) {
 				player.onItemPickup(itemToGet, stackSize);
 				world.playSound(player, player.getPosition(), SoundEvents.entity_item_pickup, SoundCategory.AMBIENT,
 						0.15F, ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
