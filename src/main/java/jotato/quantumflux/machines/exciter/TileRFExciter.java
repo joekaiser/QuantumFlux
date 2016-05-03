@@ -26,7 +26,7 @@ public class TileRFExciter extends TileEntity implements IEnergyProvider, ITicka
 	public TileRFExciter()
 	{
 		maxOut=ConfigMan.rfExciter1_output;
-		wirelessEfficiency = ConfigMan.rfExciter_Efficiency;
+		wirelessEfficiency =1.0f;// ConfigMan.rfExciter_Efficiency;
 		
 	}
 

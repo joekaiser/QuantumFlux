@@ -62,7 +62,7 @@ public class ItemQuibitCell extends ItemBase {
 			if (target != null && target.getItem() instanceof IEnergyContainerItem) {
 				int tosend = RedfluxField.requestEnergy(ConfigMan.quibitcell_output, true, owner);
 				int needed = ((IEnergyContainerItem) target.getItem()).receiveEnergy(target, tosend, true);
-				int willSend = Math.round(needed * ConfigMan.rfExciter_Efficiency);
+				int willSend = needed;
 				((IEnergyContainerItem) target.getItem()).receiveEnergy(target, willSend, false);
 				RedfluxField.requestEnergy(needed, false, owner);
 			}
@@ -72,7 +72,7 @@ public class ItemQuibitCell extends ItemBase {
 			if (target != null && target.getItem() instanceof IEnergyContainerItem) {
 				int tosend = RedfluxField.requestEnergy(ConfigMan.quibitcell_output, true, owner);
 				int needed = ((IEnergyContainerItem) target.getItem()).receiveEnergy(target, tosend, true);
-				int willSend = Math.round(needed * ConfigMan.rfExciter_Efficiency);
+				int willSend = needed;
 				((IEnergyContainerItem) target.getItem()).receiveEnergy(target, willSend, false);
 				RedfluxField.requestEnergy(needed, false, owner);
 			}
