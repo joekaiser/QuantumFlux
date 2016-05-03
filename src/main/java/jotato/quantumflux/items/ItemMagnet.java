@@ -79,8 +79,7 @@ public class ItemMagnet extends ItemBase {
 			ItemStack itemStackToGet = itemToGet.getEntityItem();
 			int stackSize = itemStackToGet.stackSize;
 
-			if (pickupEvent.getResult() == Result.ALLOW || stackSize <= 0
-					|| player.inventory.addItemStackToInventory(itemStackToGet)) {
+			if (pickupEvent.getResult() == Result.ALLOW || player.inventory.addItemStackToInventory(itemStackToGet)) {
 				player.onItemPickup(itemToGet, stackSize);
 				world.playSound(player, player.getPosition(), SoundEvents.entity_item_pickup, SoundCategory.AMBIENT,
 						0.15F, ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
@@ -97,14 +96,14 @@ public class ItemMagnet extends ItemBase {
 				continue;
 			}
 			player.xpCooldown = 0;
-			xpToGet.delayBeforeCanPickup=0;
-			xpToGet.setPosition(player.posX,player.posY,player.posZ);
+			xpToGet.delayBeforeCanPickup = 0;
+			xpToGet.setPosition(player.posX, player.posY, player.posZ);
 			PlayerPickupXpEvent xpEvent = new PlayerPickupXpEvent(player, xpToGet);
 			MinecraftForge.EVENT_BUS.post(xpEvent);
-			if(xpEvent.getResult()==Result.ALLOW){
+			if (xpEvent.getResult() == Result.ALLOW) {
 				xpToGet.onCollideWithPlayer(player);
 			}
-			
+
 		}
 
 	}
