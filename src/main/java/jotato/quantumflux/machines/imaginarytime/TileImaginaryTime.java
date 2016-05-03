@@ -47,7 +47,6 @@ public class TileImaginaryTime extends TileBase implements IEnergyReceiver, ITic
 			int y = getPos().getY();
 			int z = getPos().getZ();
 			int range = ConfigMan.imaginaryTime_range + 1;
-			int passes = ConfigMan.imaginaryTime_tickIncrease;
 			Block block;
 
 			for (int x2 = x - range; x2 <= x + range; x2++) {
