@@ -39,13 +39,13 @@ public final class ItemRegister {
 	public static void init() {
 
 		craftingPieces = new ItemCraftingPiece();
-		craftingPieces.addItem("quibitCrystal");
-		craftingPieces.addItem("goldCasing");
-		craftingPieces.addItem("amplificationCrystal");
-		craftingPieces.addItem("enderCrystal");
-		craftingPieces.addItem("quantumDisk");
-		craftingPieces.addItem("advancedCircuit");
-		craftingPieces.addItem("industrialDiamond");
+		craftingPieces.addItem("quibitCrystal",0);
+		craftingPieces.addItem("goldCasing",1);
+		craftingPieces.addItem("amplificationCrystal",2);
+		craftingPieces.addItem("enderCrystal",3);
+		craftingPieces.addItem("quantumDisk",4);
+		craftingPieces.addItem("advancedCircuit",5);
+		craftingPieces.addItem("industrialDiamond",6);
 
 		magnet = new ItemMagnet();
 		exciterUpgrade = new ItemExciterUpgrade();

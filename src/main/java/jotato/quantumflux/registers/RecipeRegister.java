@@ -42,6 +42,7 @@ public class RecipeRegister {
 		ItemStack quantumDisk = ItemRegister.craftingPieces.getSubItem("quantumDisk");
 		ItemStack advancedCircuit = ItemRegister.craftingPieces.getSubItem("advancedCircuit");
 		ItemStack darkstone = EnumDarkstone.getDarkstoneType(EnumDarkstone.plain);
+		ItemStack hyperDiamond = ItemRegister.craftingPieces.getSubItem("industrialDiamond");
 		
 		ItemStack quibitCluster1 = EnumQuibitCluster.getQuibitClusterFromType(EnumQuibitCluster.one);
 		ItemStack quibitCluster2 = EnumQuibitCluster.getQuibitClusterFromType(EnumQuibitCluster.two);
@@ -78,13 +79,13 @@ public class RecipeRegister {
 			
 			addShapedOreRecipe(true, advancedCircuit,
 					"grg",
-					"eee",
-					"ppp" ,'g', nuggetGold,'r',redstone,'e',enderCrystal,'p',paper);
+					"ehe",
+					"ppp" ,'g', nuggetGold,'r',redstone,'e',enderCrystal,'p',paper, 'h', hyperDiamond);
 
 			addShapedOreRecipe(true, ItemRegister.magnet,
 					"e e",
 					"a a",
-					"iii", 'e', enderCrystal,'a',amplificationCrystal,'i',ingotIron);
+					" i ", 'e', enderCrystal,'a',amplificationCrystal,'i',ingotIron);
 
 			addShapedOreRecipe(true, new ItemStack(ItemRegister.exciterUpgrade,2),
 					"rqr",

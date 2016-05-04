@@ -7,8 +7,10 @@ import gnu.trove.map.TMap;
 import gnu.trove.map.hash.THashMap;
 import jotato.quantumflux.Logger;
 import jotato.quantumflux.QuantumFluxMod;
+import jotato.quantumflux.helpers.ItemHelpers;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -45,16 +47,20 @@ public class ItemCraftingPiece extends ItemBase {
 					new ModelResourceLocation(QuantumFluxMod.TEXTURE_BASE + item.name, "inventory"));
 		}
 	}
+	
+	public SubItem getUnderlyingItem(ItemStack stack){
+		return subItemList.get(stack.getItemDamage());
+	}
 
-	public ItemStack addItem(String name, String oreDictName) {
+	public ItemStack addItem(String name, String oreDictName, int number) {
 
-		int number = subItemList.size();
 
 		if (subItemMap.containsKey(String.valueOf(name))) {
 			return null;
 		}
 
 		SubItem entry = new SubItem(name, number);
+		
 
 		subItemMap.put(String.valueOf(name), entry);
 		subItemList.add(entry);
@@ -65,23 +71,17 @@ public class ItemCraftingPiece extends ItemBase {
 
 			OreDictionary.registerOre(oreDictName.trim(), item);
 		}
+		
+		subItemList.trimToSize();
 
 		return item;
 	}
 
-	public ItemStack addItem(String name) {
+	public ItemStack addItem(String name, int number) {
 
-		return addItem(name, null);
+		return addItem(name, null,number);
 	}
 
-	public String getEntryName(ItemStack stack) {
-
-		int meta = getDamage(stack);
-		if (!subItemMap.containsKey(Integer.valueOf(meta))) {
-			return "invalid";
-		}
-		return subItemMap.get(meta).name;
-	}
 
 	public ItemStack getSubItem(String name) {
 		return getSubItem(name, 1);
@@ -113,8 +113,12 @@ public class ItemCraftingPiece extends ItemBase {
 		}
 		SubItem item = subItemList.get(meta);
 
-		return "item." + item.name;// new
-									// StringBuilder().append(getUnlocalizedName()).append('.').append(item.name).toString();
+		return "item." + item.name;
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
+		ItemHelpers.addFlairToList(tooltip, getUnlocalizedName(stack));
 	}
 
 }
