@@ -1,5 +1,6 @@
 package jotato.quantumflux.registers;
 
+import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.Logger;
 import jotato.quantumflux.QuantumFluxMod;
 import jotato.quantumflux.items.ItemBase;
@@ -33,6 +34,7 @@ public final class ItemRegister {
 	public static ItemBase voidBucket;
 	public static ItemBase matterTransporter;
 	public static Item hamCheese;
+	public static ItemBase graphiteDust;
 
 	public static void init() {
 
@@ -52,7 +54,8 @@ public final class ItemRegister {
 		matterTransporter = new ItemMatterTransporter();
 		hamCheese = new ItemFood(10, 1f, true).setUnlocalizedName("hamCheese").setCreativeTab(QuantumFluxMod.tab);
 		GameRegistry.registerItem(hamCheese, "hamCheese");
-		
+		graphiteDust = new ItemBase("graphiteDust");
+
 	}
 
 	public static void registerRenders() {
@@ -66,6 +69,7 @@ public final class ItemRegister {
 		voidBucket.initModel();
 		matterTransporter.initModel();
 		registerGenericItem(hamCheese, 0);
+		graphiteDust.initModel();
 
 	}
 

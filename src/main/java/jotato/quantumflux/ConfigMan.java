@@ -37,6 +37,8 @@ public class ConfigMan
     public static int imaginaryTime_range;
     public static int imaginaryTime_chargeRate;
     
+    public static boolean generate_graphite;
+    
 
     public static void init(Configuration configuration)
     {
@@ -78,5 +80,7 @@ public class ConfigMan
         
         eviscerator_chargeRate = config.getInt("chargeRate","eviscerator",500,20,500,"How fast the Eviscerator can charge");
         eviscerator_maxEnergy = config.getInt("maxEnergy", "eviscerator", 50000, 10000, 100000, "The maximum amount of energy that the Eviscerator can hold");
+        
+        generate_graphite = config.getBoolean("graphiteOre", "worldgen", true, "if false, dustGraphite must be provided by some other means");
     }
 }
