@@ -112,7 +112,7 @@ public class ItemMatterTransporter extends ItemBase {
 					}
 					worldIn.notifyBlockOfStateChange(targetPos, storedBlock);
 
-					playerIn.playSound(SoundEvents.entity_item_pickup, .15f,
+					playerIn.playSound(SoundEvents.entity_item_pickup, 1f,
 							((worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
 				}
 			}

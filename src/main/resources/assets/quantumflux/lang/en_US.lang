@@ -10,6 +10,7 @@ item.quibitCell.name=Quibit Cell
 item.energizedCrystal.name=EnergizedCrystal
 item.magnet.name= Item Magnet
 item.glowingMangalloy.name=Glowing Mangalloy
+item.industrialDiamond.name=Hyper Diamond
 
 item.battlesuit_helmet.name=Battlesuit Helmet
 item.battlesuit_chestplate.name=Battlesuit Chestplate
@@ -43,7 +44,7 @@ item.matterTransporter.name=Matter Transporter
 item.hamCheese.name=Ham & Cheese Sandwhich
 item.graphiteDust.name=Graphite Dust
 
-tile.graphiteOre.name=Graphite Ore
+tile.graphiteOre.name=Industrial Grade Graphite Ore
 
 tile.darkstone.plain.name=Darkstone
 tile.darkstone.lamp.name=Darkstone Lamp

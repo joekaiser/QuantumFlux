@@ -31,8 +31,9 @@ public class QuantumFluxMod {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		proxy.preInit();
 		ConfigMan.init(new Configuration(event.getSuggestedConfigurationFile()));
+		proxy.preInit();
+		
 	}
 
 	@EventHandler

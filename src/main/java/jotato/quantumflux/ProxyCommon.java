@@ -4,6 +4,7 @@ import jotato.quantumflux.registers.BlockRegister;
 import jotato.quantumflux.registers.EventRegister;
 import jotato.quantumflux.registers.ItemRegister;
 import jotato.quantumflux.registers.RecipeRegister;
+import jotato.quantumflux.registers.WorldRegister;
 import net.minecraftforge.common.MinecraftForge;
 
 public class ProxyCommon {
@@ -11,6 +12,7 @@ public class ProxyCommon {
 	public void preInit() {
 		ItemRegister.init();
 		BlockRegister.init();
+		WorldRegister.init();
 	}
 
 	public void init() {
