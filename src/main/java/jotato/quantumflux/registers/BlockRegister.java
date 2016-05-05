@@ -5,6 +5,7 @@ import jotato.quantumflux.Logger;
 import jotato.quantumflux.blocks.BlockBase;
 import jotato.quantumflux.blocks.BlockGraphiteOre;
 import jotato.quantumflux.blocks.darkstone.BlockDarkstone;
+import jotato.quantumflux.blocks.mobglue.BlockMobGlue;
 import jotato.quantumflux.machines.cluster.BlockQuibitCluster;
 import jotato.quantumflux.machines.cluster.TileCreativeCluster;
 import jotato.quantumflux.machines.cluster.TileQuibitCluster;
@@ -32,6 +33,7 @@ public final class BlockRegister {
 	public static BlockBase rfEntangler;
 	public static BlockBase rfExciter;
 	public static BlockBase graphiteOre;
+	public static BlockBase mobGlue;
 
 	public static void init() {
 		initTileEntities();
@@ -44,6 +46,7 @@ public final class BlockRegister {
 		rfEntangler = new BlockRFEntangler();
 		rfExciter = new BlockRFExciter();
 		graphiteOre = new BlockGraphiteOre();
+		//mobGlue = new BlockMobGlue();
 
 	}
 
@@ -69,7 +72,7 @@ public final class BlockRegister {
 		darkstone.initModel();
 		rfEntangler.initModel();
 		rfExciter.initModel();
-
 		graphiteOre.initModel();
+		//mobGlue.initModel();
 	}
 }

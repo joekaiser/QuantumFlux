@@ -46,6 +46,8 @@ item.graphiteDust.name=Graphite Dust
 
 tile.graphiteOre.name=Industrial Grade Graphite Ore
 
+tile.mobGlue.name=Glue Trap
+
 tile.darkstone.plain.name=Darkstone
 tile.darkstone.lamp.name=Darkstone Lamp
 tile.darkstone.pillar.name=Darkstone Pillar

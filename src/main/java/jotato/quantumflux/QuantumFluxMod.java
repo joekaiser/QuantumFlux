@@ -21,7 +21,10 @@ public class QuantumFluxMod {
 	public static final String VERSION = "2.0.6";
 	public static final String TEXTURE_BASE = MODID + ":";
 
-
+	public QuantumFluxMod() {
+	Logger.info("Helloooooooo, everybody!");
+	}
+	
 	@Instance(QuantumFluxMod.MODID)
 	public static QuantumFluxMod instance;
 	
