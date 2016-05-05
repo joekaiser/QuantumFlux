@@ -68,9 +68,7 @@ public class ItemMatterTransporter extends ItemBase {
 	public EnumActionResult onItemUse(ItemStack stackIn, EntityPlayer playerIn, World worldIn, BlockPos pos,
 			EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-		if (worldIn.isRemote) {
-			return EnumActionResult.FAIL;
-		}
+		
 
 		boolean hasBlock = NbtHelpers.getBoolean(stackIn, HAS_BLOCK, false);
 		boolean hasTE = NbtHelpers.getBoolean(stackIn, HAS_TILEENTITY, false);
