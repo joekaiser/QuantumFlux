@@ -2,7 +2,7 @@ package jotato.quantumflux.items;
 
 import jotato.quantumflux.Logger;
 import jotato.quantumflux.helpers.TimeTracker;
-import jotato.quantumflux.items.netherbane.EntityNetherbane;
+import jotato.quantumflux.items.netherbane.EntityItemNetherbane;
 import jotato.quantumflux.registers.ItemRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
@@ -18,9 +18,8 @@ public class EntityItemGraphiteDust extends EntityItem {
 		super(world, x, y, z, itemStack);
 		setPickupDelay(30);
 		isImmuneToFire = true;
+		
 	}
-	
-
 
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {

@@ -12,7 +12,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityNetherbane extends EntityItem {
+public class EntityItemNetherbane extends EntityItem {
 
 	private TimeTracker timer;
 	private int step = 0;
@@ -22,11 +22,11 @@ public class EntityNetherbane extends EntityItem {
 	private static final String[] names = new String[] { "Ghost Rider", "The Lich", "Jack Skellington", "Skeletor",
 			"Bonejangles", "Dry Bones", "Smitty Werbenjagermanjensen" };
 
-	public EntityNetherbane(World world, double x, double y, double z, ItemStack itemStack) {
+	public EntityItemNetherbane(World world, double x, double y, double z, ItemStack itemStack) {
 		super(world, x, y, z, itemStack);
 		this.isImmuneToFire = true;
 		setNoDespawn();
-		setDefaultPickupDelay();
+		setPickupDelay(100);
 		timer = new TimeTracker();
 
 	}
@@ -112,8 +112,8 @@ public class EntityNetherbane extends EntityItem {
 		subStep = 0;
 	}
 
-	public static EntityNetherbane convert(EntityItem entity) {
-		EntityNetherbane newEntity = new EntityNetherbane(entity.worldObj, entity.posX, entity.posY, entity.posZ,
+	public static EntityItemNetherbane convert(EntityItem entity) {
+		EntityItemNetherbane newEntity = new EntityItemNetherbane(entity.worldObj, entity.posX, entity.posY, entity.posZ,
 				entity.getEntityItem());
 		newEntity.dimension = entity.dimension;
 		newEntity.motionX = entity.motionX;

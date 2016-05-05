@@ -1,7 +1,7 @@
 package jotato.quantumflux.registers;
 
 import jotato.quantumflux.items.EntityItemGraphiteDust;
-import jotato.quantumflux.items.netherbane.EntityNetherbane;
+import jotato.quantumflux.items.netherbane.EntityItemNetherbane;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -80,7 +80,7 @@ public class EventRegister {
 		
 		if (entityItem.dimension == -1) {
 			if (itemTossed.getDisplayName().equals("Netherbane") && itemTossed.getItem().equals(Items.diamond_sword)) {
-				entity.worldObj.spawnEntityInWorld(EntityNetherbane.convert(entityItem));
+				entity.worldObj.spawnEntityInWorld(EntityItemNetherbane.convert(entityItem));
 				event.setCanceled(true);
 				
 			}
