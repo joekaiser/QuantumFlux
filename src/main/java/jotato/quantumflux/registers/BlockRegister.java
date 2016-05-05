@@ -33,6 +33,7 @@ public final class BlockRegister {
 	public static BlockBase rfEntangler;
 	public static BlockBase rfExciter;
 	public static BlockBase graphiteOre;
+	//i can't get the glue from stopping motion. The best i can do is slwo it down
 	public static BlockBase mobGlue;
 
 	public static void init() {
