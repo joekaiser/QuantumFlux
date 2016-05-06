@@ -23,8 +23,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public final class ItemRegister {
 
-	public static final ToolMaterial netherBaneMaterial = EnumHelper.addToolMaterial("netherbane", 4, 5000, 10.0F, 4.0F,
-			16);
+	public static final ToolMaterial netherBaneMaterial = EnumHelper.addToolMaterial("netherbane", 4, 5000, 12.0F, 8F,
+			24);
 
 	public static ItemCraftingPiece craftingPieces;
 	public static ItemBase magnet;

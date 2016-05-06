@@ -146,23 +146,23 @@ public class RecipeRegister {
 					"cqc", 'c',goldCasing,'q',quibitCrystal,'s',netherStar,'3',quibitCluster3);
 			
 			addShapedOreRecipe(ConfigMan.zpe_enabled, BlockRegister.zeroPointExtractor,
-					"aea",
+					"ada",
 					"qcq",
-					"ggg", 'a',advancedCircuit, 'g',goldCasing,'e',enderCrystal,'q',quibitCrystal,'c',quibitCluster2);
+					"ggg", 'a',advancedCircuit, 'g',goldCasing,'d',hyperDiamond,'q',quibitCrystal,'c',quibitCluster2);
 			
 			addShapedOreRecipe(true, BlockRegister.rfEntangler,
 					"qsq",
 					"xax",
-					"ccc", 'q',quibitCrystal,'s',netherStar,'x',advancedCircuit,'a',quibitCluster1,'c',goldCasing);
+					"ccc", 'q',quibitCrystal,'s',netherStar,'x',advancedCircuit,'a',quibitCluster2,'c',goldCasing);
 			
-			addShapedOreRecipe(true, BlockRegister.rfExciter,
+			addShapedOreRecipe(true, new ItemStack(BlockRegister.rfExciter,2),
 					"qeq",
 					"cqc",'q',quibitCrystal,'e',enderCrystal,'c',goldCasing);
 			
 			addShapedOreRecipe(true, ItemRegister.quibitCell,
 					" q ",
 					"gcg",
-					"rrr", 'q',quibitCrystal,'g',goldCasing,'c',quibitCluster3,'r',redstone);
+					"rar", 'q',quibitCrystal,'g',goldCasing,'c',quibitCluster3,'r',redstone,'a',advancedCircuit);
 			
 			addShapedOreRecipe(true, ItemRegister.voidBucket,
 					"iei",
