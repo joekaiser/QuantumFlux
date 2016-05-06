@@ -1,7 +1,10 @@
 package jotato.quantumflux.registers;
 
+import jotato.quantumflux.KeyBindings;
 import jotato.quantumflux.items.EntityItemGraphiteDust;
 import jotato.quantumflux.items.netherbane.EntityItemNetherbane;
+import jotato.quantumflux.net.PacketHandler;
+import jotato.quantumflux.net.PacketToggleMagnet;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -11,8 +14,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
-import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent;
 
 public class EventRegister {
 
@@ -84,6 +87,13 @@ public class EventRegister {
 				event.setCanceled(true);
 				
 			}
+		}
+	}
+	
+	@SubscribeEvent
+    public void onKeyInput(InputEvent.KeyInputEvent event) {
+        if (KeyBindings.magnetkey.isPressed()) {
+            PacketHandler.INSTANCE.sendToServer(new PacketToggleMagnet());
 		}
 	}
 

@@ -1,5 +1,6 @@
 package jotato.quantumflux;
 
+import jotato.quantumflux.net.PacketHandler;
 import jotato.quantumflux.registers.BlockRegister;
 import jotato.quantumflux.registers.EventRegister;
 import jotato.quantumflux.registers.ItemRegister;
@@ -13,10 +14,12 @@ public class ProxyCommon {
 		ItemRegister.init();
 		BlockRegister.init();
 		WorldRegister.init();
+		PacketHandler.registerMessages(QuantumFluxMod.MODID);
 	}
 
 	public void init() {
-		
+		KeyBindings.init();
+
 	}
 
 	public void postInit() {
@@ -24,14 +27,10 @@ public class ProxyCommon {
 		new RecipeRegister().init();
 	}
 
-	public void registerKeyBindings() {
 
-	}
-	
+
 	public void registerTickHandlers() {
 		MinecraftForge.EVENT_BUS.register(new EventRegister());
 	}
-
-	
 
 }
