@@ -36,7 +36,7 @@ public final class BlockRegister {
 	public static BlockBase graphiteOre;
 	//i can't get the glue from stopping motion. The best i can do is slwo it down
 	//public static BlockBase mobGlue;
-	//public static BlockBase containmentUnit;
+	public static BlockBase containmentUnit;
 
 	public static void init() {
 		initTileEntities();
@@ -50,7 +50,7 @@ public final class BlockRegister {
 		rfExciter = new BlockRFExciter();
 		graphiteOre = new BlockGraphiteOre();
 		//mobGlue = new BlockMobGlue();
-		//containmentUnit = new BlockContainmentUnit();
+		containmentUnit = new BlockContainmentUnit();
 
 	}
 
@@ -78,6 +78,6 @@ public final class BlockRegister {
 		rfExciter.initModel();
 		graphiteOre.initModel();
 		//mobGlue.initModel();
-		//containmentUnit.initModel();
+		containmentUnit.initModel();
 	}
 }
