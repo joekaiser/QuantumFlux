@@ -9,6 +9,7 @@ import jotato.quantumflux.blocks.mobglue.BlockMobGlue;
 import jotato.quantumflux.machines.cluster.BlockQuibitCluster;
 import jotato.quantumflux.machines.cluster.TileCreativeCluster;
 import jotato.quantumflux.machines.cluster.TileQuibitCluster;
+import jotato.quantumflux.machines.containmentunit.BlockContainmentUnit;
 import jotato.quantumflux.machines.entangler.BlockRFEntangler;
 import jotato.quantumflux.machines.entangler.TileRFEntangler;
 import jotato.quantumflux.machines.entropyaccelerator.BlockEntropyAccelerator;
@@ -34,7 +35,8 @@ public final class BlockRegister {
 	public static BlockBase rfExciter;
 	public static BlockBase graphiteOre;
 	//i can't get the glue from stopping motion. The best i can do is slwo it down
-	public static BlockBase mobGlue;
+	//public static BlockBase mobGlue;
+	//public static BlockBase containmentUnit;
 
 	public static void init() {
 		initTileEntities();
@@ -48,6 +50,7 @@ public final class BlockRegister {
 		rfExciter = new BlockRFExciter();
 		graphiteOre = new BlockGraphiteOre();
 		//mobGlue = new BlockMobGlue();
+		//containmentUnit = new BlockContainmentUnit();
 
 	}
 
@@ -75,5 +78,6 @@ public final class BlockRegister {
 		rfExciter.initModel();
 		graphiteOre.initModel();
 		//mobGlue.initModel();
+		//containmentUnit.initModel();
 	}
 }
