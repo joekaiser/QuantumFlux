@@ -18,6 +18,7 @@ import jotato.quantumflux.machines.exciter.BlockRFExciter;
 import jotato.quantumflux.machines.exciter.TileRFExciter;
 import jotato.quantumflux.machines.imaginarytime.BlockImaginaryTime;
 import jotato.quantumflux.machines.imaginarytime.TileImaginaryTime;
+import jotato.quantumflux.machines.telepad.BlockTelepad;
 import jotato.quantumflux.machines.zpe.BlockZeroPointExtractor;
 import jotato.quantumflux.machines.zpe.TileZeroPointExtractor;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -37,6 +38,7 @@ public final class BlockRegister {
 	//i can't get the glue from stopping motion. The best i can do is slwo it down
 	//public static BlockBase mobGlue;
 	public static BlockBase containmentUnit;
+	public static BlockBase telepad;
 
 	public static void init() {
 		initTileEntities();
@@ -51,6 +53,7 @@ public final class BlockRegister {
 		graphiteOre = new BlockGraphiteOre();
 		//mobGlue = new BlockMobGlue();
 		containmentUnit = new BlockContainmentUnit();
+		telepad = new BlockTelepad();
 
 	}
 
@@ -79,5 +82,6 @@ public final class BlockRegister {
 		graphiteOre.initModel();
 		//mobGlue.initModel();
 		containmentUnit.initModel();
+		telepad.initModel();
 	}
 }
