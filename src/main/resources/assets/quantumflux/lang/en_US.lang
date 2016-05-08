@@ -49,6 +49,7 @@ tile.imaginaryTime.name=Imaginary Time Block
 tile.rfEntangler.name=RF Entangler
 tile.rfExciter.name=RF Exciter
 tile.containmentUnit.name=Containment Unit
+tile.telepad.name=Telepad
 
 # Chat
 

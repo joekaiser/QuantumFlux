@@ -75,8 +75,8 @@ public class BlockTelepad extends BlockBase {
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(IBlockState state, World worldIn, BlockPos pos, Random rand) {
 
-		if(isBlockPowered(worldIn, pos)){
-			for (int i = 0; i < 3; ++i) {
+		if (isBlockPowered(worldIn, pos)) {
+			if (rand.nextDouble() < .6) {
 				int j = rand.nextInt(2) * 2 - 1;
 				int k = rand.nextInt(2) * 2 - 1;
 				double d0 = (double) pos.getX() + 0.5D + 0.25D * (double) j;
@@ -89,7 +89,5 @@ public class BlockTelepad extends BlockBase {
 			}
 		}
 	}
-	
-
 
 }
