@@ -35,6 +35,7 @@ public final class ItemRegister {
 	public static ItemBase matterTransporter;
 	public static Item hamCheese;
 	public static ItemBase graphiteDust;
+	public static ItemBase linkingCard;
 
 	public static void init() {
 
@@ -56,6 +57,7 @@ public final class ItemRegister {
 		hamCheese = new ItemFood(10, 1f, true).setUnlocalizedName("hamCheese").setCreativeTab(QuantumFluxMod.tab);
 		GameRegistry.registerItem(hamCheese, "hamCheese");
 		graphiteDust = new ItemBase("graphiteDust");
+		linkingCard = new ItemBase("linkingCard");
 
 	}
 
@@ -71,6 +73,7 @@ public final class ItemRegister {
 		matterTransporter.initModel();
 		registerGenericItem(hamCheese, 0);
 		graphiteDust.initModel();
+		linkingCard.initModel();
 
 	}
 

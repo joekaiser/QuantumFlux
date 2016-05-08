@@ -178,10 +178,17 @@ public class RecipeRegister {
 					" c ",
 					" s ", 'b', slimeBall,'c',advancedCircuit,'s',stick);
 			
+			addShapedOreRecipe(true, ItemRegister.craftingPieces.getSubItem("quantumDisk"),
+					"i i",
+					"cac",
+					"i i", 'c', amplificationCrystal,'a',advancedCircuit,'i',ingotIron);
+			
+			
+			
 		}
 
 		private void shapelessRecipes() {
-			
+			addShapelessRecipe(true, ItemRegister.linkingCard, enderCrystal,paper);
 
 		}
 

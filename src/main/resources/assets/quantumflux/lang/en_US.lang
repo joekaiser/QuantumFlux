@@ -28,6 +28,7 @@ item.voidBucket.name=Void Bucket
 item.matterTransporter.name=Matter Transporter
 item.hamCheese.name=Ham & Cheese Sandwhich
 item.graphiteDust.name=Graphite Dust
+item.linkingCard.name=Telepad Linking Card
 
 # Blocks
 tile.graphiteOre.name=Industrial Grade Graphite Ore
