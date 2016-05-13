@@ -109,5 +109,33 @@ public final class NbtHelpers
 
 		getNbtCompound(stack).setTag(key, value);
 	}
+	
+
+    public static long getLong(ItemStack stack, String key){
+    	return getLong(stack, key,0);
+    }
+
+    public static long getLong(ItemStack stack, String key, long defaultValue) {
+
+		if (!keyExists(stack, key)) {
+			return defaultValue;
+		}
+		return getNbtCompound(stack).getLong(key);
+	}
+   
+
+    public static ItemStack setLong(ItemStack stack, String key, long value){
+    	NBTTagCompound tag = getNbtCompound(stack);
+    	tag.setLong(key, value);
+    	stack.setTagCompound(tag);
+    	
+    	return stack;
+    }
+    
+    public static ItemStack deleteKey(ItemStack stack, String key){
+    	NBTTagCompound tag = getNbtCompound(stack);
+    	tag.removeTag(key);
+    	return stack;
+    }
 
 }

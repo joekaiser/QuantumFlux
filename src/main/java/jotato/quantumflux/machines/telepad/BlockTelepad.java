@@ -4,10 +4,12 @@ import java.util.Random;
 
 import jotato.quantumflux.blocks.BlockBase;
 import jotato.quantumflux.helpers.BlockHelpers;
-import net.minecraft.block.Block;
+import jotato.quantumflux.machines.zpe.TileZeroPointExtractor;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -17,7 +19,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockTelepad extends BlockBase {
+public class BlockTelepad extends BlockBase implements ITileEntityProvider {
 
 	public BlockTelepad() {
 		super(Material.iron, "telepad", null, 1);
@@ -88,6 +90,11 @@ public class BlockTelepad extends BlockBase {
 				worldIn.spawnParticle(EnumParticleTypes.PORTAL, d0, d1, d2, d3, d4, d5, new int[0]);
 			}
 		}
+	}
+
+	@Override
+	public TileEntity createNewTileEntity(World worldIn, int meta) {
+		return new TileTelepad();
 	}
 
 }

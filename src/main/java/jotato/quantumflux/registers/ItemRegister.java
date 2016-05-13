@@ -1,11 +1,11 @@
 package jotato.quantumflux.registers;
 
-import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.Logger;
 import jotato.quantumflux.QuantumFluxMod;
 import jotato.quantumflux.items.ItemBase;
 import jotato.quantumflux.items.ItemCraftingPiece;
 import jotato.quantumflux.items.ItemExciterUpgrade;
+import jotato.quantumflux.items.ItemLinkingCard;
 import jotato.quantumflux.items.ItemMagnet;
 import jotato.quantumflux.items.ItemMatterTransporter;
 import jotato.quantumflux.items.ItemQuibitCell;
@@ -57,7 +57,7 @@ public final class ItemRegister {
 		hamCheese = new ItemFood(10, 1f, true).setUnlocalizedName("hamCheese").setCreativeTab(QuantumFluxMod.tab);
 		GameRegistry.registerItem(hamCheese, "hamCheese");
 		graphiteDust = new ItemBase("graphiteDust");
-		linkingCard = new ItemBase("linkingCard");
+		linkingCard = new ItemLinkingCard();
 
 	}
 

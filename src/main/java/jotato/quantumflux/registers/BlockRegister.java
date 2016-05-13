@@ -19,6 +19,7 @@ import jotato.quantumflux.machines.exciter.TileRFExciter;
 import jotato.quantumflux.machines.imaginarytime.BlockImaginaryTime;
 import jotato.quantumflux.machines.imaginarytime.TileImaginaryTime;
 import jotato.quantumflux.machines.telepad.BlockTelepad;
+import jotato.quantumflux.machines.telepad.TileTelepad;
 import jotato.quantumflux.machines.zpe.BlockZeroPointExtractor;
 import jotato.quantumflux.machines.zpe.TileZeroPointExtractor;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -66,6 +67,7 @@ public final class BlockRegister {
 		GameRegistry.registerTileEntity(TileCreativeCluster.class, "QFTILE_creativeCluster");
 		GameRegistry.registerTileEntity(TileRFEntangler.class, "QFTILE_rfEntnagler");
 		GameRegistry.registerTileEntity(TileRFExciter.class, "QFTILE_rfExciter");
+		GameRegistry.registerTileEntity(TileTelepad.class, "QFTILE_telepad");
 
 	}
 
