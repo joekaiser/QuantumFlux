@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"particle": "quantumflux:blocks/zpe/zpe_side",
+        "down":  "quantumflux:blocks/zpe/zpe_bottom",
+        "up":  "quantumflux:blocks/zpe/zpe_top",
+        "east":  "quantumflux:blocks/zpe/zpe_side",
+        "west":  "quantumflux:blocks/zpe/zpe_side",
+        "north": "quantumflux:blocks/zpe/zpe_side",
+        "south":  "quantumflux:blocks/zpe/zpe_side"
+	}
+}

@@ -7,10 +7,6 @@ import java.util.Map;
 
 import jotato.quantumflux.Logger;
 
-/**
- * Base on King Lemming's CoFHLib/RegistryEnderAttuned. All Kudos to him
- *
- */
 public final class RedfluxField
 {
 

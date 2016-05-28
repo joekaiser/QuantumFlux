@@ -14,21 +14,17 @@ public class ConfigMan
     public static int quibitCluster_baseTransferRate;
     public static int quibitCluster_multiplier;
     
-    public static boolean zpe_particles;
     public static int zpe_maxPowerGen;
     public static boolean zpe_enabled;
-    public static boolean zpe_doesDamage;
-    public static int zpe_damageRange;
     
     public static int redfluxField_buffer;
     public static int rfExciter1_output;
     public static int rfExciter_maxUpgrades;
     public static int quibitcell_output;
-    public static float rfExciter_Efficiency;
+    //public static float rfExciter_Efficiency;
     
+    public static boolean isDebug;
     public static int magnet_strength;
-    public static boolean enableSteelRecipe;
-    public static boolean enableTitaniumGen;
     
     public static int battlesuit_maxEnergy;
     public static int battlesuit_chargeRate;
@@ -38,11 +34,9 @@ public class ConfigMan
     public static int eviscerator_chargeRate;
     
     public static int imaginaryTime_energyRequirement;
-    public static int imaginaryTime_tickIncrease;
     public static int imaginaryTime_range;
     public static int imaginaryTime_chargeRate;
     
-
     public static void init(Configuration configuration)
     {
         config = configuration;
@@ -62,29 +56,24 @@ public class ConfigMan
         quibitCluster_multiplier = config.getInt("multiplier", "quibitCluster", 5, 4, 6, "The multiplier between each level of the clusters");
         
         zpe_maxPowerGen = config.getInt("powerGen", "zeroPointExtractor", 150, 32, 256, "The maximum amount of rf/t it can generate");
-        zpe_particles = config.getBoolean("particles", "zeroPointExtractor", true, "Enable particle effect");
         zpe_enabled= config.getBoolean("enabled", "zeroPointExtractor", true, "Enable the Zero Point Extractor. The block is still registered, you just can't craft it.");
-        zpe_doesDamage = config.getBoolean("doesDamage", "zeroPointExtractor",true,"Deal damage to Entities in range");
-        zpe_damageRange = config.getInt("damageRange", "zeroPointExtractor", 2, 2, 4, "Entities within N blocks will receive damage");
         
-        redfluxField_buffer = config.getInt("buffer", "redfluxField", 2500000, 100000, Integer.MAX_VALUE, "The internal storage of each player's field");
+        redfluxField_buffer = config.getInt("buffer", "redfluxField", 50000, 50000, 1000000, "The internal storage of each player's field");
         rfExciter1_output = config.getInt("rfExciter_baseOutput", "redfluxField", 100, 100, 1000, "The output without any upgrades");
         quibitcell_output = config.getInt("quibitCell_output", "redfluxField", 100, 100, 500, "How much rf/tick the quibit cell can charge per item");
         rfExciter_maxUpgrades = config.getInt("rfExciter_maxUpgrades", "redfluxField", 640, 100, 1000, "How many upgrades can be applied to an Exciter");
-        rfExciter_Efficiency = config.getFloat("rfExciter_efficiency", "redfluxField", .8f, .2f, 1f, "How Efficient the EF Exciter is with power. The lower the number, the less efficient it is");
+        //rfExciter_Efficiency = config.getFloat("rfExciter_efficiency", "redfluxField", .8f, .2f, 1f, "How Efficient the EF Exciter is with power. The lower the number, the less efficient it is");
         
-        enableSteelRecipe = config.getBoolean("enableSteelRecipe", "misc", true, "If you don't want my vanilla-like steel recipe, set this to false. **WARNING** you will need another mod to provide steel under the 'ingotSteel' oredictionary name");
-        enableTitaniumGen = config.getBoolean("enableTitaniumGen", "misc", true, "If you don't want Titanium generated, set this to false. **WARNING** you will need another mod to provide Titanium under the 'oreTitanium' oredictionary name");
         magnet_strength = config.getInt("magnetStrength", "misc",5, 4, 14, "How far the magnet can reach");
+        isDebug = config.getBoolean("debugMode", "misc", false , "Developer only");
         
-        imaginaryTime_energyRequirement =config.getInt("energyRequirement", "imaginaryTime", 500, 50, 1000, "How much energy is used per work cycle. The higher the number the more RF must be pumped in before work will be done");
-        imaginaryTime_tickIncrease=config.getInt("tickRateIncrease", "imaginaryTime", 1, 1, 4, "How many extra ticks each block will get per cycle");
-        imaginaryTime_range=config.getInt("range", "imaginaryTime", 3, 2, 7, "The area of effect along the X&Z. Y is always 2");
+        imaginaryTime_energyRequirement =config.getInt("energyRequirement", "imaginaryTime", 800, 50, 1000, "How much energy is used per work cycle. The higher the number the more RF must be pumped in before work will be done");
+        imaginaryTime_range=config.getInt("range", "imaginaryTime", 3, 2, 4, "The area of effect along the X&Z. Y is always 2");
         imaginaryTime_chargeRate=config.getInt("chargeRate", "imaginaryTime", 250,25,1000,"How much RF/T it can accept. Setting this lower than the energyRequirement means it won't work every tick");
         
-        battlesuit_chargeRate = config.getInt("chargeRate","battlesuit",80,50,500,"How fast the Battlesuit can charge");
+        battlesuit_chargeRate = config.getInt("chargeRate","battlesuit",50,50,100,"How fast the Battlesuit can charge");
         battlesuit_maxEnergy = config.getInt("maxEnergy", "battlesuit", 50000, 10000, 100000, "The maximum amount of energy that the battlesuit can hold");
-        battlesuit_drain = config.getInt("drain", "battlesuit", 2, 0, 5, "The amount of energy drained every 100 ticks from battlesuits that have special abilities");
+        battlesuit_drain = config.getInt("drain", "battlesuit", 1, 0, 3, "The amount of energy drained every 40 ticks from battlesuits that have special abilities");
         
         eviscerator_chargeRate = config.getInt("chargeRate","eviscerator",500,20,500,"How fast the Eviscerator can charge");
         eviscerator_maxEnergy = config.getInt("maxEnergy", "eviscerator", 50000, 10000, 100000, "The maximum amount of energy that the Eviscerator can hold");

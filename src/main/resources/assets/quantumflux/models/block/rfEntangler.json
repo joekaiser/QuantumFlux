@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"particle": "quantumflux:blocks/entangler/_front",
+        "down":  "quantumflux:blocks/entangler/_top",
+        "up":  "quantumflux:blocks/entangler/_top",
+        "east":  "quantumflux:blocks/entangler/_side",
+        "west":  "quantumflux:blocks/entangler/_side",
+        "north": "quantumflux:blocks/entangler/_front",
+        "south":  "quantumflux:blocks/entangler/_side"
+	}
+}

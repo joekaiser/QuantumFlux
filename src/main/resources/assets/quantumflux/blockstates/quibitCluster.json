@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"level=one": { "model": "quantumflux:quibitCluster_one" },
+		"level=two": { "model": "quantumflux:quibitCluster_two" },
+		"level=three": { "model": "quantumflux:quibitCluster_three" },
+		"level=four": { "model": "quantumflux:quibitCluster_four" },
+		"level=five": { "model": "quantumflux:quibitCluster_five" },
+		"level=creative": { "model": "quantumflux:quibitCluster_creative" }
+	}
+}
