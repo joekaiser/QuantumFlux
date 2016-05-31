@@ -31,8 +31,8 @@ public class TileEntropyAccelerator extends TileSimpleInventory implements IEner
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound tag) {
-		super.writeToNBT(tag);
+	public NBTTagCompound writeToNBT(NBTTagCompound tag) {
+		tag = super.writeToNBT(tag);
 		tag.setShort("currentBurnTime", (short) this.currentBurnTime);
 
 		NBTTagCompound fuelTag = new NBTTagCompound();
@@ -43,13 +43,14 @@ public class TileEntropyAccelerator extends TileSimpleInventory implements IEner
 		this.energy.writeToNBT(energyTag);
 		tag.setTag("Energy", energyTag);
 		tag.setBoolean("Burning", isBurning);
+		
+		return tag;
 
 	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound tag) {
 		super.readFromNBT(tag);
-		NBTTagCompound fuelTag = tag.getCompoundTag("Items");
 		NBTTagCompound energyTag = tag.getCompoundTag("Energy");
 
 		this.currentBurnTime = tag.getShort("currentBurnTime");

@@ -1,8 +1,5 @@
 package jotato.quantumflux.items;
 
-import jotato.quantumflux.Logger;
-import jotato.quantumflux.helpers.TimeTracker;
-import jotato.quantumflux.items.netherbane.EntityItemNetherbane;
 import jotato.quantumflux.registers.ItemRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
@@ -11,7 +8,6 @@ import net.minecraft.world.World;
 
 public class EntityItemGraphiteDust extends EntityItem {
 	
-	private TimeTracker timer;
 
 	
 	public EntityItemGraphiteDust(World world, double x, double y, double z, ItemStack itemStack) {

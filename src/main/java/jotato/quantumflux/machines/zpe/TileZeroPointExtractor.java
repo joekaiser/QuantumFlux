@@ -20,12 +20,14 @@ public class TileZeroPointExtractor extends TileBase implements IEnergyProvider,
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound tag) {
-		super.writeToNBT(tag);
+	public NBTTagCompound writeToNBT(NBTTagCompound tag) {
+		tag = super.writeToNBT(tag);
 
 		NBTTagCompound energyTag = new NBTTagCompound();
 		this.energy.writeToNBT(energyTag);
 		tag.setTag("Energy", energyTag);
+		
+		return tag;
 
 	}
 

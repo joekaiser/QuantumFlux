@@ -16,10 +16,12 @@ public class TileCreativeCluster extends TileEntity implements IEnergyProvider, 
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound tag) {
-		super.writeToNBT(tag);
+	public NBTTagCompound writeToNBT(NBTTagCompound tag) {
+		tag = super.writeToNBT(tag);
 
 		tag.setInteger("XferRate", this.transferRate);
+		
+		return tag;
 
 	}
 

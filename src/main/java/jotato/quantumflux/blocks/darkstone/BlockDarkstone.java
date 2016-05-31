@@ -29,7 +29,7 @@ public class BlockDarkstone extends BlockBase {
 	public static final PropertyEnum TYPE = PropertyEnum.create("type", EnumDarkstone.class);
 
 	public BlockDarkstone() {
-		super(Material.rock, "darkstone", ItemBlockDarkstone.class,3);
+		super(Material.ROCK, "darkstone", ItemBlockDarkstone.class,3);
 	}
 
 	@Override

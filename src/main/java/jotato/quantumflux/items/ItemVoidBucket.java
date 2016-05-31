@@ -20,7 +20,7 @@ public class ItemVoidBucket extends ItemBase {
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemstack, World world,
 			EntityPlayer player, EnumHand hand) {
 
-		RayTraceResult movingobjectposition = this.getMovingObjectPositionFromPlayer(world, player, true);
+		RayTraceResult movingobjectposition = this.rayTrace(world, player, true);
 
 		if (movingobjectposition != null) {
 			if (movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK) {
@@ -71,11 +71,11 @@ public class ItemVoidBucket extends ItemBase {
 
 		Material material = world.getBlockState(pos).getMaterial();
 
-		if (material == Material.water) {
+		if (material == Material.WATER) {
 			world.setBlockToAir(pos);
 		}
 
-		if (material == Material.lava) {
+		if (material == Material.LAVA) {
 			world.setBlockToAir(pos);
 		}
 		if (material.isLiquid()) {

@@ -35,7 +35,7 @@ public class BlockQuibitCluster extends BlockBase implements ITileEntityProvider
 	public static final PropertyEnum LEVEL = PropertyEnum.create("level", EnumQuibitCluster.class);
 
 	public BlockQuibitCluster() {
-		super(Material.rock, "quibitCluster", ItemBlockQuibitCluster.class, 3);
+		super(Material.ROCK, "quibitCluster", ItemBlockQuibitCluster.class, 3);
 	}
 
 	@Override

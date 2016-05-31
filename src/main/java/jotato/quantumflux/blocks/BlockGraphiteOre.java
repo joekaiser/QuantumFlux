@@ -12,7 +12,7 @@ import net.minecraft.world.IBlockAccess;
 public class BlockGraphiteOre extends BlockBase {
 
 	public BlockGraphiteOre() {
-		super(Material.rock, "graphiteOre", null, 1.3f);
+		super(Material.ROCK, "graphiteOre", null, 1.3f);
 		setHarvestLevel("pickaxe", 2);
 	}
 

@@ -2,13 +2,9 @@ package jotato.quantumflux.items;
 
 import java.util.List;
 
-import com.sun.jna.platform.win32.WinDef.WPARAM;
 
-import jotato.quantumflux.Logger;
-import jotato.quantumflux.helpers.ItemHelpers;
 import jotato.quantumflux.helpers.NbtHelpers;
 import jotato.quantumflux.machines.telepad.BlockTelepad;
-import jotato.quantumflux.registers.BlockRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -17,7 +13,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.Constants.NBT;
 
 public class ItemLinkingCard extends ItemBase{
 	private static final String DIMKEY="linked_dimension";

@@ -22,7 +22,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockTelepad extends BlockBase implements ITileEntityProvider {
 
 	public BlockTelepad() {
-		super(Material.iron, "telepad", null, 1);
+		super(Material.IRON, "telepad", null, 1);
 		setDefaultState(blockState.getBaseState().withProperty(BlockHelpers.FACING, EnumFacing.UP));
 
 	}

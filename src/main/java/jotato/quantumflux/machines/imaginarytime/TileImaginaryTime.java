@@ -20,12 +20,14 @@ public class TileImaginaryTime extends TileBase implements IEnergyReceiver, ITic
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound tag) {
-		super.writeToNBT(tag);
+	public NBTTagCompound writeToNBT(NBTTagCompound tag) {
+		tag = super.writeToNBT(tag);
 
 		NBTTagCompound energyTag = new NBTTagCompound();
 		this.localEnergyStorage.writeToNBT(energyTag);
 		tag.setTag("Energy", energyTag);
+		
+		return tag;
 	}
 
 	@Override

@@ -83,9 +83,9 @@ public class TileRFExciter extends TileEntity implements IEnergyProvider, ITicka
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound tag)
+	public NBTTagCompound writeToNBT(NBTTagCompound tag)
 	{
-		super.writeToNBT(tag);
+		tag=super.writeToNBT(tag);
 		
 		tag.setInteger("upgradeCount", upgradeCount);
 		
@@ -94,6 +94,7 @@ public class TileRFExciter extends TileEntity implements IEnergyProvider, ITicka
 			tag.setString("owner", owner.toString());
 		}
 		
+		return tag;
 		
 	}
 

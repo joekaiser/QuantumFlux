@@ -82,7 +82,7 @@ public class EventRegister {
 		
 		
 		if (entityItem.dimension == -1) {
-			if (itemTossed.getDisplayName().equals("Netherbane") && itemTossed.getItem().equals(Items.diamond_sword)) {
+			if (itemTossed.getDisplayName().equals("Netherbane") && itemTossed.getItem().equals(Items.DIAMOND_SWORD)) {
 				entity.worldObj.spawnEntityInWorld(EntityItemNetherbane.convert(entityItem));
 				event.setCanceled(true);
 				

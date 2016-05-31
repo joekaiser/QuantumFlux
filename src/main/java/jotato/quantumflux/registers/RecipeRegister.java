@@ -20,19 +20,19 @@ public class RecipeRegister {
 		String nuggetGold = "nuggetGold";
 		String dyeBlack = "dyeBlack";
 		
-		ItemStack redstone = new ItemStack(Items.redstone);
-		ItemStack quartz = new ItemStack(Items.quartz);
-		ItemStack diamond = new ItemStack(Items.diamond);
-		ItemStack enderPearl = new ItemStack(Items.ender_pearl);
-		ItemStack paper = new ItemStack(Items.paper);
-		ItemStack cobblestone = new ItemStack(Blocks.cobblestone);
-		ItemStack stone = new ItemStack(Blocks.stone);
-		ItemStack lapis = new ItemStack(Items.dye, 1, 4);
-		ItemStack furnace = new ItemStack(Blocks.furnace);
-		ItemStack lavaBucket = new ItemStack(Items.lava_bucket);
-		ItemStack netherStar = new ItemStack(Items.nether_star);
-		ItemStack stick = new ItemStack(Items.stick);
-		ItemStack slimeBall = new ItemStack(Items.slime_ball);
+		ItemStack redstone = new ItemStack(Items.REDSTONE);
+		ItemStack quartz = new ItemStack(Items.QUARTZ);
+		ItemStack diamond = new ItemStack(Items.DIAMOND);
+		ItemStack enderPearl = new ItemStack(Items.ENDER_PEARL);
+		ItemStack paper = new ItemStack(Items.PAPER);
+		ItemStack cobblestone = new ItemStack(Blocks.COBBLESTONE);
+		ItemStack stone = new ItemStack(Blocks.STONE);
+		ItemStack lapis = new ItemStack(Items.DYE, 1, 4);
+		ItemStack furnace = new ItemStack(Blocks.FURNACE);
+		ItemStack lavaBucket = new ItemStack(Items.LAVA_BUCKET);
+		ItemStack netherStar = new ItemStack(Items.NETHER_STAR);
+		ItemStack stick = new ItemStack(Items.STICK);
+		ItemStack slimeBall = new ItemStack(Items.SLIME_BALL);
 
 		//modItems
 		ItemStack goldCasing = ItemRegister.craftingPieces.getSubItem("goldCasing");

@@ -73,7 +73,7 @@ public class EntityItemNetherbane extends EntityItem {
 
 				EntitySkeleton skele = new EntitySkeleton(worldObj);
 				skele.dimension = this.dimension;
-				skele.setLocationAndAngles(posX, posY, posZ, MathHelper.wrapAngleTo180_float(rand.nextFloat() * 360.0F),
+				skele.setLocationAndAngles(posX, posY, posZ, MathHelper.wrapDegrees(rand.nextFloat() * 360.0F),
 						0.0F);
 
 				skele.addPotionEffect(

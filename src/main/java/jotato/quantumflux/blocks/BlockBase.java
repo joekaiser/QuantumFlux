@@ -21,7 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockBase extends Block {
 
 	public BlockBase(String name) {
-		this(Material.rock, name, null, 2);
+		this(Material.ROCK, name, null, 2);
 	}
 
 	public BlockBase(Material material, String name) {
@@ -34,7 +34,8 @@ public class BlockBase extends Block {
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(QuantumFluxMod.tab);
-		setStepSound(SoundType.STONE);
+		
+		setSoundType(SoundType.STONE);
 		setHardness(hardness);
 		
 		GameRegistry.register(this);
@@ -49,7 +50,6 @@ public class BlockBase extends Block {
 	@SideOnly(Side.CLIENT)
 	public void initModel() {
 		Logger.info("    Registering model for %s", getRegistryName());
-		Item item = Item.getItemFromBlock(this);
 
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0,new ModelResourceLocation(getRegistryName(), "inventory"));
 	}

@@ -16,6 +16,7 @@ public class ProxyClient extends ProxyCommon {
 	@Override
 	public void init() {
 		super.init();
+		KeyBindings.init();
 	}
 	
 	public void registerRenders() {

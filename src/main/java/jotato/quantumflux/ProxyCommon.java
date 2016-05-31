@@ -18,7 +18,7 @@ public class ProxyCommon {
 	}
 
 	public void init() {
-		KeyBindings.init();
+		
 
 	}
 

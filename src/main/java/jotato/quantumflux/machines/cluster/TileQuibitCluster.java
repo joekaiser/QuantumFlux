@@ -32,8 +32,8 @@ public class TileQuibitCluster extends TileBase implements IEnergyProvider, IEne
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound tag) {
-		super.writeToNBT(tag);
+	public NBTTagCompound writeToNBT(NBTTagCompound tag) {
+		tag = super.writeToNBT(tag);
 
 		NBTTagCompound energyTag = new NBTTagCompound();
 		this.localEnergyStorage.writeToNBT(energyTag);
@@ -41,6 +41,8 @@ public class TileQuibitCluster extends TileBase implements IEnergyProvider, IEne
 		tag.setInteger("XferRate", this.transferRate);
 		tag.setInteger("Capacity", this.capacity);
 		tag.setInteger("Level", this.level);
+		
+		return tag;
 
 	}
 

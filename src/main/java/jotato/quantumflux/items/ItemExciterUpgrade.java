@@ -23,7 +23,8 @@ public class ItemExciterUpgrade extends ItemBase {
 		if (worldIn.isRemote)
 			new ActionResult(EnumActionResult.PASS, itemStackIn);
 
-		RayTraceResult movingobjectposition = this.getMovingObjectPositionFromPlayer(worldIn, playerIn, true);
+		
+		RayTraceResult movingobjectposition = this.rayTrace(worldIn, playerIn, true);
 
 		if (movingobjectposition != null) {
 

@@ -62,19 +62,21 @@ public class TileRFEntangler extends TileEntity implements IEnergyReceiver, IRed
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound tag)
+	public NBTTagCompound writeToNBT(NBTTagCompound tag)
 	{
-		super.writeToNBT(tag);
+		tag=super.writeToNBT(tag);
 
 		if(owner==null){
 			//todo: I don't know how this happens, but it does. Probably on a server crash
-			return;
+			return tag;
 		}
 		
 		NBTTagCompound energyTag = new NBTTagCompound();
 		this.storage.writeToNBT(energyTag);
 		tag.setTag("Energy", energyTag);
 		tag.setString("owner", owner.toString());
+		
+		return tag;
 	}
 
 	@Override

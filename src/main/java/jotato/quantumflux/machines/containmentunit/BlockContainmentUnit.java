@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockContainmentUnit extends BlockBase {
 	public BlockContainmentUnit() {
-		super(Material.iron, "containmentUnit", null, 2);
+		super(Material.IRON, "containmentUnit", null, 2);
 		
 	}
 

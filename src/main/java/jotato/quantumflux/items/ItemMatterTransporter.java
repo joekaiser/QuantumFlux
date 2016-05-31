@@ -15,8 +15,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
@@ -110,7 +108,7 @@ public class ItemMatterTransporter extends ItemBase {
 					}
 					worldIn.notifyBlockOfStateChange(targetPos, storedBlock);
 
-					playerIn.playSound(SoundEvents.entity_item_pickup, 1f,
+					playerIn.playSound(SoundEvents.ENTITY_ITEM_PICKUP, 1f,
 							((worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
 				}
 			}
@@ -151,7 +149,7 @@ public class ItemMatterTransporter extends ItemBase {
 			worldIn.removeTileEntity(pos);
 			worldIn.setBlockToAir(pos);
 
-			playerIn.playSound(SoundEvents.entity_item_pickup, .15f,
+			playerIn.playSound(SoundEvents.ENTITY_ITEM_PICKUP, .15f,
 					((worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
 			NbtHelpers.setBoolean(stackIn, HAS_BLOCK, true);
 

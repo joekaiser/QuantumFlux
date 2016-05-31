@@ -6,7 +6,6 @@ import jotato.quantumflux.helpers.BlockHelpers;
 import jotato.quantumflux.registers.ItemRegister;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -25,7 +24,7 @@ import net.minecraft.world.World;
 public class BlockRFExciter extends BlockBase implements ITileEntityProvider {
 
 	public BlockRFExciter() {
-		super(Material.circuits, "rfExciter");
+		super(Material.CIRCUITS, "rfExciter");
 		setDefaultState(blockState.getBaseState().withProperty(BlockHelpers.FACING, EnumFacing.NORTH));
 		setHardness(.5f);
 	}

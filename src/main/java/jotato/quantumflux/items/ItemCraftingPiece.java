@@ -92,7 +92,7 @@ public class ItemCraftingPiece extends ItemBase {
 			int meta = subItemMap.get(name).meta;
 			return new ItemStack(this, amount, meta);
 		}
-		return new ItemStack(Items.apple, amount);
+		return new ItemStack(Items.APPLE, amount);
 	}
 
 	@Override

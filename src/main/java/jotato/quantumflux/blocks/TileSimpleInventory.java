@@ -76,8 +76,8 @@ public abstract class TileSimpleInventory extends TileBase  implements IInventor
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbtTag) {
-		super.writeToNBT(nbtTag);
+	public NBTTagCompound writeToNBT(NBTTagCompound nbtTag) {
+		nbtTag = super.writeToNBT(nbtTag);
 
 		NBTTagList nbttaglist = new NBTTagList();
 		for (int i = 0; i < this.inventory.length; ++i) {
@@ -89,6 +89,8 @@ public abstract class TileSimpleInventory extends TileBase  implements IInventor
 			}
 		}
 		nbtTag.setTag("Items", nbttaglist);
+		
+		return nbtTag;
 
 	}
 
