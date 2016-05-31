@@ -68,7 +68,7 @@ public class ConfigMan
         isDebug = config.getBoolean("debugMode", "misc", false , "Developer only");
         
         imaginaryTime_energyRequirement =config.getInt("energyRequirement", "imaginaryTime", 800, 50, 1000, "How much energy is used per work cycle. The higher the number the more RF must be pumped in before work will be done");
-        imaginaryTime_range=config.getInt("range", "imaginaryTime", 3, 2, 4, "The area of effect along the X&Z. Y is always 2");
+        imaginaryTime_range=config.getInt("range", "imaginaryTime", 2, 2, 4, "The area of effect along the X&Z. Y is always 2");
         imaginaryTime_chargeRate=config.getInt("chargeRate", "imaginaryTime", 250,25,1000,"How much RF/T it can accept. Setting this lower than the energyRequirement means it won't work every tick");
         
         battlesuit_chargeRate = config.getInt("chargeRate","battlesuit",50,50,100,"How fast the Battlesuit can charge");
