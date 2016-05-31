@@ -124,6 +124,8 @@ public class RecipeRegister
 				'a', advancedCircuit, 'i', ingotIron);
 		
 		addShapedOreRecipe(true,BlockRegister.telepad, " a ", "ere", "ddd", 'a', advancedCircuit, 'e',enderPearl,'r',redstone,'d',darkstone);
+		
+		addShapedOreRecipe(true, BlockRegister.mobGlue, "sss","sbs","sss",'s',stick,'b',slimeBall);
 
 	}
 
