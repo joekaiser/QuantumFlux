@@ -26,7 +26,7 @@ public class BlockMobGlue extends BlockBase
 
 	public BlockMobGlue()
 	{
-		super(Material.SPONGE, "mobGlue", null, .2f);
+		super(Material.SPONGE, "mobGlue", ItemBlockMobGlue.class, .2f);
 		setDefaultState(blockState.getBaseState().withProperty(BlockHelpers.FACING, EnumFacing.UP));
 	}
 
