@@ -2,14 +2,17 @@ package jotato.quantumflux.blocks.mobglue;
 
 import java.util.Random;
 
+import jotato.quantumflux.Logger;
 import jotato.quantumflux.blocks.BlockBase;
 import jotato.quantumflux.helpers.BlockHelpers;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -25,7 +28,6 @@ public class BlockMobGlue extends BlockBase
 	{
 		super(Material.SPONGE, "mobGlue", null, .2f);
 		setDefaultState(blockState.getBaseState().withProperty(BlockHelpers.FACING, EnumFacing.UP));
-
 	}
 
 	@Override
@@ -84,6 +86,13 @@ public class BlockMobGlue extends BlockBase
 	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
 	{
 
+		if(worldIn.rand.nextDouble() < .00016){ //on avg the block will break every 6000 ticks (roughly 5 minutes)
+			Logger.devLog("glue trap should break");
+ 			worldIn.setBlockToAir(pos);
+ 			entityIn.playSound(SoundEvents.ENTITY_ITEMFRAME_BREAK, 1, 1);
+
+		}
+		
 		double x = pos.getX() + .5;
 		double y = pos.getY();
 		double z = pos.getZ() + .5;
@@ -105,7 +114,8 @@ public class BlockMobGlue extends BlockBase
 	@Override
 	public boolean canSilkHarvest(World world, BlockPos pos, IBlockState state, EntityPlayer player)
 	{
-		return true;
+		return false;
 	}
+	
 
 }
