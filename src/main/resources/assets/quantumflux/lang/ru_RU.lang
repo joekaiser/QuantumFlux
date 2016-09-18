@@ -1,0 +1,72 @@
+# Misc
+itemGroup.tabQuantumFlux=QuantumFlux
+key.quantumflux.magnet=Переключить магнит из QuantumFlux
+
+# Items
+item.amplificationCrystal.name=Кристалл усиления
+item.goldCasing.name=Золотая оболочка
+item.quibitCrystal.name=Кубит-кристалл
+item.quibitCell.name=Кубит-ячейка
+item.energizedCrystal.name=Заряженный кристалл
+item.magnet.name= Предметный магнит
+item.industrialDiamond.name=Гипералмаз
+item.battlesuit_helmet.name=Боевой шлем
+item.battlesuit_chestplate.name=Боевой нагрудник
+item.battlesuit_leggings.name=Боевые поножи
+item.battlesuit_boots.name=Боевые ботинки
+item.battlesuit_plate.name=Боевая пластина
+item.eviscerator.name=Потрошитель
+item.eviscerator_head.name=Обух потрошителя
+item.eviscerator_rod.name=Стержень потрошителя
+item.exciterUpgrade.name=Улучшение возбудителя
+item.blankCircuit.name=Пустая схема
+item.advancedCircuit.name=Продвинутая схема
+item.quantumDisk.name=Квантовый диск
+item.enderCrystal.name=Эндер-кристалл
+item.netherbane.name=Незербэйн
+item.voidBucket.name=Пустотное ведро
+item.matterTransporter.name=Транспортер материи
+item.hamCheese.name=Сэндвич с ветчиной и сыром
+item.graphiteDust.name=Графитовая пыль
+item.linkingCard.name=Карта связывания телепортов
+
+# Blocks
+tile.graphiteOre.name=Графитовая руда промышленного класса
+tile.mobGlue.name=Липкая ловушка
+tile.darkstone.plain.name=Даркстоун
+tile.darkstone.lamp.name=Даркстоуновый фонарь
+tile.darkstone.pillar.name=Даркстоуновая колонна
+tile.darkstone.tile.name=Даркстоуновая плитка
+tile.darkstone.ornate.name=Декоративный даркстоун
+tile.entropyAccelerator.name=Квантовый ускоритель частиц
+tile.quibitCluster.creative.name=Творческий кубит-кластер
+tile.quibitCluster.one.name=Кубит-кластер 1 ур.
+tile.quibitCluster.two.name=Кубит-кластер 2 ур.
+tile.quibitCluster.three.name=Кубит-кластер 3 ур.
+tile.quibitCluster.four.name=Кубит-кластер 4 ур.
+tile.quibitCluster.five.name=Кубит-кластер 5 ур.
+tile.zeroPointExtractor.name=Экстрактор нулевых колебаний (ЭНК)
+tile.imaginaryTime.name=Воображаемый блок времени
+tile.rfEntangler.name=Запутыватель RF
+tile.rfExciter.name=Возбудитель RF
+tile.containmentUnit.name=Устройство сдерживания
+tile.telepad.name=Телепорт
+
+# Chat
+
+chat.rfStored=%s RF в запасе
+chat.rfStored.max= (Емкость: %s RF)
+chat.rfExciter.maxTransfer=Максимальная передача: %s RF
+chat.telepad.link.error.1=Телепорты можно связать только в одном измерении
+chat.telepad.link.success=Телепорт успешно связан!
+chat.telepad.link.stored=Расположение телепорта сохранено
+chat.telepad.link.clear=Расположение телепорта очищено
+
+# Flair
+
+flair.item.netherBane=Сабля Луны
+flair.item.industrialDiamond=Создан из графитовой пыли в результате взрыва
+flair.block.gluetrap=Zombies check in, but they don't check out! 
+
+
+
