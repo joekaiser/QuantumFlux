@@ -17,6 +17,7 @@ public class TileEntropyAccelerator extends TileSimpleInventory implements IEner
 
 	public TileEntropyAccelerator() {
 		super(1, "");
+		maxBurnTime = ConfigMan.incinerator_burnTime;
 		energy = new EnergyStorage(ConfigMan.incinerator_buffer, Integer.MAX_VALUE, ConfigMan.incinerator_output);
 	}
 
