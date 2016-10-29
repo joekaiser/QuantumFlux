@@ -27,14 +27,14 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
 */
-version = "1.10.2-2.0.8"
+version = "1.10.2-2.0.9"
 group= "jotato.quantumflux" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "quantumflux"
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 minecraft {
-    version = "1.9.4-12.17.0.1932-1.9.4"
+    version = "1.10.2-12.18.2.2114"
     runDir = "run"
 
     // the mappings can be changed at any time, and must be in the following format.
@@ -47,7 +47,7 @@ minecraft {
 }
 
 dependencies {
-    deobfProvided "mezz.jei:jei_1.9.4:3.4.0.204"
+    deobfProvided "mezz.jei:jei_1.10.2:3.13.0.335"
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"

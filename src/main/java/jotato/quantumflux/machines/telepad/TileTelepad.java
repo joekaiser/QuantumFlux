@@ -13,7 +13,6 @@ public class TileTelepad extends TileBase
 	public int targetDim;
 	public BlockPos targetPos;
 	private boolean isLinked;
-	private TimeTracker timer;
 
 	private static final String DIMKEY = "linked_dimension";
 	private static final String BLOCKPOS = "blockPOS";
@@ -21,7 +20,6 @@ public class TileTelepad extends TileBase
 
 	public TileTelepad()
 	{
-		timer = new TimeTracker();
 	}
 
 	@Override

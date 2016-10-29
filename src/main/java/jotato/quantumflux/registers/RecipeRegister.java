@@ -1,6 +1,5 @@
 package jotato.quantumflux.registers;
 
-import org.omg.CORBA.IRObjectOperations;
 
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.blocks.darkstone.EnumDarkstone;

@@ -50,7 +50,7 @@ public class EntityItemNetherbane extends EntityItem {
 
 		super.onUpdate();
 
-		if (timer.hasTimePartPassed(worldObj, timer.TIME_PART_HALF + rand.nextInt(15))) {
+		if (timer.hasTimePartPassed(worldObj, TimeTracker.TIME_PART_HALF + rand.nextInt(15))) {
 			EntityLightningBolt lightning = new EntityLightningBolt(worldObj, posX - rand.nextInt(7) + rand.nextInt(7),
 					posY, posZ - rand.nextInt(7) + rand.nextInt(7), true);
 
@@ -83,7 +83,7 @@ public class EntityItemNetherbane extends EntityItem {
 				skele.addPotionEffect(
 						new PotionEffect(Potion.getPotionFromResourceLocation("speed"), 20, 1, false, false));
 				skele.setCustomNameTag(names[subStep]);
-				skele.setSkeletonType(1);
+				//skele.setSkeletonType(1);
 				skele.playLivingSound();
 				skele.hurtResistantTime = 200;
 

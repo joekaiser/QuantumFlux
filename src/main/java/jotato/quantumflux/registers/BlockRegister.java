@@ -8,7 +8,6 @@ import jotato.quantumflux.blocks.mobglue.BlockMobGlue;
 import jotato.quantumflux.machines.cluster.BlockQuibitCluster;
 import jotato.quantumflux.machines.cluster.TileCreativeCluster;
 import jotato.quantumflux.machines.cluster.TileQuibitCluster;
-import jotato.quantumflux.machines.containmentunit.BlockContainmentUnit;
 import jotato.quantumflux.machines.entangler.BlockRFEntangler;
 import jotato.quantumflux.machines.entangler.TileRFEntangler;
 import jotato.quantumflux.machines.entropyaccelerator.BlockEntropyAccelerator;
