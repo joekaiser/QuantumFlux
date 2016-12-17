@@ -74,16 +74,7 @@ public class ItemMagnet extends ItemBase {
 		while (iterator.hasNext()) {
 			EntityItem itemToGet = (EntityItem) iterator.next();
 
-			EntityItemPickupEvent pickupEvent = new EntityItemPickupEvent(player, itemToGet);
-			MinecraftForge.EVENT_BUS.post(pickupEvent);
-			ItemStack itemStackToGet = itemToGet.getEntityItem();
-			int stackSize = itemStackToGet.stackSize;
-
-			if (pickupEvent.getResult() == Result.ALLOW || player.inventory.addItemStackToInventory(itemStackToGet)) {
-				player.onItemPickup(itemToGet, stackSize);
-				world.playSound(player, player.getPosition(), SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.AMBIENT,
-						0.15F, ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
-			}
+			itemToGet.onCollideWithPlayer(player);
 		}
 
 		// xp
@@ -92,20 +83,8 @@ public class ItemMagnet extends ItemBase {
 		while (iterator.hasNext()) {
 			EntityXPOrb xpToGet = (EntityXPOrb) iterator.next();
 
-			if (xpToGet.isDead || xpToGet.isInvisible()) {
-				continue;
-			}
-			player.xpCooldown = 0;
-			xpToGet.delayBeforeCanPickup = 0;
-			xpToGet.setPosition(player.posX, player.posY, player.posZ);
-			PlayerPickupXpEvent xpEvent = new PlayerPickupXpEvent(player, xpToGet);
-			MinecraftForge.EVENT_BUS.post(xpEvent);
-			if (xpEvent.getResult() == Result.ALLOW) {
-				xpToGet.onCollideWithPlayer(player);
-			}
-
+			xpToGet.onCollideWithPlayer(player);
 		}
-
 	}
 
 	protected boolean isActivated(ItemStack item) {
