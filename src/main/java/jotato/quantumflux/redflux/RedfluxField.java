@@ -28,7 +28,7 @@ public final class RedfluxField
 
 	public static void registerLink(IRedfluxProvider item)
 	{
-		Logger.debug("link " + item.toString() + " to " + item.getOwner());
+		Logger.devLog("link " + item.toString() + " to " + item.getOwner());
 		if (item.getOwner() != null)
 		{
 			if (!quantumLinks.containsKey(item.getOwner()))
@@ -45,7 +45,7 @@ public final class RedfluxField
 
 	public static void removeLink(IRedfluxProvider item)
 	{
-		Logger.debug("remove link " + item.toString() + " to " + item.getOwner());
+		Logger.devLog("remove link " + item.toString() + " to " + item.getOwner());
 		if (item.getOwner() != null)
 		{
 			quantumLinks.get(item.getOwner()).remove(item);
