@@ -9,18 +9,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
-import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
-import net.minecraftforge.fml.common.eventhandler.Event.Result;
 
 public class ItemMagnet extends ItemBase {
 	protected double distanceFromPlayer;
@@ -73,7 +67,7 @@ public class ItemMagnet extends ItemBase {
 				player.posZ, this.distanceFromPlayer).iterator();
 		while (iterator.hasNext()) {
 			EntityItem itemToGet = (EntityItem) iterator.next();
-
+			itemToGet.setPickupDelay(0);
 			itemToGet.onCollideWithPlayer(player);
 		}
 
@@ -82,7 +76,8 @@ public class ItemMagnet extends ItemBase {
 				this.distanceFromPlayer).iterator();
 		while (iterator.hasNext()) {
 			EntityXPOrb xpToGet = (EntityXPOrb) iterator.next();
-
+			player.xpCooldown=0;
+			xpToGet.delayBeforeCanPickup=0;
 			xpToGet.onCollideWithPlayer(player);
 		}
 	}
