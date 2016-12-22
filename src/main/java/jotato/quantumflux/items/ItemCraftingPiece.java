@@ -42,7 +42,7 @@ public class ItemCraftingPiece extends ItemBase {
 	public void initModel() {
 
 		for (SubItem item : subItemList) {
-			Logger.info("    Registering model for %s", item.name);
+			Logger.devLog("    Registering model for %s", item.name);
 			ModelLoader.setCustomModelResourceLocation(this, item.meta,
 					new ModelResourceLocation(QuantumFluxMod.TEXTURE_BASE + item.name, "inventory"));
 		}

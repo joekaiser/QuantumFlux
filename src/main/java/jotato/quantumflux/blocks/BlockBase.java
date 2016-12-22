@@ -49,7 +49,7 @@ public class BlockBase extends Block {
 
 	@SideOnly(Side.CLIENT)
 	public void initModel() {
-		Logger.info("    Registering model for %s", getRegistryName());
+		Logger.devLog("    Registering model for %s", getRegistryName());
 
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0,new ModelResourceLocation(getRegistryName(), "inventory"));
 	}

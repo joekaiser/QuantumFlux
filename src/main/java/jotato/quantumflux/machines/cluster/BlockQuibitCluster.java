@@ -45,7 +45,7 @@ public class BlockQuibitCluster extends BlockBase implements ITileEntityProvider
 		EnumQuibitCluster[] allLevels = EnumQuibitCluster.values();
 		for (EnumQuibitCluster level : allLevels) {
 			String name = String.format("%s_%s", getRegistryName(), level.name());
-			Logger.info("    Registering model for %s", name);
+			Logger.devLog("    Registering model for %s", name);
 			ModelLoader.setCustomModelResourceLocation(itemBlock, level.getMetadata(),
 					new ModelResourceLocation(name, "inventory"));
 		}

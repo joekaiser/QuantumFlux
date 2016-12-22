@@ -33,15 +33,6 @@ public class Logger
 		log(Level.INFO, format, data);
 	}
 
-	public static void debug(String format, Object... data)
-	{
-		log(Level.DEBUG, format, data);
-	}
-
-	public static void trace(String format, Object... data)
-	{
-		log(Level.TRACE, format, data);
-	}
 
 	public static void devLog(String format, Object... data)
 	{

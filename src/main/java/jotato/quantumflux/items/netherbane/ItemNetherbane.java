@@ -30,7 +30,7 @@ public class ItemNetherbane extends ItemSword {
 
 	@SideOnly(Side.CLIENT)
 	public void initModel() {
-		Logger.info("    Registering model for netherbane");
+		Logger.devLog("    Registering model for netherbane");
 		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
 	}
 

@@ -62,7 +62,7 @@ public final class ItemRegister {
 	}
 
 	public static void registerRenders() {
-		Logger.info("Registering items");
+		Logger.devLog("Registering items");
 
 		craftingPieces.initModel();
 		magnet.initModel();

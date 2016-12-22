@@ -38,7 +38,7 @@ public class BlockDarkstone extends BlockBase {
 		EnumDarkstone[] allTypes = EnumDarkstone.values();
 		for (EnumDarkstone type : allTypes) {
 			String name = String.format("%s_%s", getRegistryName(), type.name());
-			Logger.info("    Registering model for %s", name);
+			Logger.devLog("    Registering model for %s", name);
 			ModelLoader.setCustomModelResourceLocation(itemBlock, type.getMetadata(),
 					new ModelResourceLocation(name, "inventory"));
 		}

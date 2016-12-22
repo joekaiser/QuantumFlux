@@ -32,7 +32,7 @@ public class ItemBase extends Item  {
 
     @SideOnly(Side.CLIENT)
     public void initModel() {
-    	Logger.info("    Registering model for %s",getSimpleName());
+    	Logger.devLog("    Registering model for %s",getSimpleName());
         ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
 

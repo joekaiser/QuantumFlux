@@ -31,7 +31,7 @@ public class ItemMagnet extends ItemBase {
 
 	@Override
 	public void initModel() {
-		Logger.info("    Registering model for %s", getSimpleName());
+		Logger.devLog("    Registering model for %s", getSimpleName());
 		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
 		ModelLoader.setCustomModelResourceLocation(this, 1, new ModelResourceLocation(getRegistryName(), "inventory"));
 	}

@@ -57,7 +57,7 @@ public final class BlockRegister {
 	}
 
 	private static void initTileEntities() {
-		Logger.info("Registering TileEntities");
+		Logger.devLog("Registering TileEntities");
 		GameRegistry.registerTileEntity(TileImaginaryTime.class, "QFTILE_imaginaryTime");
 		GameRegistry.registerTileEntity(TileZeroPointExtractor.class, "QFTILE_zeroPointExtractor");
 		GameRegistry.registerTileEntity(TileEntropyAccelerator.class, "QFTILE_entropyAccelerator");
@@ -71,7 +71,7 @@ public final class BlockRegister {
 
 	@SideOnly(Side.CLIENT)
 	public static void registerRenders() {
-		Logger.info("Registering Blocks");
+		Logger.devLog("Registering Blocks");
 		imaginaryTime.initModel();
 		zeroPointExtractor.initModel();
 		entropyAccelerator.initModel();
