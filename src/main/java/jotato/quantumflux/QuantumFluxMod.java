@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class QuantumFluxMod {
 	public static final String MODID = "quantumflux";
 	public static final String MODNAME = "QuantumFlux";
-	public static final String VERSION = "2.0.10";
+	public static final String VERSION = "2.0.11";
 	public static final String TEXTURE_BASE = MODID + ":";
 
 	public QuantumFluxMod() {
