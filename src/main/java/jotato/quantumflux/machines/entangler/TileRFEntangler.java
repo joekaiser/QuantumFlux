@@ -64,18 +64,17 @@ public class TileRFEntangler extends TileEntity implements IEnergyReceiver, IRed
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound tag)
 	{
-		tag=super.writeToNBT(tag);
+		super.writeToNBT(tag);
 
-		if(owner==null){
-			//todo: I don't know how this happens, but it does. Probably on a server crash
-			return tag;
-		}
-		
 		NBTTagCompound energyTag = new NBTTagCompound();
 		this.storage.writeToNBT(energyTag);
 		tag.setTag("Energy", energyTag);
-		tag.setString("owner", owner.toString());
-		
+
+		if(owner != null)
+		{
+			tag.setString("owner", owner.toString());
+		}
+
 		return tag;
 	}
 
@@ -83,16 +82,21 @@ public class TileRFEntangler extends TileEntity implements IEnergyReceiver, IRed
 	public void readFromNBT(NBTTagCompound tag)
 	{
 		super.readFromNBT(tag);
-		try{
+
 		NBTTagCompound energyTag = tag.getCompoundTag("Energy");
 		this.storage.readFromNBT(energyTag);
-		this.owner = UUID.fromString(tag.getString("owner"));
-		
+
+		try
+		{
+			this.owner = UUID.fromString(tag.getString("owner"));
+		}
+		catch (IllegalArgumentException ex)
+		{
+			if (!worldObj.isRemote)
+				Logger.error("HEY YOU! An RF Entangler at %d, %d, %d has no owner, please replace it.", getPos().getX(), getPos().getY(), getPos().getZ());
+		}
+
 		registerWithField();
-		}
-		catch(Exception ex){
-			Logger.error("HEY YOU! An RF Entangler at %d, %d, %d has corrupt data. The owner needs to replace it", getPos().getX(), getPos().getY(), getPos().getZ());
-		}
 	}
 
 	@Override

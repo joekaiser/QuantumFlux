@@ -85,7 +85,7 @@ public class TileRFExciter extends TileEntity implements IEnergyProvider, ITicka
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound tag)
 	{
-		tag=super.writeToNBT(tag);
+		super.writeToNBT(tag);
 		
 		tag.setInteger("upgradeCount", upgradeCount);
 		
@@ -102,15 +102,17 @@ public class TileRFExciter extends TileEntity implements IEnergyProvider, ITicka
 	public void readFromNBT(NBTTagCompound tag)
 	{
 		super.readFromNBT(tag);
+
+		this.upgradeCount = tag.getInteger("upgradeCount");
+
 		try
 		{
 			this.owner = UUID.fromString(tag.getString("owner"));
-			this.upgradeCount = tag.getInteger("upgradeCount");
 		}
-		catch(Exception ex)
+		catch (IllegalArgumentException ex)
 		{
-			Logger.error("HEY YOU! An RF Exciter has corrupt data at %s The owner will need to replace it.", getPos());
-			
+			if (!worldObj.isRemote)
+				Logger.error("HEY YOU! An RF Exciter at %d, %d, %d has no owner, please replace it.", getPos().getX(), getPos().getY(), getPos().getZ());
 		}
 	}
 
