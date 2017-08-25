@@ -17,25 +17,26 @@ public class ItemVoidBucket extends ItemBase {
 		setMaxStackSize(1);
 	}
 
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemstack, World world,
-			EntityPlayer player, EnumHand hand) {
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 
-		RayTraceResult movingobjectposition = this.rayTrace(world, player, true);
+		ItemStack itemstack = playerIn.getHeldItem(handIn);
+		RayTraceResult movingobjectposition = this.rayTrace(worldIn, playerIn, true);
 
 		if (movingobjectposition != null) {
 			if (movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK) {
 				BlockPos blockPos = movingobjectposition.getBlockPos();
 
-				if (!world.canMineBlockBody(player, blockPos)) {
+				if (!worldIn.canMineBlockBody(playerIn, blockPos)) {
 					return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
 				}
 
-				if (!player.canPlayerEdit(blockPos, movingobjectposition.sideHit, itemstack)) {
+				if (!playerIn.canPlayerEdit(blockPos, movingobjectposition.sideHit, itemstack)) {
 					return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
 				}
 
-				if (player.isSneaking()) {
-					deleteLiquid(world, blockPos);
+				if (playerIn.isSneaking()) {
+					deleteLiquid(worldIn, blockPos);
 
 				} else {
 
@@ -54,8 +55,8 @@ public class ItemVoidBucket extends ItemBase {
 
 							for (int k2 = 0; k2 <= count; k2++) {
 
-								deleteLiquid(world, new BlockPos(i + i2, j2, k + k2));
-								deleteLiquid(world, new BlockPos(i + i2, j2, k - k2));
+								deleteLiquid(worldIn, new BlockPos(i + i2, j2, k + k2));
+								deleteLiquid(worldIn, new BlockPos(i + i2, j2, k - k2));
 							}
 						}
 					}

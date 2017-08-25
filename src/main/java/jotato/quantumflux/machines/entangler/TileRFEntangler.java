@@ -39,7 +39,7 @@ public class TileRFEntangler extends TileEntity implements IEnergyReceiver, IRed
 
 		if (!simulate)
 		{
-			if (!worldObj.isRemote)
+			if (!world.isRemote)
 			{
 				this.lastIn += taken;
 			}
@@ -92,7 +92,7 @@ public class TileRFEntangler extends TileEntity implements IEnergyReceiver, IRed
 		}
 		catch (IllegalArgumentException ex)
 		{
-			if (!worldObj.isRemote)
+			if (!world.isRemote)
 				Logger.error("HEY YOU! An RF Entangler at %d, %d, %d has no owner, please replace it.", getPos().getX(), getPos().getY(), getPos().getZ());
 		}
 
@@ -120,7 +120,7 @@ public class TileRFEntangler extends TileEntity implements IEnergyReceiver, IRed
 		if (!simulate)
 		{
 			this.markDirty();
-			if (!worldObj.isRemote)
+			if (!world.isRemote)
 			{
 				this.lastOut += given;
 			}
@@ -138,7 +138,7 @@ public class TileRFEntangler extends TileEntity implements IEnergyReceiver, IRed
 
 	public void deregisterWithField()
 	{
-		if (worldObj != null && !worldObj.isRemote)
+		if (world != null && !world.isRemote)
 		{
 			RedfluxField.removeLink(this);
 		}
@@ -146,7 +146,7 @@ public class TileRFEntangler extends TileEntity implements IEnergyReceiver, IRed
 
 	public void registerWithField()
 	{
-		if (worldObj != null && !worldObj.isRemote)
+		if (world != null && !world.isRemote)
 		{
 			RedfluxField.registerLink(this);
 		}

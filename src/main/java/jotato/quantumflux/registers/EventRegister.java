@@ -24,18 +24,18 @@ public class EventRegister {
 	public void onLivingDrops_enderman(LivingDropsEvent event) {
 		EntityLivingBase entity = event.getEntityLiving();
 	
-		if (entity.worldObj.isRemote)
+		if (entity.world.isRemote)
 			return;
 		
 		if (entity instanceof EntityEnderman) {
-			if (entity.worldObj.rand.nextDouble() < .05) {
+			if (entity.world.rand.nextDouble() < .05) {
 
 				ItemStack enderCrystal = ItemRegister.craftingPieces.getSubItem("enderCrystal");
 				if (event.getLootingLevel() > 0) {
-					int bonus = entity.worldObj.rand.nextInt(event.getLootingLevel());
-					enderCrystal.stackSize += bonus;
+					int bonus = entity.world.rand.nextInt(event.getLootingLevel());
+					enderCrystal.grow(bonus);
 				}
-				EntityItem enderCrystalEntity = new EntityItem(entity.worldObj, entity.posX,
+				EntityItem enderCrystalEntity = new EntityItem(entity.world, entity.posX,
 						entity.posY, entity.posZ, enderCrystal);
 
 				enderCrystalEntity.dimension = entity.dimension;
@@ -48,12 +48,12 @@ public class EventRegister {
 	@SubscribeEvent
 	public void onLivingDrops_pig(LivingDropsEvent event) {
 		EntityLivingBase entity = event.getEntityLiving();
-		if (entity.worldObj.isRemote)
+		if (entity.world.isRemote)
 			return;
 		
 		if(entity instanceof EntityPig){
-			if(entity.worldObj.rand.nextDouble() <.0002){
-				EntityItem hamCheese = new EntityItem(entity.worldObj,
+			if(entity.world.rand.nextDouble() <.0002){
+				EntityItem hamCheese = new EntityItem(entity.world,
 						entity.posX,entity.posY,entity.posZ,
 						new ItemStack(ItemRegister.hamCheese));
 				hamCheese.dimension = entity.dimension;
@@ -69,13 +69,13 @@ public class EventRegister {
 		Entity entity = event.getEntity();
 		EntityItem entityItem = event.getEntityItem();
 		
-		if(entity.worldObj.isRemote) 
+		if(entity.world.isRemote)
 			return;
 		
 		ItemStack itemTossed = entityItem.getEntityItem();
 		
 		if (itemTossed.getItem().equals(ItemRegister.graphiteDust)) {
-			entity.worldObj.spawnEntityInWorld(EntityItemGraphiteDust.convert(entityItem));
+			entity.world.spawnEntity(EntityItemGraphiteDust.convert(entityItem));
 			event.setCanceled(true);
 			return;
 		}
@@ -83,7 +83,7 @@ public class EventRegister {
 		
 		if (entityItem.dimension == -1) {
 			if (itemTossed.getDisplayName().equals("Netherbane") && itemTossed.getItem().equals(Items.DIAMOND_SWORD)) {
-				entity.worldObj.spawnEntityInWorld(EntityItemNetherbane.convert(entityItem));
+				entity.world.spawnEntity(EntityItemNetherbane.convert(entityItem));
 				event.setCanceled(true);
 				
 			}

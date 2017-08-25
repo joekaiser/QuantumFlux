@@ -22,7 +22,8 @@ public class ItemNetherbane extends ItemSword {
 	public ItemNetherbane() {
 		super(ItemRegister.netherBaneMaterial);
 		String name = "netherbane";
-		GameRegistry.registerItem(this, name);
+		setRegistryName(name);
+		GameRegistry.register(this);
 		setUnlocalizedName(name);
 		setCreativeTab(QuantumFluxMod.tab);
 		setMaxStackSize(1);
@@ -43,7 +44,7 @@ public class ItemNetherbane extends ItemSword {
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 
-		if (attacker.worldObj.getWorldTime() >= 13000)
+		if (attacker.world.getWorldTime() >= 13000)
 			attacker.heal(.7f);
 
 		return super.hitEntity(stack, target, attacker);

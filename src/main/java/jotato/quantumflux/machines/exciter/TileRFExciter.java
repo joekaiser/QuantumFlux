@@ -111,7 +111,7 @@ public class TileRFExciter extends TileEntity implements IEnergyProvider, ITicka
 		}
 		catch (IllegalArgumentException ex)
 		{
-			if (!worldObj.isRemote)
+			if (!world.isRemote)
 				Logger.error("HEY YOU! An RF Exciter at %d, %d, %d has no owner, please replace it.", getPos().getX(), getPos().getY(), getPos().getZ());
 		}
 	}
@@ -119,7 +119,7 @@ public class TileRFExciter extends TileEntity implements IEnergyProvider, ITicka
 	@Override
 	public void update()
 	{
-		if (worldObj.isRemote)
+		if (world.isRemote)
 		{
 			return;
 		}
@@ -129,12 +129,12 @@ public class TileRFExciter extends TileEntity implements IEnergyProvider, ITicka
 		}
 		
 		if(targetDirection == null){
-			targetDirection = worldObj.getBlockState(getPos()).getValue(BlockHelpers.FACING);
+			targetDirection = world.getBlockState(getPos()).getValue(BlockHelpers.FACING);
 		}
 
 		BlockPos targetBlock = getPos().add(targetDirection.getDirectionVec());
 
-		TileEntity tile = worldObj.getTileEntity(targetBlock);
+		TileEntity tile = world.getTileEntity(targetBlock);
 		if (tile instanceof IEnergyReceiver)
 		{
 		    int netPower = getNetPower();

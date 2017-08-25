@@ -28,17 +28,18 @@ public class ItemLinkingCard extends ItemBase
 	}
 
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand,
+	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ)
 	{
+		ItemStack stack = player.getHeldItem(hand);
 		if (worldIn.getBlockState(pos).getBlock() instanceof BlockTelepad)
 		{
 			if (NbtHelpers.keyExists(stack, BLOCKPOS))
 			{
-				return linkTelepads(stack, playerIn, worldIn, pos);
+				return linkTelepads(stack, player, worldIn, pos);
 			} else
 			{
-				return setLocation(stack, playerIn, worldIn, pos);
+				return setLocation(stack, player, worldIn, pos);
 			}
 		}
 		return EnumActionResult.PASS;
@@ -56,7 +57,7 @@ public class ItemLinkingCard extends ItemBase
 		if (!worldIn.isRemote)
 		{
 			ITextComponent msg = new TextComponentTranslation("chat.telepad.link.stored");
-			playerIn.addChatMessage(msg);
+			playerIn.sendMessage(msg);
 		}
 		return EnumActionResult.SUCCESS;
 
@@ -80,7 +81,7 @@ public class ItemLinkingCard extends ItemBase
 				if (!worldIn.isRemote)
 				{
 					ITextComponent msg = new TextComponentTranslation("chat.telepad.link.error.1");
-					playerIn.addChatMessage(msg);
+					playerIn.sendMessage(msg);
 				}
 			}
 
@@ -95,7 +96,7 @@ public class ItemLinkingCard extends ItemBase
 				if (!worldIn.isRemote)
 				{
 					ITextComponent msg = new TextComponentTranslation("chat.telepad.link.success");
-					playerIn.addChatMessage(msg);
+					playerIn.sendMessage(msg);
 				}
 				
 				NbtHelpers.deleteKey(stack, DIMKEY);
@@ -122,8 +123,9 @@ public class ItemLinkingCard extends ItemBase
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand)
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
 	{
+		ItemStack itemStackIn = playerIn.getHeldItem(handIn);
 
 		if (playerIn.isSneaking())
 		{
@@ -132,13 +134,13 @@ public class ItemLinkingCard extends ItemBase
 			if (!worldIn.isRemote)
 			{
 				ITextComponent msg = new TextComponentTranslation("chat.telepad.link.clear");
-				playerIn.addChatMessage(msg);
+				playerIn.sendMessage(msg);
 			}
 		}
 		
 		
 		
-		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
+		return super.onItemRightClick(worldIn, playerIn, handIn);
 	}
 
 }

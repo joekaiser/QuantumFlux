@@ -34,13 +34,13 @@ public class TileCreativeCluster extends TileEntity implements IEnergyProvider, 
 
 	@Override
 	public void update() {
-		if (worldObj.isRemote)
+		if (world.isRemote)
 			return;
 
 		for (EnumFacing dir : EnumFacing.values()) {
 			BlockPos targetBlock = getPos().add(dir.getDirectionVec());
 
-			TileEntity tile = worldObj.getTileEntity(targetBlock);
+			TileEntity tile = world.getTileEntity(targetBlock);
 
 			if (tile instanceof IEnergyReceiver) {
 				IEnergyReceiver receiver = (IEnergyReceiver) tile;

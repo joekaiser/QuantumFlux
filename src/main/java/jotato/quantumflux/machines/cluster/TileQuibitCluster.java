@@ -72,13 +72,13 @@ public class TileQuibitCluster extends TileBase implements IEnergyProvider, IEne
 
 	@Override
 	public void update() {
-		if (worldObj.isRemote)
+		if (world.isRemote)
 			return;
 
 		for (EnumFacing dir : EnumFacing.values()) {
 			BlockPos targetBlock = getPos().add(dir.getDirectionVec());
 
-			TileEntity tile = worldObj.getTileEntity(targetBlock);
+			TileEntity tile = world.getTileEntity(targetBlock);
 			if (tile instanceof TileQuibitCluster)
 				return;
 			if (tile instanceof IEnergyReceiver) {

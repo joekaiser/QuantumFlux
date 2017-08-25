@@ -62,13 +62,13 @@ public class TileEntropyAccelerator extends TileSimpleInventory implements IEner
 	@Override
 	public void update() {
 
-		if (!worldObj.isRemote) {
+		if (!world.isRemote) {
 			if (isActive()) {
 
 				if (this.currentBurnTime == 0) {
 					isBurning = true;
-					this.inventory[0].stackSize--;
-					if (this.inventory[0].stackSize == 0)
+					this.inventory[0].shrink(1);
+					if (this.inventory[0].getCount() == 0)
 						this.inventory[0] = null;
 				}
 
@@ -85,7 +85,7 @@ public class TileEntropyAccelerator extends TileSimpleInventory implements IEner
 			for (EnumFacing dir : EnumFacing.values()) {
 				BlockPos targetBlock = getPos().add(dir.getDirectionVec());
 
-				TileEntity tile = worldObj.getTileEntity(targetBlock);
+				TileEntity tile = world.getTileEntity(targetBlock);
 				if (tile instanceof IEnergyReceiver) {
 					IEnergyReceiver receiver = (IEnergyReceiver) tile;
 
@@ -113,7 +113,7 @@ public class TileEntropyAccelerator extends TileSimpleInventory implements IEner
 
 	private boolean hasFuel() {
 		return this.inventory != null && this.inventory.length > 0 && 
-				this.inventory[0] != null && this.inventory[0].stackSize > 0;
+				this.inventory[0] != null && this.inventory[0].getCount() > 0;
 	}
 
 	@SideOnly(Side.CLIENT)

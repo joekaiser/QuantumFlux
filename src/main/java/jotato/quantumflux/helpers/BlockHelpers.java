@@ -29,8 +29,8 @@ public final class BlockHelpers {
 					NumberFormat.getInstance().format(energy.getEnergyStored(null)));
 			ITextComponent capacity = new TextComponentTranslation("chat.rfStored.max",
 					NumberFormat.getInstance().format(energy.getMaxEnergyStored(null)));
-			playerIn.addChatMessage(stored);
-			playerIn.addChatMessage(capacity);
+			playerIn.sendMessage(stored);
+			playerIn.sendMessage(capacity);
 			return true;
 		}
 		// }

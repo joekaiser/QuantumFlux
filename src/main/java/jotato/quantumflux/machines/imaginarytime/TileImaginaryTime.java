@@ -40,7 +40,7 @@ public class TileImaginaryTime extends TileBase implements IEnergyReceiver, ITic
 	@Override
 	public void update() {
 
-		if (worldObj.isRemote) {
+		if (world.isRemote) {
 			return;
 		}
 		// for an example on how to stop upticking, see http://bit.ly/1H154cK
@@ -56,11 +56,11 @@ public class TileImaginaryTime extends TileBase implements IEnergyReceiver, ITic
 					for (int y2 = y - 2; y2 < y + 2; y2++) {
 
 						BlockPos targetPos = BlockHelpers.getBlockPosFromXYZ(x2, y2, z2);
-						IBlockState targetBlockState = worldObj.getBlockState(targetPos);
+						IBlockState targetBlockState = world.getBlockState(targetPos);
 						block = targetBlockState.getBlock();
 						if (block != null) {
 
-							block.updateTick(worldObj, targetPos, targetBlockState, worldObj.rand);
+							block.updateTick(world, targetPos, targetBlockState, world.rand);
 
 							block = null;
 						}
