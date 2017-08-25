@@ -55,7 +55,8 @@ public final class ItemRegister {
 		voidBucket = new ItemVoidBucket();
 		matterTransporter = new ItemMatterTransporter();
 		hamCheese = new ItemFood(10, 1f, true).setUnlocalizedName("hamCheese").setCreativeTab(QuantumFluxMod.tab);
-		GameRegistry.registerItem(hamCheese, "hamCheese");
+		hamCheese.setRegistryName("hamCheese");
+		GameRegistry.register(hamCheese);
 		graphiteDust = new ItemBase("graphiteDust");
 		linkingCard = new ItemLinkingCard();
 

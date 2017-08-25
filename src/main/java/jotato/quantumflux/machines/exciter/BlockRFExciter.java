@@ -46,15 +46,6 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider {
 	}
 
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ,
-			int meta, EntityLivingBase placer) {
-
-		return super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer)
-				.withProperty(BlockHelpers.FACING, facing.getOpposite());
-
-	}
-
-	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		return getDefaultState().withProperty(BlockHelpers.FACING, EnumFacing.getFront(meta & 7));
 	}
@@ -154,7 +145,7 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider {
 				entityitem.motionX = (float) world.rand.nextGaussian() * f3;
 				entityitem.motionY = (float) world.rand.nextGaussian() * f3 + 0.1F;
 				entityitem.motionZ = (float) world.rand.nextGaussian() * f3;
-				world.spawnEntityInWorld(entityitem);
+				world.spawnEntity(entityitem);
 			}
 
 		}
@@ -162,12 +153,12 @@ public class BlockRFExciter extends BlockBase implements ITileEntityProvider {
 
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
-			EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+			EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
 		if (!worldIn.isRemote && playerIn.isSneaking()) {
 			TileEntity entity = worldIn.getTileEntity(pos);
 			if (entity instanceof TileRFExciter) {
-				playerIn.addChatMessage(new TextComponentTranslation("chat.rfExciter.maxTransfer",
+				playerIn.sendMessage(new TextComponentTranslation("chat.rfExciter.maxTransfer",
 						((TileRFExciter) entity).getNetPower()));
 			}
 		}

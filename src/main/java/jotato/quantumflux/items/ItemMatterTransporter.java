@@ -63,10 +63,10 @@ public class ItemMatterTransporter extends ItemBase {
 	}
 
 	@Override
-	public EnumActionResult onItemUse(ItemStack stackIn, EntityPlayer playerIn, World worldIn, BlockPos pos,
+	public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos,
 			EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-		
+		ItemStack stackIn = playerIn.getHeldItem(hand);
 
 		boolean hasBlock = NbtHelpers.getBoolean(stackIn, HAS_BLOCK, false);
 		boolean hasTE = NbtHelpers.getBoolean(stackIn, HAS_TILEENTITY, false);
@@ -106,7 +106,7 @@ public class ItemMatterTransporter extends ItemBase {
 					} else {
 						stackIn.damageItem(1, playerIn);
 					}
-					worldIn.notifyBlockOfStateChange(targetPos, storedBlock);
+					worldIn.notifyNeighborsOfStateChange(targetPos, storedBlock, true);
 
 					playerIn.playSound(SoundEvents.ENTITY_ITEM_PICKUP, 1f,
 							((worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
@@ -167,7 +167,7 @@ public class ItemMatterTransporter extends ItemBase {
 	private Block getBlockFromNbt(ItemStack itemstack) {
 
 		NBTTagCompound storedBlock = NbtHelpers.getCompoundTag(itemstack, STORED_BLOCK);
-		ItemStack storedStack = ItemStack.loadItemStackFromNBT(storedBlock);
+		ItemStack storedStack = new ItemStack(storedBlock);
 		Block block = Block.getBlockFromItem(storedStack.getItem());
 		return block;
 

@@ -24,6 +24,15 @@ public abstract class TileSimpleInventory extends TileBase  implements IInventor
 	}
 
 	@Override
+	public boolean isEmpty() {
+		for (ItemStack itemstack : inventory) {
+			if (!itemstack.isEmpty())
+				return false;
+		}
+		return true;
+	}
+
+	@Override
 	public ItemStack getStackInSlot(int slot) {
 		if (inventory.length > slot) {
 			return inventory[slot];
@@ -36,14 +45,14 @@ public abstract class TileSimpleInventory extends TileBase  implements IInventor
 		if (inventory.length > slot) {
 			if (inventory[slot] != null) {
 				ItemStack itemstack;
-				if (inventory[slot].stackSize <= size) {
+				if (inventory[slot].getCount() <= size) {
 					itemstack = inventory[slot];
 					inventory[slot] = null;
 					markDirty();
 					return itemstack;
 				} else {
 					itemstack = inventory[slot].splitStack(size);
-					if (inventory[slot].stackSize == 0)
+					if (inventory[slot].getCount() == 0)
 						inventory[slot] = null;
 					markDirty();
 					return itemstack;
@@ -66,7 +75,7 @@ public abstract class TileSimpleInventory extends TileBase  implements IInventor
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 		return true;
 	}
 
@@ -108,7 +117,7 @@ public abstract class TileSimpleInventory extends TileBase  implements IInventor
 			int j = nbttagcompound1.getInteger("SlotID");
 
 			if (j >= 0 && j < this.inventory.length) {
-				this.inventory[j] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
+				this.inventory[j] = new ItemStack(nbttagcompound1);
 			}
 		}
 	}

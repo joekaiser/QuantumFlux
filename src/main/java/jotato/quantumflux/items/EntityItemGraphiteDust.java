@@ -21,14 +21,14 @@ public class EntityItemGraphiteDust extends EntityItem {
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		
 		if(source.isExplosion()){
-			this.setEntityItemStack(ItemRegister.craftingPieces.getSubItem("industrialDiamond", this.getEntityItem().stackSize));
+			this.setEntityItemStack(ItemRegister.craftingPieces.getSubItem("industrialDiamond", this.getEntityItem().getCount()));
 		}
 		
 		return false;
 	}
 
 	public static EntityItemGraphiteDust convert(EntityItem entity) {
-		EntityItemGraphiteDust newEntity = new EntityItemGraphiteDust(entity.worldObj, entity.posX, entity.posY,
+		EntityItemGraphiteDust newEntity = new EntityItemGraphiteDust(entity.world, entity.posX, entity.posY,
 				entity.posZ, entity.getEntityItem());
 		newEntity.dimension = entity.dimension;
 		newEntity.motionX = entity.motionX;

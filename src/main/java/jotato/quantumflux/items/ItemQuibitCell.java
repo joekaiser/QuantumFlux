@@ -39,8 +39,8 @@ public class ItemQuibitCell extends ItemBase {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
-			EnumHand hand) {
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+		ItemStack itemStackIn = playerIn.getHeldItem(handIn);
 		if (!worldIn.isRemote && playerIn.isSneaking()) {
 			itemStackIn.setItemDamage(itemStackIn.getItemDamage() == 0 ? 1 : 0);
 		}

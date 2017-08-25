@@ -17,7 +17,8 @@ public class ItemBase extends Item  {
 
 	public ItemBase(String name) {
 		setUnlocalizedName(name);
-		GameRegistry.registerItem(this, name);
+		setRegistryName(name);
+		GameRegistry.register(this);
 		setCreativeTab(QuantumFluxMod.tab);
 	}
 
