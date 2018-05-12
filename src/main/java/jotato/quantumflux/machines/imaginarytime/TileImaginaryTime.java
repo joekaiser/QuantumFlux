@@ -1,7 +1,7 @@
 package jotato.quantumflux.machines.imaginarytime;
 
-import cofh.api.energy.EnergyStorage;
-import cofh.api.energy.IEnergyReceiver;
+import cofh.redstoneflux.api.IEnergyReceiver;
+import cofh.redstoneflux.impl.EnergyStorage;
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.blocks.TileBase;
 import jotato.quantumflux.helpers.BlockHelpers;

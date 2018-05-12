@@ -17,7 +17,7 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemFood;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -56,7 +56,7 @@ public final class ItemRegister {
 		matterTransporter = new ItemMatterTransporter();
 		hamCheese = new ItemFood(10, 1f, true).setUnlocalizedName("hamCheese").setCreativeTab(QuantumFluxMod.tab);
 		hamCheese.setRegistryName("hamCheese");
-		GameRegistry.register(hamCheese);
+		ForgeRegistries.ITEMS.register(hamCheese);
 		graphiteDust = new ItemBase("graphiteDust");
 		linkingCard = new ItemLinkingCard();
 

@@ -2,8 +2,8 @@ package jotato.quantumflux.machines.entangler;
 
 import java.util.UUID;
 
-import cofh.api.energy.EnergyStorage;
-import cofh.api.energy.IEnergyReceiver;
+import cofh.redstoneflux.api.IEnergyReceiver;
+import cofh.redstoneflux.impl.EnergyStorage;
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.Logger;
 import jotato.quantumflux.redflux.IRedfluxProvider;

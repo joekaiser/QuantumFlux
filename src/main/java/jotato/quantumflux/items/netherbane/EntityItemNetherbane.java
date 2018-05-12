@@ -97,7 +97,7 @@ public class EntityItemNetherbane extends EntityItem {
 			break;
 		case 2:
 			if (timer.hasDelayPassed(world, 400)) {
-				this.setEntityItemStack(new ItemStack(ItemRegister.netherbane));
+				this.setItem(new ItemStack(ItemRegister.netherbane));
 				conversionComplete = true;
 				nextStep();
 
@@ -114,7 +114,7 @@ public class EntityItemNetherbane extends EntityItem {
 
 	public static EntityItemNetherbane convert(EntityItem entity) {
 		EntityItemNetherbane newEntity = new EntityItemNetherbane(entity.world, entity.posX, entity.posY, entity.posZ,
-				entity.getEntityItem());
+				entity.getItem());
 		newEntity.dimension = entity.dimension;
 		newEntity.motionX = entity.motionX;
 		newEntity.motionY = entity.motionY;

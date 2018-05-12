@@ -2,7 +2,7 @@ package jotato.quantumflux.helpers;
 
 import java.text.NumberFormat;
 
-import cofh.api.energy.IEnergyHandler;
+import cofh.redstoneflux.api.IEnergyHandler;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;

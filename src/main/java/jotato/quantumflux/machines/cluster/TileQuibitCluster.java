@@ -1,8 +1,8 @@
 package jotato.quantumflux.machines.cluster;
 
-import cofh.api.energy.EnergyStorage;
-import cofh.api.energy.IEnergyProvider;
-import cofh.api.energy.IEnergyReceiver;
+import cofh.redstoneflux.api.IEnergyProvider;
+import cofh.redstoneflux.api.IEnergyReceiver;
+import cofh.redstoneflux.impl.EnergyStorage;
 import jotato.quantumflux.blocks.TileBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;

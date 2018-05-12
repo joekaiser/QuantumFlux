@@ -9,14 +9,16 @@ import jotato.quantumflux.Logger;
 import jotato.quantumflux.QuantumFluxMod;
 import jotato.quantumflux.helpers.ItemHelpers;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.oredict.OreDictionary;
+
+import javax.annotation.Nullable;
 
 public class ItemCraftingPiece extends ItemBase {
 	public TMap<String, SubItem> subItemMap = new THashMap<String, SubItem>();
@@ -97,10 +99,10 @@ public class ItemCraftingPiece extends ItemBase {
 	}
 
 	@Override
-	public void getSubItems(Item item, CreativeTabs tab, NonNullList<ItemStack> subItems) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 
 		for (int i = 0; i < subItemList.size(); i++) {
-			subItems.add(new ItemStack(item, 1, i));
+			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
@@ -118,7 +120,7 @@ public class ItemCraftingPiece extends ItemBase {
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		ItemHelpers.addFlairToList(tooltip, getUnlocalizedName(stack));
 	}
 

@@ -59,10 +59,11 @@ public class BlockDarkstone extends BlockBase {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
+	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
+		Item itemBlock = Item.REGISTRY.getObject(new ResourceLocation(QuantumFluxMod.MODID, "darkstone"));
 		EnumDarkstone[] allTypes = EnumDarkstone.values();
 		for (EnumDarkstone type : allTypes) {
-			list.add(new ItemStack(itemIn, 1, type.getMetadata()));
+			items.add(new ItemStack(itemBlock, 1, type.getMetadata()));
 		}
 	}
 

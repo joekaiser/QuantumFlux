@@ -1,6 +1,6 @@
 package jotato.quantumflux.items;
 
-import cofh.api.energy.IEnergyContainerItem;
+import cofh.redstoneflux.api.IEnergyContainerItem;
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.Logger;
 import jotato.quantumflux.redflux.RedfluxField;

@@ -1,8 +1,8 @@
 package jotato.quantumflux.machines.entropyaccelerator;
 
-import cofh.api.energy.EnergyStorage;
-import cofh.api.energy.IEnergyProvider;
-import cofh.api.energy.IEnergyReceiver;
+import cofh.redstoneflux.api.IEnergyProvider;
+import cofh.redstoneflux.api.IEnergyReceiver;
+import cofh.redstoneflux.impl.EnergyStorage;
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.blocks.TileSimpleInventory;
 import net.minecraft.nbt.NBTTagCompound;

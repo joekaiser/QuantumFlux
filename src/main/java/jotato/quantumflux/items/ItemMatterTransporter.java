@@ -7,6 +7,7 @@ import jotato.quantumflux.helpers.NbtHelpers;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -20,6 +21,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
 
 public class ItemMatterTransporter extends ItemBase {
 
@@ -50,15 +53,15 @@ public class ItemMatterTransporter extends ItemBase {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean p4) {
-		if (itemstack.getTagCompound() == null) {
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+		if (stack.getTagCompound() == null) {
 			return;
 		}
 
-		if (NbtHelpers.getBoolean(itemstack, HAS_BLOCK, false)) {
-			Block block = getBlockFromNbt(itemstack);
+		if (NbtHelpers.getBoolean(stack, HAS_BLOCK, false)) {
+			Block block = getBlockFromNbt(stack);
 			String name = new ItemStack(block).getDisplayName();
-			list.add(name);
+			tooltip.add(name);
 		}
 	}
 

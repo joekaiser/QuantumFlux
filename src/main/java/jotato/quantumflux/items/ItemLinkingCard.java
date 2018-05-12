@@ -5,6 +5,7 @@ import java.util.List;
 import jotato.quantumflux.helpers.NbtHelpers;
 import jotato.quantumflux.machines.telepad.BlockTelepad;
 import jotato.quantumflux.machines.telepad.TileTelepad;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -15,6 +16,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
 
 public class ItemLinkingCard extends ItemBase
 {
@@ -110,7 +113,7 @@ public class ItemLinkingCard extends ItemBase
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced)
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
 	{
 
 		if (NbtHelpers.keyExists(stack, DIMKEY))

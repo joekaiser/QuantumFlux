@@ -4,9 +4,12 @@ import java.util.List;
 
 import jotato.quantumflux.helpers.ItemHelpers;
 import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
 
 public class ItemBlockMobGlue extends ItemBlock
 {
@@ -18,9 +21,9 @@ public class ItemBlockMobGlue extends ItemBlock
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced)
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
 	{
-		super.addInformation(stack, playerIn, tooltip, advanced);
+		super.addInformation(stack, worldIn, tooltip, flagIn);
 		ItemHelpers.addFlairToList(tooltip, "block.gluetrap");
 	}
 	

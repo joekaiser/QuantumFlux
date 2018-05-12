@@ -14,7 +14,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -37,13 +37,13 @@ public class BlockBase extends Block {
 		
 		setSoundType(SoundType.STONE);
 		setHardness(hardness);
-		
-		GameRegistry.register(this);
+
+		ForgeRegistries.BLOCKS.register(this);
 		if (itemclass != null) {
-			GameRegistry.register(createItemBlock(itemclass), getRegistryName());
+			ForgeRegistries.ITEMS.register(createItemBlock(itemclass).setRegistryName(name));
 		}
 		else{
-			GameRegistry.register(new ItemBlock(this),getRegistryName());
+			ForgeRegistries.ITEMS.register(new ItemBlock(this).setRegistryName(name));
 		}
 	}
 

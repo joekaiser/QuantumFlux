@@ -72,7 +72,7 @@ public class EventRegister {
 		if(entity.world.isRemote)
 			return;
 		
-		ItemStack itemTossed = entityItem.getEntityItem();
+		ItemStack itemTossed = entityItem.getItem();
 		
 		if (itemTossed.getItem().equals(ItemRegister.graphiteDust)) {
 			entity.world.spawnEntity(EntityItemGraphiteDust.convert(entityItem));

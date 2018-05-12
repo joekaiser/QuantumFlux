@@ -59,10 +59,11 @@ public class BlockQuibitCluster extends BlockBase implements ITileEntityProvider
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
+	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
+		Item itemBlock = Item.REGISTRY.getObject(new ResourceLocation(QuantumFluxMod.MODID, "quibitCluster"));
 		EnumQuibitCluster[] allLevels = EnumQuibitCluster.values();
 		for (EnumQuibitCluster level : allLevels) {
-			list.add(new ItemStack(itemIn, 1, level.getMetadata()));
+			items.add(new ItemStack(itemBlock, 1, level.getMetadata()));
 		}
 	}
 

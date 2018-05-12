@@ -35,7 +35,7 @@ public class PacketToggleMagnet implements IMessage {
         }
 
         private void handle(PacketToggleMagnet message, MessageContext ctx) {
-        	EntityPlayer p = ctx.getServerHandler().playerEntity;
+        	EntityPlayer p = ctx.getServerHandler().player;
             NonNullList<ItemStack> inv = p.inventory.mainInventory;
         	for (int i = 0; i < inv.size(); i++) {
         		if(inv.get(i).getItem() instanceof ItemMagnet)
