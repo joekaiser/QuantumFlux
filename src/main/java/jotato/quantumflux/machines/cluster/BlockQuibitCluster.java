@@ -1,7 +1,5 @@
 package jotato.quantumflux.machines.cluster;
 
-import java.util.List;
-
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.Logger;
 import jotato.quantumflux.QuantumFluxMod;
@@ -22,11 +20,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -41,7 +40,7 @@ public class BlockQuibitCluster extends BlockBase implements ITileEntityProvider
 	@Override
 	public void initModel() {
 
-		Item itemBlock = GameRegistry.findItem(QuantumFluxMod.MODID, "quibitCluster");
+		Item itemBlock = Item.REGISTRY.getObject(new ResourceLocation(QuantumFluxMod.MODID, "quibitCluster"));
 		EnumQuibitCluster[] allLevels = EnumQuibitCluster.values();
 		for (EnumQuibitCluster level : allLevels) {
 			String name = String.format("%s_%s", getRegistryName(), level.name());
@@ -60,10 +59,11 @@ public class BlockQuibitCluster extends BlockBase implements ITileEntityProvider
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item itemIn, CreativeTabs tab, List list) {
+	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
+		Item itemBlock = Item.REGISTRY.getObject(new ResourceLocation(QuantumFluxMod.MODID, "quibitCluster"));
 		EnumQuibitCluster[] allLevels = EnumQuibitCluster.values();
 		for (EnumQuibitCluster level : allLevels) {
-			list.add(new ItemStack(itemIn, 1, level.getMetadata()));
+			items.add(new ItemStack(itemBlock, 1, level.getMetadata()));
 		}
 	}
 
@@ -88,11 +88,10 @@ public class BlockQuibitCluster extends BlockBase implements ITileEntityProvider
 	}
 
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing blockFaceClickedOn, float hitX, float hitY,
-			float hitZ, int meta, EntityLivingBase placer) {
-		EnumQuibitCluster level = EnumQuibitCluster.byMetadata(meta);
+	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
+		EnumQuibitCluster level = EnumQuibitCluster.byMetadata(stack.getMetadata());
 
-		return this.getDefaultState().withProperty(LEVEL, level);
+		worldIn.setBlockState(pos, state.withProperty(LEVEL, level));
 	}
 
 	public static QuibitClusterSettings getQuibitClusterSettings(ItemStack item) {
@@ -113,7 +112,7 @@ public class BlockQuibitCluster extends BlockBase implements ITileEntityProvider
 
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
-			EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+			EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
 		if (worldIn.isRemote)
 			return false;
@@ -123,7 +122,7 @@ public class BlockQuibitCluster extends BlockBase implements ITileEntityProvider
 			TileQuibitCluster teqc = (TileQuibitCluster) worldIn.getTileEntity(pos);
 
 			if (ConfigMan.isDebug) {
-				playerIn.addChatMessage(new TextComponentString(String.valueOf(teqc.lastUsed)));
+				playerIn.sendMessage(new TextComponentString(String.valueOf(teqc.lastUsed)));
 			}
 		}
 		return BlockHelpers.BroadcastRFStored(playerIn, te);

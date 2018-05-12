@@ -1,8 +1,8 @@
 package jotato.quantumflux.machines.zpe;
 
-import cofh.api.energy.EnergyStorage;
-import cofh.api.energy.IEnergyProvider;
-import cofh.api.energy.IEnergyReceiver;
+import cofh.redstoneflux.api.IEnergyProvider;
+import cofh.redstoneflux.api.IEnergyReceiver;
+import cofh.redstoneflux.impl.EnergyStorage;
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.blocks.TileBase;
 import net.minecraft.nbt.NBTTagCompound;
@@ -42,7 +42,7 @@ public class TileZeroPointExtractor extends TileBase implements IEnergyProvider,
 	@Override
 	public void update() {
 
-		if (worldObj.isRemote) {
+		if (world.isRemote) {
 			return;
 		}
 
@@ -51,7 +51,7 @@ public class TileZeroPointExtractor extends TileBase implements IEnergyProvider,
 		for (EnumFacing dir : EnumFacing.values()) {
 			BlockPos targetBlock = getPos().add(dir.getDirectionVec());
 
-			TileEntity tile = worldObj.getTileEntity(targetBlock);
+			TileEntity tile = world.getTileEntity(targetBlock);
 			if (tile instanceof IEnergyReceiver) {
 				IEnergyReceiver receiver = (IEnergyReceiver) tile;
 

@@ -1,6 +1,6 @@
 package jotato.quantumflux.machines.cluster;
 
-import cofh.api.energy.IEnergyContainerItem;
+import cofh.redstoneflux.api.IEnergyContainerItem;
 import jotato.quantumflux.helpers.NbtHelpers;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;

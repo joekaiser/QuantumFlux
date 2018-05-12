@@ -7,6 +7,7 @@ import jotato.quantumflux.helpers.NbtHelpers;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -20,6 +21,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
 
 public class ItemMatterTransporter extends ItemBase {
 
@@ -50,23 +53,23 @@ public class ItemMatterTransporter extends ItemBase {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean p4) {
-		if (itemstack.getTagCompound() == null) {
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+		if (stack.getTagCompound() == null) {
 			return;
 		}
 
-		if (NbtHelpers.getBoolean(itemstack, HAS_BLOCK, false)) {
-			Block block = getBlockFromNbt(itemstack);
+		if (NbtHelpers.getBoolean(stack, HAS_BLOCK, false)) {
+			Block block = getBlockFromNbt(stack);
 			String name = new ItemStack(block).getDisplayName();
-			list.add(name);
+			tooltip.add(name);
 		}
 	}
 
 	@Override
-	public EnumActionResult onItemUse(ItemStack stackIn, EntityPlayer playerIn, World worldIn, BlockPos pos,
+	public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos,
 			EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-		
+		ItemStack stackIn = playerIn.getHeldItem(hand);
 
 		boolean hasBlock = NbtHelpers.getBoolean(stackIn, HAS_BLOCK, false);
 		boolean hasTE = NbtHelpers.getBoolean(stackIn, HAS_TILEENTITY, false);
@@ -106,7 +109,7 @@ public class ItemMatterTransporter extends ItemBase {
 					} else {
 						stackIn.damageItem(1, playerIn);
 					}
-					worldIn.notifyBlockOfStateChange(targetPos, storedBlock);
+					worldIn.notifyNeighborsOfStateChange(targetPos, storedBlock, true);
 
 					playerIn.playSound(SoundEvents.ENTITY_ITEM_PICKUP, 1f,
 							((worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
@@ -167,7 +170,7 @@ public class ItemMatterTransporter extends ItemBase {
 	private Block getBlockFromNbt(ItemStack itemstack) {
 
 		NBTTagCompound storedBlock = NbtHelpers.getCompoundTag(itemstack, STORED_BLOCK);
-		ItemStack storedStack = ItemStack.loadItemStackFromNBT(storedBlock);
+		ItemStack storedStack = new ItemStack(storedBlock);
 		Block block = Block.getBlockFromItem(storedStack.getItem());
 		return block;
 

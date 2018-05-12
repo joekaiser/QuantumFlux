@@ -2,6 +2,7 @@ package jotato.quantumflux.registers;
 
 
 import jotato.quantumflux.ConfigMan;
+import jotato.quantumflux.QuantumFluxMod;
 import jotato.quantumflux.blocks.darkstone.EnumDarkstone;
 import jotato.quantumflux.machines.cluster.EnumQuibitCluster;
 import net.minecraft.block.Block;
@@ -9,8 +10,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class RecipeRegister
 {
@@ -130,25 +132,25 @@ public class RecipeRegister
 
 	private void shapelessRecipes()
 	{
-		addShapelessRecipe(true, ItemRegister.linkingCard, enderCrystal, paper);
+		addShapelessRecipe(true, ItemRegister.linkingCard, Ingredient.fromStacks(enderCrystal), Ingredient.fromStacks(paper));
 
 	}
 
 	// below methods snagged from CoFHLib because it isn't compiled for 1.8.8
 
-	public static void addShapelessRecipe(boolean condition, ItemStack out, Object... recipe)
+	public static void addShapelessRecipe(boolean condition, ItemStack out, Ingredient... recipe)
 	{
 		if (condition)
-			GameRegistry.addShapelessRecipe(out, recipe);
+			GameRegistry.addShapelessRecipe(new ResourceLocation(QuantumFluxMod.MODID, out.getUnlocalizedName()), new ResourceLocation(QuantumFluxMod.MODID), out, recipe);
 	}
 
-	public static void addShapelessRecipe(boolean condition, Item out, Object... recipe)
+	public static void addShapelessRecipe(boolean condition, Item out, Ingredient... recipe)
 	{
 
 		addShapelessRecipe(condition, new ItemStack(out), recipe);
 	}
 
-	public static void addShapelessRecipe(boolean condition, Block out, Object... recipe)
+	public static void addShapelessRecipe(boolean condition, Block out, Ingredient... recipe)
 	{
 
 		addShapelessRecipe(condition, new ItemStack(out), recipe);
@@ -157,19 +159,17 @@ public class RecipeRegister
 	public static void addShapedOreRecipe(boolean condition, ItemStack out, Object... recipe)
 	{
 		if (condition)
-			GameRegistry.addRecipe(new ShapedOreRecipe(out, recipe));
+			GameRegistry.addShapedRecipe(new ResourceLocation(QuantumFluxMod.MODID, out.getUnlocalizedName()), new ResourceLocation(QuantumFluxMod.MODID), out, recipe);
 	}
 
 	public static void addShapedOreRecipe(boolean condition, Item out, Object... recipe)
 	{
-		if (condition)
-			GameRegistry.addRecipe(new ShapedOreRecipe(out, recipe));
+		addShapedOreRecipe(condition, new ItemStack(out), recipe);
 	}
 
 	public static void addShapedOreRecipe(boolean condition, Block out, Object... recipe)
 	{
-		if (condition)
-			GameRegistry.addRecipe(new ShapedOreRecipe(out, recipe));
+		addShapedOreRecipe(condition, new ItemStack(out), recipe);
 	}
 
 }

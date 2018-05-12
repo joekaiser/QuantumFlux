@@ -1,7 +1,5 @@
 package jotato.quantumflux.blocks.darkstone;
 
-import java.util.List;
-
 import jotato.quantumflux.Logger;
 import jotato.quantumflux.QuantumFluxMod;
 import jotato.quantumflux.blocks.BlockBase;
@@ -15,12 +13,12 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -34,7 +32,7 @@ public class BlockDarkstone extends BlockBase {
 
 	@Override
 	public void initModel() {
-		Item itemBlock = GameRegistry.findItem(QuantumFluxMod.MODID, "darkstone");
+		Item itemBlock = Item.REGISTRY.getObject(new ResourceLocation(QuantumFluxMod.MODID, "darkstone"));
 		EnumDarkstone[] allTypes = EnumDarkstone.values();
 		for (EnumDarkstone type : allTypes) {
 			String name = String.format("%s_%s", getRegistryName(), type.name());
@@ -61,10 +59,11 @@ public class BlockDarkstone extends BlockBase {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item itemIn, CreativeTabs tab, List list) {
+	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
+		Item itemBlock = Item.REGISTRY.getObject(new ResourceLocation(QuantumFluxMod.MODID, "darkstone"));
 		EnumDarkstone[] allTypes = EnumDarkstone.values();
 		for (EnumDarkstone type : allTypes) {
-			list.add(new ItemStack(itemIn, 1, type.getMetadata()));
+			items.add(new ItemStack(itemBlock, 1, type.getMetadata()));
 		}
 	}
 
@@ -90,10 +89,9 @@ public class BlockDarkstone extends BlockBase {
 	
 
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing blockFaceClickedOn, float hitX, float hitY,
-			float hitZ, int meta, EntityLivingBase placer) {
-		EnumDarkstone type = EnumDarkstone.byMetadata(meta);
+	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
+		EnumDarkstone type = EnumDarkstone.byMetadata(stack.getMetadata());
 
-		return this.getDefaultState().withProperty(TYPE, type);
+		worldIn.setBlockState(pos, state.withProperty(TYPE, type));
 	}
 }

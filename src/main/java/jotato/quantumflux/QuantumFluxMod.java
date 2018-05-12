@@ -3,6 +3,7 @@ package jotato.quantumflux;
 import jotato.quantumflux.registers.ItemRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -52,8 +53,8 @@ public class QuantumFluxMod {
 	public static CreativeTabs tab = new CreativeTabs("tabQuantumFlux") {
 		@Override
 		@SideOnly(Side.CLIENT)
-		public Item getTabIconItem() {
-			return ItemRegister.craftingPieces.getSubItem("quibitCrystal").getItem();
+		public ItemStack getTabIconItem() {
+			return ItemRegister.craftingPieces.getSubItem("quibitCrystal");
 		}
 	};
 

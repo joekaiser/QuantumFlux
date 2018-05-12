@@ -44,34 +44,34 @@ public class EntityItemNetherbane extends EntityItem {
 	@Override
 	public void onUpdate() {
 
-		if (worldObj.isRemote || conversionComplete) {
+		if (world.isRemote || conversionComplete) {
 			return;
 		}
 
 		super.onUpdate();
 
-		if (timer.hasTimePartPassed(worldObj, TimeTracker.TIME_PART_HALF + rand.nextInt(15))) {
-			EntityLightningBolt lightning = new EntityLightningBolt(worldObj, posX - rand.nextInt(7) + rand.nextInt(7),
+		if (timer.hasTimePartPassed(world, TimeTracker.TIME_PART_HALF + rand.nextInt(15))) {
+			EntityLightningBolt lightning = new EntityLightningBolt(world, posX - rand.nextInt(7) + rand.nextInt(7),
 					posY, posZ - rand.nextInt(7) + rand.nextInt(7), true);
 
 			lightning.dimension = this.dimension;
-			worldObj.addWeatherEffect(lightning);
+			world.addWeatherEffect(lightning);
 		}
 
 		switch (step) {
 		case 0:
 			if (onGround) {
-				if (timer.hasDelayPassed(worldObj, 100)) {
+				if (timer.hasDelayPassed(world, 100)) {
 					nextStep();
 				}
 			}
 			break;
 		case 1:
-			if (timer.hasDelayPassed(worldObj, 8 + rand.nextInt(15))) {
+			if (timer.hasDelayPassed(world, 8 + rand.nextInt(15))) {
 
-				worldObj.createExplosion(this, posX + rand.nextDouble(), posY, posZ + rand.nextDouble(), .1f, false);
+				world.createExplosion(this, posX + rand.nextDouble(), posY, posZ + rand.nextDouble(), .1f, false);
 
-				EntitySkeleton skele = new EntitySkeleton(worldObj);
+				EntitySkeleton skele = new EntitySkeleton(world);
 				skele.dimension = this.dimension;
 				skele.setLocationAndAngles(posX, posY, posZ, MathHelper.wrapDegrees(rand.nextFloat() * 360.0F),
 						0.0F);
@@ -87,7 +87,7 @@ public class EntityItemNetherbane extends EntityItem {
 				skele.playLivingSound();
 				skele.hurtResistantTime = 200;
 
-				worldObj.spawnEntityInWorld(skele);
+				world.spawnEntity(skele);
 
 				subStep++;
 				if (subStep > 6) {
@@ -96,8 +96,8 @@ public class EntityItemNetherbane extends EntityItem {
 			}
 			break;
 		case 2:
-			if (timer.hasDelayPassed(worldObj, 400)) {
-				this.setEntityItemStack(new ItemStack(ItemRegister.netherbane));
+			if (timer.hasDelayPassed(world, 400)) {
+				this.setItem(new ItemStack(ItemRegister.netherbane));
 				conversionComplete = true;
 				nextStep();
 
@@ -113,8 +113,8 @@ public class EntityItemNetherbane extends EntityItem {
 	}
 
 	public static EntityItemNetherbane convert(EntityItem entity) {
-		EntityItemNetherbane newEntity = new EntityItemNetherbane(entity.worldObj, entity.posX, entity.posY, entity.posZ,
-				entity.getEntityItem());
+		EntityItemNetherbane newEntity = new EntityItemNetherbane(entity.world, entity.posX, entity.posY, entity.posZ,
+				entity.getItem());
 		newEntity.dimension = entity.dimension;
 		newEntity.motionX = entity.motionX;
 		newEntity.motionY = entity.motionY;

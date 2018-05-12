@@ -2,8 +2,8 @@ package jotato.quantumflux.machines.exciter;
 
 import java.util.UUID;
 
-import cofh.api.energy.IEnergyProvider;
-import cofh.api.energy.IEnergyReceiver;
+import cofh.redstoneflux.api.IEnergyProvider;
+import cofh.redstoneflux.api.IEnergyReceiver;
 import jotato.quantumflux.ConfigMan;
 import jotato.quantumflux.Logger;
 import jotato.quantumflux.helpers.BlockHelpers;
@@ -85,7 +85,7 @@ public class TileRFExciter extends TileEntity implements IEnergyProvider, ITicka
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound tag)
 	{
-		tag=super.writeToNBT(tag);
+		super.writeToNBT(tag);
 		
 		tag.setInteger("upgradeCount", upgradeCount);
 		
@@ -102,22 +102,24 @@ public class TileRFExciter extends TileEntity implements IEnergyProvider, ITicka
 	public void readFromNBT(NBTTagCompound tag)
 	{
 		super.readFromNBT(tag);
+
+		this.upgradeCount = tag.getInteger("upgradeCount");
+
 		try
 		{
 			this.owner = UUID.fromString(tag.getString("owner"));
-			this.upgradeCount = tag.getInteger("upgradeCount");
 		}
-		catch(Exception ex)
+		catch (IllegalArgumentException ex)
 		{
-			Logger.error("HEY YOU! An RF Exciter has corrupt data at %s The owner will need to replace it.", getPos());
-			
+			if (!world.isRemote)
+				Logger.error("HEY YOU! An RF Exciter at %d, %d, %d has no owner, please replace it.", getPos().getX(), getPos().getY(), getPos().getZ());
 		}
 	}
 
 	@Override
 	public void update()
 	{
-		if (worldObj.isRemote)
+		if (world.isRemote)
 		{
 			return;
 		}
@@ -127,12 +129,12 @@ public class TileRFExciter extends TileEntity implements IEnergyProvider, ITicka
 		}
 		
 		if(targetDirection == null){
-			targetDirection = worldObj.getBlockState(getPos()).getValue(BlockHelpers.FACING);
+			targetDirection = world.getBlockState(getPos()).getValue(BlockHelpers.FACING);
 		}
 
 		BlockPos targetBlock = getPos().add(targetDirection.getDirectionVec());
 
-		TileEntity tile = worldObj.getTileEntity(targetBlock);
+		TileEntity tile = world.getTileEntity(targetBlock);
 		if (tile instanceof IEnergyReceiver)
 		{
 		    int netPower = getNetPower();

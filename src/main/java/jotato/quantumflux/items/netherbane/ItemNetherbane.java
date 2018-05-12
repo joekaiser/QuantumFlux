@@ -8,21 +8,25 @@ import jotato.quantumflux.QuantumFluxMod;
 import jotato.quantumflux.helpers.ItemHelpers;
 import jotato.quantumflux.registers.ItemRegister;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
 
 public class ItemNetherbane extends ItemSword {
 
 	public ItemNetherbane() {
 		super(ItemRegister.netherBaneMaterial);
 		String name = "netherbane";
-		GameRegistry.registerItem(this, name);
+		setRegistryName(name);
+		ForgeRegistries.ITEMS.register(this);
 		setUnlocalizedName(name);
 		setCreativeTab(QuantumFluxMod.tab);
 		setMaxStackSize(1);
@@ -36,14 +40,14 @@ public class ItemNetherbane extends ItemSword {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean p_77624_4_) {
-		ItemHelpers.addFlairToList(list, "item.netherBane");
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+		ItemHelpers.addFlairToList(tooltip, "item.netherBane");
 	}
 
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 
-		if (attacker.worldObj.getWorldTime() >= 13000)
+		if (attacker.world.getWorldTime() >= 13000)
 			attacker.heal(.7f);
 
 		return super.hitEntity(stack, target, attacker);
