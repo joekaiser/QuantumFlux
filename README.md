@@ -1,3 +1,10 @@
+##NOTICE##
+Ownership of this project has been transferred. The new repo is at https://github.com/FantasyTeddy/QuantumFlux
+
+-------
+
+
+
 ![Quantum Flux](http://i1279.photobucket.com/albums/y523/textcraft/Mar%202015%20-%202/27efdf2189a781166df005609372657b85d629afda39a3ee5e6b4b0d3255bfef95601890afd80709da39a3ee5e6b4b0d3255bfef95601890afd80709aa6988204887385d73fa_zps562b03b2.png~original)
 
 
