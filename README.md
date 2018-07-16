@@ -1,4 +1,4 @@
-##NOTICE##
+## NOTICE
 
 Ownership of this project has been transferred. The new repo is at https://github.com/FantasyTeddy/QuantumFlux
 
